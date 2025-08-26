@@ -1,0 +1,62 @@
+---
+alwaysApply: false
+description: DB role ownership, data build pipeline, and output contracts
+globs: scripts/build-db.mjs,db/*.json
+---
+# DB 역할 규칙 (베이스 규칙 포함)
+
+## 프로젝트 구조 요약
+- 메인 정적 진입점: [index.html](mdc:index.html)
+- 빌드 스크립트: [scripts/build-db.mjs](mdc:scripts/build-db.mjs)
+- DB 산출물(프론트 fetch): [db/](mdc:db)
+- 원천 데이터 위치(로컬 고정): `C:/Users/User/Desktop/cmes 데모/청명장비 엑셀`
+- 산출물 백업 위치: `C:/Users/User/Desktop/cmes 데모/개발현황자료전달`
+- 메모: 프론트는 `db/*.json` 존재 시 우선 사용, 없으면 원천 파일 파싱 로직으로 폴백
+
+## 표준 빌드 규칙
+- 실행 명령: `npm run build:db`
+- 입력 경로: `C:/Users/User/Desktop/cmes 데모/청명장비 엑셀`
+- 출력 경로(백업): `C:/Users/User/Desktop/cmes 데모/개발현황자료전달`
+- 출력 경로(프론트소스): `db/`
+- 인코딩: CSV UTF-8 실패 시 EUC-KR/CP949 자동 대체
+- 조인 키: `일련번호`
+- 이동 규칙: `출고창고명`→`입고창고명` 기반 현위치/상태 추론
+- 수리 규칙: 비고/입고처/업체에서 수리 여부 탐지, 비용 합산
+
+## 장비 데이터 구조 핵심
+- 필수 필드: `serial`, `category`
+- 기본값 필드 및 의미:
+  - `currentLocation`: "본사 창고"(기본)
+  - `status`: "대기 중"(기본)
+  - `lastMovement`: ""
+  - `uptimeEstimatePct`: 0
+  - `repairCount`: 0
+  - `totalRepairCost`: 0
+- 데이터 소스 우선순위: `db/equipment_db.json` → 원천(csv/xlsx)
+
+## 데이터 처리 워크플로우 요약
+- CSV 파싱: UTF-8 우선, 실패 시 EUC-KR/CP949 시도, 탭/쉼표 구분 자동 감지
+- 라인 처리: 빈 라인 건너뛰기, 헤더 유연 매핑(`columns:true`) 우선
+- 변환: CSV→JSON 표준화, 정규화, 중복 제거(일련번호 기준)
+- 출력 관리: 기존 파일 백업, 버전 기록, JSON 유효성 검증, 로그 남김
+
+## 데이터 품질 보증 요약
+- 무결성: 일련번호 고유/빈값 금지, 표준 명칭 사용
+- 완성도: 필수/기본값 필드 채움, 타입 검증(문자열/숫자/날짜)
+- 일관성: 형식/네이밍/상태 라벨 표준화
+- 오류 처리: 파싱/인코딩 오류 시 복구 및 로그
+- 품질 메트릭: 처리 성공률, 오류율, 완성도 모니터링
+
+## 소유 범위와 예약 산출물
+- 소유 범위: [`scripts/build-db.mjs`](mdc:scripts/build-db.mjs), [`db/`](mdc:db) 산출물 관리
+- 예약 파일(스키마 파괴 금지):
+  - `db/equipment_db.json`, `db/movements_db.json`, `db/repairs_db.json`
+  - `db/order_history.json`, `db/order_items.json`, `db/suppliers.json`, `db/product_catalog.json`
+  - `db/QC_logs.json`, `db/quotes.json`, `db/purchase_requests.json`
+- 확장 정책: 기존 파일 변경 대신 새 파일(`*_v2.json` 또는 역할 접두사 `stats_/anomaly_/backend_`) 추가
+
+## 운영 체크리스트
+1) `npm run build:db` 성공 여부 확인
+2) `db/*.json` 파싱 유효성 및 백업 동기화 확인
+3) `index.html` 로딩 확인(프론트에서 fetch 가능 여부)
+4) 스키마 확장 시 변경 이력 기록(날짜/사유)

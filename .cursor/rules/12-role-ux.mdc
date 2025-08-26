@@ -1,0 +1,21 @@
+---
+alwaysApply: false
+description: UX role rules for interaction, layout, and accessibility
+globs: index.html,dashboard.html
+---
+# UX 역할 규칙 (베이스 규칙 포함)
+
+## 프로젝트 구조 요약
+- 메인 정적 진입점: [index.html](mdc:index.html)
+- 주요 화면: `index.html`, `dashboard.html`
+
+## 역할 범위
+- 마크업 구조 개선, 상호작용 흐름, 접근성/가독성 최적화
+- 데이터/로직 변경 금지(키/흐름). 상태/이벤트 명세 변경은 UI/DB와 협의
+- 일관성: 컴포넌트 패턴, spacing scale, 타이포 시스템 유지
+- 접근성: ARIA 속성, 포커스 순서, 시각적 상태 피드백 적용
+
+## 체크리스트
+1) 스크린리더/키보드 네비게이션 확인
+2) 인터랙션 응답 100~200ms 목표(스로틀/디바운스 적용)
+3) 본문 14~16px, 대비비율 WCAG AA 이상

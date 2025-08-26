@@ -1,0 +1,25 @@
+---
+alwaysApply: false
+description: Anomaly role rules for detection pipelines and outputs
+globs: scripts/anomaly_*.mjs,scripts/anomaly_*.py,db/anomaly_*.json
+---
+# 이상치(Anomaly) 역할 규칙 (베이스 규칙 포함)
+
+## 입력/출력 경로 요약
+- 입력: [`db/`](mdc:db) 내 기존 산출물(JSON)만 사용
+- 출력: `db/anomaly_*.json` 신규 파일로만 제공(예약 파일 수정 금지)
+- 빌드 맥락: 표준 빌드 `npm run build:db`로 `db/` 최신화, 인코딩 자동 대체 적용
+
+## 역할 원칙
+- 경계: 예약 파일 수정 금지, 결과는 신규 파일
+- 검증: 탐지 기준/임계값, false positive/negative 근거 기록
+- 재현성: 랜덤시드 고정, 입력/출력 버전 표기 권장
+
+## 예시 산출물
+- `db/anomaly_sudden_downtime.json`
+- `db/anomaly_repair_cost_outliers.json`
+
+## 체크리스트
+1) 윈도우/분해 기준 명시(예: 7일, STL 등)
+2) 모델/휴리스틱 파라미터와 근거 기록
+3) 산출 JSON 파싱 유효성 확인

@@ -1,0 +1,30 @@
+---
+alwaysApply: false
+description: Statistics role rules for KPIs and derived datasets
+globs: scripts/stats_*.mjs,scripts/stats_*.py,db/stats_*.json
+---
+# 통계(Statistics) 역할 규칙 (베이스 규칙 포함)
+
+## 입력 데이터 및 구조 요약
+- 입력: `db/equipment_db.json`, `db/movements_db.json`, `db/repairs_db.json`만 사용(원천 직접 접근 금지)
+- 필수 구조(요약):
+  - `serial`, `category`
+  - `currentLocation`(기본 "본사 창고"), `status`(기본 "대기 중")
+  - `lastMovement`, `uptimeEstimatePct`, `repairCount`, `totalRepairCost`
+
+## 빌드/운영 맥락
+- 표준 빌드: `npm run build:db`가 `db/` 산출물 생성
+- 입력 경로 고정, 백업 경로 동기화, 인코딩 자동 대체(UTF-8→EUC-KR/CP949)
+
+## 산출물 정책
+- 기존 파일 수정 금지, 항상 새로운 `db/stats_*.json`으로 제공
+- 메타 권장: `_schemaVersion`, `generatedAt`, `sourceFiles`
+
+## 예시 산출물
+- `db/stats_uptime_by_category.json`
+- `db/stats_repair_cost_monthly.json`
+
+## 체크리스트
+1) 통계 정의/계산 근거 명시
+2) 결측 처리 기준 명확화(0, null, 제거 등)
+3) 계산 성능 O(N log N) 이상 목표

@@ -1,0 +1,1500 @@
+[
+  {
+    "id": "qc_0001",
+    "serial_number": "T25863",
+    "latest_calibration_date": "2022-03-03",
+    "next_calibration_date": "2023-03-27",
+    "created_at": "2025-08-26T10:42:21.507679"
+  },
+  {
+    "id": "qc_0002",
+    "serial_number": "T15943",
+    "latest_calibration_date": "2022-07-01",
+    "next_calibration_date": "2023-07-11",
+    "created_at": "2025-08-26T10:42:21.507679"
+  },
+  {
+    "id": "qc_0003",
+    "serial_number": "W17343",
+    "latest_calibration_date": "2022-07-27",
+    "next_calibration_date": "2023-08-07",
+    "created_at": "2025-08-26T10:42:21.507679"
+  },
+  {
+    "id": "qc_0004",
+    "serial_number": "W17344",
+    "latest_calibration_date": "2022-07-27",
+    "next_calibration_date": "2023-08-07",
+    "created_at": "2025-08-26T10:42:21.507679"
+  },
+  {
+    "id": "qc_0005",
+    "serial_number": "T15945",
+    "latest_calibration_date": "2023-01-12",
+    "next_calibration_date": "2023-08-29",
+    "created_at": "2025-08-26T10:42:21.507679"
+  },
+  {
+    "id": "qc_0006",
+    "serial_number": "T18759",
+    "latest_calibration_date": "2023-01-12",
+    "next_calibration_date": "2023-08-29",
+    "created_at": "2025-08-26T10:42:21.508678"
+  },
+  {
+    "id": "qc_0007",
+    "serial_number": "T18764",
+    "latest_calibration_date": "2023-01-12",
+    "next_calibration_date": "2023-09-27",
+    "created_at": "2025-08-26T10:42:21.508678"
+  },
+  {
+    "id": "qc_0008",
+    "serial_number": "R10454",
+    "latest_calibration_date": "2023-03-23",
+    "next_calibration_date": "2024-02-13",
+    "created_at": "2025-08-26T10:42:21.508678"
+  },
+  {
+    "id": "qc_0009",
+    "serial_number": "T25860",
+    "latest_calibration_date": "2023-07-12",
+    "next_calibration_date": "2024-03-27",
+    "created_at": "2025-08-26T10:42:21.508678"
+  },
+  {
+    "id": "qc_0010",
+    "serial_number": "P22857",
+    "latest_calibration_date": "2023-04-26",
+    "next_calibration_date": "2024-04-18",
+    "created_at": "2025-08-26T10:42:21.508678"
+  },
+  {
+    "id": "qc_0011",
+    "serial_number": "20-2132",
+    "latest_calibration_date": "2023-06-08",
+    "next_calibration_date": "2025-04-29",
+    "created_at": "2025-08-26T10:42:21.508678"
+  },
+  {
+    "id": "qc_0012",
+    "serial_number": "1904004",
+    "latest_calibration_date": "2024-06-12",
+    "next_calibration_date": "2025-05-12",
+    "created_at": "2025-08-26T10:42:21.508678"
+  },
+  {
+    "id": "qc_0013",
+    "serial_number": "1501506",
+    "latest_calibration_date": "2024-06-27",
+    "next_calibration_date": "2025-06-02",
+    "created_at": "2025-08-26T10:42:21.508678"
+  },
+  {
+    "id": "qc_0014",
+    "serial_number": "20-0330",
+    "latest_calibration_date": "2023-07-13",
+    "next_calibration_date": "2025-06-16",
+    "created_at": "2025-08-26T10:42:21.508678"
+  },
+  {
+    "id": "qc_0015",
+    "serial_number": "21-0349",
+    "latest_calibration_date": "2023-07-13",
+    "next_calibration_date": "2025-06-17",
+    "created_at": "2025-08-26T10:42:21.508678"
+  },
+  {
+    "id": "qc_0016",
+    "serial_number": "21-0321",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2025-06-17",
+    "created_at": "2025-08-26T10:42:21.508678"
+  },
+  {
+    "id": "qc_0017",
+    "serial_number": "T25864",
+    "latest_calibration_date": "2024-07-02",
+    "next_calibration_date": "2025-07-02",
+    "created_at": "2025-08-26T10:42:21.509677"
+  },
+  {
+    "id": "qc_0018",
+    "serial_number": "1708795",
+    "latest_calibration_date": "2024-07-16",
+    "next_calibration_date": "2025-07-09",
+    "created_at": "2025-08-26T10:42:21.509677"
+  },
+  {
+    "id": "qc_0019",
+    "serial_number": "1708786",
+    "latest_calibration_date": "2024-07-16",
+    "next_calibration_date": "2025-07-09",
+    "created_at": "2025-08-26T10:42:21.509677"
+  },
+  {
+    "id": "qc_0020",
+    "serial_number": "1708787",
+    "latest_calibration_date": "2024-07-16",
+    "next_calibration_date": "2025-07-09",
+    "created_at": "2025-08-26T10:42:21.509677"
+  },
+  {
+    "id": "qc_0021",
+    "serial_number": "1708788",
+    "latest_calibration_date": "2024-07-16",
+    "next_calibration_date": "2025-07-09",
+    "created_at": "2025-08-26T10:42:21.509677"
+  },
+  {
+    "id": "qc_0022",
+    "serial_number": "1708790",
+    "latest_calibration_date": "2024-07-16",
+    "next_calibration_date": "2025-07-09",
+    "created_at": "2025-08-26T10:42:21.509677"
+  },
+  {
+    "id": "qc_0023",
+    "serial_number": "1708793",
+    "latest_calibration_date": "2024-07-16",
+    "next_calibration_date": "2025-07-09",
+    "created_at": "2025-08-26T10:42:21.509677"
+  },
+  {
+    "id": "qc_0024",
+    "serial_number": "1708794",
+    "latest_calibration_date": "2024-07-26",
+    "next_calibration_date": "2025-07-09",
+    "created_at": "2025-08-26T10:42:21.509677"
+  },
+  {
+    "id": "qc_0025",
+    "serial_number": "T25862",
+    "latest_calibration_date": "2024-07-23",
+    "next_calibration_date": "2025-07-23",
+    "created_at": "2025-08-26T10:42:21.509677"
+  },
+  {
+    "id": "qc_0026",
+    "serial_number": "19P428",
+    "latest_calibration_date": "2024-07-09",
+    "next_calibration_date": "2025-07-29",
+    "created_at": "2025-08-26T10:42:21.509677"
+  },
+  {
+    "id": "qc_0027",
+    "serial_number": "19P431",
+    "latest_calibration_date": "2024-07-09",
+    "next_calibration_date": "2025-07-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0028",
+    "serial_number": "19P426",
+    "latest_calibration_date": "2024-07-09",
+    "next_calibration_date": "2025-07-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0029",
+    "serial_number": "19P427",
+    "latest_calibration_date": "2024-07-09",
+    "next_calibration_date": "2025-07-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0030",
+    "serial_number": "19P429",
+    "latest_calibration_date": "2024-07-09",
+    "next_calibration_date": "2025-07-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0031",
+    "serial_number": "19P425",
+    "latest_calibration_date": "2024-07-24",
+    "next_calibration_date": "2025-07-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0032",
+    "serial_number": "19P433",
+    "latest_calibration_date": "2024-07-24",
+    "next_calibration_date": "2025-07-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0033",
+    "serial_number": "19P432",
+    "latest_calibration_date": "2024-07-24",
+    "next_calibration_date": "2025-07-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0034",
+    "serial_number": "19P424",
+    "latest_calibration_date": "2024-07-24",
+    "next_calibration_date": "2025-07-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0035",
+    "serial_number": "19P430",
+    "latest_calibration_date": "2024-07-24",
+    "next_calibration_date": "2025-07-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0036",
+    "serial_number": "17-0126",
+    "latest_calibration_date": "2024-08-19",
+    "next_calibration_date": "2025-08-18",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0037",
+    "serial_number": "18-0320",
+    "latest_calibration_date": "2024-09-27",
+    "next_calibration_date": "2025-08-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0038",
+    "serial_number": "17-0866",
+    "latest_calibration_date": "2024-09-27",
+    "next_calibration_date": "2025-08-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0039",
+    "serial_number": "17-1391",
+    "latest_calibration_date": "2024-09-27",
+    "next_calibration_date": "2025-08-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0040",
+    "serial_number": "18-0147",
+    "latest_calibration_date": "2024-09-27",
+    "next_calibration_date": "2025-08-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0041",
+    "serial_number": "18-0159",
+    "latest_calibration_date": "2024-09-27",
+    "next_calibration_date": "2025-08-29",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0042",
+    "serial_number": "T15942",
+    "latest_calibration_date": "2024-09-05",
+    "next_calibration_date": "2025-09-05",
+    "created_at": "2025-08-26T10:42:21.510681"
+  },
+  {
+    "id": "qc_0043",
+    "serial_number": "850746",
+    "latest_calibration_date": "2024-09-23",
+    "next_calibration_date": "2025-09-06",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0044",
+    "serial_number": "X16838",
+    "latest_calibration_date": "2024-10-01",
+    "next_calibration_date": "2025-09-09",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0045",
+    "serial_number": "1182050011",
+    "latest_calibration_date": "2024-10-08",
+    "next_calibration_date": "2025-09-15",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0046",
+    "serial_number": "CM19420293",
+    "latest_calibration_date": "2024-10-08",
+    "next_calibration_date": "2025-09-15",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0047",
+    "serial_number": "Y17930",
+    "latest_calibration_date": "2024-10-15",
+    "next_calibration_date": "2025-09-17",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0048",
+    "serial_number": "Y17933",
+    "latest_calibration_date": "2024-10-15",
+    "next_calibration_date": "2025-09-17",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0049",
+    "serial_number": "Y17932",
+    "latest_calibration_date": "2024-10-15",
+    "next_calibration_date": "2025-09-17",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0050",
+    "serial_number": "18-0353",
+    "latest_calibration_date": "2024-09-27",
+    "next_calibration_date": "2025-09-18",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0051",
+    "serial_number": "CM19420243",
+    "latest_calibration_date": "2024-10-08",
+    "next_calibration_date": "2025-09-24",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0052",
+    "serial_number": "17-0128",
+    "latest_calibration_date": "2024-09-27",
+    "next_calibration_date": "2025-09-26",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0053",
+    "serial_number": "X17815",
+    "latest_calibration_date": "2024-10-01",
+    "next_calibration_date": "2025-10-10",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0054",
+    "serial_number": "W17345",
+    "latest_calibration_date": "2024-10-15",
+    "next_calibration_date": "2025-10-15",
+    "created_at": "2025-08-26T10:42:21.512096"
+  },
+  {
+    "id": "qc_0055",
+    "serial_number": "W17346",
+    "latest_calibration_date": "2024-10-15",
+    "next_calibration_date": "2025-10-15",
+    "created_at": "2025-08-26T10:42:21.513096"
+  },
+  {
+    "id": "qc_0056",
+    "serial_number": "W17347",
+    "latest_calibration_date": "2024-10-15",
+    "next_calibration_date": "2025-10-15",
+    "created_at": "2025-08-26T10:42:21.513096"
+  },
+  {
+    "id": "qc_0057",
+    "serial_number": "X18018",
+    "latest_calibration_date": "2024-11-12",
+    "next_calibration_date": "2025-11-12",
+    "created_at": "2025-08-26T10:42:21.513096"
+  },
+  {
+    "id": "qc_0058",
+    "serial_number": "X18020",
+    "latest_calibration_date": "2024-11-12",
+    "next_calibration_date": "2025-11-12",
+    "created_at": "2025-08-26T10:42:21.513096"
+  },
+  {
+    "id": "qc_0059",
+    "serial_number": "X18019",
+    "latest_calibration_date": "2024-11-14",
+    "next_calibration_date": "2025-11-14",
+    "created_at": "2025-08-26T10:42:21.513096"
+  },
+  {
+    "id": "qc_0060",
+    "serial_number": "18-0310",
+    "latest_calibration_date": "2024-11-22",
+    "next_calibration_date": "2025-11-21",
+    "created_at": "2025-08-26T10:42:21.513096"
+  },
+  {
+    "id": "qc_0061",
+    "serial_number": "18-0328",
+    "latest_calibration_date": "2024-11-22",
+    "next_calibration_date": "2025-11-21",
+    "created_at": "2025-08-26T10:42:21.513096"
+  },
+  {
+    "id": "qc_0062",
+    "serial_number": "18-0145",
+    "latest_calibration_date": "2024-11-22",
+    "next_calibration_date": "2025-11-21",
+    "created_at": "2025-08-26T10:42:21.513096"
+  },
+  {
+    "id": "qc_0063",
+    "serial_number": "X18021",
+    "latest_calibration_date": "2024-12-05",
+    "next_calibration_date": "2025-12-05",
+    "created_at": "2025-08-26T10:42:21.513096"
+  },
+  {
+    "id": "qc_0064",
+    "serial_number": "X18022",
+    "latest_calibration_date": "2024-12-05",
+    "next_calibration_date": "2025-12-05",
+    "created_at": "2025-08-26T10:42:21.513096"
+  },
+  {
+    "id": "qc_0065",
+    "serial_number": "1201888256",
+    "latest_calibration_date": "2024-12-06",
+    "next_calibration_date": "2025-12-05",
+    "created_at": "2025-08-26T10:42:21.513096"
+  },
+  {
+    "id": "qc_0066",
+    "serial_number": "1202038522",
+    "latest_calibration_date": "2024-12-06",
+    "next_calibration_date": "2025-12-05",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0067",
+    "serial_number": "1190581598",
+    "latest_calibration_date": "2024-12-06",
+    "next_calibration_date": "2025-12-05",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0068",
+    "serial_number": "1192754688",
+    "latest_calibration_date": "2024-12-06",
+    "next_calibration_date": "2025-12-05",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0069",
+    "serial_number": "20-1384",
+    "latest_calibration_date": "2025-01-15",
+    "next_calibration_date": "2025-12-16",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0070",
+    "serial_number": "20-1348",
+    "latest_calibration_date": "2025-01-15",
+    "next_calibration_date": "2025-12-16",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0071",
+    "serial_number": "20-1502",
+    "latest_calibration_date": "2025-01-15",
+    "next_calibration_date": "2025-12-16",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0072",
+    "serial_number": "20-1393",
+    "latest_calibration_date": "2025-01-15",
+    "next_calibration_date": "2025-12-16",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0073",
+    "serial_number": "20-1560",
+    "latest_calibration_date": "2025-01-15",
+    "next_calibration_date": "2025-12-16",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0074",
+    "serial_number": "20-1571",
+    "latest_calibration_date": "2025-01-15",
+    "next_calibration_date": "2025-12-16",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0075",
+    "serial_number": "20-1508",
+    "latest_calibration_date": "2025-01-15",
+    "next_calibration_date": "2025-12-16",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0076",
+    "serial_number": "20-1509",
+    "latest_calibration_date": "2025-01-15",
+    "next_calibration_date": "2025-12-16",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0077",
+    "serial_number": "X22196",
+    "latest_calibration_date": "2025-02-10",
+    "next_calibration_date": "2026-01-11",
+    "created_at": "2025-08-26T10:42:21.514096"
+  },
+  {
+    "id": "qc_0078",
+    "serial_number": "18P353",
+    "latest_calibration_date": "2025-02-10",
+    "next_calibration_date": "2026-01-14",
+    "created_at": "2025-08-26T10:42:21.515096"
+  },
+  {
+    "id": "qc_0079",
+    "serial_number": "18P354",
+    "latest_calibration_date": "2025-02-10",
+    "next_calibration_date": "2026-01-14",
+    "created_at": "2025-08-26T10:42:21.515096"
+  },
+  {
+    "id": "qc_0080",
+    "serial_number": "18P355",
+    "latest_calibration_date": "2025-02-10",
+    "next_calibration_date": "2026-01-14",
+    "created_at": "2025-08-26T10:42:21.515096"
+  },
+  {
+    "id": "qc_0081",
+    "serial_number": "18P356",
+    "latest_calibration_date": "2025-02-10",
+    "next_calibration_date": "2026-01-14",
+    "created_at": "2025-08-26T10:42:21.515096"
+  },
+  {
+    "id": "qc_0082",
+    "serial_number": "18P357",
+    "latest_calibration_date": "2025-02-10",
+    "next_calibration_date": "2026-01-14",
+    "created_at": "2025-08-26T10:42:21.515096"
+  },
+  {
+    "id": "qc_0083",
+    "serial_number": "1709797",
+    "latest_calibration_date": "2025-02-11",
+    "next_calibration_date": "2026-01-16",
+    "created_at": "2025-08-26T10:42:21.515096"
+  },
+  {
+    "id": "qc_0084",
+    "serial_number": "1709798",
+    "latest_calibration_date": "2025-02-11",
+    "next_calibration_date": "2026-01-16",
+    "created_at": "2025-08-26T10:42:21.515096"
+  },
+  {
+    "id": "qc_0085",
+    "serial_number": "18P358",
+    "latest_calibration_date": "2025-02-10",
+    "next_calibration_date": "2026-01-18",
+    "created_at": "2025-08-26T10:42:21.515096"
+  },
+  {
+    "id": "qc_0086",
+    "serial_number": "18P359",
+    "latest_calibration_date": "2025-02-10",
+    "next_calibration_date": "2026-01-18",
+    "created_at": "2025-08-26T10:42:21.515096"
+  },
+  {
+    "id": "qc_0087",
+    "serial_number": "18P360",
+    "latest_calibration_date": "2025-02-10",
+    "next_calibration_date": "2026-01-18",
+    "created_at": "2025-08-26T10:42:21.515096"
+  },
+  {
+    "id": "qc_0088",
+    "serial_number": "18P361",
+    "latest_calibration_date": "2025-02-10",
+    "next_calibration_date": "2026-01-18",
+    "created_at": "2025-08-26T10:42:21.515096"
+  },
+  {
+    "id": "qc_0089",
+    "serial_number": "20-1382",
+    "latest_calibration_date": "2025-01-22",
+    "next_calibration_date": "2026-01-22",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0090",
+    "serial_number": "Y22710",
+    "latest_calibration_date": "2025-01-23",
+    "next_calibration_date": "2026-01-23",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0091",
+    "serial_number": "Y22705",
+    "latest_calibration_date": "2025-01-23",
+    "next_calibration_date": "2026-01-23",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0092",
+    "serial_number": "17-0133",
+    "latest_calibration_date": "2025-02-18",
+    "next_calibration_date": "2026-01-24",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0093",
+    "serial_number": "CM20477383",
+    "latest_calibration_date": "2025-01-24",
+    "next_calibration_date": "2026-01-24",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0094",
+    "serial_number": "22P614",
+    "latest_calibration_date": "2024-01-18",
+    "next_calibration_date": "2026-01-25",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0095",
+    "serial_number": "22P615",
+    "latest_calibration_date": "2024-01-18",
+    "next_calibration_date": "2026-01-25",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0096",
+    "serial_number": "22P616",
+    "latest_calibration_date": "2024-02-08",
+    "next_calibration_date": "2026-01-25",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0097",
+    "serial_number": "22P617",
+    "latest_calibration_date": "2024-02-08",
+    "next_calibration_date": "2026-01-25",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0098",
+    "serial_number": "17-1509",
+    "latest_calibration_date": "2025-02-11",
+    "next_calibration_date": "2026-01-28",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0099",
+    "serial_number": "18-0984",
+    "latest_calibration_date": "2025-02-11",
+    "next_calibration_date": "2026-01-28",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0100",
+    "serial_number": "X22198",
+    "latest_calibration_date": "2025-02-10",
+    "next_calibration_date": "2026-01-28",
+    "created_at": "2025-08-26T10:42:21.516095"
+  },
+  {
+    "id": "qc_0101",
+    "serial_number": "18-0318",
+    "latest_calibration_date": "2025-02-11",
+    "next_calibration_date": "2026-01-28",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0102",
+    "serial_number": "17-1798",
+    "latest_calibration_date": "2025-02-27",
+    "next_calibration_date": "2026-02-06",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0103",
+    "serial_number": "17-1903",
+    "latest_calibration_date": "2025-02-27",
+    "next_calibration_date": "2026-02-06",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0104",
+    "serial_number": "17-1733",
+    "latest_calibration_date": "2025-02-18",
+    "next_calibration_date": "2026-02-17",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0105",
+    "serial_number": "17-1906",
+    "latest_calibration_date": "2025-02-18",
+    "next_calibration_date": "2026-02-17",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0106",
+    "serial_number": "17-1912",
+    "latest_calibration_date": "2025-02-18",
+    "next_calibration_date": "2026-02-17",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0107",
+    "serial_number": "17-0132",
+    "latest_calibration_date": "2025-02-27",
+    "next_calibration_date": "2026-02-26",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0108",
+    "serial_number": "770659",
+    "latest_calibration_date": "2025-03-18",
+    "next_calibration_date": "2026-03-08",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0109",
+    "serial_number": "20-1503",
+    "latest_calibration_date": "2025-03-14",
+    "next_calibration_date": "2026-03-13",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0110",
+    "serial_number": "1501489",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-03-14",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0111",
+    "serial_number": "1501505",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-03-14",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0112",
+    "serial_number": "1501507",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-03-14",
+    "created_at": "2025-08-26T10:42:21.517095"
+  },
+  {
+    "id": "qc_0113",
+    "serial_number": "1501508",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-03-14",
+    "created_at": "2025-08-26T10:42:21.518095"
+  },
+  {
+    "id": "qc_0114",
+    "serial_number": "1501512",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-03-14",
+    "created_at": "2025-08-26T10:42:21.518095"
+  },
+  {
+    "id": "qc_0115",
+    "serial_number": "1501479",
+    "latest_calibration_date": "2025-03-18",
+    "next_calibration_date": "2026-03-17",
+    "created_at": "2025-08-26T10:42:21.518095"
+  },
+  {
+    "id": "qc_0116",
+    "serial_number": "1501490",
+    "latest_calibration_date": "2025-03-18",
+    "next_calibration_date": "2026-03-17",
+    "created_at": "2025-08-26T10:42:21.518095"
+  },
+  {
+    "id": "qc_0117",
+    "serial_number": "1501504",
+    "latest_calibration_date": "2025-03-18",
+    "next_calibration_date": "2026-03-17",
+    "created_at": "2025-08-26T10:42:21.518095"
+  },
+  {
+    "id": "qc_0118",
+    "serial_number": "1501514",
+    "latest_calibration_date": "2025-03-18",
+    "next_calibration_date": "2026-03-17",
+    "created_at": "2025-08-26T10:42:21.518095"
+  },
+  {
+    "id": "qc_0119",
+    "serial_number": "17-0127",
+    "latest_calibration_date": "2025-04-02",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.518095"
+  },
+  {
+    "id": "qc_0120",
+    "serial_number": "17-0130",
+    "latest_calibration_date": "2025-04-02",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.518095"
+  },
+  {
+    "id": "qc_0121",
+    "serial_number": "18P366",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.518095"
+  },
+  {
+    "id": "qc_0122",
+    "serial_number": "18P367",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.518095"
+  },
+  {
+    "id": "qc_0123",
+    "serial_number": "18P374",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.518095"
+  },
+  {
+    "id": "qc_0124",
+    "serial_number": "18P368",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.519095"
+  },
+  {
+    "id": "qc_0125",
+    "serial_number": "18P369",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.519095"
+  },
+  {
+    "id": "qc_0126",
+    "serial_number": "18P370",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.519095"
+  },
+  {
+    "id": "qc_0127",
+    "serial_number": "18P371",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.519095"
+  },
+  {
+    "id": "qc_0128",
+    "serial_number": "18P372",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.519095"
+  },
+  {
+    "id": "qc_0129",
+    "serial_number": "18P373",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.519095"
+  },
+  {
+    "id": "qc_0130",
+    "serial_number": "18P375",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-26",
+    "created_at": "2025-08-26T10:42:21.519095"
+  },
+  {
+    "id": "qc_0131",
+    "serial_number": "T25861",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-27",
+    "created_at": "2025-08-26T10:42:21.519095"
+  },
+  {
+    "id": "qc_0132",
+    "serial_number": "R10783",
+    "latest_calibration_date": "2025-03-27",
+    "next_calibration_date": "2026-03-27",
+    "created_at": "2025-08-26T10:42:21.519095"
+  },
+  {
+    "id": "qc_0133",
+    "serial_number": "21-1394",
+    "latest_calibration_date": "2024-04-26",
+    "next_calibration_date": "2026-03-28",
+    "created_at": "2025-08-26T10:42:21.519095"
+  },
+  {
+    "id": "qc_0134",
+    "serial_number": "21-2173",
+    "latest_calibration_date": "2024-04-26",
+    "next_calibration_date": "2026-03-28",
+    "created_at": "2025-08-26T10:42:21.519095"
+  },
+  {
+    "id": "qc_0135",
+    "serial_number": "21-0507",
+    "latest_calibration_date": "2025-04-02",
+    "next_calibration_date": "2026-04-01",
+    "created_at": "2025-08-26T10:42:21.520096"
+  },
+  {
+    "id": "qc_0136",
+    "serial_number": "21-1357",
+    "latest_calibration_date": "2025-04-02",
+    "next_calibration_date": "2026-04-01",
+    "created_at": "2025-08-26T10:42:21.520096"
+  },
+  {
+    "id": "qc_0137",
+    "serial_number": "17-0131",
+    "latest_calibration_date": "2025-04-17",
+    "next_calibration_date": "2026-04-04",
+    "created_at": "2025-08-26T10:42:21.520096"
+  },
+  {
+    "id": "qc_0138",
+    "serial_number": "17-0129",
+    "latest_calibration_date": "2025-04-17",
+    "next_calibration_date": "2026-04-04",
+    "created_at": "2025-08-26T10:42:21.520096"
+  },
+  {
+    "id": "qc_0139",
+    "serial_number": "K1515019",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-08",
+    "created_at": "2025-08-26T10:42:21.520096"
+  },
+  {
+    "id": "qc_0140",
+    "serial_number": "K1515020",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-08",
+    "created_at": "2025-08-26T10:42:21.520096"
+  },
+  {
+    "id": "qc_0141",
+    "serial_number": "K1515021",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-08",
+    "created_at": "2025-08-26T10:42:21.520096"
+  },
+  {
+    "id": "qc_0142",
+    "serial_number": "K1614027A",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-10",
+    "created_at": "2025-08-26T10:42:21.520096"
+  },
+  {
+    "id": "qc_0143",
+    "serial_number": "K1614024",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-10",
+    "created_at": "2025-08-26T10:42:21.520096"
+  },
+  {
+    "id": "qc_0144",
+    "serial_number": "K1612019",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-17",
+    "created_at": "2025-08-26T10:42:21.520096"
+  },
+  {
+    "id": "qc_0145",
+    "serial_number": "R10532",
+    "latest_calibration_date": "2025-05-14",
+    "next_calibration_date": "2026-04-18",
+    "created_at": "2025-08-26T10:42:21.520994"
+  },
+  {
+    "id": "qc_0146",
+    "serial_number": "R10185",
+    "latest_calibration_date": "2025-05-14",
+    "next_calibration_date": "2026-04-18",
+    "created_at": "2025-08-26T10:42:21.520994"
+  },
+  {
+    "id": "qc_0147",
+    "serial_number": "20P568",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-18",
+    "created_at": "2025-08-26T10:42:21.520994"
+  },
+  {
+    "id": "qc_0148",
+    "serial_number": "20P556",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-18",
+    "created_at": "2025-08-26T10:42:21.521361"
+  },
+  {
+    "id": "qc_0149",
+    "serial_number": "20P570",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-18",
+    "created_at": "2025-08-26T10:42:21.521361"
+  },
+  {
+    "id": "qc_0150",
+    "serial_number": "20P572",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-18",
+    "created_at": "2025-08-26T10:42:21.521361"
+  },
+  {
+    "id": "qc_0151",
+    "serial_number": "20P573",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-18",
+    "created_at": "2025-08-26T10:42:21.521361"
+  },
+  {
+    "id": "qc_0152",
+    "serial_number": "20P557",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-18",
+    "created_at": "2025-08-26T10:42:21.521361"
+  },
+  {
+    "id": "qc_0153",
+    "serial_number": "20P558",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-18",
+    "created_at": "2025-08-26T10:42:21.521361"
+  },
+  {
+    "id": "qc_0154",
+    "serial_number": "20P564",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-18",
+    "created_at": "2025-08-26T10:42:21.521361"
+  },
+  {
+    "id": "qc_0155",
+    "serial_number": "20P565",
+    "latest_calibration_date": "2025-04-08",
+    "next_calibration_date": "2026-04-18",
+    "created_at": "2025-08-26T10:42:21.521361"
+  },
+  {
+    "id": "qc_0156",
+    "serial_number": "21-0353",
+    "latest_calibration_date": "2025-04-17",
+    "next_calibration_date": "2026-04-29",
+    "created_at": "2025-08-26T10:42:21.521361"
+  },
+  {
+    "id": "qc_0157",
+    "serial_number": "21-0356",
+    "latest_calibration_date": "2025-04-17",
+    "next_calibration_date": "2026-04-29",
+    "created_at": "2025-08-26T10:42:21.521361"
+  },
+  {
+    "id": "qc_0158",
+    "serial_number": "20-2305",
+    "latest_calibration_date": "2025-04-17",
+    "next_calibration_date": "2026-04-29",
+    "created_at": "2025-08-26T10:42:21.522544"
+  },
+  {
+    "id": "qc_0159",
+    "serial_number": "21-0322",
+    "latest_calibration_date": "2025-04-17",
+    "next_calibration_date": "2026-04-29",
+    "created_at": "2025-08-26T10:42:21.522544"
+  },
+  {
+    "id": "qc_0160",
+    "serial_number": "20-2171",
+    "latest_calibration_date": "2025-04-17",
+    "next_calibration_date": "2026-04-29",
+    "created_at": "2025-08-26T10:42:21.522544"
+  },
+  {
+    "id": "qc_0161",
+    "serial_number": "1708791",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-01",
+    "created_at": "2025-08-26T10:42:21.522544"
+  },
+  {
+    "id": "qc_0162",
+    "serial_number": "1708792",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-01",
+    "created_at": "2025-08-26T10:42:21.522544"
+  },
+  {
+    "id": "qc_0163",
+    "serial_number": "1708789",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-01",
+    "created_at": "2025-08-26T10:42:21.522544"
+  },
+  {
+    "id": "qc_0164",
+    "serial_number": "1501478",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-01",
+    "created_at": "2025-08-26T10:42:21.522544"
+  },
+  {
+    "id": "qc_0165",
+    "serial_number": "1904005",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-12",
+    "created_at": "2025-08-26T10:42:21.522544"
+  },
+  {
+    "id": "qc_0166",
+    "serial_number": "1904007",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-12",
+    "created_at": "2025-08-26T10:42:21.522544"
+  },
+  {
+    "id": "qc_0167",
+    "serial_number": "1904009",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-12",
+    "created_at": "2025-08-26T10:42:21.522544"
+  },
+  {
+    "id": "qc_0168",
+    "serial_number": "1904012",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-12",
+    "created_at": "2025-08-26T10:42:21.522544"
+  },
+  {
+    "id": "qc_0169",
+    "serial_number": "1904008",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-12",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0170",
+    "serial_number": "1904003",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-12",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0171",
+    "serial_number": "1904006",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-12",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0172",
+    "serial_number": "1904011",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-12",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0173",
+    "serial_number": "1904010",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-12",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0174",
+    "serial_number": "17-0125",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-22",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0175",
+    "serial_number": "17-0134",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-22",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0176",
+    "serial_number": "20P569",
+    "latest_calibration_date": "2025-05-22",
+    "next_calibration_date": "2026-05-22",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0177",
+    "serial_number": "141411",
+    "latest_calibration_date": "2025-05-28",
+    "next_calibration_date": "2026-05-24",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0178",
+    "serial_number": "141412",
+    "latest_calibration_date": "2025-05-28",
+    "next_calibration_date": "2026-05-24",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0179",
+    "serial_number": "K1614023",
+    "latest_calibration_date": "2025-05-29",
+    "next_calibration_date": "2026-05-28",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0180",
+    "serial_number": "K1614025A",
+    "latest_calibration_date": "2025-05-29",
+    "next_calibration_date": "2026-05-28",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0181",
+    "serial_number": "K1614026A",
+    "latest_calibration_date": "2025-05-29",
+    "next_calibration_date": "2026-05-28",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0182",
+    "serial_number": "K1614022",
+    "latest_calibration_date": "2025-05-29",
+    "next_calibration_date": "2026-05-28",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0183",
+    "serial_number": "K1515022",
+    "latest_calibration_date": "2025-05-29",
+    "next_calibration_date": "2026-05-28",
+    "created_at": "2025-08-26T10:42:21.523542"
+  },
+  {
+    "id": "qc_0184",
+    "serial_number": "K1515023",
+    "latest_calibration_date": "2025-05-29",
+    "next_calibration_date": "2026-05-28",
+    "created_at": "2025-08-26T10:42:21.524797"
+  },
+  {
+    "id": "qc_0185",
+    "serial_number": "K1612016",
+    "latest_calibration_date": "2025-05-29",
+    "next_calibration_date": "2026-05-28",
+    "created_at": "2025-08-26T10:42:21.524797"
+  },
+  {
+    "id": "qc_0186",
+    "serial_number": "K1612017",
+    "latest_calibration_date": "2025-05-29",
+    "next_calibration_date": "2026-05-28",
+    "created_at": "2025-08-26T10:42:21.524797"
+  },
+  {
+    "id": "qc_0187",
+    "serial_number": "1501515",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-02",
+    "created_at": "2025-08-26T10:42:21.524797"
+  },
+  {
+    "id": "qc_0188",
+    "serial_number": "1501516",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-02",
+    "created_at": "2025-08-26T10:42:21.524797"
+  },
+  {
+    "id": "qc_0189",
+    "serial_number": "1501520",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-02",
+    "created_at": "2025-08-26T10:42:21.524797"
+  },
+  {
+    "id": "qc_0190",
+    "serial_number": "1501513",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-02",
+    "created_at": "2025-08-26T10:42:21.524797"
+  },
+  {
+    "id": "qc_0191",
+    "serial_number": "1501481",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-02",
+    "created_at": "2025-08-26T10:42:21.524797"
+  },
+  {
+    "id": "qc_0192",
+    "serial_number": "1501511",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-02",
+    "created_at": "2025-08-26T10:42:21.524797"
+  },
+  {
+    "id": "qc_0193",
+    "serial_number": "1501517",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-02",
+    "created_at": "2025-08-26T10:42:21.524797"
+  },
+  {
+    "id": "qc_0194",
+    "serial_number": "19P405",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-05",
+    "created_at": "2025-08-26T10:42:21.524797"
+  },
+  {
+    "id": "qc_0195",
+    "serial_number": "19P404",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-05",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0196",
+    "serial_number": "21-0515",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-15",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0197",
+    "serial_number": "21-0516",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-15",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0198",
+    "serial_number": "21-0517",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-15",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0199",
+    "serial_number": "20-2180",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-15",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0200",
+    "serial_number": "21-0518",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-15",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0201",
+    "serial_number": "21-0524",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-15",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0202",
+    "serial_number": "20-2128",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-16",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0203",
+    "serial_number": "20-2131",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-16",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0204",
+    "serial_number": "20-2311",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-16",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0205",
+    "serial_number": "20-2313",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-16",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0206",
+    "serial_number": "21-0331",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-16",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0207",
+    "serial_number": "1501519",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-20",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0208",
+    "serial_number": "1501518",
+    "latest_calibration_date": "2025-06-20",
+    "next_calibration_date": "2026-06-20",
+    "created_at": "2025-08-26T10:42:21.525796"
+  },
+  {
+    "id": "qc_0209",
+    "serial_number": "17-0988",
+    "latest_calibration_date": "2025-06-24",
+    "next_calibration_date": "2026-06-24",
+    "created_at": "2025-08-26T10:42:21.527304"
+  },
+  {
+    "id": "qc_0210",
+    "serial_number": "950574",
+    "latest_calibration_date": "2025-07-23",
+    "next_calibration_date": "2026-07-22",
+    "created_at": "2025-08-26T10:42:21.527304"
+  },
+  {
+    "id": "qc_0211",
+    "serial_number": "770658",
+    "latest_calibration_date": "2025-07-16",
+    "next_calibration_date": "2026-07-22",
+    "created_at": "2025-08-26T10:42:21.527304"
+  },
+  {
+    "id": "qc_0212",
+    "serial_number": "770660",
+    "latest_calibration_date": "2025-07-16",
+    "next_calibration_date": "2026-07-22",
+    "created_at": "2025-08-26T10:42:21.527304"
+  },
+  {
+    "id": "qc_0213",
+    "serial_number": "770654",
+    "latest_calibration_date": "2025-07-16",
+    "next_calibration_date": "2026-07-22",
+    "created_at": "2025-08-26T10:42:21.527304"
+  },
+  {
+    "id": "qc_0214",
+    "serial_number": "770655",
+    "latest_calibration_date": "2025-07-16",
+    "next_calibration_date": "2026-07-22",
+    "created_at": "2025-08-26T10:42:21.527304"
+  }
+]

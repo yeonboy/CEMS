@@ -1,0 +1,2360 @@
+{
+  "_schemaVersion": 1,
+  "generatedAt": "2025-08-26T15:00:51.066Z",
+  "sourceFiles": [
+    "db/movements_db.json"
+  ],
+  "totals": {
+    "travelCount": 7354,
+    "repairCount": 225,
+    "serialsWithTravel": 352,
+    "serialsWithRepair": 199
+  },
+  "bySerial": [
+    {
+      "serial": "838142(804F0013)",
+      "travelCount": 114,
+      "repairCount": 0,
+      "lastDate": "2025-08-08"
+    },
+    {
+      "serial": "17K100085",
+      "travelCount": 98,
+      "repairCount": 0,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "19E102565",
+      "travelCount": 80,
+      "repairCount": 0,
+      "lastDate": "2025-08-20"
+    },
+    {
+      "serial": "630",
+      "travelCount": 72,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "1724002714",
+      "travelCount": 71,
+      "repairCount": 0,
+      "lastDate": "2025-08-20"
+    },
+    {
+      "serial": "T242060",
+      "travelCount": 71,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "629",
+      "travelCount": 65,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "150072",
+      "travelCount": 63,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "10844967",
+      "travelCount": 62,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "150076",
+      "travelCount": 61,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "20E474",
+      "travelCount": 55,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "901671",
+      "travelCount": 55,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "T246356",
+      "travelCount": 54,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "20E333",
+      "travelCount": 51,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "19P404",
+      "travelCount": 48,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "T242056",
+      "travelCount": 47,
+      "repairCount": 1,
+      "lastDate": "2025-08-20"
+    },
+    {
+      "serial": "20P564",
+      "travelCount": 47,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "20P565",
+      "travelCount": 47,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "2390486",
+      "travelCount": 44,
+      "repairCount": 1,
+      "lastDate": "2025-08-21"
+    },
+    {
+      "serial": "1315",
+      "travelCount": 44,
+      "repairCount": 0,
+      "lastDate": "2025-08-04"
+    },
+    {
+      "serial": "1792",
+      "travelCount": 44,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "22P614",
+      "travelCount": 44,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "140099",
+      "travelCount": 43,
+      "repairCount": 1,
+      "lastDate": "2025-07-02"
+    },
+    {
+      "serial": "18P359",
+      "travelCount": 43,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "18P361",
+      "travelCount": 43,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "18P369",
+      "travelCount": 43,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "1626",
+      "travelCount": 43,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "20P556",
+      "travelCount": 43,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "627",
+      "travelCount": 43,
+      "repairCount": 0,
+      "lastDate": "2025-04-28"
+    },
+    {
+      "serial": "T242071",
+      "travelCount": 42,
+      "repairCount": 1,
+      "lastDate": "2025-07-02"
+    },
+    {
+      "serial": "19P427",
+      "travelCount": 42,
+      "repairCount": 0,
+      "lastDate": "2025-08-11"
+    },
+    {
+      "serial": "20P572",
+      "travelCount": 42,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "22P615",
+      "travelCount": 42,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "624",
+      "travelCount": 42,
+      "repairCount": 0,
+      "lastDate": "2025-04-28"
+    },
+    {
+      "serial": "160096",
+      "travelCount": 41,
+      "repairCount": 1,
+      "lastDate": "2025-08-20"
+    },
+    {
+      "serial": "18P354",
+      "travelCount": 41,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "18P355",
+      "travelCount": 41,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "18P367",
+      "travelCount": 41,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "18P368",
+      "travelCount": 41,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "1791",
+      "travelCount": 41,
+      "repairCount": 0,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "19P431",
+      "travelCount": 41,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "20P568",
+      "travelCount": 41,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "633",
+      "travelCount": 41,
+      "repairCount": 0,
+      "lastDate": "2025-04-28"
+    },
+    {
+      "serial": "18P366",
+      "travelCount": 40,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "18P374",
+      "travelCount": 40,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "853",
+      "travelCount": 40,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "T242086",
+      "travelCount": 40,
+      "repairCount": 0,
+      "lastDate": "2025-07-25"
+    },
+    {
+      "serial": "1319",
+      "travelCount": 39,
+      "repairCount": 0,
+      "lastDate": "2025-06-30"
+    },
+    {
+      "serial": "1794",
+      "travelCount": 39,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "19P429",
+      "travelCount": 39,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "18P357",
+      "travelCount": 38,
+      "repairCount": 1,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "T242074",
+      "travelCount": 38,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "18P353",
+      "travelCount": 37,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "1311",
+      "travelCount": 37,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "1313",
+      "travelCount": 37,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "726",
+      "travelCount": 37,
+      "repairCount": 0,
+      "lastDate": "2025-07-18"
+    },
+    {
+      "serial": "848",
+      "travelCount": 37,
+      "repairCount": 0,
+      "lastDate": "2025-08-08"
+    },
+    {
+      "serial": "855",
+      "travelCount": 37,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "22P617",
+      "travelCount": 36,
+      "repairCount": 0,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "T242057",
+      "travelCount": 35,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "18P356",
+      "travelCount": 34,
+      "repairCount": 2,
+      "lastDate": "2025-07-04"
+    },
+    {
+      "serial": "T242072",
+      "travelCount": 34,
+      "repairCount": 2,
+      "lastDate": "2025-08-20"
+    },
+    {
+      "serial": "20P557",
+      "travelCount": 35,
+      "repairCount": 0,
+      "lastDate": "2025-06-19"
+    },
+    {
+      "serial": "856",
+      "travelCount": 35,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "858",
+      "travelCount": 35,
+      "repairCount": 0,
+      "lastDate": "2025-06-20"
+    },
+    {
+      "serial": "1501511",
+      "travelCount": 34,
+      "repairCount": 0,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "1789",
+      "travelCount": 34,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "19P428",
+      "travelCount": 34,
+      "repairCount": 0,
+      "lastDate": "2025-07-18"
+    },
+    {
+      "serial": "150075",
+      "travelCount": 33,
+      "repairCount": 1,
+      "lastDate": "2025-04-28"
+    },
+    {
+      "serial": "1501479",
+      "travelCount": 33,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "18P371",
+      "travelCount": 33,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "19P405",
+      "travelCount": 33,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "19P430",
+      "travelCount": 33,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "19P432",
+      "travelCount": 33,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "20P558",
+      "travelCount": 33,
+      "repairCount": 1,
+      "lastDate": "2025-07-04"
+    },
+    {
+      "serial": "1708791",
+      "travelCount": 33,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "19E202574",
+      "travelCount": 33,
+      "repairCount": 0,
+      "lastDate": "2025-08-21"
+    },
+    {
+      "serial": "22P616",
+      "travelCount": 33,
+      "repairCount": 0,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "720",
+      "travelCount": 33,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "TA3268",
+      "travelCount": 33,
+      "repairCount": 0,
+      "lastDate": "2025-08-04"
+    },
+    {
+      "serial": "1500",
+      "travelCount": 32,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "1312",
+      "travelCount": 32,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "1501517",
+      "travelCount": 32,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "718",
+      "travelCount": 32,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "1501514",
+      "travelCount": 31,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "18P372",
+      "travelCount": 31,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "18P373",
+      "travelCount": 31,
+      "repairCount": 1,
+      "lastDate": "2025-07-18"
+    },
+    {
+      "serial": "1318",
+      "travelCount": 31,
+      "repairCount": 0,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "1501481",
+      "travelCount": 31,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "1708792",
+      "travelCount": 31,
+      "repairCount": 0,
+      "lastDate": "2025-08-08"
+    },
+    {
+      "serial": "1848",
+      "travelCount": 31,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "724",
+      "travelCount": 31,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "1320",
+      "travelCount": 30,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "1501520",
+      "travelCount": 30,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "1746",
+      "travelCount": 30,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "19P426",
+      "travelCount": 30,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "1316",
+      "travelCount": 29,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "1627",
+      "travelCount": 29,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "851",
+      "travelCount": 29,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "18P375",
+      "travelCount": 28,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "4176/TA3688",
+      "travelCount": 28,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "1708788",
+      "travelCount": 28,
+      "repairCount": 0,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "1797",
+      "travelCount": 28,
+      "repairCount": 0,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "19P424",
+      "travelCount": 28,
+      "repairCount": 0,
+      "lastDate": "2025-07-18"
+    },
+    {
+      "serial": "20P570",
+      "travelCount": 28,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "1501518",
+      "travelCount": 27,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "1709798",
+      "travelCount": 27,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "1796",
+      "travelCount": 27,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "18P360",
+      "travelCount": 27,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "1828001882",
+      "travelCount": 27,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "21-0322",
+      "travelCount": 27,
+      "repairCount": 0,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "21-0353",
+      "travelCount": 27,
+      "repairCount": 0,
+      "lastDate": "2025-08-11"
+    },
+    {
+      "serial": "852",
+      "travelCount": 27,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "20-1502",
+      "travelCount": 26,
+      "repairCount": 1,
+      "lastDate": "2025-07-31"
+    },
+    {
+      "serial": "T242073",
+      "travelCount": 25,
+      "repairCount": 2,
+      "lastDate": "2025-07-16"
+    },
+    {
+      "serial": "1708786",
+      "travelCount": 26,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "1745",
+      "travelCount": 26,
+      "repairCount": 0,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "909",
+      "travelCount": 25,
+      "repairCount": 1,
+      "lastDate": "2025-08-08"
+    },
+    {
+      "serial": "KM008W18CO77",
+      "travelCount": 25,
+      "repairCount": 1,
+      "lastDate": "2025-08-14"
+    },
+    {
+      "serial": "850",
+      "travelCount": 25,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "1501507",
+      "travelCount": 24,
+      "repairCount": 1,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "1501508",
+      "travelCount": 24,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "20-2305",
+      "travelCount": 24,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "4210/TA3712",
+      "travelCount": 24,
+      "repairCount": 1,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "1501513",
+      "travelCount": 24,
+      "repairCount": 0,
+      "lastDate": "2025-08-08"
+    },
+    {
+      "serial": "1501515",
+      "travelCount": 24,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "1708794",
+      "travelCount": 24,
+      "repairCount": 0,
+      "lastDate": "2025-06-20"
+    },
+    {
+      "serial": "1905000567",
+      "travelCount": 24,
+      "repairCount": 0,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "20-2171",
+      "travelCount": 24,
+      "repairCount": 0,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "1501519",
+      "travelCount": 23,
+      "repairCount": 1,
+      "lastDate": "2025-06-11"
+    },
+    {
+      "serial": "17-0132",
+      "travelCount": 23,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "20-2313",
+      "travelCount": 23,
+      "repairCount": 1,
+      "lastDate": "2025-07-25"
+    },
+    {
+      "serial": "21-0349",
+      "travelCount": 23,
+      "repairCount": 1,
+      "lastDate": "2025-08-11"
+    },
+    {
+      "serial": "722",
+      "travelCount": 23,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "20-2132",
+      "travelCount": 22,
+      "repairCount": 2,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "1708790",
+      "travelCount": 23,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "1708795",
+      "travelCount": 23,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "19P425",
+      "travelCount": 23,
+      "repairCount": 0,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "21-2173",
+      "travelCount": 23,
+      "repairCount": 0,
+      "lastDate": "2025-05-30"
+    },
+    {
+      "serial": "1628",
+      "travelCount": 22,
+      "repairCount": 1,
+      "lastDate": "2025-08-08"
+    },
+    {
+      "serial": "18-0147",
+      "travelCount": 22,
+      "repairCount": 1,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "18-0310",
+      "travelCount": 22,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "20-1348",
+      "travelCount": 22,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "20-1508",
+      "travelCount": 22,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "20-1509",
+      "travelCount": 22,
+      "repairCount": 1,
+      "lastDate": "2025-06-12"
+    },
+    {
+      "serial": "KM014W16CO22",
+      "travelCount": 21,
+      "repairCount": 2,
+      "lastDate": "2025-08-21"
+    },
+    {
+      "serial": "1795",
+      "travelCount": 22,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "1904012",
+      "travelCount": 22,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "23KR1730",
+      "travelCount": 22,
+      "repairCount": 0,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "1317",
+      "travelCount": 21,
+      "repairCount": 1,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "4211/TA3713",
+      "travelCount": 21,
+      "repairCount": 1,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "1708789",
+      "travelCount": 21,
+      "repairCount": 0,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "1708793",
+      "travelCount": 21,
+      "repairCount": 0,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "20-2128",
+      "travelCount": 21,
+      "repairCount": 0,
+      "lastDate": "2025-07-29"
+    },
+    {
+      "serial": "838140(803F0016)",
+      "travelCount": 21,
+      "repairCount": 0,
+      "lastDate": "2025-04-18"
+    },
+    {
+      "serial": "흡인박스4",
+      "travelCount": 21,
+      "repairCount": 0,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "141411",
+      "travelCount": 20,
+      "repairCount": 1,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "17-0125",
+      "travelCount": 20,
+      "repairCount": 1,
+      "lastDate": "2025-08-11"
+    },
+    {
+      "serial": "18P358",
+      "travelCount": 20,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "20-1393",
+      "travelCount": 20,
+      "repairCount": 1,
+      "lastDate": "2025-08-04"
+    },
+    {
+      "serial": "20-1560",
+      "travelCount": 20,
+      "repairCount": 1,
+      "lastDate": "2025-08-04"
+    },
+    {
+      "serial": "20P569",
+      "travelCount": 20,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "21-0321",
+      "travelCount": 20,
+      "repairCount": 1,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "770655",
+      "travelCount": 20,
+      "repairCount": 1,
+      "lastDate": "2025-08-04"
+    },
+    {
+      "serial": "18-0159",
+      "travelCount": 20,
+      "repairCount": 0,
+      "lastDate": "2025-06-20"
+    },
+    {
+      "serial": "1904005",
+      "travelCount": 20,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "719",
+      "travelCount": 20,
+      "repairCount": 0,
+      "lastDate": "2025-06-20"
+    },
+    {
+      "serial": "T25864",
+      "travelCount": 20,
+      "repairCount": 0,
+      "lastDate": "2025-07-07"
+    },
+    {
+      "serial": "TA3277",
+      "travelCount": 20,
+      "repairCount": 0,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "TA3703",
+      "travelCount": 20,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "4170/TA3682",
+      "travelCount": 19,
+      "repairCount": 1,
+      "lastDate": "2025-08-04"
+    },
+    {
+      "serial": "20-1384",
+      "travelCount": 18,
+      "repairCount": 2,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "1501516",
+      "travelCount": 19,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "1829002045",
+      "travelCount": 19,
+      "repairCount": 0,
+      "lastDate": "2024-11-14"
+    },
+    {
+      "serial": "4212/TA3714",
+      "travelCount": 19,
+      "repairCount": 0,
+      "lastDate": "2025-03-04"
+    },
+    {
+      "serial": "TA2999",
+      "travelCount": 19,
+      "repairCount": 0,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "18-0328",
+      "travelCount": 18,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "850746",
+      "travelCount": 18,
+      "repairCount": 0,
+      "lastDate": "2025-08-04"
+    },
+    {
+      "serial": "K1515019",
+      "travelCount": 18,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "K1515021",
+      "travelCount": 18,
+      "repairCount": 0,
+      "lastDate": "2025-07-07"
+    },
+    {
+      "serial": "1709797",
+      "travelCount": 17,
+      "repairCount": 1,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "18P370",
+      "travelCount": 17,
+      "repairCount": 1,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "21-1357",
+      "travelCount": 17,
+      "repairCount": 1,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "770660",
+      "travelCount": 17,
+      "repairCount": 1,
+      "lastDate": "2025-07-21"
+    },
+    {
+      "serial": "1501489",
+      "travelCount": 16,
+      "repairCount": 2,
+      "lastDate": "2025-08-08"
+    },
+    {
+      "serial": "1501490",
+      "travelCount": 16,
+      "repairCount": 2,
+      "lastDate": "2025-08-08"
+    },
+    {
+      "serial": "1708787",
+      "travelCount": 17,
+      "repairCount": 0,
+      "lastDate": "2025-07-18"
+    },
+    {
+      "serial": "21-0331",
+      "travelCount": 17,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "RBR concerto 3",
+      "travelCount": 17,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "TA3267",
+      "travelCount": 17,
+      "repairCount": 0,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "1190581598",
+      "travelCount": 16,
+      "repairCount": 1,
+      "lastDate": "2025-02-10"
+    },
+    {
+      "serial": "1501512",
+      "travelCount": 16,
+      "repairCount": 1,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "17-0133",
+      "travelCount": 16,
+      "repairCount": 1,
+      "lastDate": "2025-06-20"
+    },
+    {
+      "serial": "1744",
+      "travelCount": 16,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "18-0145",
+      "travelCount": 16,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "19P433",
+      "travelCount": 16,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "717",
+      "travelCount": 16,
+      "repairCount": 1,
+      "lastDate": "2025-06-19"
+    },
+    {
+      "serial": "1904004",
+      "travelCount": 15,
+      "repairCount": 2,
+      "lastDate": "2025-07-15"
+    },
+    {
+      "serial": "723",
+      "travelCount": 15,
+      "repairCount": 2,
+      "lastDate": "2025-07-18"
+    },
+    {
+      "serial": "21-0356",
+      "travelCount": 16,
+      "repairCount": 0,
+      "lastDate": "2025-06-18"
+    },
+    {
+      "serial": "4162/TA3674",
+      "travelCount": 16,
+      "repairCount": 0,
+      "lastDate": "2025-01-17"
+    },
+    {
+      "serial": "TA3265",
+      "travelCount": 16,
+      "repairCount": 0,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "1202038522",
+      "travelCount": 15,
+      "repairCount": 1,
+      "lastDate": "2025-05-07"
+    },
+    {
+      "serial": "1501506",
+      "travelCount": 15,
+      "repairCount": 1,
+      "lastDate": "2025-07-18"
+    },
+    {
+      "serial": "20-1382",
+      "travelCount": 15,
+      "repairCount": 1,
+      "lastDate": "2025-06-24"
+    },
+    {
+      "serial": "20P573",
+      "travelCount": 15,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "TA3696",
+      "travelCount": 15,
+      "repairCount": 1,
+      "lastDate": "2025-07-29"
+    },
+    {
+      "serial": "1192754688",
+      "travelCount": 14,
+      "repairCount": 2,
+      "lastDate": "2025-07-11"
+    },
+    {
+      "serial": "1314",
+      "travelCount": 15,
+      "repairCount": 0,
+      "lastDate": "2025-07-31"
+    },
+    {
+      "serial": "1501478",
+      "travelCount": 15,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "K1614024",
+      "travelCount": 15,
+      "repairCount": 0,
+      "lastDate": "2025-06-20"
+    },
+    {
+      "serial": "21-1394",
+      "travelCount": 14,
+      "repairCount": 1,
+      "lastDate": "2025-06-24"
+    },
+    {
+      "serial": "857",
+      "travelCount": 14,
+      "repairCount": 1,
+      "lastDate": "2025-07-03"
+    },
+    {
+      "serial": "Y22710",
+      "travelCount": 14,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "1904003",
+      "travelCount": 14,
+      "repairCount": 0,
+      "lastDate": "2025-03-10"
+    },
+    {
+      "serial": "1904009",
+      "travelCount": 14,
+      "repairCount": 0,
+      "lastDate": "2025-06-02"
+    },
+    {
+      "serial": "TA3154",
+      "travelCount": 14,
+      "repairCount": 0,
+      "lastDate": "2025-04-30"
+    },
+    {
+      "serial": "21-0330",
+      "travelCount": 13,
+      "repairCount": 1,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "4238/TA3741",
+      "travelCount": 13,
+      "repairCount": 1,
+      "lastDate": "2025-07-30"
+    },
+    {
+      "serial": "849",
+      "travelCount": 13,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "T242106",
+      "travelCount": 13,
+      "repairCount": 1,
+      "lastDate": "2025-08-20"
+    },
+    {
+      "serial": "T25861",
+      "travelCount": 13,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "X18021",
+      "travelCount": 13,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "20-2311",
+      "travelCount": 12,
+      "repairCount": 2,
+      "lastDate": "2025-07-07"
+    },
+    {
+      "serial": "1904006",
+      "travelCount": 13,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "1904010",
+      "travelCount": 13,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "23KR1728",
+      "travelCount": 13,
+      "repairCount": 0,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "흡인박스5",
+      "travelCount": 13,
+      "repairCount": 0,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "1793",
+      "travelCount": 12,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "21-0507",
+      "travelCount": 12,
+      "repairCount": 1,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "21-0524",
+      "travelCount": 12,
+      "repairCount": 1,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "3973",
+      "travelCount": 12,
+      "repairCount": 1,
+      "lastDate": "2025-07-31"
+    },
+    {
+      "serial": "K1612016",
+      "travelCount": 12,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "W17347",
+      "travelCount": 12,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "1798",
+      "travelCount": 11,
+      "repairCount": 1,
+      "lastDate": "2025-06-20"
+    },
+    {
+      "serial": "1847",
+      "travelCount": 11,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "20-1571",
+      "travelCount": 11,
+      "repairCount": 1,
+      "lastDate": "2025-08-11"
+    },
+    {
+      "serial": "950574",
+      "travelCount": 11,
+      "repairCount": 1,
+      "lastDate": "2025-07-29"
+    },
+    {
+      "serial": "Y17932",
+      "travelCount": 11,
+      "repairCount": 1,
+      "lastDate": "2025-06-20"
+    },
+    {
+      "serial": "17-0129",
+      "travelCount": 11,
+      "repairCount": 0,
+      "lastDate": "2025-06-27"
+    },
+    {
+      "serial": "1201888256",
+      "travelCount": 10,
+      "repairCount": 1,
+      "lastDate": "2025-08-11"
+    },
+    {
+      "serial": "141412",
+      "travelCount": 10,
+      "repairCount": 1,
+      "lastDate": "2025-06-02"
+    },
+    {
+      "serial": "17-1798",
+      "travelCount": 10,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "770659",
+      "travelCount": 10,
+      "repairCount": 1,
+      "lastDate": "2025-03-24"
+    },
+    {
+      "serial": "R10783",
+      "travelCount": 10,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "20-1503",
+      "travelCount": 9,
+      "repairCount": 2,
+      "lastDate": "2025-07-29"
+    },
+    {
+      "serial": "T242109",
+      "travelCount": 9,
+      "repairCount": 2,
+      "lastDate": "2025-07-04"
+    },
+    {
+      "serial": "1904008",
+      "travelCount": 10,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "4241/TA3744",
+      "travelCount": 10,
+      "repairCount": 0,
+      "lastDate": "2025-08-01"
+    },
+    {
+      "serial": "T25862",
+      "travelCount": 10,
+      "repairCount": 0,
+      "lastDate": "2025-04-24"
+    },
+    {
+      "serial": "1501504",
+      "travelCount": 9,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "17-0130",
+      "travelCount": 9,
+      "repairCount": 1,
+      "lastDate": "2025-04-21"
+    },
+    {
+      "serial": "17-1733",
+      "travelCount": 9,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "770654",
+      "travelCount": 9,
+      "repairCount": 1,
+      "lastDate": "2025-07-31"
+    },
+    {
+      "serial": "770658",
+      "travelCount": 9,
+      "repairCount": 1,
+      "lastDate": "2025-07-21"
+    },
+    {
+      "serial": "K1614025A",
+      "travelCount": 9,
+      "repairCount": 1,
+      "lastDate": "2025-05-30"
+    },
+    {
+      "serial": "W17346",
+      "travelCount": 9,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "Y22705",
+      "travelCount": 9,
+      "repairCount": 1,
+      "lastDate": "2025-06-20"
+    },
+    {
+      "serial": "20-2131",
+      "travelCount": 9,
+      "repairCount": 0,
+      "lastDate": "2025-07-29"
+    },
+    {
+      "serial": "R10532",
+      "travelCount": 9,
+      "repairCount": 0,
+      "lastDate": "2024-12-09"
+    },
+    {
+      "serial": "T242059",
+      "travelCount": 9,
+      "repairCount": 0,
+      "lastDate": "2025-06-05"
+    },
+    {
+      "serial": "1501505",
+      "travelCount": 8,
+      "repairCount": 1,
+      "lastDate": "2025-08-18"
+    },
+    {
+      "serial": "17-1906",
+      "travelCount": 8,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "1790",
+      "travelCount": 8,
+      "repairCount": 1,
+      "lastDate": "2025-07-03"
+    },
+    {
+      "serial": "21-0515",
+      "travelCount": 8,
+      "repairCount": 1,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "770657",
+      "travelCount": 8,
+      "repairCount": 1,
+      "lastDate": "2025-07-21"
+    },
+    {
+      "serial": "K1515022",
+      "travelCount": 8,
+      "repairCount": 1,
+      "lastDate": "2025-05-30"
+    },
+    {
+      "serial": "K1614023",
+      "travelCount": 8,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "K1614026A",
+      "travelCount": 8,
+      "repairCount": 1,
+      "lastDate": "2025-05-30"
+    },
+    {
+      "serial": "1904011",
+      "travelCount": 8,
+      "repairCount": 0,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "TA3724",
+      "travelCount": 8,
+      "repairCount": 0,
+      "lastDate": "2025-01-17"
+    },
+    {
+      "serial": "K1515023",
+      "travelCount": 7,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "T246453",
+      "travelCount": 7,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "T250731",
+      "travelCount": 7,
+      "repairCount": 1,
+      "lastDate": "2025-05-15"
+    },
+    {
+      "serial": "W17345",
+      "travelCount": 7,
+      "repairCount": 1,
+      "lastDate": "2025-03-20"
+    },
+    {
+      "serial": "X18022",
+      "travelCount": 7,
+      "repairCount": 1,
+      "lastDate": "2025-03-20"
+    },
+    {
+      "serial": "K1612017",
+      "travelCount": 6,
+      "repairCount": 2,
+      "lastDate": "2025-08-04"
+    },
+    {
+      "serial": "T246352",
+      "travelCount": 6,
+      "repairCount": 2,
+      "lastDate": "2025-07-04"
+    },
+    {
+      "serial": "1904007",
+      "travelCount": 7,
+      "repairCount": 0,
+      "lastDate": "2025-08-19"
+    },
+    {
+      "serial": "TA3376",
+      "travelCount": 7,
+      "repairCount": 0,
+      "lastDate": "2025-07-29"
+    },
+    {
+      "serial": "TA3723",
+      "travelCount": 7,
+      "repairCount": 0,
+      "lastDate": "2025-01-17"
+    },
+    {
+      "serial": "170066",
+      "travelCount": 6,
+      "repairCount": 1,
+      "lastDate": "2025-08-20"
+    },
+    {
+      "serial": "180053",
+      "travelCount": 6,
+      "repairCount": 1,
+      "lastDate": "2025-05-30"
+    },
+    {
+      "serial": "190024",
+      "travelCount": 6,
+      "repairCount": 1,
+      "lastDate": "2025-08-20"
+    },
+    {
+      "serial": "190025",
+      "travelCount": 6,
+      "repairCount": 1,
+      "lastDate": "2025-05-30"
+    },
+    {
+      "serial": "X18019",
+      "travelCount": 6,
+      "repairCount": 1,
+      "lastDate": "2025-05-19"
+    },
+    {
+      "serial": "21-0517",
+      "travelCount": 5,
+      "repairCount": 2,
+      "lastDate": "2025-04-21"
+    },
+    {
+      "serial": "17-0131",
+      "travelCount": 5,
+      "repairCount": 1,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "17-0134",
+      "travelCount": 5,
+      "repairCount": 1,
+      "lastDate": "2025-07-25"
+    },
+    {
+      "serial": "170067",
+      "travelCount": 5,
+      "repairCount": 1,
+      "lastDate": "2025-08-20"
+    },
+    {
+      "serial": "854",
+      "travelCount": 5,
+      "repairCount": 1,
+      "lastDate": "2025-06-10"
+    },
+    {
+      "serial": "TA3275",
+      "travelCount": 5,
+      "repairCount": 1,
+      "lastDate": "2025-07-31"
+    },
+    {
+      "serial": "Y17930",
+      "travelCount": 5,
+      "repairCount": 1,
+      "lastDate": "2024-12-09"
+    },
+    {
+      "serial": "17-0127",
+      "travelCount": 4,
+      "repairCount": 2,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "1712001679",
+      "travelCount": 5,
+      "repairCount": 0,
+      "lastDate": "2024-11-18"
+    },
+    {
+      "serial": "4159/TA3671",
+      "travelCount": 5,
+      "repairCount": 0,
+      "lastDate": "2025-08-04"
+    },
+    {
+      "serial": "R10185",
+      "travelCount": 5,
+      "repairCount": 0,
+      "lastDate": "2025-06-05"
+    },
+    {
+      "serial": "20E707",
+      "travelCount": 4,
+      "repairCount": 1,
+      "lastDate": "2025-05-01"
+    },
+    {
+      "serial": "21-0516",
+      "travelCount": 4,
+      "repairCount": 1,
+      "lastDate": "2025-06-05"
+    },
+    {
+      "serial": "950575",
+      "travelCount": 4,
+      "repairCount": 1,
+      "lastDate": "2025-06-17"
+    },
+    {
+      "serial": "17-1903",
+      "travelCount": 3,
+      "repairCount": 2,
+      "lastDate": "2025-04-03"
+    },
+    {
+      "serial": "21-0518",
+      "travelCount": 3,
+      "repairCount": 2,
+      "lastDate": "2025-06-05"
+    },
+    {
+      "serial": "17-0128",
+      "travelCount": 2,
+      "repairCount": 3,
+      "lastDate": "2025-07-15"
+    },
+    {
+      "serial": "17-0126",
+      "travelCount": 1,
+      "repairCount": 4,
+      "lastDate": "2025-07-15"
+    },
+    {
+      "serial": "1182050011",
+      "travelCount": 4,
+      "repairCount": 0,
+      "lastDate": "2025-06-19"
+    },
+    {
+      "serial": "CM19420293",
+      "travelCount": 4,
+      "repairCount": 0,
+      "lastDate": "2025-06-13"
+    },
+    {
+      "serial": "RWL-100M",
+      "travelCount": 4,
+      "repairCount": 0,
+      "lastDate": "2025-08-12"
+    },
+    {
+      "serial": "20E546",
+      "travelCount": 3,
+      "repairCount": 1,
+      "lastDate": "2025-07-16"
+    },
+    {
+      "serial": "K1614022",
+      "travelCount": 3,
+      "repairCount": 1,
+      "lastDate": "2025-05-30"
+    },
+    {
+      "serial": "17L101846",
+      "travelCount": 3,
+      "repairCount": 0,
+      "lastDate": "2024-09-23"
+    },
+    {
+      "serial": "840487",
+      "travelCount": 3,
+      "repairCount": 0,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "CM19420243",
+      "travelCount": 3,
+      "repairCount": 0,
+      "lastDate": "2024-11-29"
+    },
+    {
+      "serial": "K1515020",
+      "travelCount": 3,
+      "repairCount": 0,
+      "lastDate": "2025-06-20"
+    },
+    {
+      "serial": "TA3160",
+      "travelCount": 3,
+      "repairCount": 0,
+      "lastDate": "2025-06-20"
+    },
+    {
+      "serial": "TA3209",
+      "travelCount": 3,
+      "repairCount": 0,
+      "lastDate": "2024-08-21"
+    },
+    {
+      "serial": "18-0353",
+      "travelCount": 2,
+      "repairCount": 1,
+      "lastDate": "2025-07-11"
+    },
+    {
+      "serial": "180064",
+      "travelCount": 2,
+      "repairCount": 1,
+      "lastDate": "2025-05-30"
+    },
+    {
+      "serial": "CM20477383",
+      "travelCount": 2,
+      "repairCount": 1,
+      "lastDate": "2025-03-04"
+    },
+    {
+      "serial": "SDS-C0258",
+      "travelCount": 2,
+      "repairCount": 1,
+      "lastDate": "2024-09-09"
+    },
+    {
+      "serial": "SGS-C105",
+      "travelCount": 2,
+      "repairCount": 1,
+      "lastDate": "2024-09-09"
+    },
+    {
+      "serial": "X16838",
+      "travelCount": 2,
+      "repairCount": 1,
+      "lastDate": "2025-07-11"
+    },
+    {
+      "serial": "X17815",
+      "travelCount": 2,
+      "repairCount": 1,
+      "lastDate": "2025-07-11"
+    },
+    {
+      "serial": "X18018",
+      "travelCount": 2,
+      "repairCount": 1,
+      "lastDate": "2024-11-21"
+    },
+    {
+      "serial": "Y17933",
+      "travelCount": 2,
+      "repairCount": 1,
+      "lastDate": "2024-12-09"
+    },
+    {
+      "serial": "17-1912",
+      "travelCount": 1,
+      "repairCount": 2,
+      "lastDate": "2025-08-22"
+    },
+    {
+      "serial": "18-0318",
+      "travelCount": 2,
+      "repairCount": 0,
+      "lastDate": "2025-06-27"
+    },
+    {
+      "serial": "202016121871",
+      "travelCount": 2,
+      "repairCount": 0,
+      "lastDate": "2024-09-10"
+    },
+    {
+      "serial": "25320T",
+      "travelCount": 2,
+      "repairCount": 0,
+      "lastDate": "2025-06-27"
+    },
+    {
+      "serial": "291248",
+      "travelCount": 2,
+      "repairCount": 0,
+      "lastDate": "2025-02-07"
+    },
+    {
+      "serial": "314195",
+      "travelCount": 2,
+      "repairCount": 0,
+      "lastDate": "2024-10-25"
+    },
+    {
+      "serial": "332001",
+      "travelCount": 2,
+      "repairCount": 0,
+      "lastDate": "2025-07-02"
+    },
+    {
+      "serial": "829594",
+      "travelCount": 2,
+      "repairCount": 0,
+      "lastDate": "2024-09-09"
+    },
+    {
+      "serial": "D454510538",
+      "travelCount": 2,
+      "repairCount": 0,
+      "lastDate": "2024-09-09"
+    },
+    {
+      "serial": "SDS-C0645",
+      "travelCount": 2,
+      "repairCount": 0,
+      "lastDate": "2025-07-02"
+    },
+    {
+      "serial": "SGS-C785",
+      "travelCount": 2,
+      "repairCount": 0,
+      "lastDate": "2025-07-02"
+    },
+    {
+      "serial": "TA2911",
+      "travelCount": 2,
+      "repairCount": 0,
+      "lastDate": "2024-11-04"
+    },
+    {
+      "serial": "17-0866",
+      "travelCount": 1,
+      "repairCount": 1,
+      "lastDate": "2025-06-27"
+    },
+    {
+      "serial": "17-1391",
+      "travelCount": 1,
+      "repairCount": 1,
+      "lastDate": "2025-06-27"
+    },
+    {
+      "serial": "18-0320",
+      "travelCount": 1,
+      "repairCount": 1,
+      "lastDate": "2025-06-27"
+    },
+    {
+      "serial": "20-2180",
+      "travelCount": 1,
+      "repairCount": 1,
+      "lastDate": "2025-06-05"
+    },
+    {
+      "serial": "770656",
+      "travelCount": 1,
+      "repairCount": 1,
+      "lastDate": "2025-07-09"
+    },
+    {
+      "serial": "K1612019",
+      "travelCount": 1,
+      "repairCount": 1,
+      "lastDate": "2024-12-09"
+    },
+    {
+      "serial": "K1614027A",
+      "travelCount": 1,
+      "repairCount": 1,
+      "lastDate": "2025-08-25"
+    },
+    {
+      "serial": "TA2902",
+      "travelCount": 1,
+      "repairCount": 1,
+      "lastDate": "2024-12-02"
+    },
+    {
+      "serial": "17-1509",
+      "travelCount": 1,
+      "repairCount": 0,
+      "lastDate": "2025-06-27"
+    },
+    {
+      "serial": "18-0984",
+      "travelCount": 1,
+      "repairCount": 0,
+      "lastDate": "2025-06-27"
+    },
+    {
+      "serial": "25314T",
+      "travelCount": 1,
+      "repairCount": 0,
+      "lastDate": "2025-06-27"
+    },
+    {
+      "serial": "829489",
+      "travelCount": 1,
+      "repairCount": 0,
+      "lastDate": "2025-07-02"
+    },
+    {
+      "serial": "D454510355",
+      "travelCount": 1,
+      "repairCount": 0,
+      "lastDate": "2025-07-02"
+    },
+    {
+      "serial": "TA3272",
+      "travelCount": 1,
+      "repairCount": 0,
+      "lastDate": "2024-08-19"
+    },
+    {
+      "serial": "TA3591",
+      "travelCount": 1,
+      "repairCount": 0,
+      "lastDate": "2024-09-30"
+    },
+    {
+      "serial": "흡인박스3",
+      "travelCount": 1,
+      "repairCount": 0,
+      "lastDate": "2025-02-07"
+    },
+    {
+      "serial": "17-0988",
+      "travelCount": 0,
+      "repairCount": 1,
+      "lastDate": "2025-06-11"
+    },
+    {
+      "serial": "316763",
+      "travelCount": 0,
+      "repairCount": 1,
+      "lastDate": "2024-08-02"
+    },
+    {
+      "serial": "441002",
+      "travelCount": 0,
+      "repairCount": 1,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "442388",
+      "travelCount": 0,
+      "repairCount": 1,
+      "lastDate": "2025-03-24"
+    },
+    {
+      "serial": "461059",
+      "travelCount": 0,
+      "repairCount": 1,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "532930",
+      "travelCount": 0,
+      "repairCount": 1,
+      "lastDate": "2025-03-24"
+    },
+    {
+      "serial": "KM008W18CO76",
+      "travelCount": 0,
+      "repairCount": 1,
+      "lastDate": "2025-02-12"
+    },
+    {
+      "serial": "X18020",
+      "travelCount": 0,
+      "repairCount": 1,
+      "lastDate": "2024-11-21"
+    },
+    {
+      "serial": "194527",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "308822",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2024-09-09"
+    },
+    {
+      "serial": "40016847",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2024-09-13"
+    },
+    {
+      "serial": "40017348",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2024-10-04"
+    },
+    {
+      "serial": "441001",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "461068",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "532937",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "532940",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "532954",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "8339474",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "BX-127",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-06-19"
+    },
+    {
+      "serial": "D56G00002",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "L420028",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "L420052",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "L420060",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "L420061",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "P22857",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "R10454",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "SDS-C0463",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2024-09-12"
+    },
+    {
+      "serial": "SGS-C580",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2024-09-12"
+    },
+    {
+      "serial": "T15942",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2024-10-18"
+    },
+    {
+      "serial": "T15943",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "T18759",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "T18764",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "T25860",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "T25863",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "TA3281",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-04-22"
+    },
+    {
+      "serial": "W17343",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "유속계 (청명지하)",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    },
+    {
+      "serial": "켐익 빈박스(청명지하)",
+      "travelCount": 0,
+      "repairCount": 0,
+      "lastDate": "2025-03-27"
+    }
+  ],
+  "rules": {
+    "travelPair": "청명→현장 후 현장→청명 = 출장 1회",
+    "repairPair": "청명→업체 후 업체→청명 = 수리 1회",
+    "notes": "페어가 완결될 때만 카운트. 중간 경로가 다른 경우 미완결로 간주"
+  }
+}

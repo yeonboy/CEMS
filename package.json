@@ -1,0 +1,23 @@
+{
+  "name": "cmes-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:db": "node scripts/build-db.mjs",
+    "clean:db": "node scripts/clean-db-unused.mjs",
+    "clean:db:core": "node scripts/clean-db-core-empties.mjs",
+    "build:stats": "node scripts/build-stats.mjs",
+    "backend:ecount:sync": "node scripts/backend_ecount_sync.mjs",
+    "backend:ecount:start": "node \"ecount api/ecount-zone-api-backend.js\""
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.5",
+    "iconv-lite": "^0.6.3",
+    "xlsx": "^0.18.5",
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

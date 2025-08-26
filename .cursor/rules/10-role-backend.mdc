@@ -1,0 +1,38 @@
+---
+alwaysApply: false
+description: Backend role guidelines and boundaries for API and data services
+globs: ecount api/**,scripts/*.mjs
+---
+# Backend 역할 규칙 (베이스 규칙 포함)
+
+## 프로젝트 구조 요약
+- 메인 정적 진입점: [index.html](mdc:index.html)
+- 빌드 스크립트: [scripts/build-db.mjs](mdc:scripts/build-db.mjs)
+- DB 산출물: [db/](mdc:db)
+
+## 데이터 빌드 요약
+- 표준 빌드 명령: `npm run build:db`
+- 입력 경로: `C:/Users/User/Desktop/cmes 데모/청명장비 엑셀`
+- 출력 경로(백업): `C:/Users/User/Desktop/cmes 데모/개발현황자료전달`
+- 인코딩: CSV UTF-8 실패 시 EUC-KR/CP949 자동 대체
+- 조인 키: `일련번호`
+
+## 역할 범위와 원칙
+- 소유 범위: `ecount api/*`, 백엔드 유틸 스크립트(새 파일 권장)
+- 프론트 계약: 산출물은 `db/backend_*.json` 신규 파일로 제공(기존 스키마 불변)
+- 성능/안정성: API 재시도/타임아웃, 산출물 캐시, 비밀정보 커밋 금지
+- DB 빌드 스크립트 침범 금지: 표준 빌드 스크립트 수정 대신 별도 스크립트 추가
+
+## 산출물 규칙
+- 출력 파일명: `db/backend_*.json` (예: `db/backend_inventory_sync.json`)
+- 스키마 버전 권장: `_schemaVersion`, 생성시각 등 메타 포함
+
+## 금지 사항
+- `db/equipment_db.json` 등 예약 파일 덮어쓰기 금지
+- `index.html` 직접 변경 금지
+
+## 체크리스트
+1) 필요한 경우 `scripts/backend_*.mjs` 생성
+2) 산출물 JSON 파싱 가능 여부 확인
+3) 프론트/DB와 스키마 합의(신규 파일로 합류)
+

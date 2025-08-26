@@ -1,0 +1,30 @@
+---
+alwaysApply: false
+description: UI role rules for frontend views and data consumption
+globs: index.html,dashboard.html
+---
+# UI 역할 규칙 (베이스 규칙 포함)
+
+## 프로젝트 구조 요약
+- 메인 정적 진입점: [index.html](mdc:index.html)
+- DB 산출물(프론트 fetch): [db/](mdc:db)
+
+## 프론트 데이터 로딩 규칙
+1) 우선순위: `db/equipment_db.json`, `db/movements_db.json`, `db/repairs_db.json` → 미존재 시 원천 파싱 폴백
+2) 캐시: fetch 옵션 `cache: 'no-store'`
+3) 상태 라벨 표준화: `수리 중|수리중`, `가동 중|RUN|Running` 등 동등 처리
+4) 탭 전환 시 초기화 함수 호출: `initEquipmentStatus()`, `initRepairLogs()`
+5) file:// 금지 → 로컬 서버로 서비스 (예: `npx http-server -c-1 .`)
+
+## 역할 원칙
+- 데이터는 `db/*.json`에서 fetch(읽기 전용), 스키마 파괴 금지
+- 새로운 데이터 필요 시 DB/Backend와 협의하여 신규 파일로 합류
+- 초기 로딩 최소화, 지연 로딩/캐시로 성능 확보
+
+## 금지 사항
+- `scripts/build-db.mjs` 수정 금지
+- 예약 파일 스키마 변경 요구 금지(확장은 신규 파일 제안)
+
+## 체크리스트
+1) 네트워크 오류 시 사용자 피드백/재시도 제공
+2) 접근성/키보드 탐색 유지, 명도 대비 준수

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>이카운트 테스트 (테스트 인증키)</title>
+	<style>
+		body{font-family:Segoe UI,Arial,sans-serif;margin:0;padding:24px;background:#fff}
+		.container{max-width:960px;margin:0 auto}
+		h1{margin:0 0 16px}
+		.controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+		button{padding:10px 14px;border:1px solid #ddd;background:#0d6efd;color:#fff;border-radius:6px;cursor:pointer}
+		button.secondary{background:#6c757d}
+		pre{background:#f7f7f9;border:1px solid #eee;border-radius:6px;padding:12px;white-space:pre-wrap;word-break:break-all}
+		label{display:block;margin:8px 0 4px}
+		input,select{width:280px;padding:8px;border:1px solid #ddd;border-radius:6px}
+		.small{width:160px}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>이카운트 테스트 (테스트 인증키)</h1>
+		<div class="controls">
+			<label>비밀번호</label>
+			<input id="pw" type="password" class="small" placeholder="예: cmsec2007!" />
+			<label>프리셋</label>
+			<select id="preset" class="small"></select>
+			<button class="secondary" onclick="applyPreset()">프리셋 적용</button>
+			<button onclick="runScenario()">검증 자동 실행</button>
+		</div>
+		<div class="controls">
+			<button onclick="login()">로그인(SESSION_ID)</button>
+			<button class="secondary" onclick="seed()">시드 생성(품목/거래처)</button>
+			<button class="secondary" onclick="callListProduct()">품목조회(PDEMO)</button>
+		</div>
+		<div>
+			<label>커스텀 호출 path (예: /Inventory/GetListProduct)</label>
+			<input id="path" placeholder="/Inventory/GetListProduct" />
+			<label>요청 본문(JSON)</label>
+			<input id="body" placeholder='{"PROD_CD":"PDEMO"}' />
+			<div class="controls">
+				<button onclick="callCustom()">임의 호출</button>
+			</div>
+		</div>
+		<h3>결과</h3>
+		<pre id="out"></pre>
+	</div>
+	<script>
+		const out = document.getElementById('out');
+		const BASE = 'http://localhost:3000';
+		function show(obj){ out.textContent = typeof obj==='string' ? obj : JSON.stringify(obj,null,2); }
+		function append(label, data){ out.textContent += `\n\n[${label}]\n` + (typeof data==='string'?data:JSON.stringify(data,null,2)); }
+		function getPw(){ return document.getElementById('pw').value || undefined; }
+		const presets = {
+			"Inventory/GetListProduct": { path: "/Inventory/GetListProduct", body: { PROD_CD: "PDEMO" }, type: "get" },
+			"Inventory/SaveProduct": { path: "/Inventory/SaveProduct", body: { ProductList:[{ PROD_CD:"P"+Date.now()%100000, PROD_DES:"데모상품", STND_DES:"규격", UNIT_DES:"EA", VAT_TYPE:"1", SALE_PRICE:1000, PUR_PRICE:800 }] }, type: "save" },
+			"Customer/SaveCustomer": { path: "/Customer/SaveCustomer", body: { CustomerList:[{ CUST_CD:"C"+Date.now()%100000, CUST_DES:"데모거래처", CEO_DES:"대표자", TEL:"010-0000-0000", ADDR:"서울" }] }, type: "save" },
+			"Customer/GetListCustomer": { path: "/Customer/GetListCustomer", body: { CUST_CD: "CDEMO" }, type: "get" },
+			"Sales/SaveSales": { path: "/Sales/SaveSales", body: { SalesList:[{ CUST_CD:"CDEMO", PROD_CD:"PDEMO", QTY:1, UNIT_PRICE:1000, VAT_TYPE:"1", SALE_DATE: new Date().toISOString().slice(0,10)}] }, type: "save" },
+			"Sales/GetListSales": { path: "/Sales/GetListSales", body: { SALE_DATE_FROM: new Date(Date.now()-7*86400000).toISOString().slice(0,10), SALE_DATE_TO: new Date().toISOString().slice(0,10) }, type: "get" },
+			"Purchases/SavePurchases": { path: "/Purchases/SavePurchases", body: { PurchasesList:[{ CUST_CD:"CDEMO", PROD_CD:"PDEMO", QTY:1, UNIT_PRICE:800, VAT_TYPE:"1", PUR_DATE: new Date().toISOString().slice(0,10)}] }, type: "save" },
+			"Purchases/GetListPurchases": { path: "/Purchases/GetListPurchases", body: { PUR_DATE_FROM: new Date(Date.now()-7*86400000).toISOString().slice(0,10), PUR_DATE_TO: new Date().toISOString().slice(0,10) }, type: "get" },
+			"InventoryBalance/GetListInventoryBalanceStatusByLocation": { path: "/InventoryBalance/GetListInventoryBalanceStatusByLocation", body: { BASE_DATE: new Date().toISOString().slice(0,10) }, type: "get" },
+			"Attendance/SaveAttendance": { path: "/Attendance/SaveAttendance", body: { AttendanceList:[{ EMP_CD:"E001", WORK_DATE:new Date().toISOString().slice(0,10), IN_TIME:"09:00", OUT_TIME:"18:00" }] }, type: "save" }
+		};
+		function fillPresetOptions(){
+			const sel = document.getElementById('preset');
+			Object.keys(presets).forEach(k=>{ const o=document.createElement('option'); o.value=k;o.textContent=k; sel.appendChild(o); });
+		}
+		function applyPreset(){
+			const sel = document.getElementById('preset').value;
+			const p = presets[sel];
+			document.getElementById('path').value = p.path;
+			document.getElementById('body').value = JSON.stringify(p.body);
+		}
+		fillPresetOptions();
+
+		async function login(){
+			try{ const r = await fetch(`${BASE}/api/ecount/login`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:getPw()})}); show(await r.json()); }catch(e){ show(String(e)); }
+		}
+		async function seed(){
+			try{ const r = await fetch(`${BASE}/api/ecount/test/seed`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:getPw()})}); show(await r.json()); }catch(e){ show(String(e)); }
+		}
+		async function callApi(path, body){
+			const r = await fetch(`${BASE}/api/ecount/call`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({path, body, password:getPw()})});
+			return r.json();
+		}
+		async function callListProduct(){
+			try{ const r = await callApi('/Inventory/GetListProduct',{PROD_CD:'PDEMO'}); show(r); }catch(e){ show(String(e)); }
+		}
+		async function callCustom(){
+			try{
+				const path = document.getElementById('path').value || '/Inventory/GetListProduct';
+				const body = document.getElementById('body').value || '{"PROD_CD":"PDEMO"}';
+				const r = await callApi(path, JSON.parse(body));
+				show(r);
+			}catch(e){ show(String(e)); }
+		}
+		function delay(ms){ return new Promise(r=>setTimeout(r,ms)); }
+		async function runScenario(){
+			show('시나리오 실행 시작... (저장 20초, 조회 2초 간격)\n문서: https://sboapicd.ecount.com/ECERP/OAPI/OAPIView?lan_type=ko-KR#');
+			try{
+				let resp = await fetch(`${BASE}/api/ecount/login`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:getPw()})});
+				append('login', await resp.json());
+				const planKeys = [
+					"Inventory/GetListProduct",
+					"Inventory/SaveProduct",
+					"Customer/SaveCustomer",
+					"Customer/GetListCustomer",
+					"Sales/SaveSales",
+					"Sales/GetListSales",
+					"Purchases/SavePurchases",
+					"Purchases/GetListPurchases",
+					"InventoryBalance/GetListInventoryBalanceStatusByLocation",
+					"Attendance/SaveAttendance"
+				];
+				for (const key of planKeys){
+					const p = presets[key];
+					append('call', { path:p.path, body:p.body, type:p.type });
+					const r = await callApi(p.path, p.body);
+					append('result', r);
+					await delay(p.type==='save' ? 20000 : 2000);
+				}
+				append('완료', '시나리오 종료');
+			}catch(e){ append('오류', String(e)); }
+		}
+	</script>
+</body>
+</html>
