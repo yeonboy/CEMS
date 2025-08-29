@@ -1,12 +1,106 @@
 {
   "meta": {
     "_schemaVersion": "1.0.0",
-    "generatedAt": "2025-08-26T10:28:11Z",
+    "generatedAt": "2025-08-28T06:51:54Z",
     "sourceFiles": [
       "equipment_db.json",
+      "movements_db.json",
       "repairs_db_clean.json",
       "QC_logs.json"
     ]
   },
-  "data": []
+  "data": [
+    {
+      "category": "(CO) 48i",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(CO) 48iQ",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(CO) MEZUS-310",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(CO) Serinus30i",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(NO2) MEZUS-210",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(NO2) Serinus40",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(NOx, SOx) BMW-5000",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(O3) 49i",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(O3) 49iQ",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(O3) Serinus10i",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(PM-10) BAM 1020",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(PM-10) E-BAM",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(PM-10) KMS-4200",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(PM-10) PMS-204",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(PM-2.5) BAM 1020",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(PM-2.5) E-BAM",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(PM-2.5) KMS-4200",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(PM-2.5) PMS-204",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(Pb) T8400ME",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(Pb) TFIA-2",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(SO2) Serinus50i",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "(벤젠) MP-Σ30KNⅡ",
+      "uptimeEstimatePct": 100
+    },
+    {
+      "category": "UNKNOWN",
+      "uptimeEstimatePct": 100
+    }
+  ]
 }

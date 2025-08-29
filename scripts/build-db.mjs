@@ -73,6 +73,7 @@ const RESERVED_DB_FILES = new Set([
 function chooseBestKoreanDecoding(buf) {
   const candidates = [
     { enc: 'utf8', text: (()=>{ try { return buf.toString('utf8'); } catch { return ''; } })() },
+    { enc: 'utf16le', text: (()=>{ try { return buf.toString('utf16le'); } catch { return ''; } })() },
     { enc: 'euc-kr', text: (()=>{ try { return iconv.decode(buf, 'euc-kr'); } catch { return ''; } })() },
     { enc: 'cp949', text: (()=>{ try { return iconv.decode(buf, 'cp949'); } catch { return ''; } })() },
   ];
@@ -92,7 +93,7 @@ function detectDelimiter(text) {
   const firstLine = (text.split(/\r?\n/)[0] || '');
   const countTab = (firstLine.match(/\t/g) || []).length;
   const countComma = (firstLine.match(/,/g) || []).length;
-  출장/수리 회차 집계를 자동 산출하는 db/stats_repairs_overview.json 등 통계 산출도 생성해드릴 수 있습니  if (countTab > countComma) return '\t';
+  if (countTab > countComma) return '\t';
   if (countComma > countTab) return ',';
   // 동률이거나 혼용(\t,) (,\t) 패턴인 경우 탭 우선
   if (/\t,|,\t/.test(firstLine)) return '\t';
@@ -368,89 +369,111 @@ async function build() {
     }
   }
 
-  // 2) logs.csv → movements (출고/입고 이력)
+  // 2) 이동 이력(여러 소스) 읽기 → 기존 DB와 병합(추가 방식)
   let movements = [];
-  if (fs.existsSync(INPUT_FILES.movementCsv)) {
+
+  // 후보 소스 파일 나열: logs.csv, logs_fixed.csv, *movements*.csv 등
+  function listMovementFiles() {
+    const files = new Set();
+    if (fs.existsSync(INPUT_FILES.movementCsv)) files.add(INPUT_FILES.movementCsv);
+    if (fs.existsSync(ALT_INPUT_FILES.movementCsvFixed)) files.add(ALT_INPUT_FILES.movementCsvFixed);
+    const recentExtra = path.join(SOURCE_DIR, '8.25~8.28movements_logs.csv');
+    if (fs.existsSync(recentExtra)) files.add(recentExtra);
     try {
-      const moveRows = await readCsvWithHeader(INPUT_FILES.movementCsv);
-      const stockRows = [];
-      for (const r of moveRows) {
-        const date = parseYmd(getByKeys(r, ['일자-No.', '일자', '입고일자', '출고일자', '일시', '날짜', 'Date', '등록일', '기준일', '재고일']));
-        const outLocation = getByKeys(r, ['출고창고명', '출고창고', '출고', 'From', 'from', '출고지', '출고(창고)', '출고위치']);
-        const inLocation = getByKeys(r, ['입고창고명', '입고창고', '입고', 'To', 'to', '입고지', '입고(창고)', '입고위치', '현재위치']);
-        const equipmentName = getByKeys(r, ['장비명', '품명', '품목명', 'Name', 'Equipment']);
-        const serial = getByKeys(r, ['규격', '일련번호', 'S/N', 'SN', 'Serial', 'Serial No', 'SerialNo', 'SerialNo.', '일련 No', '일련 No.']);
-        const qtyStr = getByKeys(r, ['수량', 'Qty', '수량(EA)', '재고', '재고수량', '수']);
-        const note = getByKeys(r, ['비고', '메모', 'Note', '장비상태']);
-        const status = getByKeys(r, ['상태', 'Status', '장비상태']);
-        const quantity = parseInt((qtyStr || '1').replace(/[^0-9-]/g, '')) || 1;
-        if (!serial) continue;
-        // 재고 스냅샷 형태(청명/현장/업체 열) 감지
-        const stockCheong = getByKeys(r, ['청명', '본사', '본사창고', '청명창고']);
-        const stockHyun = getByKeys(r, ['현장', '현장재고']);
-        const stockUpche = getByKeys(r, ['업체', '수리업체', '외주', '협력사']);
-        const hasStock = [stockCheong, stockHyun, stockUpche].some(v => String(v||'').trim() !== '');
-        if (hasStock) {
-          stockRows.push({
-            date,
-            serial,
-            cheong: parseInt(String(stockCheong||'0').replace(/[^0-9-]/g,'')) || 0,
-            hyun: parseInt(String(stockHyun||'0').replace(/[^0-9-]/g,'')) || 0,
-            upche: parseInt(String(stockUpche||'0').replace(/[^0-9-]/g,'')) || 0,
-          });
-        } else {
+      const names = fs.readdirSync(SOURCE_DIR);
+      for (const n of names) {
+        const lower = (n || '').toLowerCase();
+        if (lower.endsWith('.csv') && (lower.includes('movements') || lower.includes('이동'))) {
+          files.add(path.join(SOURCE_DIR, n));
+        }
+      }
+    } catch {}
+    return Array.from(files);
+  }
+
+  function parseMovementRows(moveRows) {
+    const out = [];
+    const stockRows = [];
+    for (const r of moveRows) {
+      const date = parseYmd(getByKeys(r, ['일자-No.', '일자', '입고일자', '출고일자', '일시', '날짜', 'Date', '등록일', '기준일', '재고일']));
+      const outLocation = getByKeys(r, ['출고창고명', '출고창고', '출고', 'From', 'from', '출고지', '출고(창고)', '출고위치']);
+      const inLocation = getByKeys(r, ['입고창고명', '입고창고', '입고', 'To', 'to', '입고지', '입고(창고)', '입고위치', '현재위치']);
+      const equipmentName = getByKeys(r, ['장비명', '품명', '품목명', 'Name', 'Equipment']);
+      const serial = getByKeys(r, ['규격', '일련번호', 'S/N', 'SN', 'Serial', 'Serial No', 'SerialNo', 'SerialNo.', '일련 No', '일련 No.']);
+      const qtyStr = getByKeys(r, ['수량', 'Qty', '수량(EA)', '재고', '재고수량', '수']);
+      const note = getByKeys(r, ['비고', '메모', 'Note', '장비상태']);
+      const status = getByKeys(r, ['상태', 'Status', '장비상태']);
+      const quantity = parseInt((qtyStr || '1').replace(/[^0-9-]/g, '')) || 1;
+      if (!serial) continue;
+      // 재고 스냅샷 감지(청명/현장/업체 열)
+      const stockCheong = getByKeys(r, ['청명', '본사', '본사창고', '청명창고']);
+      const stockHyun = getByKeys(r, ['현장', '현장재고']);
+      const stockUpche = getByKeys(r, ['업체', '수리업체', '외주', '협력사']);
+      const hasStock = [stockCheong, stockHyun, stockUpche].some(v => String(v||'').trim() !== '');
+      if (hasStock) {
+        stockRows.push({ date, serial, cheong: parseInt(String(stockCheong||'0').replace(/[^0-9-]/g,'')) || 0, hyun: parseInt(String(stockHyun||'0').replace(/[^0-9-]/g,'')) || 0, upche: parseInt(String(stockUpche||'0').replace(/[^0-9-]/g,'')) || 0 });
+      } else {
+        out.push({ date, outLocation, inLocation, equipmentName, serial, quantity, note, status });
+      }
+    }
+    // 스냅샷 → 이동 변환
+    for (const s of stockRows) {
+      let inLoc = '';
+      if (s.upche > 0) inLoc = '업체';
+      else if (s.hyun > 0) inLoc = '현장';
+      else if (s.cheong > 0) inLoc = '청명';
+      out.push({ date: s.date, outLocation: '', inLocation: inLoc, equipmentName: '', serial: s.serial, quantity: 1, note: '', status: '' });
+    }
+    return out;
+  }
+
+  const movementFiles = listMovementFiles();
+  let parsedCount = 0;
+  for (const f of movementFiles) {
+    let ok = false;
+    try {
+      const rows = await readCsvWithHeader(f);
+      const part = parseMovementRows(rows);
+      if (part.length > 0) {
+        movements.push(...part);
+        parsedCount += part.length;
+        ok = true;
+      }
+    } catch {}
+    if (!ok) {
+      try {
+        const rowsRaw = await readCsvAuto(f);
+        // 첫 행 헤더일 가능성 → 간단히 헤더 스킵 처리
+        for (let i = 1; i < rowsRaw.length; i++) {
+          const r = rowsRaw[i];
+          if (!r) continue;
+          const date = parseYmd((r[0] || '').toString().trim());
+          const outLocation = (r[1] || '').toString().trim();
+          const inLocation = (r[2] || '').toString().trim();
+          const equipmentName = (r[3] || '').toString().trim();
+          const serial = (r[4] || '').toString().trim();
+          const quantity = parseInt((r[5] || '1').toString().trim()) || 1;
+          const note = (r[6] || '').toString().trim();
+          const status = (r[7] || '').toString().trim();
+          if (!serial) continue;
           movements.push({ date, outLocation, inLocation, equipmentName, serial, quantity, note, status });
+          parsedCount++;
         }
-      }
-      // 재고 스냅샷을 일반 이동처럼 변환(입고창고명 기준 상태 판정에 활용)
-      if (stockRows.length) {
-        for (const s of stockRows) {
-          let inLoc = '';
-          if (s.upche > 0) inLoc = '업체';
-          else if (s.hyun > 0) inLoc = '현장';
-          else if (s.cheong > 0) inLoc = '청명';
-          movements.push({ date: s.date, outLocation: '', inLocation: inLoc, equipmentName: '', serial: s.serial, quantity: 1, note: '', status: '' });
-        }
-      }
-    } catch {
-      const movementsRaw = await readCsvAuto(INPUT_FILES.movementCsv);
-      for (let i = 1; i < movementsRaw.length; i++) {
-        const r = movementsRaw[i];
-        if (!r) continue;
-        const date = (r[0] || '').toString().trim();
-        const outLocation = (r[1] || '').toString().trim();
-        const inLocation = (r[2] || '').toString().trim();
-        const equipmentName = (r[3] || '').toString().trim();
-        const serial = (r[4] || '').toString().trim();
-        const quantity = parseInt((r[5] || '1').toString().trim()) || 1;
-        const note = (r[6] || '').toString().trim();
-        const status = (r[7] || '').toString().trim();
-        if (!serial) continue;
-        movements.push({ date, outLocation, inLocation, equipmentName, serial, quantity, note, status });
+      } catch (e2) {
+        console.warn('[movements] 파싱 실패:', f, e2.message);
       }
     }
   }
-  // 폴백: logs_fixed.csv 사용
-  if (movements.length === 0 && fs.existsSync(ALT_INPUT_FILES.movementCsvFixed)) {
-    try {
-      const moveRows = await readCsvWithHeader(ALT_INPUT_FILES.movementCsvFixed);
-      for (const r of moveRows) {
-        const date = parseYmd(getByKeys(r, ['일자-No.', '일자', '입고일자', '출고일자', '일시', '날짜', 'Date', '등록일', '기준일', '재고일']));
-        const outLocation = getByKeys(r, ['출고창고명', '출고창고', '출고', 'From', 'from', '출고지', '출고(창고)', '출고위치']);
-        const inLocation = getByKeys(r, ['입고창고명', '입고창고', '입고', 'To', 'to', '입고지', '입고(창고)', '입고위치', '현재위치']);
-        const equipmentName = getByKeys(r, ['장비명', '품명', '품목명', 'Name', 'Equipment']);
-        const serial = getByKeys(r, ['규격', '일련번호', 'S/N', 'SN', 'Serial', 'Serial No', 'SerialNo', 'SerialNo.', '일련 No', '일련 No.']);
-        const qtyStr = getByKeys(r, ['수량', 'Qty', '수량(EA)', '재고', '재고수량', '수']);
-        const note = getByKeys(r, ['비고', '메모', 'Note', '장비상태']);
-        const status = getByKeys(r, ['상태', 'Status', '장비상태']);
-        const quantity = parseInt((qtyStr || '1').replace(/[^0-9-]/g, '')) || 1;
-        if (!serial) continue;
-        movements.push({ date, outLocation, inLocation, equipmentName, serial, quantity, note, status });
-      }
-      console.log('[fallback] logs_fixed.csv 로 movements 구성:', movements.length);
-    } catch (e) {
-      console.warn('[fallback] logs_fixed.csv 파싱 실패:', e.message);
-    }
+  console.log('[movements] 소스 파일 수:', movementFiles.length, '행 수:', parsedCount);
+
+  // 기존 db/movements_db.json과 병합(추가 방식, 중복 제거)
+  const existingMovements = readJsonIfExists(PUBLIC_FILES.movementsJson);
+  if (Array.isArray(existingMovements) && existingMovements.length) {
+    const key = (m) => [parseYmd(m.date||''), (m.serial||'').trim(), (m.outLocation||'').trim(), (m.inLocation||'').trim(), String(m.quantity||1)].join('|');
+    const map = new Map();
+    for (const x of existingMovements) map.set(key(x), x);
+    for (const x of movements) map.set(key(x), x);
+    movements = Array.from(map.values()).sort((a,b)=> (parseYmd(a.date)||'') < (parseYmd(b.date)||'') ? -1 : 1);
   }
 
   // 3) 수리내역logs.xlsx → repairs (옵션)
@@ -534,19 +557,7 @@ async function build() {
     categoryToUptime.set(cat, pct);
   }
 
-  // 최신 날짜(스냅샷) 계산
-  let latestDate = '';
-  for (const m of movements) {
-    const d = parseYmd(m.date);
-    if (d && d > latestDate) latestDate = d;
-  }
-  const latestBySerial = new Map();
-  if (latestDate) {
-    for (const m of movements) {
-      const d = parseYmd(m.date);
-      if (d === latestDate) latestBySerial.set(m.serial, m);
-    }
-  }
+  // (제거됨) 전역 최신일 스냅샷 사용 안 함: 일련번호별 최신 이동만 사용
 
   function classifyByLocation(loc) {
     const s = (loc || '').toString();
@@ -556,39 +567,35 @@ async function build() {
     return { status: '대기 중', location: s || '본사 창고' };
   }
 
+  // 기존 equipment_db.json과 병합(추가 방식) 대비: 직전 상태를 읽어 최신 이동으로 갱신
+  const existingEquipment = readJsonIfExists(PUBLIC_FILES.equipmentJson);
+  const serialToExisting = new Map(Array.isArray(existingEquipment) ? existingEquipment.map(x => [x.serial, x]) : []);
+
   const enrichedEquipment = equipment.map(e => {
     const moves = serialToMovements.get(e.serial) || [];
     const reps = serialToRepairs.get(e.serial) || [];
     const lastMove = moves[moves.length - 1];
-    // 스냅샷 우선: 최신 날짜에 기록이 있으면 그 이동의 입고창고명(inLocation)으로 판정
-    const snapshotMove = latestBySerial.get(e.serial);
+
+    // 요구사항: 상태/현재위치는 "가장 최근 이동기록의 inLocation" 기준으로만 결정
     let currentLocation = '본사 창고';
     let status = '대기 중';
-    if (snapshotMove) {
-      const judged = classifyByLocation(snapshotMove.inLocation || snapshotMove.outLocation || '');
-      currentLocation = judged.location;
-      status = judged.status;
-    } else if (lastMove) {
-      const judged = classifyByLocation(lastMove.inLocation || lastMove.outLocation || '');
+    if (lastMove) {
+      const judged = classifyByLocation(lastMove.inLocation || '');
       currentLocation = judged.location;
       status = judged.status;
     }
-    // 비고/상태에 수리 키워드가 있으면 수리중으로 보정
-    const note = (lastMove?.note || '') + ' ' + (lastMove?.status || '');
-    if (/수리|점검|수선/.test(note)) status = '수리중';
-    // 수리 기록 존재 + 최근 이동이 업체이면 수리중으로 보정
-    if (reps.length > 0 && /업체/.test((snapshotMove?.inLocation || lastMove?.inLocation || '') + '')) status = '수리중';
 
-    const lastMovement = (snapshotMove?.date || lastMove?.date || '');
+    const lastMovement = (lastMove?.date || '');
     const uptimeEstimatePct = categoryToUptime.get(e.category) ?? 0;
     const totalRepairCost = reps.reduce((a,b)=> a + (b.cost||0), 0);
+    const prev = serialToExisting.get(e.serial) || {};
     return {
       serial: e.serial,
-      category: e.category,
-      currentLocation,
-      status,
-      lastMovement,
-      uptimeEstimatePct,
+      category: e.category || prev.category,
+      currentLocation: currentLocation || prev.currentLocation || '본사 창고',
+      status: status || prev.status || '대기 중',
+      lastMovement: lastMovement || prev.lastMovement || '',
+      uptimeEstimatePct: uptimeEstimatePct || prev.uptimeEstimatePct || 0,
       repairCount: reps.length,
       totalRepairCost
     };
@@ -606,22 +613,38 @@ async function build() {
   backupIfExists(OUTPUT_FILES.movementsJson, 'movements_db.out');
   backupIfExists(OUTPUT_FILES.repairsJson, 'repairs_db.out');
 
-  // 5) 출력(JSON/CSV)
-  fs.writeFileSync(OUTPUT_FILES.equipmentJson, JSON.stringify(enrichedEquipment, null, 2));
-  fs.writeFileSync(OUTPUT_FILES.movementsJson, JSON.stringify(movements, null, 2));
-  fs.writeFileSync(OUTPUT_FILES.repairsJson, JSON.stringify(repairs, null, 2));
+  // 5) 출력(JSON/CSV) - 기존 파일에 '추가/병합' 방식으로 반영
+  function writeMergedJson(targetFile, nextArray, uniqueKeyFn) {
+    const prev = readJsonIfExists(targetFile);
+    let merged = Array.isArray(prev) ? prev.slice() : [];
+    if (!uniqueKeyFn) {
+      merged = nextArray; // 장비는 serial 기준 완전 대체(동일 serial은 최신으로 덮어씀)
+    } else {
+      const map = new Map(merged.map(x => [uniqueKeyFn(x), x]));
+      for (const x of nextArray) map.set(uniqueKeyFn(x), x);
+      merged = Array.from(map.values());
+    }
+    fs.writeFileSync(targetFile, JSON.stringify(merged, null, 2));
+    return merged;
+  }
 
-  // public(db/)에도 복사하여 프론트에서 fetch 가능
-  fs.writeFileSync(PUBLIC_FILES.equipmentJson, JSON.stringify(enrichedEquipment, null, 2));
-  fs.writeFileSync(PUBLIC_FILES.movementsJson, JSON.stringify(movements, null, 2));
-  fs.writeFileSync(PUBLIC_FILES.repairsJson, JSON.stringify(repairs, null, 2));
+  // equipment: serial 기준 덮어쓰기(최신 상태로 갱신)
+  writeMergedJson(OUTPUT_FILES.equipmentJson, enrichedEquipment);
+  const mergedMovements = writeMergedJson(OUTPUT_FILES.movementsJson, movements, (m)=> [parseYmd(m.date||''),(m.serial||'').trim(),(m.outLocation||'').trim(),(m.inLocation||'').trim(),String(m.quantity||1)].join('|'));
+  writeMergedJson(OUTPUT_FILES.repairsJson, repairs, (r)=> [parseYmd(r.date||''),(r.serial||'').trim(),(r.company||'').trim(),String(r.cost||0)].join('|'));
+
+  // public(db/)에도 동일 병합 반영
+  writeMergedJson(PUBLIC_FILES.equipmentJson, enrichedEquipment);
+  writeMergedJson(PUBLIC_FILES.movementsJson, movements, (m)=> [parseYmd(m.date||''),(m.serial||'').trim(),(m.outLocation||'').trim(),(m.inLocation||'').trim(),String(m.quantity||1)].join('|'));
+  writeMergedJson(PUBLIC_FILES.repairsJson, repairs, (r)=> [parseYmd(r.date||''),(r.serial||'').trim(),(r.company||'').trim(),String(r.cost||0)].join('|'));
 
   fs.writeFileSync(OUTPUT_FILES.equipmentCsv, toCsv(enrichedEquipment, ['serial','category','currentLocation','status','lastMovement','repairCount','totalRepairCost']));
   fs.writeFileSync(OUTPUT_FILES.movementsCsv, toCsv(movements, ['date','outLocation','inLocation','equipmentName','serial','quantity','note','status']));
   fs.writeFileSync(OUTPUT_FILES.repairsCsv, toCsv(repairs, ['date','serial','company','details','cost']));
 
-  // 6) 물품 주문 내역서.xlsx → 시트별 DB
-  if (fs.existsSync(INPUT_FILES.orderXlsx)) {
+  // 6) 물품 주문 내역서.xlsx → 시트별 DB (기본 스킵, ENABLE_ORDER_PARSING=1 일 때만 실행)
+  const ENABLE_ORDER_PARSING = process.env.ENABLE_ORDER_PARSING === '1';
+  if (ENABLE_ORDER_PARSING && fs.existsSync(INPUT_FILES.orderXlsx)) {
     console.log('Parsing 물품 주문 내역서.xlsx ...');
     const wb2 = xlsx.read(fs.readFileSync(INPUT_FILES.orderXlsx));
     const sheetNames = wb2.SheetNames;
@@ -733,7 +756,7 @@ async function build() {
       productCatalog: productCatalog.length,
     });
   } else {
-    console.log('물품 주문 내역서.xlsx not found, skipping.');
+    console.log('Order workbook parsing skipped by default. Set ENABLE_ORDER_PARSING=1 to enable.');
   }
 
   // 7) JSON 유효성 검증 수행

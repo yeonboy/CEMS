@@ -18181,16 +18181,6 @@
   },
   {
     "date": "2024-08-26",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "CUW2200H",
-    "serial": "D454510538",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-08-26",
     "outLocation": "청명",
     "inLocation": "현장",
     "equipmentName": "(NO2) MEZUS-210",
@@ -18726,45 +18716,25 @@
     "equipmentName": "Kestrel5500",
     "serial": "2390486",
     "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-08-27",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "COS-100",
-    "serial": "KM008W18CO77",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-08-27",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "Kestrel5500",
-    "serial": "2390486",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-08-27",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "Kestrel5500",
-    "serial": "2390486",
-    "quantity": 1,
     "note": "비에이치제2공장, 칠곡 중리지구",
     "status": "정상"
   },
   {
     "date": "2024-08-27",
-    "outLocation": "청명",
-    "inLocation": "현장",
+    "outLocation": "현장",
+    "inLocation": "청명",
     "equipmentName": "COS-100",
     "serial": "KM008W18CO77",
+    "quantity": 1,
+    "note": "정상",
+    "status": "정상"
+  },
+  {
+    "date": "2024-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "Kestrel5500",
+    "serial": "2390486",
     "quantity": 1,
     "note": "정상",
     "status": "정상"
@@ -19106,8 +19076,8 @@
     "equipmentName": "DO/pH METER",
     "serial": "838142(804F0013)",
     "quantity": 1,
-    "note": "",
-    "status": ""
+    "note": "김종찬,황혜민",
+    "status": "정상"
   },
   {
     "date": "2024-08-28",
@@ -19116,8 +19086,8 @@
     "equipmentName": "FP101 Flow Probe.",
     "serial": "1724002714",
     "quantity": 1,
-    "note": "",
-    "status": ""
+    "note": "정상",
+    "status": "정상"
   },
   {
     "date": "2024-08-28",
@@ -19245,26 +19215,6 @@
     "inLocation": "청명",
     "equipmentName": "FP101 Flow Probe.",
     "serial": "1829002045",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-08-28",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "DO/pH METER",
-    "serial": "838142(804F0013)",
-    "quantity": 1,
-    "note": "김종찬,황혜민",
-    "status": "정상"
-  },
-  {
-    "date": "2024-08-28",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "FP101 Flow Probe.",
-    "serial": "1724002714",
     "quantity": 1,
     "note": "정상",
     "status": "정상"
@@ -24326,7 +24276,7 @@
     "equipmentName": "(소음계교정) AC-300",
     "serial": "624",
     "quantity": 1,
-    "note": "정상",
+    "note": "도담~영천 복선전철",
     "status": "정상"
   },
   {
@@ -24673,20 +24623,10 @@
     "date": "2024-09-09",
     "outLocation": "청명",
     "inLocation": "현장",
-    "equipmentName": "(소음계교정) AC-300",
-    "serial": "624",
-    "quantity": 1,
-    "note": "도담~영천 복선전철",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-09",
-    "outLocation": "청명",
-    "inLocation": "현장",
     "equipmentName": "ProPlus",
     "serial": "17K100085",
     "quantity": 1,
-    "note": "정상",
+    "note": "무릉건강복합체험, 춘천~속초 철도건설",
     "status": "정상"
   },
   {
@@ -25225,46 +25165,6 @@
     "inLocation": "현장",
     "equipmentName": "(소음계교정) AC-300",
     "serial": "630",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-09",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "17K100085",
-    "quantity": 1,
-    "note": "무릉건강복합체험, 춘천~속초 철도건설",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-09",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "FP101 Flow Probe.",
-    "serial": "1829002045",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-09",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "ProPlus",
-    "serial": "17K100085",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-09",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "FP101 Flow Probe.",
-    "serial": "1829002045",
     "quantity": 1,
     "note": "정상",
     "status": "정상"
@@ -28456,7 +28356,7 @@
     "equipmentName": "ProPlus",
     "serial": "19E102565",
     "quantity": 1,
-    "note": "정상",
+    "note": "광양 제2 LNG, 중동항 방파제",
     "status": "정상"
   },
   {
@@ -28547,16 +28447,6 @@
     "serial": "17K100085",
     "quantity": 1,
     "note": "박희정,권정원",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-25",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "19E102565",
-    "quantity": 1,
-    "note": "광양 제2 LNG, 중동항 방파제",
     "status": "정상"
   },
   {
@@ -29687,16 +29577,6 @@
     "serial": "770654",
     "quantity": 1,
     "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-27",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "ProPlus",
-    "serial": "19E102565",
-    "quantity": 1,
-    "note": "정상",
     "status": "정상"
   },
   {
@@ -30846,8 +30726,8 @@
     "equipmentName": "(PM-10) KMS-4200",
     "serial": "18P359",
     "quantity": 1,
-    "note": "",
-    "status": ""
+    "note": "A-1",
+    "status": "정상"
   },
   {
     "date": "2024-09-30",
@@ -30856,8 +30736,8 @@
     "equipmentName": "(PM-2.5) KMS-4200",
     "serial": "19P404",
     "quantity": 1,
-    "note": "",
-    "status": ""
+    "note": "A-1",
+    "status": "정상"
   },
   {
     "date": "2024-09-30",
@@ -30866,8 +30746,8 @@
     "equipmentName": "(NOx, SOx) BMW-5000",
     "serial": "1313",
     "quantity": 1,
-    "note": "",
-    "status": ""
+    "note": "A-1",
+    "status": "정상"
   },
   {
     "date": "2024-09-30",
@@ -30876,8 +30756,8 @@
     "equipmentName": "(CO) 48iQ",
     "serial": "1202038522",
     "quantity": 1,
-    "note": "",
-    "status": ""
+    "note": "A-1",
+    "status": "정상"
   },
   {
     "date": "2024-09-30",
@@ -30886,8 +30766,8 @@
     "equipmentName": "(O3) 49iQ",
     "serial": "1192754688",
     "quantity": 1,
-    "note": "",
-    "status": ""
+    "note": "A-1",
+    "status": "정상"
   },
   {
     "date": "2024-09-30",
@@ -30896,8 +30776,8 @@
     "equipmentName": "(Pb) T8400ME",
     "serial": "TA3277",
     "quantity": 1,
-    "note": "",
-    "status": ""
+    "note": "A-1",
+    "status": "정상"
   },
   {
     "date": "2024-09-30",
@@ -30906,8 +30786,8 @@
     "equipmentName": "(VOCs) MP-Σ30KNⅡ",
     "serial": "770655",
     "quantity": 1,
-    "note": "",
-    "status": ""
+    "note": "A-1",
+    "status": "정상"
   },
   {
     "date": "2024-09-30",
@@ -31997,76 +31877,6 @@
     "serial": "19E102565",
     "quantity": 1,
     "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-30",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(VOCs) MP-Σ30KNⅡ",
-    "serial": "770655",
-    "quantity": 1,
-    "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-30",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(CO) 48iQ",
-    "serial": "1202038522",
-    "quantity": 1,
-    "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-30",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(O3) 49iQ",
-    "serial": "1192754688",
-    "quantity": 1,
-    "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-30",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "1313",
-    "quantity": 1,
-    "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-30",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(PM-10) KMS-4200",
-    "serial": "18P359",
-    "quantity": 1,
-    "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-30",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(PM-2.5) KMS-4200",
-    "serial": "19P404",
-    "quantity": 1,
-    "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2024-09-30",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(Pb) T8400ME",
-    "serial": "TA3277",
-    "quantity": 1,
-    "note": "A-1",
     "status": "정상"
   },
   {
@@ -34193,26 +34003,6 @@
     "date": "2024-10-08",
     "outLocation": "청명",
     "inLocation": "현장",
-    "equipmentName": "FP101 Flow Probe.",
-    "serial": "1828001882",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-10-08",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "ProPlus",
-    "serial": "19E102565",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-10-08",
-    "outLocation": "현장",
-    "inLocation": "청명",
     "equipmentName": "FP101 Flow Probe.",
     "serial": "1828001882",
     "quantity": 1,
@@ -36636,7 +36426,7 @@
     "equipmentName": "ProPlus",
     "serial": "19E102565",
     "quantity": 1,
-    "note": "정상",
+    "note": "광양 제2 LNG터미널",
     "status": "정상"
   },
   {
@@ -36857,16 +36647,6 @@
     "serial": "633",
     "quantity": 1,
     "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-10-13",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "19E102565",
-    "quantity": 1,
-    "note": "광양 제2 LNG터미널",
     "status": "정상"
   },
   {
@@ -37895,16 +37675,6 @@
     "inLocation": "현장",
     "equipmentName": "(진동) TYPE3233",
     "serial": "160096",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-10-14",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(소음계교정) AC-300",
-    "serial": "627",
     "quantity": 1,
     "note": "정상",
     "status": "정상"
@@ -51200,26 +50970,6 @@
     "status": "정상"
   },
   {
-    "date": "2024-11-04",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "17K100085",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-11-04",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "ProPlus",
-    "serial": "17K100085",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
     "date": "2024-11-05",
     "outLocation": "청명",
     "inLocation": "현장",
@@ -51635,16 +51385,6 @@
     "inLocation": "현장",
     "equipmentName": "FP101 Flow Probe.",
     "serial": "1828001882",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-11-06",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "17K100085",
     "quantity": 1,
     "note": "정상",
     "status": "정상"
@@ -52503,16 +52243,6 @@
     "date": "2024-11-07",
     "outLocation": "청명",
     "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "17K100085",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-11-07",
-    "outLocation": "현장",
-    "inLocation": "청명",
     "equipmentName": "ProPlus",
     "serial": "17K100085",
     "quantity": 1,
@@ -57773,16 +57503,6 @@
     "date": "2024-11-18",
     "outLocation": "청명",
     "inLocation": "현장",
-    "equipmentName": "(소음계교정) AC-300",
-    "serial": "627",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-11-18",
-    "outLocation": "청명",
-    "inLocation": "현장",
     "equipmentName": "(O3) 49iQ",
     "serial": "1190581598",
     "quantity": 1,
@@ -58766,8 +58486,8 @@
     "equipmentName": "ProPlus",
     "serial": "19E102565",
     "quantity": 1,
-    "note": "",
-    "status": ""
+    "note": "정상",
+    "status": "정상"
   },
   {
     "date": "2024-11-19",
@@ -58983,16 +58703,6 @@
     "date": "2024-11-19",
     "outLocation": "청명",
     "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "19E102565",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-11-19",
-    "outLocation": "현장",
-    "inLocation": "청명",
     "equipmentName": "ProPlus",
     "serial": "19E102565",
     "quantity": 1,
@@ -59561,16 +59271,6 @@
   },
   {
     "date": "2024-11-20",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(소음계교정) AC-300",
-    "serial": "627",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-11-20",
     "outLocation": "현장",
     "inLocation": "청명",
     "equipmentName": "(소음) SC-260",
@@ -59585,16 +59285,6 @@
     "inLocation": "청명",
     "equipmentName": "(진동) TYPE3233",
     "serial": "160096",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-11-20",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(소음계교정) AC-300",
-    "serial": "627",
     "quantity": 1,
     "note": "정상",
     "status": "정상"
@@ -60303,16 +59993,6 @@
     "date": "2024-11-21",
     "outLocation": "청명",
     "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "19E102565",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2024-11-21",
-    "outLocation": "현장",
-    "inLocation": "청명",
     "equipmentName": "ProPlus",
     "serial": "19E102565",
     "quantity": 1,
@@ -81306,7 +80986,7 @@
     "equipmentName": "ProPlus",
     "serial": "17K100085",
     "quantity": 1,
-    "note": "화태-백야,무주-설천",
+    "note": "무주~설천",
     "status": "정상"
   },
   {
@@ -81377,16 +81057,6 @@
     "serial": "629",
     "quantity": 1,
     "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-01-13",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "17K100085",
-    "quantity": 1,
-    "note": "무주~설천",
     "status": "정상"
   },
   {
@@ -81575,16 +81245,6 @@
     "inLocation": "현장",
     "equipmentName": "FP101 Flow Probe.",
     "serial": "1724002714",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-01-14",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "ProPlus",
-    "serial": "17K100085",
     "quantity": 1,
     "note": "정상",
     "status": "정상"
@@ -97563,78 +97223,8 @@
     "date": "2025-02-24",
     "outLocation": "현장",
     "inLocation": "청명",
-    "equipmentName": "(PM-10) KMS-4200",
-    "serial": "18P373",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-02-24",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "1311",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-02-24",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(PM-10) KMS-4200",
-    "serial": "19P430",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-02-24",
-    "outLocation": "현장",
-    "inLocation": "청명",
     "equipmentName": "(NOx, SOx) BMW-5000",
     "serial": "720",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-02-24",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(PM-10) KMS-4200",
-    "serial": "19P424",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-02-24",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "1313",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-02-24",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(PM-10) KMS-4200",
-    "serial": "20P568",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-02-24",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "1848",
     "quantity": 1,
     "note": "",
     "status": ""
@@ -98895,16 +98485,6 @@
     "inLocation": "현장",
     "equipmentName": "(소음계교정) AC-300",
     "serial": "633",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-02-26",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "17K100085",
     "quantity": 1,
     "note": "정상",
     "status": "정상"
@@ -107646,16 +107226,6 @@
     "equipmentName": "ProPlus",
     "serial": "17K100085",
     "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-03-23",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "17K100085",
-    "quantity": 1,
     "note": "수도권 매립지 사후환경영향조사",
     "status": "정상"
   },
@@ -108085,16 +107655,6 @@
     "inLocation": "청명",
     "equipmentName": "FP101 Flow Probe.",
     "serial": "1724002714",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-03-24",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "ProPlus",
-    "serial": "17K100085",
     "quantity": 1,
     "note": "정상",
     "status": "정상"
@@ -110216,7 +109776,7 @@
     "equipmentName": "ProPlus",
     "serial": "19E102565",
     "quantity": 1,
-    "note": "원주 민간, 블루컬리넌",
+    "note": "정상",
     "status": "정상"
   },
   {
@@ -110528,16 +110088,6 @@
     "quantity": 1,
     "note": "",
     "status": ""
-  },
-  {
-    "date": "2025-04-02",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "ProPlus",
-    "serial": "19E102565",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
   },
   {
     "date": "2025-04-03",
@@ -122760,66 +122310,6 @@
     "status": "정상"
   },
   {
-    "date": "2025-04-30",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(소음) SC-260",
-    "serial": "T242060",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-04-30",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(소음계교정) AC-300",
-    "serial": "630",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-04-30",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(진동) TYPE3233",
-    "serial": "150076",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-04-30",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(소음) SC-260",
-    "serial": "T242060",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-04-30",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(소음계교정) AC-300",
-    "serial": "630",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-04-30",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(진동) TYPE3233",
-    "serial": "150076",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
     "date": "2025-05-01",
     "outLocation": "현장",
     "inLocation": "청명",
@@ -124843,16 +124333,6 @@
     "date": "2025-05-08",
     "outLocation": "청명",
     "inLocation": "현장",
-    "equipmentName": "DO/pH METER",
-    "serial": "838142(804F0013)",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-05-08",
-    "outLocation": "현장",
-    "inLocation": "청명",
     "equipmentName": "DO/pH METER",
     "serial": "838142(804F0013)",
     "quantity": 1,
@@ -131816,7 +131296,7 @@
     "equipmentName": "(NOx, SOx) BMW-5000",
     "serial": "858",
     "quantity": 1,
-    "note": "A-4",
+    "note": "A-1",
     "status": "정상"
   },
   {
@@ -132065,16 +131545,6 @@
     "inLocation": "현장",
     "equipmentName": "(PM-10) PMS-204",
     "serial": "1904008",
-    "quantity": 1,
-    "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2025-05-26",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "858",
     "quantity": 1,
     "note": "A-1",
     "status": "정상"
@@ -132396,8 +131866,8 @@
     "equipmentName": "(NOx, SOx) BMW-5000",
     "serial": "858",
     "quantity": 1,
-    "note": "정상",
-    "status": "정상"
+    "note": "",
+    "status": ""
   },
   {
     "date": "2025-05-27",
@@ -132553,16 +132023,6 @@
     "date": "2025-05-27",
     "outLocation": "현장",
     "inLocation": "청명",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "858",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-05-27",
-    "outLocation": "현장",
-    "inLocation": "청명",
     "equipmentName": "(PM-2.5) PMS-204",
     "serial": "1708787",
     "quantity": 1,
@@ -132685,16 +132145,6 @@
     "inLocation": "청명",
     "equipmentName": "DO/pH METER",
     "serial": "838142(804F0013)",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-05-28",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "FP101 Flow Probe.",
-    "serial": "1724002714",
     "quantity": 1,
     "note": "정상",
     "status": "정상"
@@ -134957,26 +134407,6 @@
     "serial": "1905000567",
     "quantity": 1,
     "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-02",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(PM-10) PMS-204",
-    "serial": "1904008",
-    "quantity": 1,
-    "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-02",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(PM-2.5) PMS-204",
-    "serial": "1708787",
-    "quantity": 1,
-    "note": "A-1",
     "status": "정상"
   },
   {
@@ -140716,7 +140146,7 @@
     "equipmentName": "(PM-10) KMS-4200",
     "serial": "18P354",
     "quantity": 1,
-    "note": "A-4",
+    "note": "A-1",
     "status": "정상"
   },
   {
@@ -140726,7 +140156,7 @@
     "equipmentName": "(PM-2.5) PMS-204",
     "serial": "1708795",
     "quantity": 1,
-    "note": "A-4",
+    "note": "A-1",
     "status": "정상"
   },
   {
@@ -140736,7 +140166,7 @@
     "equipmentName": "(NOx, SOx) BMW-5000",
     "serial": "1798",
     "quantity": 1,
-    "note": "A-4",
+    "note": "A-2",
     "status": "정상"
   },
   {
@@ -140746,7 +140176,7 @@
     "equipmentName": "(PM-10) KMS-4200",
     "serial": "18P355",
     "quantity": 1,
-    "note": "A-1",
+    "note": "A-2",
     "status": "정상"
   },
   {
@@ -140756,7 +140186,7 @@
     "equipmentName": "(PM-2.5) KMS-4200",
     "serial": "20P556",
     "quantity": 1,
-    "note": "A-1",
+    "note": "A-2",
     "status": "정상"
   },
   {
@@ -140776,7 +140206,7 @@
     "equipmentName": "(PM-10) KMS-4200",
     "serial": "19P427",
     "quantity": 1,
-    "note": "A-2",
+    "note": "A-3",
     "status": "정상"
   },
   {
@@ -140786,7 +140216,7 @@
     "equipmentName": "(PM-2.5) KMS-4200",
     "serial": "20P565",
     "quantity": 1,
-    "note": "A-2",
+    "note": "A-3",
     "status": "정상"
   },
   {
@@ -140796,7 +140226,7 @@
     "equipmentName": "(NOx, SOx) BMW-5000",
     "serial": "726",
     "quantity": 1,
-    "note": "A-2",
+    "note": "A-3",
     "status": "정상"
   },
   {
@@ -140923,46 +140353,6 @@
     "date": "2025-06-17",
     "outLocation": "청명",
     "inLocation": "현장",
-    "equipmentName": "DO/pH METER",
-    "serial": "838142(804F0013)",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "FP101 Flow Probe.",
-    "serial": "1724002714",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "DO/pH METER",
-    "serial": "838142(804F0013)",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "FP101 Flow Probe.",
-    "serial": "1724002714",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "청명",
-    "inLocation": "현장",
     "equipmentName": "ProPlus",
     "serial": "19E102565",
     "quantity": 1,
@@ -140977,96 +140367,6 @@
     "serial": "1828001882",
     "quantity": 1,
     "note": "신흥~용동, 오천항",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(PM-10) KMS-4200",
-    "serial": "19P427",
-    "quantity": 1,
-    "note": "A-3",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(PM-2.5) KMS-4200",
-    "serial": "20P565",
-    "quantity": 1,
-    "note": "A-3",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "726",
-    "quantity": 1,
-    "note": "A-3",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(PM-10) KMS-4200",
-    "serial": "18P355",
-    "quantity": 1,
-    "note": "A-2",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(PM-2.5) KMS-4200",
-    "serial": "20P556",
-    "quantity": 1,
-    "note": "A-2",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "1798",
-    "quantity": 1,
-    "note": "A-2",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(PM-10) KMS-4200",
-    "serial": "18P354",
-    "quantity": 1,
-    "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(PM-2.5) PMS-204",
-    "serial": "1708795",
-    "quantity": 1,
-    "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2025-06-17",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "1627",
-    "quantity": 1,
-    "note": "A-1",
     "status": "정상"
   },
   {
@@ -142625,96 +141925,6 @@
     "inLocation": "청명",
     "equipmentName": "(NOx, SOx) BMW-5000",
     "serial": "726",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-06-20",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(PM-10) KMS-4200",
-    "serial": "19P427",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-06-20",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(PM-2.5) KMS-4200",
-    "serial": "20P565",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-06-20",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "726",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-06-20",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(PM-10) KMS-4200",
-    "serial": "18P355",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-06-20",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(PM-2.5) KMS-4200",
-    "serial": "20P556",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-06-20",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "1798",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-06-20",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(PM-10) KMS-4200",
-    "serial": "18P354",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-06-20",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(PM-2.5) PMS-204",
-    "serial": "1708795",
-    "quantity": 1,
-    "note": "",
-    "status": ""
-  },
-  {
-    "date": "2025-06-20",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "1627",
     "quantity": 1,
     "note": "",
     "status": ""
@@ -145196,7 +144406,7 @@
     "equipmentName": "(NOx, SOx) BMW-5000",
     "serial": "1745",
     "quantity": 1,
-    "note": "A-5",
+    "note": "A-1",
     "status": "정상"
   },
   {
@@ -145865,16 +145075,6 @@
     "inLocation": "현장",
     "equipmentName": "(PM-10) KMS-4200",
     "serial": "18P368",
-    "quantity": 1,
-    "note": "A-1",
-    "status": "정상"
-  },
-  {
-    "date": "2025-07-02",
-    "outLocation": "청명",
-    "inLocation": "현장",
-    "equipmentName": "(NOx, SOx) BMW-5000",
-    "serial": "1745",
     "quantity": 1,
     "note": "A-1",
     "status": "정상"
@@ -153250,16 +152450,6 @@
     "status": "정상"
   },
   {
-    "date": "2025-08-05",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "DO/pH METER",
-    "serial": "838142(804F0013)",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
     "date": "2025-08-06",
     "outLocation": "현장",
     "inLocation": "청명",
@@ -156440,16 +155630,6 @@
     "status": "정상"
   },
   {
-    "date": "2025-08-14",
-    "outLocation": "현장",
-    "inLocation": "청명",
-    "equipmentName": "CTD MULTIPARAMETER",
-    "serial": "RBR concerto 3",
-    "quantity": 1,
-    "note": "정상",
-    "status": "정상"
-  },
-  {
     "date": "2025-08-18",
     "outLocation": "현장",
     "inLocation": "청명",
@@ -159195,6 +158375,1536 @@
     "inLocation": "청명",
     "equipmentName": "(NOx, SOx) BMW-5000",
     "serial": "856",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) PMS-204",
+    "serial": "1904005",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-2.5) PMS-204",
+    "serial": "1708786",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "718",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) PMS-204",
+    "serial": "1904007",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-2.5) PMS-204",
+    "serial": "1501512",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "1312",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P357",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-2.5) KMS-4200",
+    "serial": "22P615",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "1311",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "19P426",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-2.5) KMS-4200",
+    "serial": "20P556",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "852",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "1317",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "1320",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "업체",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P373",
+    "quantity": 1,
+    "note": "장비점 검 및 수리 후 회사입고",
+    "status": "양호"
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "업체",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "19P424",
+    "quantity": 1,
+    "note": "장비점 검 및 수리 후 회사입고",
+    "status": "양호"
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "업체",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "19P428",
+    "quantity": 1,
+    "note": "장비점 검 및 수리 후 회사입고",
+    "status": "양호"
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "업체",
+    "inLocation": "청명",
+    "equipmentName": "COS-100",
+    "serial": "KM008W18CO77",
+    "quantity": 1,
+    "note": "장비점 검 및 수리 후 회사입고",
+    "status": "양호"
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P366",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-2.5) PMS-204",
+    "serial": "1708789",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "1745",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) PMS-204",
+    "serial": "1904012",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-2.5) PMS-204",
+    "serial": "1501479",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "858",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P360",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-2.5) PMS-204",
+    "serial": "1501481",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "1313",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P371",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-2.5) PMS-204",
+    "serial": "1709798",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "853",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "717",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P354",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-2.5) KMS-4200",
+    "serial": "20P565",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "ProPlus",
+    "serial": "19E102565",
+    "quantity": 1,
+    "note": "수질",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "CTD MULTIPARAMETER",
+    "serial": "500m AML-3",
+    "quantity": 1,
+    "note": "해양",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(소음) SC-260",
+    "serial": "T242106",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(소음) SC-260",
+    "serial": "T242074",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(소음) SC-260",
+    "serial": "T242056",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(소음) SC-260",
+    "serial": "T242072",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(소음) SC-260",
+    "serial": "T246352",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(진동) VM-1220E",
+    "serial": "20E474",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(진동) TYPE3233",
+    "serial": "170066",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(진동) TYPE3233",
+    "serial": "170067",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(진동) TYPE3233",
+    "serial": "190024",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(진동) TYPE3233",
+    "serial": "140099",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(진동) TYPE3233",
+    "serial": "160096",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-25",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(소음계교정) NC-73",
+    "serial": "10844967",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P368",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) KMS-4200",
+    "serial": "20P564",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "1792",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(CO) Serinus30i",
+    "serial": "18-0328",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(O3) Serinus10i",
+    "serial": "17-0127",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "TA3275",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(VOCs) MP-Σ30KNⅡ",
+    "serial": "770654",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) E-BAM",
+    "serial": "Y22710",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(NO2) MEZUS-210",
+    "serial": "K1515023",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(O3) Serinus10i",
+    "serial": "17-0132",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) E-BAM",
+    "serial": "W17347",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(CO) Serinus30i",
+    "serial": "21-0331",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(SO2) Serinus50i",
+    "serial": "17-1912",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(CO) Serinus30i",
+    "serial": "20-2305",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) E-BAM",
+    "serial": "T25861",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(NO2) MEZUS-210",
+    "serial": "K1612016",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) E-BAM",
+    "serial": "X18021",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(SO2) Serinus50i",
+    "serial": "17-1733",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(O3) Serinus10i",
+    "serial": "17-0131",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) E-BAM",
+    "serial": "W17345",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) E-BAM",
+    "serial": "Y17932",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(SO2) Serinus50i",
+    "serial": "17-1798",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(NO2) MEZUS-210",
+    "serial": "K1515019",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P375",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) PMS-204",
+    "serial": "1501505",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "856",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(CO) Serinus30i",
+    "serial": "18-0145",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(O3) Serinus10i",
+    "serial": "17-0129",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "TA3265",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(VOCs) MP-Σ30KNⅡ",
+    "serial": "770655",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) E-BAM",
+    "serial": "R10783",
+    "quantity": 1,
+    "note": "A-1",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) E-BAM",
+    "serial": "W17346",
+    "quantity": 1,
+    "note": "A-1",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "4176/TA3688",
+    "quantity": 1,
+    "note": "A-1",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(벤젠) MP-Σ30KNⅡ",
+    "serial": "850746",
+    "quantity": 1,
+    "note": "A-1,2",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) BAM 1020",
+    "serial": "X16838",
+    "quantity": 1,
+    "note": "A-2",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) BAM 1020",
+    "serial": "X17815",
+    "quantity": 1,
+    "note": "A-2",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(O3) Serinus10i",
+    "serial": "17-1391",
+    "quantity": 1,
+    "note": "A-2",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(CO) Serinus30i",
+    "serial": "18-0320",
+    "quantity": 1,
+    "note": "A-2",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(NO2) Serinus40",
+    "serial": "18-0353",
+    "quantity": 1,
+    "note": "A-2",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(SO2) Serinus50i",
+    "serial": "17-0866",
+    "quantity": 1,
+    "note": "A-2",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "TA3703",
+    "quantity": 1,
+    "note": "A-2",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(O3) Serinus10",
+    "serial": "17-0988",
+    "quantity": 1,
+    "note": "A-1",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(CO) Serinus30",
+    "serial": "17-1509",
+    "quantity": 1,
+    "note": "A-1",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(NO2) Serinus40",
+    "serial": "18-0984",
+    "quantity": 1,
+    "note": "A-1",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(SO2) Serinus50",
+    "serial": "18-0318",
+    "quantity": 1,
+    "note": "A-1",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "ProPlus",
+    "serial": "19E102565",
+    "quantity": 1,
+    "note": "수질",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "CTD MULTIPARAMETER",
+    "serial": "500m AML-3",
+    "quantity": 1,
+    "note": "해양",
+    "status": "정상"
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "COS-100",
+    "serial": "KM014W16CO22",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(VOCs) MP-Σ30KNⅡ",
+    "serial": "770656",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "MP-Σ100KNⅡ",
+    "serial": "840487",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "악취샘플링 흡인박스",
+    "serial": "흡인박스5",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "KMS-5100",
+    "serial": "23KR1728",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "악취샘플링 흡인박스",
+    "serial": "흡인박스4",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "KMS-5100",
+    "serial": "23KR1730",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-26",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "Kestrel5500",
+    "serial": "2390486",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(CO) Serinus30i",
+    "serial": "20-2313",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(O3) Serinus10i",
+    "serial": "21-0353",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P360",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) KMS-4200",
+    "serial": "22P615",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "1745",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "3973",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(벤젠) MP-Σ30KNⅡ",
+    "serial": "770658",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P357",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) PMS-204",
+    "serial": "1709798",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "1312",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(CO) MEZUS-310",
+    "serial": "K1614025A",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(O3) Serinus10i",
+    "serial": "17-0125",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "TA3268",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P371",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) PMS-204",
+    "serial": "1708786",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "718",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(O3) Serinus10i",
+    "serial": "21-0321",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(CO) Serinus30i",
+    "serial": "20-1502",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "TA3267",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(벤젠) MP-Σ30KNⅡ",
+    "serial": "141411",
+    "quantity": 2,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(CO) Serinus30i",
+    "serial": "18-0159",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(NOx, SOx) BMW-5000",
+    "serial": "717",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P369",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) KMS-4200",
+    "serial": "22P614",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "TA3277",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(O3) Serinus10i",
+    "serial": "17-0130",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-10) KMS-4200",
+    "serial": "18P359",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "청명",
+    "inLocation": "현장",
+    "equipmentName": "(PM-2.5) KMS-4200",
+    "serial": "19P404",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) E-BAM",
+    "serial": "R10783",
+    "quantity": 1,
+    "note": "A-1",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-2.5) E-BAM",
+    "serial": "W17346",
+    "quantity": 1,
+    "note": "A-1",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "4176/TA3688",
+    "quantity": 1,
+    "note": "A-1",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(벤젠) MP-Σ30KNⅡ",
+    "serial": "850746",
+    "quantity": 1,
+    "note": "A-1,2",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-2.5) BAM 1020",
+    "serial": "X16838",
+    "quantity": 1,
+    "note": "A-2",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(PM-10) BAM 1020",
+    "serial": "X17815",
+    "quantity": 1,
+    "note": "A-2",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(O3) Serinus10i",
+    "serial": "17-1391",
+    "quantity": 1,
+    "note": "A-2",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(CO) Serinus30i",
+    "serial": "18-0320",
+    "quantity": 1,
+    "note": "A-2",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NO2) Serinus40",
+    "serial": "18-0353",
+    "quantity": 1,
+    "note": "A-2",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(SO2) Serinus50i",
+    "serial": "17-0866",
+    "quantity": 1,
+    "note": "A-2",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "TA3703",
+    "quantity": 1,
+    "note": "A-2",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(O3) Serinus10",
+    "serial": "17-0988",
+    "quantity": 1,
+    "note": "A-1",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(CO) Serinus30",
+    "serial": "17-1509",
+    "quantity": 1,
+    "note": "A-1",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(NO2) Serinus40",
+    "serial": "18-0984",
+    "quantity": 1,
+    "note": "A-1",
+    "status": ""
+  },
+  {
+    "date": "2025-08-27",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(SO2) Serinus50",
+    "serial": "18-0318",
+    "quantity": 1,
+    "note": "A-1",
+    "status": ""
+  },
+  {
+    "date": "2025-08-28",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "Kestrel5500",
+    "serial": "2390486",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-28",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "악취샘플링 흡인박스",
+    "serial": "흡인박스4",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-28",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "KMS-5100",
+    "serial": "23KR1730",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-28",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "KMS-5100",
+    "serial": "23KR1728",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-28",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "악취샘플링 흡인박스",
+    "serial": "흡인박스5",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-28",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "COS-100",
+    "serial": "KM014W16CO22",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-28",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "(VOCs) MP-Σ30KNⅡ",
+    "serial": "770656",
+    "quantity": 1,
+    "note": "",
+    "status": ""
+  },
+  {
+    "date": "2025-08-28",
+    "outLocation": "현장",
+    "inLocation": "청명",
+    "equipmentName": "MP-Σ100KNⅡ",
+    "serial": "840487",
     "quantity": 1,
     "note": "",
     "status": ""

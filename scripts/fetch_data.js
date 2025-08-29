@@ -3,6 +3,7 @@ let movementsData = [];
 let repairsData = [];
 let logsData = [];
 let qcLogsData = []; // New global variable for QC logs data
+let staffLogsData = []; // 이동 담당자 로그 (CSV)
 
 document.addEventListener('DOMContentLoaded', () => {
     // 사전 구축된 DB 우선 사용 → 폴백으로 equipment_data.json 지원
@@ -38,26 +39,45 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(() => []),
         fetch('./db/QC_logs.json', { cache: 'no-store' })
             .then(r => r.ok ? r.json() : [])
+            .catch(() => []),
+        // 추가: 담당자명 포함 CSV (옵션, EUC-KR 우선 디코딩)
+        fetch('./청명장비 엑셀/logs_담당자명 추가.csv', { cache: 'no-store' })
+            .then(r => r.ok ? r.arrayBuffer() : Promise.reject())
+            .then(buf => {
+                try { return new TextDecoder('euc-kr').decode(buf); } catch (e) {}
+                try { return new TextDecoder('utf-8').decode(buf); } catch (e) {}
+                return '';
+            })
+            .then(text => parseCSVAuto(text))
             .catch(() => [])
     ])
-    .then(([equipment, movements, repairs, logs, qcLogs]) => {
+    .then(([equipment, movements, repairs, logs, qcLogs, staffLogs]) => {
         equipmentData = equipment;
         movementsData = movements;
         repairsData = repairs;
         logsData = logs;
         qcLogsData = qcLogs;
+        staffLogsData = Array.isArray(staffLogs) ? staffLogs : [];
         
         console.log('✅ 데이터 로드 완료:', {
             equipment: equipmentData.length,
             movements: movementsData.length,
             repairs: repairsData.length,
             logs: logsData.length,
-            qcLogs: qcLogsData.length
+            qcLogs: qcLogsData.length,
+            staffLogs: staffLogsData.length
         });
         
         // 디버깅: 데이터 내용 확인
         console.log('🔍 장비 데이터 샘플:', equipmentData.slice(0, 3));
         console.log('🔍 QC 로그 데이터 샘플:', qcLogsData.slice(0, 3));
+        console.log('🔍 담당자 로그 샘플:', staffLogsData.slice(0, 3));
+        
+        // 현재위치 자동 보정 적용
+        if (movementsData && movementsData.length > 0) {
+            equipmentData = enrichEquipmentData(equipmentData, movementsData);
+            console.log('✅ 장비 데이터 현재위치 자동 보정 완료');
+        }
         
         // 초기화 함수들 호출
         initDashboardCharts();
@@ -67,30 +87,39 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCalibrationAlerts(); // 정도검사 알림 렌더링 추가
         renderVendorLongStayAlerts(); // 장기간 업체 입고 알림 렌더링 추가
         
-                       if (document.getElementById('equipment-view')) {
-                   // switchView 대신 직접 탭 전환 (한 번만 실행)
-                   console.log('🔍 페이지 로드 시 장비 현황 탭 설정');
-                   // 약간의 지연을 두어 DOM이 완전히 준비된 후 실행
-                   setTimeout(() => {
-                       switchEquipmentTab('status');
-                   }, 100);
-               }
-               
-               // 전역 함수 할당
-               console.log('🔍 전역 함수 할당 시작');
-               window.switchEquipmentTab = switchEquipmentTab;
-               window.switchView = switchView;
-               window.loadDashboardData = loadDashboardData;
-               window.loadDefaultDashboardData = loadDefaultDashboardData;
-               window.showDashboardError = showDashboardError;
-               
-               // 테스트 함수 추가
-               window.testEquipmentTab = function() {
-                   console.log('🧪 testEquipmentTab 함수 호출됨');
-                   alert('장비 탭 테스트 함수가 호출되었습니다!');
-               };
-               
-               console.log('✅ 전역 함수 할당 완료');
+        if (document.getElementById('equipment-view')) {
+            // switchView 대신 직접 탭 전환 (한 번만 실행)
+            console.log('🔍 페이지 로드 시 장비 현황 탭 설정');
+            // 약간의 지연을 두어 DOM이 완전히 준비된 후 실행
+            setTimeout(() => {
+                switchEquipmentTab('status');
+            }, 100);
+        }
+        
+        // 전역 함수 할당
+        console.log('🔍 전역 함수 할당 시작');
+        window.switchEquipmentTab = switchEquipmentTab;
+        window.switchView = switchView;
+        window.loadDashboardData = loadDashboardData;
+        window.loadDefaultDashboardData = loadDefaultDashboardData;
+        window.showDashboardError = showDashboardError;
+        
+        // 테스트 함수 추가
+        window.testEquipmentTab = function() {
+            console.log('🧪 testEquipmentTab 함수 호출됨');
+            alert('장비 탭 테스트 함수가 호출되었습니다!');
+        };
+        
+        console.log('✅ 전역 함수 할당 완료');
+        // 주기별 수리 차트 초기 렌더 트리거
+        setTimeout(() => {
+            try {
+                const periodSel = document.getElementById('repair-period-select');
+                const dimSel = document.getElementById('repair-dimension-select');
+                if (dimSel) dimSel.dispatchEvent(new Event('change'));
+                if (periodSel) periodSel.dispatchEvent(new Event('change'));
+            } catch (e) { console.warn('초기 수리 차트 렌더 트리거 실패:', e); }
+        }, 0);
     })
     .catch(error => {
         console.error('❌ 데이터 로드 실패:', error);
@@ -134,6 +163,66 @@ function parseCSV(csvText) {
     }
     
     return data;
+}
+
+function parseCSVAuto(csvText) {
+    const t = (csvText || '').replace(/\r\n?/g,'\n');
+    const rawLines = t.split('\n');
+    // 제목 라인 제거 (회사명/기간 등)
+    let idx = 0;
+    if (rawLines[0] && /회사명|현황|기간|~|\d{4}[./-]\d{2}[./-]\d{2}/.test(rawLines[0])) idx = 1;
+    // 공백 라인 스킵
+    while (idx < rawLines.length && !rawLines[idx].trim()) idx++;
+    if (idx >= rawLines.length) return [];
+    const headerLine = rawLines[idx];
+    // 구분자 감지: '","' 패턴이면 콤마 고정, 아니면 탭/콤마 카운트로 결정
+    let delim = ',';
+    if (!/","/.test(headerLine)) {
+        const tabCount = (headerLine.match(/\t/g) || []).length;
+        const commaCount = (headerLine.match(/,/g) || []).length;
+        delim = tabCount > commaCount ? '\t' : ',';
+    }
+    const headers = splitCsvQuoted(headerLine, delim).map(cleanCsvCell);
+    const out = [];
+    for (let i = idx + 1; i < rawLines.length; i++) {
+        const line = rawLines[i];
+        if (!line || !line.trim()) continue;
+        const cols = splitCsvQuoted(line, delim).map(cleanCsvCell);
+        const row = {};
+        headers.forEach((h, k) => { if (h) row[h] = cols[k] || ''; });
+        // 값이 모두 빈 경우 스킵
+        if (Object.values(row).some(v => String(v).trim() !== '')) out.push(row);
+    }
+    return out;
+}
+
+function splitCsvQuoted(line, delim) {
+    const d = delim === '\t' ? '\t' : ',';
+    const out = [];
+    let cur = '';
+    let inQ = false;
+    for (let i = 0; i < line.length; i++) {
+        const ch = line[i];
+        if (ch === '"') {
+            if (inQ && line[i+1] === '"') { cur += '"'; i++; }
+            else { inQ = !inQ; }
+        } else if (!inQ && ((d === ',' && ch === ',') || (d === '\t' && ch === '\t'))) {
+            out.push(cur); cur = '';
+        } else {
+            cur += ch;
+        }
+    }
+    out.push(cur);
+    return out;
+}
+
+function cleanCsvCell(s) {
+    let v = (s || '').replace(/\u0000/g,'').trim();
+    // 양끝 큰따옴표 제거
+    if (v.startsWith('"') && v.endsWith('"')) v = v.slice(1, -1);
+    // 잔여 탭/공백 제거
+    v = v.replace(/\t+/g,'').trim();
+    return v;
 }
 
 function initDashboardCharts() {
@@ -287,6 +376,30 @@ function updateKpiElement(id, value) {
 
 
 
+// 상태 정규화 함수
+function normalizeStatus(status) {
+    if (!status) return '대기 중';
+    
+    const statusStr = String(status).toLowerCase().trim();
+    
+    // 가동 중 관련
+    if (statusStr.includes('가동') || statusStr.includes('run') || statusStr.includes('running') || statusStr.includes('운행')) {
+        return '가동 중';
+    }
+    
+    // 수리 중 관련
+    if (statusStr.includes('수리') || statusStr.includes('repair') || statusStr.includes('고장') || statusStr.includes('점검')) {
+        return '수리 중';
+    }
+    
+    // 대기 중 관련
+    if (statusStr.includes('대기') || statusStr.includes('idle') || statusStr.includes('대기중') || statusStr.includes('보관')) {
+        return '대기 중';
+    }
+    
+    return '대기 중'; // 기본값
+}
+
 // 상태별 배지 클래스 반환
 function getStatusBadgeClass(status) {
     const normalizedStatus = normalizeStatus(status);
@@ -319,7 +432,15 @@ function mergeById(primary, secondary) {
 }
 
 function switchView(viewId) {
+    // 모든 섹션 숨김 (한 화면에 하나의 섹션만)
     document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden'));
+
+    // 장비 뷰 이탈 시 수리/교육 탭 잔상 제거 (inline style/active 클래스 초기화)
+    if (!viewId.startsWith('equipment')) {
+        document.querySelectorAll('.equipment-tab-content').forEach(el => { el.style.display = 'none'; });
+        document.querySelectorAll('.equipment-tab').forEach(btn => btn.classList.remove('active'));
+    }
+
     if (viewId.startsWith('equipment-')) {
         const tabName = viewId.replace('equipment-', '');
         const equipmentSection = document.getElementById('equipment-view');
@@ -330,6 +451,7 @@ function switchView(viewId) {
         if (section) section.classList.remove('hidden');
     }
 
+    // 네비게이션 활성 표시 업데이트
     document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active-nav'));
     const navItem = document.querySelector(`[onclick="switchView('${viewId}')"]`);
     if (navItem) navItem.classList.add('active-nav');
@@ -339,13 +461,20 @@ function switchView(viewId) {
     } else if (viewId === 'accounting-purchase-request') {
         renderPurchaseRequestTable();
     }
+
+    // 전환 후 스크롤을 항상 상단으로 이동
+    try {
+        const mainEl = document.getElementById('main');
+        if (mainEl) mainEl.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    } catch {}
 }
 
 // 장비 탭 전환
 function switchEquipmentTab(tabName) {
     console.log('🔍 switchEquipmentTab 호출됨:', tabName);
     
-    // 모든 탭 컨텐츠 숨기기
+    // 모든 탭 컨텐츠 숨기기 (하단 잔존 방지)
     document.querySelectorAll('.equipment-tab-content').forEach(content => {
         content.style.display = 'none';
     });
@@ -426,6 +555,12 @@ function switchView(viewName, event) {
     // 모든 모달 강제로 숨기기
     forceHidePurchaseRequestModal();
     
+    // 장비 뷰가 아닐 경우 장비 탭 잔상 제거
+    if (viewName !== 'equipment') {
+        document.querySelectorAll('.equipment-tab-content').forEach(el => { el.style.display = 'none'; });
+        document.querySelectorAll('.equipment-tab').forEach(btn => btn.classList.remove('active'));
+    }
+
     // 기존 뷰 숨기기
     document.querySelectorAll('.view-section').forEach(section => {
         section.classList.add('hidden');
@@ -499,6 +634,13 @@ function switchView(viewName, event) {
             initOrderHistory();
         }
     }
+
+    // 전환 후 스크롤을 항상 상단으로 이동
+    try {
+        const mainEl = document.getElementById('main');
+        if (mainEl) mainEl.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    } catch {}
 }
 
 // 전역 함수로 할당
@@ -579,6 +721,9 @@ function toggleSubmenu(menuId) {
 // 수리 테이블 렌더링
 function renderRepairTable() {
     const tableBody = document.getElementById('repair-table');
+    // 만약 새 테이블 구조(#repair-log-tbody)를 사용 중이면 그쪽 렌더로 위임
+    const unifiedTbody = document.getElementById('repair-log-tbody');
+    if (unifiedTbody) { try { renderRepairLogTable(); return; } catch {} }
     if (!tableBody) return;
     
     if (repairsData.length === 0) {
@@ -632,8 +777,8 @@ function renderRepairTable() {
         `;
     }
     
-    // 테이블 데이터 렌더링 (정리된 수리 DB 구조 사용)
-    tableBody.innerHTML = repairsData.slice(0, 50).map(repair => `
+    // 테이블 데이터 렌더링 (정리된 수리 DB 구조 사용) - 15행 기준 높이에서 스크롤
+    const rowsHtml = repairsData.map(repair => `
         <tr class="border-b hover:bg-slate-50">
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${repair.repair_date || 'N/A'}</td>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600">${repair.serial || 'N/A'}</td>
@@ -645,8 +790,41 @@ function renderRepairTable() {
             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${repair.measurement_item || 'N/A'}</td>
         </tr>
     `).join('');
+    tableBody.innerHTML = rowsHtml;
     
     console.log('✅ 수리 테이블 렌더링 완료:', repairsData.length, '건');
+
+    // 스크롤 컨테이너 높이 고정(약 10행 노출) + 드래그 스크롤 활성화
+    const scroll = document.getElementById('repair-log-scroll');
+    if (scroll) {
+        try {
+            scroll.style.maxHeight = '420px';
+            scroll.style.overflowY = 'auto';
+            enableDragScroll(scroll);
+        } catch {}
+    }
+}
+
+// 요소에 마우스 드래그로 수직 스크롤 기능 부여
+function enableDragScroll(container) {
+    let isDown = false;
+    let startY = 0;
+    let startScroll = 0;
+    container.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startY = e.clientY;
+        startScroll = container.scrollTop;
+        container.classList.add('select-none');
+    });
+    window.addEventListener('mouseup', () => {
+        isDown = false;
+        container.classList.remove('select-none');
+    });
+    container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const dy = e.clientY - startY;
+        container.scrollTop = startScroll - dy;
+    });
 }
 
 // 교육 테이블 렌더링
@@ -1773,8 +1951,14 @@ function showQuoteModal() {
         // 폼 이벤트 리스너 추가
         setupQuoteForm();
         
-        // 물품구매요구서 데이터 불러오기 버튼만 표출
-        renderPurchaseImportButton();
+        // 토글 버튼 초기 상태로 복원 (자동 표시하지 않음)
+        const toggleBtn = document.getElementById('purchase-request-import-toggle');
+        if (toggleBtn) {
+            toggleBtn.classList.remove('active', 'bg-blue-600', 'text-white');
+            toggleBtn.classList.add('bg-blue-100', 'text-blue-700');
+            toggleBtn.innerHTML = '📋';
+            toggleBtn.title = '구매요구서 불러오기';
+        }
     }
 }
 
@@ -1796,6 +1980,21 @@ function resetQuoteModalToDefault() {
     const form = document.getElementById('quote-form');
     if (form) {
         form.reset();
+    }
+    
+    // 토글 버튼 초기 상태로 복원
+    const toggleBtn = document.getElementById('purchase-request-import-toggle');
+    if (toggleBtn) {
+        toggleBtn.classList.remove('active', 'bg-blue-600', 'text-white');
+        toggleBtn.classList.add('bg-blue-100', 'text-blue-700');
+        toggleBtn.innerHTML = '📋';
+        toggleBtn.title = '구매요구서 불러오기';
+    }
+    
+    // 구매요구서 불러오기 옵션 제거
+    const existingOption = document.querySelector('.purchase-request-import-option');
+    if (existingOption) {
+        existingOption.remove();
     }
     
     // 품목 테이블 초기화 (첫 번째 행만 남기고 나머지 제거)
@@ -2034,6 +2233,35 @@ function renderPurchaseImportButton() {
         
         // 폼의 첫 번째 요소 앞에 삽입
         form.insertBefore(importOption, form.firstChild);
+    }
+}
+
+// 구매요구서 불러오기 토글 기능
+function togglePurchaseRequestImport() {
+    const toggleBtn = document.getElementById('purchase-request-import-toggle');
+    const isActive = toggleBtn.classList.contains('active');
+    
+    if (isActive) {
+        // 비활성화: 토글 버튼 스타일 변경
+        toggleBtn.classList.remove('active', 'bg-blue-600', 'text-white');
+        toggleBtn.classList.add('bg-blue-100', 'text-blue-700');
+        toggleBtn.innerHTML = '📋';
+        toggleBtn.title = '구매요구서 불러오기';
+        
+        // 기존 옵션 제거
+        const existingOption = document.querySelector('.purchase-request-import-option');
+        if (existingOption) {
+            existingOption.remove();
+        }
+    } else {
+        // 활성화: 토글 버튼 스타일 변경
+        toggleBtn.classList.add('active', 'bg-blue-600', 'text-white');
+        toggleBtn.classList.remove('bg-blue-100', 'text-blue-700');
+        toggleBtn.innerHTML = '✓';
+        toggleBtn.title = '구매요구서 불러오기 활성화됨';
+        
+        // 구매요구서 불러오기 옵션 표시
+        renderPurchaseImportButton();
     }
 }
 
@@ -3797,13 +4025,33 @@ function renderCategoryStats() {
     }
     
     const categoryStats = getCategoryStatistics();
-    
-    container.innerHTML = categoryStats.map(stat => `
+
+    // 전체 집계 카드(최상단)
+    const totalEquipmentCount = equipmentData.length;
+    const operatingEquipmentCount = equipmentData.filter(item => normalizeStatus(item.status) === '가동 중').length;
+    const repairEquipmentCount = equipmentData.filter(item => normalizeStatus(item.status) === '수리 중').length;
+    const idleEquipmentCount = equipmentData.filter(item => normalizeStatus(item.status) === '대기 중').length;
+    const overallStat = {
+        category: '전체',
+        total: totalEquipmentCount,
+        operating: operatingEquipmentCount,
+        repair: repairEquipmentCount,
+        idle: idleEquipmentCount
+    };
+
+    const allStats = [overallStat, ...categoryStats];
+
+    container.innerHTML = allStats.map(stat => `
         <div class="border border-slate-200 rounded-lg p-4 hover:bg-slate-50 cursor-pointer" 
              onclick="showCategoryDetail('${stat.category}')">
-            <div class="flex justify-between items-center mb-2">
+            <div class="text-center mb-3">
                 <h4 class="font-medium text-slate-800">${stat.category}</h4>
-                <span class="text-sm text-slate-500">총 ${stat.total}대</span>
+                <div class="text-2xl font-bold text-slate-900 mt-1 inline-block">
+                    <span class="mr-2 align-middle">현재 가동률</span>
+                    ${Math.round(stat.total ? (stat.operating / stat.total) * 100 : 0)}%
+                    <div class="mt-1 h-1.5 rounded ${ (stat.total ? Math.round((stat.operating / stat.total) * 100) : 0) < 20 ? 'bg-red-300' : 'bg-blue-300' }"></div>
+                </div>
+                <div class="text-sm text-slate-500 mt-1">총 ${stat.total}대</div>
             </div>
             <div class="grid grid-cols-3 gap-2 text-sm">
                 <div class="text-center">
@@ -3860,7 +4108,9 @@ function getCategoryStatistics() {
 
 // 품목계열별 상세 정보 표시
 function showCategoryDetail(category) {
-    const filteredEquipment = equipmentData.filter(item => item.category === category);
+    const filteredEquipment = (category === '전체') 
+        ? equipmentData 
+        : equipmentData.filter(item => item.category === category);
     alert(`${category} 품목계열의 상세 정보:\n총 ${filteredEquipment.length}대\n가동중: ${filteredEquipment.filter(e => normalizeStatus(e.status) === '가동 중').length}대\n수리중: ${filteredEquipment.filter(e => normalizeStatus(e.status) === '수리 중').length}대\n대기중: ${filteredEquipment.filter(e => normalizeStatus(e.status) === '대기 중').length}대`);
 }
 
@@ -3959,7 +4209,12 @@ function renderEquipmentTableBySeries(series) {
     console.log(`🔍 ${series} 품목계열 필터링된 데이터:`, filteredData.length, '개');
     
     // 테이블 내용 생성
-    tableBody.innerHTML = filteredData.map(item => `
+    tableBody.innerHTML = filteredData.map(item => {
+        const mv = (movementsData || [])
+            .filter(m => m.serial === item.serial && m.date)
+            .sort((a, b) => new Date(a.date) - new Date(b.date));
+        const util = calculateLastYearUtilization(item.serial, mv);
+        return `
         <tr class="border-b hover:bg-slate-50">
             <td class="p-2 font-medium text-blue-600 truncate" title="${item.serial || ''}">${item.serial || ''}</td>
             <td class="p-2 truncate" title="${item.category || ''}">${item.category || ''}</td>
@@ -3969,13 +4224,14 @@ function renderEquipmentTableBySeries(series) {
                 </span>
             </td>
             <td class="p-2 truncate" title="${item.currentLocation || ''}">${item.currentLocation || ''}</td>
+            <td class="p-2 truncate ${util.className}" title="최근 1년 가동률">${util.percent}%</td>
             <td class="p-2">
                 <button type="button" class="text-indigo-600 hover:text-indigo-800 text-sm underline" onclick="showEquipmentDetailModal('${item.serial}')">
                     상세보기
                 </button>
             </td>
-        </tr>
-    `).join('');
+        </tr>`;
+    }).join('');
 }
 
 // 장비 상세 정보 모달 표시
@@ -4239,4 +4495,718 @@ function calculateTripFrequency(serial) {
     }
     
     return tripCount;
+}
+
+// 장비 데이터에 현재위치 자동 보정 적용
+function enrichEquipmentData(equipmentData, movementsData) {
+    if (!Array.isArray(equipmentData) || !Array.isArray(movementsData)) {
+        console.warn('장비 데이터 또는 이동 데이터가 유효하지 않습니다');
+        return equipmentData;
+    }
+
+    // 일련번호별 최신 이동 기록 맵 생성
+    const latestMovements = new Map();
+    movementsData.forEach(movement => {
+        const serial = movement.serial;
+        if (!serial) return;
+        
+        const existing = latestMovements.get(serial);
+        if (!existing || new Date(movement.date) > new Date(existing.date)) {
+            latestMovements.set(serial, movement);
+        }
+    });
+
+    // 장비 데이터에 현재위치 보정 적용
+    return equipmentData.map(equipment => {
+        if (!equipment.currentLocation || equipment.currentLocation === '본사 창고') {
+            const latestMovement = latestMovements.get(equipment.serial);
+            if (latestMovement) {
+                // 최신 이동 기록에서 현재위치 추정
+                if (latestMovement.inLocation && latestMovement.inLocation !== '') {
+                    equipment.currentLocation = latestMovement.inLocation;
+                } else if (latestMovement.outLocation && latestMovement.outLocation !== '') {
+                    equipment.currentLocation = latestMovement.outLocation;
+                }
+            }
+        }
+        return equipment;
+    });
+}
+
+// ===== 상세보기: KPI + 이동 타임라인 + 교체부품 =====
+function showEquipmentDetailModal(serial) {
+    if (!serial) return;
+
+    const equipment = equipmentData.find(item => item.serial === serial);
+    if (!equipment) { alert('장비 정보를 찾을 수 없습니다.'); return; }
+
+    const movements = (movementsData || [])
+        .filter(m => m.serial === serial && m.date)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    const repairs = (repairsData || [])
+        .filter(r => r.serial === serial && (r.repair_date || r.date))
+        .sort((a, b) => new Date((a.repair_date || a.date)) - new Date((b.repair_date || b.date)));
+
+    const qc = getQCInfo(serial);
+    const lastMovementDate = movements.length ? movements[movements.length - 1].date : (equipment.lastMovement || null);
+    const utilization = calculateLastYearUtilization(serial, movements);
+    const utilizationBreakdown = calculateLastYearBreakdown(serial, movements);
+    const donutCanvasId = 'utilization-donut-' + (equipment.serial || 'X').replace(/[^a-zA-Z0-9_-]/g, '_');
+
+    const staffName = getMovementStaffName(serial, lastMovementDate);
+
+    const timelineHTML = renderMovementTimeline(serial, movements, repairs);
+    const partsHTML = renderReplacedParts(serial, repairs);
+
+    const content = `
+      <div class="w-full max-w-none bg-white rounded-lg shadow-xl overflow-y-auto"
+           style="width: calc(100vw - var(--sidebar-w, 5rem)); height: calc(100vh - 2rem);">
+        <div class="flex items-center justify-between px-6 py-4 border-b">
+          <h2 class="text-xl font-semibold text-slate-900">장비 상세보기 - ${equipment.serial || ''}</h2>
+          <button type="button" onclick="closeEquipmentDetailModal()" class="text-slate-500 hover:text-slate-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <!-- 상단 KPI -->
+        <div class="p-6">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-slate-50 rounded-lg p-4 border">
+              <div class="text-xs text-slate-500">최근 이동일</div>
+              <div class="mt-1 text-lg font-semibold text-slate-900">${formatDateYmd(lastMovementDate) || '-'}${staffName ? ` <span class="text-sm text-slate-500">(${staffName})</span>` : ''}</div>
+            </div>
+            <div class="bg-slate-50 rounded-lg p-4 border">
+              <div class="text-xs text-slate-500">정도검사 예정일</div>
+              <div class="mt-1 text-lg font-semibold ${qc.nextCalibrationClass || 'text-slate-900'}">${qc.nextCalibration || '-'}</div>
+            </div>
+            <div class="bg-slate-50 rounded-lg p-4 border">
+              <div class="text-xs text-slate-500">현재 위치</div>
+              <div class="mt-1 text-lg font-semibold text-slate-900">${equipment.currentLocation || '-'}${staffName ? ` <span class=\"text-sm text-slate-500\">(${staffName})</span>` : ''}</div>
+            </div>
+            <div class="bg-slate-50 rounded-lg p-4 border">
+              <div class="text-xs text-slate-500">최근 1년 가동률</div>
+              <div class="mt-1 text-lg font-semibold ${utilization.className}">${utilization.percent}%</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 이동 타임라인 -->
+        <div class="px-6">
+          <h3 class="text-lg font-semibold text-slate-800 mb-3">이동 타임라인 (최근 1년)</h3>
+          ${timelineHTML}
+        </div>
+
+        <!-- 교체 부품 + 최근 1년 가동 현황 -->
+        <div class="p-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div>
+              <h3 class="text-lg font-semibold text-slate-800 mb-3">교체 부품/수리 항목</h3>
+              ${partsHTML}
+            </div>
+            <div class="bg-white rounded-lg border p-4">
+              <h3 class="text-lg font-semibold text-slate-800 mb-2">최근 1년 가동 현황</h3>
+              <p class="text-sm text-slate-600 mb-3">영업일 기준(주말 제외) 현장 체류 비율로 산정합니다.</p>
+              <div class="flex items-center justify-center">
+                <canvas id="${donutCanvasId}" width="220" height="220"></canvas>
+              </div>
+              <div class="mt-3 text-sm text-slate-700">
+                가동률 <span class="${utilization.className} font-semibold">${utilization.percent}%</span>
+                (현장 ${utilizationBreakdown.siteBiz}일 / 총 ${utilizationBreakdown.totalBiz}영업일)
+              </div>
+              <div class="mt-2 flex gap-4 text-xs text-slate-600">
+                <span class="flex items-center gap-1"><span style="display:inline-block;width:12px;height:12px;background:#3b82f6;border-radius:3px"></span>청명</span>
+                <span class="flex items-center gap-1"><span style="display:inline-block;width:12px;height:12px;background:#dc2626;border-radius:3px"></span>업체</span>
+                <span class="flex items-center gap-1"><span style="display:inline-block;width:12px;height:12px;background:#a78bfa;border-radius:3px"></span>현장</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const modal = document.getElementById('equipment-detail-modal');
+    if (modal) {
+        modal.innerHTML = content;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        // 도넛 차트 렌더링
+        try { renderUtilizationDonutChart(donutCanvasId, utilizationBreakdown); } catch (e) { console.error('도넛 차트 렌더 오류:', e); }
+    }
+}
+
+// 날짜 포맷 YYYY.MM.DD
+function formatDateYmd(dateLike) {
+    if (!dateLike) return null;
+    const d = new Date(dateLike);
+    if (isNaN(d.getTime())) return null;
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return `${y}.${m}.${dd}`;
+}
+
+// 최근 1년 가동률 (영업일 기준: 주말 제외, 현장 체류 일수 / 총 영업일)
+function calculateLastYearUtilization(serial, movements) {
+    const to = new Date();
+    const from = new Date(to.getFullYear() - 1, to.getMonth(), to.getDate());
+    const intervals = buildLocationIntervals(serial, movements, from, to);
+    const totalBiz = countBusinessDays(from, to);
+    let siteBiz = 0;
+    intervals.forEach(iv => {
+        if (iv.type === 'site') {
+            siteBiz += countBusinessDays(new Date(iv.start), new Date(iv.end));
+        }
+    });
+    const ratio = totalBiz > 0 ? Math.round((siteBiz / totalBiz) * 100) : 0;
+    return { percent: ratio, className: ratio >= 60 ? 'text-green-600' : ratio >= 30 ? 'text-orange-600' : 'text-red-600' };
+}
+
+// 최근 1년 가동 현황(청명/업체/현장) 비율 계산
+function calculateLastYearBreakdown(serial, movements) {
+    const to = new Date();
+    const from = new Date(to.getFullYear() - 1, to.getMonth(), to.getDate());
+    const intervals = buildLocationIntervals(serial, movements, from, to);
+    const totalBiz = countBusinessDays(from, to);
+    let siteBiz = 0, vendorBiz = 0, cmesBiz = 0;
+    intervals.forEach(iv => {
+        const days = countBusinessDays(new Date(iv.start), new Date(iv.end));
+        if (iv.type === 'site') siteBiz += days;
+        else if (iv.type === 'vendor') vendorBiz += days;
+        else cmesBiz += days; // 'cmes'
+    });
+    return { totalBiz, siteBiz, vendorBiz, cmesBiz };
+}
+
+function renderUtilizationDonutChart(canvasId, breakdown) {
+    const el = document.getElementById(canvasId);
+    if (!el || !window.Chart) return;
+    const data = {
+        labels: ['청명', '업체', '현장'],
+        datasets: [{
+            data: [breakdown.cmesBiz, breakdown.vendorBiz, breakdown.siteBiz],
+            backgroundColor: ['#3b82f6', '#dc2626', '#a78bfa'],
+            borderWidth: 0
+        }]
+    };
+    const options = {
+        responsive: false,
+        plugins: { legend: { display: true, position: 'bottom' } }
+    };
+    new Chart(el.getContext('2d'), { type: 'doughnut', data, options });
+}
+
+function countBusinessDays(start, end) {
+    const s = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+    const e = new Date(end.getFullYear(), end.getMonth(), end.getDate());
+    let days = 0;
+    for (let d = new Date(s); d <= e; d.setDate(d.getDate() + 1)) {
+        const wd = d.getDay();
+        if (wd !== 0 && wd !== 6) days++;
+    }
+    return Math.max(days, 0);
+}
+
+function mapLocationType(name) {
+    const str = (name || '').toString();
+    if (/청명|본사|창고|CEMS|CMES|본사 창고/.test(str)) return 'cmes';
+    if (/현장|출장/.test(str)) return 'site';
+    return 'vendor';
+}
+
+// [start,end) 구간 리스트 생성 (from~to 범위 제한)
+function buildLocationIntervals(serial, movementsAsc, from, to) {
+    const result = [];
+    const asc = Array.isArray(movementsAsc) ? movementsAsc : [];
+    const within = asc.filter(m => new Date(m.date) >= new Date(from) && new Date(m.date) <= new Date(to));
+
+    // from 시점의 현재 위치 추정: from 이전 마지막 이동의 inLocation, 없으면 장비 현재위치 → defaults '청명'
+    let currentType = 'cmes';
+    const prior = asc.filter(m => new Date(m.date) < new Date(from)).sort((a,b)=>new Date(b.date)-new Date(a.date))[0];
+    if (prior && (prior.inLocation || prior.outLocation)) currentType = mapLocationType(prior.inLocation || prior.outLocation);
+    else if (equipmentData) {
+        const eq = equipmentData.find(e => e.serial === serial);
+        if (eq && eq.currentLocation) currentType = mapLocationType(eq.currentLocation);
+    }
+
+    let cursor = new Date(from);
+    within.forEach(m => {
+        const md = new Date(m.date);
+        if (md > cursor) {
+            result.push({ start: new Date(cursor), end: new Date(md), type: currentType });
+        }
+        currentType = mapLocationType(m.inLocation || m.outLocation);
+        cursor = new Date(md);
+    });
+    if (cursor < to) result.push({ start: new Date(cursor), end: new Date(to), type: currentType });
+
+    return result;
+}
+
+// 이동 타임라인 렌더링 (최근 1년)
+function renderMovementTimeline(serial, movementsAsc, repairsAsc) {
+    const to = new Date();
+    const from = new Date(to.getFullYear() - 1, to.getMonth(), to.getDate());
+    const rangeMs = to - from;
+    // 기본 구간 생성 후 동일 타입 연속 구간 병합
+    const rawIntervals = buildLocationIntervals(serial, movementsAsc, from, to);
+    const intervals = (function mergeConsecutive(list){
+        const merged = [];
+        list.forEach(iv => {
+            const last = merged[merged.length - 1];
+            if (last && last.type === iv.type && +new Date(iv.start) <= +new Date(last.end)) {
+                // 겹치거나 연속되는 동일 타입은 확장
+                last.end = new Date(Math.max(+new Date(last.end), +new Date(iv.end)));
+            } else {
+                merged.push({ start: new Date(iv.start), end: new Date(iv.end), type: iv.type });
+            }
+        });
+        return merged;
+    })(rawIntervals);
+
+    function pct(date) { return ((new Date(date) - from) / rangeMs) * 100; }
+    const clampPct = v => Math.max(0, Math.min(100, v));
+
+    const monthTicks = [];
+    for (let d = new Date(from.getFullYear(), from.getMonth(), 1); d <= to; d.setMonth(d.getMonth() + 1)) {
+        const left = clampPct(pct(new Date(d)));
+        const ym = `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2,'0')}`;
+        monthTicks.push(`<div class="absolute bottom-0 text-[12px] text-slate-700" style="left:${left}%; transform:translateX(-50%);">${ym}</div>`);
+    }
+
+    function vendorLabel(start, end) {
+        const s = +new Date(start), e = +new Date(end);
+        const hit = (repairsAsc || []).find(r => {
+            const t = +new Date(r.repair_date || r.date);
+            return t >= s && t <= e && ((r.repair_type && r.repair_type.includes('정도검사')) || (r.description && r.description.includes('정도검사')));
+        });
+        return hit ? '정도검사' : '일반수리';
+    }
+
+    const segs = intervals.map((iv, idx) => {
+        const l = clampPct(pct(iv.start));
+        const r = clampPct(pct(iv.end));
+        const w = Math.max(0.5, r - l);
+        const isVendor = iv.type === 'vendor';
+        const isSite = iv.type === 'site';
+        const isCmes = iv.type === 'cmes';
+        const baseColor = isVendor ? '#dc2626' : (isSite ? '#a78bfa' : '#3b82f6');
+        const label = isVendor ? '업체' : (isSite ? '현장' : '청명');
+
+        // 화살표는 별도 오버레이로 렌더하므로 여기서는 비우기
+        const arrowSvg = '';
+        const tripLabel = '';
+
+        const vendorBadge = isVendor ? `<div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:12px;color:#fff;opacity:.95;text-shadow:0 1px 2px rgba(0,0,0,.35)">${vendorLabel(iv.start, iv.end)}</div>` : '';
+
+        const text = w >= 4 ? `<span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-weight:800;color:#fff;font-size:${w>=12?'20px':'16px'};text-shadow:0 1px 2px rgba(0,0,0,.45)">${label}</span>` : '';
+
+        return `
+          <div style="position:absolute;left:${l}%;width:${w}%;top:10px;bottom:34px;background:${baseColor};border-radius:10px;box-shadow:0 1px 2px rgba(0,0,0,.15)">
+            ${text}
+            ${vendorBadge}
+            ${arrowSvg}
+            ${tripLabel}
+          </div>`;
+    }).join('');
+
+    // ===== 출장(사이트) 오버레이: 인접한 청명 복귀 기간이 7일 이하이면 하나로 병합
+    function mergeSiteWindows(intervals) {
+        const merged = [];
+        for (let i = 0; i < intervals.length; i++) {
+            if (intervals[i].type !== 'site') continue;
+            let start = new Date(intervals[i].start);
+            let end = new Date(intervals[i].end);
+            let j = i + 1;
+            while (j + 1 < intervals.length && intervals[j].type === 'cmes' && intervals[j + 1].type === 'site') {
+                const gapDays = (new Date(intervals[j].end) - new Date(intervals[j].start)) / (1000 * 60 * 60 * 24);
+                if (gapDays <= 7) {
+                    end = new Date(intervals[j + 1].end);
+                    i = j + 1;
+                    j = i + 1;
+                } else {
+                    break;
+                }
+            }
+            merged.push({ start, end });
+        }
+        return merged;
+    }
+
+    // 하단 별도 "출장" 오버레이는 제거하고 동일 행 바에서 표시하도록 변경
+    const siteArrows = '';
+
+    // 수리/부품 수직 마커 (최근 1년 범위 내)
+    const repMarkers = (() => {
+      const list = (repairsAsc || [])
+        .filter(r => {
+          const t = +new Date(r.repair_date || r.date);
+          return t >= +from && t <= +to;
+        })
+        .sort((a,b)=> +new Date(a.repair_date||a.date) - +new Date(b.repair_date||b.date));
+      let html = '';
+      let lastLeft = -999;
+      let tier = 0; // 0,1,2 ...
+      const threshold = 1.5; // % 단위, 가까운 시기 판단 기준
+      list.forEach(r => {
+        const left = clampPct(pct(new Date(r.repair_date || r.date)));
+        if (Math.abs(left - lastLeft) < threshold) {
+          tier = (tier + 1) % 3; // 최대 3단계 높이
+        } else {
+          tier = 0;
+        }
+        lastLeft = left;
+
+        const arrowTop = 16 + tier * 10; // 16, 26, 36...
+        const labelTop = Math.max(2, arrowTop - 12);
+        const lineTop = arrowTop + 10;
+
+        const rawDesc = (r.description || r.repair_type || '').toString();
+        const partLabel = rawDesc.replace(/[\n\r\t]/g,' ').replace(/[<>]/g,'').slice(0, 24);
+        const title = `${formatDateYmd(r.repair_date || r.date) || ''} / ${(r.repair_company || r.vendor || '')} / ${rawDesc} / ${r.cost ? (Number(r.cost).toLocaleString()+'원') : ''}`.replace(/"/g,'\\"');
+        html += `
+          <div style="position:absolute;left:${left}%;top:${labelTop}px;transform:translateX(-50%);font-size:11px;color:#ffffff;font-weight:800;text-shadow:0 1px 2px rgba(0,0,0,.35);white-space:nowrap;">${partLabel}</div>
+          <div title="${title}" style="position:absolute;left:${left}%;top:${arrowTop}px;transform:translateX(-50%);pointer-events:auto">
+            <svg width="12" height="12" viewBox="0 0 12 12">
+              <defs>
+                <marker id="arrowhead-white" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                  <polygon points="0 0, 6 3, 0 6" fill="#ffffff" />
+                </marker>
+              </defs>
+              <line x1="0" y1="6" x2="12" y2="6" stroke="#ffffff" stroke-width="2" marker-end="url(#arrowhead-white)" />
+            </svg>
+          </div>
+          <div style="position:absolute;left:${left}%;top:${lineTop}px;bottom:22px;width:2px;background:#ffffff;opacity:.9;transform:translateX(-50%);"></div>`;
+      });
+      return html;
+    })();
+
+    // 범례 추가
+    const legend = `
+      <div class="flex items-center gap-4 mb-2">
+        <div class="flex items-center gap-2 text-slate-700 text-sm"><span style="display:inline-block;width:14px;height:14px;background:#3b82f6;border-radius:3px"></span>청명</div>
+        <div class="flex items-center gap-2 text-slate-700 text-sm"><span style="display:inline-block;width:14px;height:14px;background:#dc2626;border-radius:3px"></span>업체</div>
+        <div class="flex items-center gap-2 text-slate-700 text-sm"><span style="display:inline-block;width:14px;height:14px;background:#a78bfa;border-radius:3px"></span>출장</div>
+        <div class="flex items-center gap-2 text-slate-700 text-sm"><span style="display:inline-block;width:12px;height:12px;background:#ffffff;border:2px solid #7c3aed;border-radius:2px"></span>→ 수리 거래명세</div>
+      </div>`;
+
+    return `
+      ${legend}
+      <div class="relative w-full rounded-xl overflow-hidden border border-slate-200" style="height:13rem;background:#f8fafc;">
+        ${segs}
+        ${repMarkers}
+        ${siteArrows}
+        ${monthTicks.join('')}
+      </div>`;
+}
+
+// 교체 부품/수리 항목 요약 (가용 데이터 기반)
+function renderReplacedParts(serial, repairsAsc) {
+    const rows = (repairsAsc || []).map(r => {
+        const when = formatDateYmd(r.repair_date || r.date) || '-';
+        const vendor = r.repair_company || r.vendor || '-';
+        const desc = r.description || r.repair_type || '-';
+        const cost = r.cost ? `${Number(r.cost).toLocaleString()}원` : '-';
+        return { when, vendor, desc, cost };
+    });
+
+    if (rows.length === 0) {
+        return '<div class="text-slate-500">교체 부품/수리 내역 데이터가 없습니다.</div>';
+    }
+
+    const items = rows.map(x => `
+      <div class="flex flex-col gap-1 bg-white border rounded-md p-3 min-w-[220px]">
+        <div class="text-sm font-semibold text-slate-800 truncate" title="${x.desc}">${x.desc}</div>
+        <div class="text-xs text-slate-600">${x.vendor}</div>
+        <div class="text-sm text-slate-900">${x.cost}</div>
+        <div class="text-[11px] text-slate-500">${x.when}</div>
+      </div>
+    `).join('');
+
+    return `<div class="flex gap-3 overflow-x-auto pb-1">${items}</div>`;
+}
+
+// 장비 상세정보 모달 닫기
+function closeEquipmentDetailModal() {
+    const modal = document.getElementById('equipment-detail-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+    }
+}
+
+// ===== 주기별 수리 건수/비용 차트 =====
+document.addEventListener('DOMContentLoaded', () => {
+    const periodSel = document.getElementById('repair-period-select');
+    const dimSel = document.getElementById('repair-dimension-select');
+    const customBox = document.getElementById('repair-period-custom');
+    const fromInput = document.getElementById('repair-date-from');
+    const toInput = document.getElementById('repair-date-to');
+    const filterBtn = document.getElementById('repair-filter-toggle');
+    const filterPanel = document.getElementById('repair-filter-panel');
+    const chips = document.getElementById('repair-filter-chips');
+
+    const render = () => renderRepairsPeriodChart(periodSel.value, dimSel.value, {
+        from: fromInput?.value || '',
+        to: toInput?.value || '',
+        selected: getSelectedFilterItems()
+    });
+
+    function getSelectedFilterItems() {
+        const selected = [];
+        chips?.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            if (cb.checked) selected.push(cb.value);
+        });
+        return selected;
+    }
+    function rebuildFilterChips() {
+        if (!chips) return;
+        const dim = dimSel?.value || 'overall';
+        let items = [];
+        if (dim === 'byVendor') items = Array.from(new Set((repairsData||[]).map(r=>r.repair_company).filter(Boolean))).sort();
+        else if (dim === 'bySeries') items = Array.from(new Set((repairsData||[]).map(r=>r.product_series).filter(Boolean))).sort();
+        else if (dim === 'byMeasurement') items = Array.from(new Set((repairsData||[]).map(r=>r.measurement_item).filter(Boolean))).sort();
+        else items = [];
+        chips.innerHTML = items.map(v => `<label class=\"px-2 py-1 border rounded flex items-center gap-1\"><input type=\"checkbox\" value=\"${v}\" checked> ${v}</label>`).join('');
+        chips.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.addEventListener('change', render));
+    }
+
+    if (periodSel && dimSel) {
+        periodSel.addEventListener('change', () => {
+            if (customBox) customBox.classList.toggle('hidden', periodSel.value !== 'custom');
+            render();
+        });
+        dimSel.addEventListener('change', () => { rebuildFilterChips(); render(); });
+        fromInput?.addEventListener('change', render);
+        toInput?.addEventListener('change', render);
+        filterBtn?.addEventListener('click', ()=> { if (filterPanel) filterPanel.classList.toggle('hidden'); });
+        rebuildFilterChips();
+        setTimeout(render, 0);
+    }
+});
+
+function renderRepairsPeriodChart(period = 'month', dimension = 'overall', opts = {}) {
+    const ctx = document.getElementById('repairsPeriodChart');
+    if (!ctx || !window.Chart) return;
+
+    // 그룹 키 생성기
+    const getBucketKey = (dateStr) => {
+        const d = new Date(dateStr);
+        const y = d.getFullYear();
+        const m = d.getMonth() + 1;
+        if (period === 'year') return `${y}`;
+        if (period === 'half') return `${y}-H${m <= 6 ? 1 : 2}`;
+        if (period === 'quarter') return `${y}-Q${Math.floor((m - 1) / 3) + 1}`;
+        return `${y}-${String(m).padStart(2, '0')}`; // month
+    };
+
+    // 차원 그룹핑 기준
+    function normalizeSeriesName(name) {
+        const s = String(name || '').trim();
+        const m = s.match(/^\(([^)]+)\)\s*(.+)$/);
+        return (m ? m[2] : s) || '기타';
+    }
+    const getDimKey = (r) => {
+        if (dimension === 'byVendor') return r.repair_company || '기타';
+        if (dimension === 'bySeries') return normalizeSeriesName(r.equipment_category || r.product_series || r.category);
+        if (dimension === 'byMeasurement') return r.measurement_item || '기타';
+        return '전체';
+    };
+
+    // 집계
+    const map = new Map(); // dim -> bucket -> { count, cost }
+    const rows = (repairsData || []).filter(r => {
+        // 기간 필터
+        if (period === 'custom' && opts && (opts.from || opts.to)) {
+            const t = new Date(r.repair_date || r.date);
+            if (opts.from && t < new Date(opts.from)) return false;
+            if (opts.to && t > new Date(opts.to)) return false;
+        }
+        // 항목 필터
+        if (Array.isArray(opts?.selected) && opts.selected.length) {
+            const key = getDimKey(r);
+            if (!opts.selected.includes(key)) return false;
+        }
+        return true;
+    });
+    rows.forEach(r => {
+        const date = r.repair_date || r.date;
+        if (!date) return;
+        const bucket = getBucketKey(date);
+        const dim = getDimKey(r);
+        if (!map.has(dim)) map.set(dim, new Map());
+        const b = map.get(dim);
+        if (!b.has(bucket)) b.set(bucket, { count: 0, cost: 0 });
+        const cell = b.get(bucket);
+        cell.count += 1;
+        cell.cost += Number(r.cost || 0);
+    });
+
+    // 정렬된 버킷 라벨
+    const buckets = Array.from(new Set(Array.from(map.values()).flatMap(b => Array.from(b.keys())))).sort();
+
+    // 데이터셋 구성 (이상치 완화 스케일링 포함)
+    const palette = ['#2563eb', '#16a34a', '#f59e0b', '#ef4444', '#7c3aed', '#0ea5e9'];
+    const dims = Array.from(map.keys());
+    function percentile(arr, p) {
+        const a = arr.filter(v => Number.isFinite(v)).slice().sort((x,y)=>x-y);
+        if (!a.length) return 0;
+        const idx = Math.min(a.length - 1, Math.max(0, Math.floor((a.length - 1) * p)));
+        return a[idx];
+    }
+
+    let datasets = [];
+    let scalesConfig = {};
+    let pluginsConfig = {};
+
+    if (dimension === 'overall') {
+        // 전체: 같은 버킷에 대해 건수/총비용(백만원) 동시 표기 (이중 y축)
+        const b = map.get('전체') || new Map();
+        const counts = buckets.map(k => (b.get(k)?.count) || 0);
+        const costsRaw = buckets.map(k => (b.get(k)?.cost) || 0);
+        const costsM = costsRaw.map(c => Math.round(c / 1000000));
+
+        const clampCount = Math.max(1, percentile(counts, 0.9)) * 1.15;
+        const clampCost = Math.max(1, percentile(costsM, 0.9)) * 1.15;
+
+        datasets = [
+            { label: '건수', data: counts.map(v => Math.min(v, clampCount)), backgroundColor: '#2563eb', yAxisID: 'yCount', _raw: counts, _unit: 'count' },
+            { label: '총비용(백만원)', data: costsM.map(v => Math.min(v, clampCost)), backgroundColor: '#f59e0b', yAxisID: 'yCost', _raw: costsRaw, _unit: 'cost' }
+        ];
+
+        scalesConfig = {
+            x: { stacked: false },
+            yCount: {
+                beginAtZero: true,
+                suggestedMax: clampCount,
+                ticks: { maxTicksLimit: 6 },
+                title: { display: true, text: '건수' }
+            },
+            yCost: {
+                beginAtZero: true,
+                suggestedMax: clampCost,
+                position: 'right',
+                grid: { drawOnChartArea: false },
+                ticks: { maxTicksLimit: 6, callback: (v)=> `${v}백만원` },
+                title: { display: true, text: '비용(백만원)' }
+            }
+        };
+        pluginsConfig = {
+            legend: { position: 'bottom' },
+            tooltip: {
+                callbacks: {
+                    label: function(ctx){
+                        const ds = ctx.dataset; const i = ctx.dataIndex; const raw = (ds._raw && Number(ds._raw[i])) || 0;
+                        return ds._unit === 'cost' ? `${ds.label}: ${raw.toLocaleString()}원 (${ctx.parsed.y.toLocaleString()}백만원)` : `${ds.label}: ${raw.toLocaleString()}건`;
+                    }
+                }
+            }
+        };
+    } else {
+        // 업체/품목/측정항목: dim 별 한 축(비용 또는 건수)
+        const allMetricValues = [];
+        const tmpDatasets = dims.map((dim, i) => {
+            const b = map.get(dim);
+            const metricValues = buckets.map(k => {
+                const cell = b.get(k);
+                if (!cell) return 0;
+                return dimension === 'overall' ? (cell.count || 0) : Math.round((cell.cost || 0) / 1000000);
+            });
+            allMetricValues.push(...metricValues);
+            const rawValues = buckets.map(k => {
+                const cell = b.get(k) || { count: 0, cost: 0 };
+                return dimension === 'overall' ? (cell.count || 0) : (cell.cost || 0);
+            });
+            return { label: dim, metricValues, rawValues, backgroundColor: palette[i % palette.length] };
+        });
+        const robustMax = Math.max(1, percentile(allMetricValues, 0.9));
+        const clampMax = robustMax * 1.15;
+        datasets = tmpDatasets.map(d => ({
+            label: d.label,
+            data: d.metricValues.map(v => Math.min(v, clampMax)),
+            backgroundColor: d.backgroundColor,
+            _raw: d.rawValues,
+            _unit: (dimension === 'overall' ? 'count' : 'cost')
+        }));
+        scalesConfig = {
+            x: { stacked: false },
+            y: {
+                beginAtZero: true,
+                suggestedMax: clampMax,
+                ticks: {
+                    maxTicksLimit: 6,
+                    callback: function(value){ return (dimension === 'overall') ? `${value}` : `${value}백만원`; }
+                },
+                title: { display: true, text: dimension === 'overall' ? '건수' : '비용(백만원)' }
+            }
+        };
+        pluginsConfig = {
+            legend: { position: 'bottom' },
+            tooltip: {
+                callbacks: {
+                    label: function(ctx){
+                        const ds = ctx.dataset; const i = ctx.dataIndex;
+                        if (ds._unit === 'cost') { const raw = (ds._raw && Number(ds._raw[i])) || 0; return `${ds.label}: ${raw.toLocaleString()}원 (${ctx.parsed.y.toLocaleString()}백만원)`; }
+                        else { const raw = (ds._raw && Number(ds._raw[i])) || 0; return `${ds.label}: ${raw.toLocaleString()}건`; }
+                    }
+                }
+            }
+        };
+    }
+
+    // 기존 차트 제거 (destroy 함수 존재 시에만)
+    try {
+        if (window.repairsPeriodChart && typeof window.repairsPeriodChart.destroy === 'function') {
+            window.repairsPeriodChart.destroy();
+        }
+    } catch {}
+
+    // 고정 높이 컨테이너 대응: 캔버스 크기 조정
+    try { if (ctx && ctx.parentElement) { ctx.height = ctx.parentElement.clientHeight; } } catch {}
+    window.repairsPeriodChart = new Chart(ctx, {
+        type: 'bar',
+        data: { labels: buckets, datasets },
+        options: { responsive: true, maintainAspectRatio: false, scales: scalesConfig, plugins: pluginsConfig }
+    });
+}
+
+function getMovementStaffName(serial, lastDateLike) {
+    try {
+        if (!Array.isArray(staffLogsData) || staffLogsData.length === 0) return null;
+        const normDate = (s) => String(s||'').slice(0,10).replace(/[\.\/]/g,'-');
+        const dateStr = lastDateLike ? normDate(lastDateLike) : null;
+        const normKey = (h) => h.replace(/\s/g,'').toLowerCase();
+        const findCol = (obj, preds) => Object.keys(obj).find(h => preds.some(p => normKey(h).includes(p)));
+        // 샘플 헤더 추정: '규격' → 일련번호, '담당자명' → 담당자
+        const first = staffLogsData[0] || {};
+        const serialKeyPref = Object.keys(first).find(h => /규격|serial|일련/.test(normKey(h))) || findCol(first, ['규격','serial','일련']);
+        const staffKeyPref  = Object.keys(first).find(h => /담당자/.test(normKey(h))) || findCol(first, ['담당자','담당']);
+        const dateKeyPref   = Object.keys(first).find(h => /일자|날짜|date|출고-/.test(normKey(h))) || findCol(first, ['일자','날짜','date','출고-']);
+
+        const rows = staffLogsData.filter(r => {
+            const sKey = serialKeyPref || findCol(r, ['규격','serial','일련']);
+            if (!sKey) return false;
+            return String(r[sKey]||'').trim() === String(serial).trim();
+        });
+        if (rows.length === 0) return null;
+        const dKey = dateKeyPref || findCol(rows[0], ['date','날짜','일자','출고-','출고일']);
+        const nrows = rows.map(r=>({ r, d: dKey ? new Date(r[dKey]) : new Date(0)})).sort((a,b)=> a.d - b.d);
+        let picked = nrows[nrows.length-1]?.r;
+        if (dateStr && dKey) {
+            const hit = nrows.slice().reverse().find(x => normDate(x.r[dKey]) === dateStr);
+            if (hit) picked = hit.r;
+        }
+        let staffKey = staffKeyPref || findCol(picked, ['담당자','담당']);
+        let staff = staffKey ? String(picked[staffKey]||'').trim() : '';
+        if (!staff) {
+            const withStaff = nrows.slice().reverse().find(x => {
+                const k = staffKeyPref || findCol(x.r, ['담당자','담당']);
+                return k && String(x.r[k]||'').trim();
+            });
+            if (withStaff) {
+                const k2 = staffKeyPref || findCol(withStaff.r, ['담당자','담당']);
+                staff = String(withStaff.r[k2]||'').trim();
+            }
+        }
+        return staff || null;
+    } catch { return null; }
 }

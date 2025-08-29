@@ -1,4 +1,3 @@
-node_modules/
-*.log
-
-
+﻿node_modules/
+**/.cache/
+개발현황자료전달/

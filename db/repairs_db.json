@@ -192,7 +192,7 @@
     "date": "2023-02-06",
     "serial": "18P370",
     "company": "켐익",
-    "details": "정도검사",
+    "details": "리니어부싱 부식교체",
     "cost": 50000
   },
   {
@@ -201,13 +201,6 @@
     "company": "켐익",
     "details": "외장온,습도센서 교체",
     "cost": 150000
-  },
-  {
-    "date": "2023-02-06",
-    "serial": "18P370",
-    "company": "켐익",
-    "details": "리니어부싱 부식교체",
-    "cost": 50000
   },
   {
     "date": "2023-02-06",
@@ -295,20 +288,6 @@
   },
   {
     "date": "2023-02-07",
-    "serial": "21",
-    "company": "카인",
-    "details": "모터교체",
-    "cost": 450000
-  },
-  {
-    "date": "2023-02-07",
-    "serial": "21",
-    "company": "카인",
-    "details": "컨트롤러 교체",
-    "cost": 400000
-  },
-  {
-    "date": "2023-02-07",
     "serial": "853",
     "company": "토탈엔지니어링",
     "details": "AC 아답터 소켓교체",
@@ -346,42 +325,42 @@
     "date": "2023-02-14",
     "serial": "1501479",
     "company": "APM",
-    "details": "정도검사",
+    "details": "기본점검",
     "cost": 50000
   },
   {
     "date": "2023-02-14",
     "serial": "1501490",
     "company": "APM",
-    "details": "정도검사",
+    "details": "기본점검",
     "cost": 50000
   },
   {
     "date": "2023-02-14",
     "serial": "1501504",
     "company": "APM",
-    "details": "정도검사",
+    "details": "기본점검",
     "cost": 50000
   },
   {
     "date": "2023-02-14",
     "serial": "1501514",
     "company": "APM",
-    "details": "정도검사",
+    "details": "기본점검",
     "cost": 50000
   },
   {
     "date": "2023-02-14",
     "serial": "1501513",
     "company": "APM",
-    "details": "정도검사",
+    "details": "기본점검",
     "cost": 50000
   },
   {
     "date": "2023-02-14",
     "serial": "1904009",
     "company": "APM",
-    "details": "정도검사",
+    "details": "기본점검",
     "cost": 50000
   },
   {
@@ -425,48 +404,6 @@
     "company": "APM",
     "details": "정도검사",
     "cost": 100000
-  },
-  {
-    "date": "2023-02-14",
-    "serial": "1501479",
-    "company": "APM",
-    "details": "기본점검",
-    "cost": 50000
-  },
-  {
-    "date": "2023-02-14",
-    "serial": "1501490",
-    "company": "APM",
-    "details": "기본점검",
-    "cost": 50000
-  },
-  {
-    "date": "2023-02-14",
-    "serial": "1501504",
-    "company": "APM",
-    "details": "기본점검",
-    "cost": 50000
-  },
-  {
-    "date": "2023-02-14",
-    "serial": "1501514",
-    "company": "APM",
-    "details": "기본점검",
-    "cost": 50000
-  },
-  {
-    "date": "2023-02-14",
-    "serial": "1501513",
-    "company": "APM",
-    "details": "기본점검",
-    "cost": 50000
-  },
-  {
-    "date": "2023-02-14",
-    "serial": "1904009",
-    "company": "APM",
-    "details": "기본점검",
-    "cost": 50000
   },
   {
     "date": "2023-02-14",
@@ -745,7 +682,7 @@
     "date": "2023-05-26",
     "serial": "20-2171",
     "company": "APM",
-    "details": "기본점검",
+    "details": "정도검사",
     "cost": 100000
   },
   {
@@ -863,13 +800,6 @@
   {
     "date": "2023-05-26",
     "serial": "21-0322",
-    "company": "APM",
-    "details": "정도검사",
-    "cost": 100000
-  },
-  {
-    "date": "2023-05-26",
-    "serial": "20-2171",
     "company": "APM",
     "details": "정도검사",
     "cost": 100000
@@ -1277,7 +1207,7 @@
     "date": "2023-07-14",
     "serial": "21",
     "company": "APM",
-    "details": "정도검사",
+    "details": "정도검사 대행료",
     "cost": 100000
   },
   {
@@ -1320,13 +1250,6 @@
     "serial": "21-0331",
     "company": "APM",
     "details": "정도검사",
-    "cost": 100000
-  },
-  {
-    "date": "2023-07-14",
-    "serial": "21",
-    "company": "APM",
-    "details": "정도검사 대행료",
     "cost": 100000
   },
   {
@@ -1865,13 +1788,6 @@
     "date": "2023-10-25",
     "serial": "21",
     "company": "APM",
-    "details": "정도검사(품목등록 안됨)",
-    "cost": 100000
-  },
-  {
-    "date": "2023-10-25",
-    "serial": "21",
-    "company": "APM",
     "details": "정도검사 대행료",
     "cost": 100000
   },
@@ -2124,13 +2040,6 @@
     "date": "2024-01-23",
     "serial": "21",
     "company": "APM",
-    "details": "정도검사",
-    "cost": 100000
-  },
-  {
-    "date": "2024-01-23",
-    "serial": "21",
-    "company": "APM",
     "details": "정도검사 대행료",
     "cost": 100000
   },
@@ -2154,13 +2063,6 @@
     "company": "APM",
     "details": "기본점검(품목등록 안됨)",
     "cost": 50000
-  },
-  {
-    "date": "2024-01-29",
-    "serial": "TA3265",
-    "company": "카인",
-    "details": "모터 교체",
-    "cost": 300000
   },
   {
     "date": "2024-01-29",
@@ -2231,13 +2133,6 @@
     "company": "켐익",
     "details": "USB보드, 통신케이블 교체",
     "cost": 100000
-  },
-  {
-    "date": "2024-01-29",
-    "serial": "19P428",
-    "company": "켐익",
-    "details": "인넷연결부 아답타 나사산 손상 교체",
-    "cost": 20000
   },
   {
     "date": "2024-01-29",
@@ -2404,13 +2299,6 @@
     "date": "2024-02-19",
     "serial": "726",
     "company": "토탈엔지니어링",
-    "details": "A셀 유량계 교체",
-    "cost": 400000
-  },
-  {
-    "date": "2024-02-19",
-    "serial": "726",
-    "company": "토탈엔지니어링",
     "details": "B셀 유량계 교체",
     "cost": 400000
   },
@@ -2446,13 +2334,6 @@
     "date": "2024-02-19",
     "serial": "849",
     "company": "토탈엔지니어링",
-    "details": "A셀 유량계 교체",
-    "cost": 400000
-  },
-  {
-    "date": "2024-02-19",
-    "serial": "849",
-    "company": "토탈엔지니어링",
     "details": "B셀 유량계 교체",
     "cost": 400000
   },
@@ -2460,22 +2341,8 @@
     "date": "2024-02-19",
     "serial": "849",
     "company": "토탈엔지니어링",
-    "details": "A셀 샘플링 펌프 교체",
-    "cost": 350000
-  },
-  {
-    "date": "2024-02-19",
-    "serial": "849",
-    "company": "토탈엔지니어링",
     "details": "B셀 샘플링 펌프 교체",
     "cost": 350000
-  },
-  {
-    "date": "2024-02-19",
-    "serial": "849",
-    "company": "토탈엔지니어링",
-    "details": "A셀 펌프 뎀퍼 장착",
-    "cost": 75000
   },
   {
     "date": "2024-02-19",
@@ -2663,7 +2530,7 @@
     "date": "2024-03-14",
     "serial": "21",
     "company": "APM",
-    "details": "정도검사대행료",
+    "details": "정도검사 대행료",
     "cost": 100000
   },
   {
@@ -2678,13 +2545,6 @@
     "serial": "17-1798",
     "company": "APM",
     "details": "정도검사",
-    "cost": 100000
-  },
-  {
-    "date": "2024-03-14",
-    "serial": "21",
-    "company": "APM",
-    "details": "정도검사 대행료",
     "cost": 100000
   },
   {
@@ -3305,20 +3165,6 @@
   },
   {
     "date": "2024-07-11",
-    "serial": "21-0349",
-    "company": "APM",
-    "details": "기본점검",
-    "cost": 100000
-  },
-  {
-    "date": "2024-07-11",
-    "serial": "20-1382",
-    "company": "APM",
-    "details": "Lamp assembly UV Serinus 10",
-    "cost": 950000
-  },
-  {
-    "date": "2024-07-11",
     "serial": "20-1382",
     "company": "APM",
     "details": "Lamp assembly UV Serinus 10",
@@ -3615,13 +3461,6 @@
     "date": "2024-09-05",
     "serial": "20P573",
     "company": "켐익",
-    "details": "기본점검",
-    "cost": 50000
-  },
-  {
-    "date": "2024-09-05",
-    "serial": "20P573",
-    "company": "켐익",
     "details": "PG48 리크교체",
     "cost": 50000
   },
@@ -3720,27 +3559,6 @@
     "date": "2024-10-10",
     "serial": "4176/TA3688",
     "company": "카인",
-    "details": "모터 교체",
-    "cost": 300000
-  },
-  {
-    "date": "2024-10-10",
-    "serial": "4210/TA3712",
-    "company": "카인",
-    "details": "모터 교체",
-    "cost": 300000
-  },
-  {
-    "date": "2024-10-10",
-    "serial": "4170/TA3682",
-    "company": "카인",
-    "details": "모터 교체",
-    "cost": 300000
-  },
-  {
-    "date": "2024-10-10",
-    "serial": "4176/TA3688",
-    "company": "카인",
     "details": "컨트롤러 교체",
     "cost": 300000
   },
@@ -3813,13 +3631,6 @@
     "company": "켐익",
     "details": "외장 온,습도센서 교체",
     "cost": 100000
-  },
-  {
-    "date": "2024-11-13",
-    "serial": "19P405",
-    "company": "켐익",
-    "details": "코인전지 교체",
-    "cost": 0
   },
   {
     "date": "2024-11-13",
@@ -4077,35 +3888,7 @@
     "date": "2024-12-11",
     "serial": "17-0988",
     "company": "APM",
-    "details": "Scrubber",
-    "cost": 0
-  },
-  {
-    "date": "2024-12-11",
-    "serial": "17-0988",
-    "company": "APM",
-    "details": "assembly ozone",
-    "cost": 0
-  },
-  {
-    "date": "2024-12-11",
-    "serial": "17-0988",
-    "company": "APM",
     "details": "Lamp assembly UV",
-    "cost": 0
-  },
-  {
-    "date": "2025-01-08",
-    "serial": "KM008W18CO76",
-    "company": "켐익",
-    "details": "기본점검검",
-    "cost": 50000
-  },
-  {
-    "date": "2025-01-08",
-    "serial": "KM008W18CO76",
-    "company": "켐익",
-    "details": "내부 배관 교체",
     "cost": 0
   },
   {
@@ -4114,6 +3897,13 @@
     "company": "켐익",
     "details": "내부 펌프 흡인후 커넥터 파손교체",
     "cost": 50000
+  },
+  {
+    "date": "2025-01-08",
+    "serial": "KM008W18CO76",
+    "company": "켐익",
+    "details": "내부 배관 교체",
+    "cost": 0
   },
   {
     "date": "2025-01-08",
@@ -4889,7 +4679,7 @@
     "date": "2025-03-18",
     "serial": "1847",
     "company": "토탈엔지니어링",
-    "details": "A셀 유량계 교체",
+    "details": "컨트롤보드 교체",
     "cost": 440000
   },
   {
@@ -4898,13 +4688,6 @@
     "company": "토탈엔지니어링",
     "details": "A셀 펌프 교체",
     "cost": 385000
-  },
-  {
-    "date": "2025-03-18",
-    "serial": "1847",
-    "company": "토탈엔지니어링",
-    "details": "컨트롤보드 교체",
-    "cost": 440000
   },
   {
     "date": "2025-03-18",
@@ -5351,20 +5134,6 @@
     "date": "2025-05-08",
     "serial": "19P430",
     "company": "켐익",
-    "details": "기본점검내역",
-    "cost": 0
-  },
-  {
-    "date": "2025-05-08",
-    "serial": "19P430",
-    "company": "켐익",
-    "details": "프로그램 재설치 및 SD카드교체",
-    "cost": 0
-  },
-  {
-    "date": "2025-05-08",
-    "serial": "19P430",
-    "company": "켐익",
     "details": "코인전지 교체",
     "cost": 0
   },
@@ -5498,7 +5267,7 @@
     "date": "2025-06-19",
     "serial": "1796",
     "company": "토탈엔지니어링",
-    "details": "A셀 유량계 교체",
+    "details": "컨트롤보드 교체",
     "cost": 440000
   },
   {
@@ -5507,13 +5276,6 @@
     "company": "토탈엔지니어링",
     "details": "A셀 펌프 교체",
     "cost": 385000
-  },
-  {
-    "date": "2025-06-19",
-    "serial": "1796",
-    "company": "토탈엔지니어링",
-    "details": "컨트롤보드 교체",
-    "cost": 440000
   },
   {
     "date": "2025-06-19",
