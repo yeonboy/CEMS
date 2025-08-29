@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "_schemaVersion": "1.0.0",
+    "generatedAt": "2025-08-28T06:51:54Z",
+    "sourceFiles": [
+      "equipment_db.json",
+      "movements_db.json",
+      "repairs_db_clean.json",
+      "QC_logs.json"
+    ]
+  },
+  "data": [
+    {
+      "month": "2023-01",
+      "count": 27,
+      "totalCost": 9910000
+    },
+    {
+      "month": "2023-02",
+      "count": 47,
+      "totalCost": 5898000
+    },
+    {
+      "month": "2023-03",
+      "count": 8,
+      "totalCost": 3000000
+    },
+    {
+      "month": "2023-04",
+      "count": 12,
+      "totalCost": 3550000
+    },
+    {
+      "month": "2023-05",
+      "count": 33,
+      "totalCost": 12400000
+    },
+    {
+      "month": "2023-06",
+      "count": 19,
+      "totalCost": 3200000
+    },
+    {
+      "month": "2023-07",
+      "count": 74,
+      "totalCost": 20495000
+    },
+    {
+      "month": "2023-08",
+      "count": 18,
+      "totalCost": 2875000
+    },
+    {
+      "month": "2023-09",
+      "count": 9,
+      "totalCost": 1485000
+    },
+    {
+      "month": "2023-10",
+      "count": 21,
+      "totalCost": 6416000
+    },
+    {
+      "month": "2023-11",
+      "count": 9,
+      "totalCost": 2270000
+    },
+    {
+      "month": "2023-12",
+      "count": 21,
+      "totalCost": 6250000
+    },
+    {
+      "month": "2024-01",
+      "count": 33,
+      "totalCost": 3695000
+    },
+    {
+      "month": "2024-02",
+      "count": 33,
+      "totalCost": 8304000
+    },
+    {
+      "month": "2024-03",
+      "count": 20,
+      "totalCost": 3100000
+    },
+    {
+      "month": "2024-04",
+      "count": 35,
+      "totalCost": 8705000
+    },
+    {
+      "month": "2024-05",
+      "count": 24,
+      "totalCost": 3810000
+    },
+    {
+      "month": "2024-06",
+      "count": 20,
+      "totalCost": 2000000
+    },
+    {
+      "month": "2024-07",
+      "count": 37,
+      "totalCost": 15250000
+    },
+    {
+      "month": "2024-08",
+      "count": 16,
+      "totalCost": 1400000
+    },
+    {
+      "month": "2024-09",
+      "count": 10,
+      "totalCost": 5760000
+    },
+    {
+      "month": "2024-10",
+      "count": 14,
+      "totalCost": 3140000
+    },
+    {
+      "month": "2024-11",
+      "count": 20,
+      "totalCost": 5301000
+    },
+    {
+      "month": "2024-12",
+      "count": 25,
+      "totalCost": 15368000
+    },
+    {
+      "month": "2025-01",
+      "count": 60,
+      "totalCost": 13550000
+    },
+    {
+      "month": "2025-02",
+      "count": 13,
+      "totalCost": 1650000
+    },
+    {
+      "month": "2025-03",
+      "count": 76,
+      "totalCost": 5392000
+    },
+    {
+      "month": "2025-04",
+      "count": 30,
+      "totalCost": 470000
+    },
+    {
+      "month": "2025-05",
+      "count": 13,
+      "totalCost": 941370
+    },
+    {
+      "month": "2025-06",
+      "count": 23,
+      "totalCost": 4272000
+    },
+    {
+      "month": "2025-07",
+      "count": 18,
+      "totalCost": 0
+    }
+  ]
+}

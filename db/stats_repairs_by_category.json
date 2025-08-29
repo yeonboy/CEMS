@@ -1,0 +1,1183 @@
+{
+  "meta": {
+    "_schemaVersion": "1.0.0",
+    "generatedAt": "2025-08-28T06:51:54Z",
+    "sourceFiles": [
+      "equipment_db.json",
+      "movements_db.json",
+      "repairs_db_clean.json",
+      "QC_logs.json"
+    ]
+  },
+  "data": [
+    {
+      "category": "(CO) Serinus30i",
+      "count": 77,
+      "totalCost": 31710000,
+      "avgCost": 411818,
+      "minCost": 0,
+      "maxCost": 3600000,
+      "uniqueSerials": [
+        "17-1509",
+        "18-0147",
+        "18-0159",
+        "18-0320",
+        "20-1348",
+        "20-1502",
+        "20-1503",
+        "20-1508",
+        "20-1509",
+        "20-2128",
+        "20-2131",
+        "20-2132",
+        "20-2171",
+        "20-2305",
+        "20-2311",
+        "20-2313",
+        "21-0330",
+        "21-0331",
+        "21-1394",
+        "21-2173"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 77
+        }
+      ]
+    },
+    {
+      "category": "(PM-10) E-BAM",
+      "count": 47,
+      "totalCost": 29579000,
+      "avgCost": 629340,
+      "minCost": 0,
+      "maxCost": 5200000,
+      "uniqueSerials": [
+        "P22857",
+        "R10185",
+        "R10454",
+        "R10532",
+        "R10783",
+        "T15942",
+        "T15943",
+        "X18018",
+        "X18019",
+        "X18020",
+        "X18021",
+        "X18022",
+        "Y17930",
+        "Y17932",
+        "Y17933",
+        "Y22705",
+        "Y22710"
+      ],
+      "companies": [
+        {
+          "company": "하림",
+          "count": 46
+        },
+        {
+          "company": "켐익",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(O3) Serinus10i",
+      "count": 94,
+      "totalCost": 22171000,
+      "avgCost": 235862,
+      "minCost": 0,
+      "maxCost": 1680000,
+      "uniqueSerials": [
+        "17-0125",
+        "17-0126",
+        "17-0127",
+        "17-0128",
+        "17-0129",
+        "17-0130",
+        "17-0131",
+        "17-0132",
+        "17-0133",
+        "17-0134",
+        "17-0988",
+        "17-1391",
+        "20-1382",
+        "20-1384",
+        "20-1393",
+        "20-1560",
+        "20-1571",
+        "21-0321",
+        "21-0322",
+        "21-0349",
+        "21-0356",
+        "21-0507",
+        "21-0524",
+        "21-1357"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 93
+        },
+        {
+          "company": "켐익",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(NOx, SOx) BMW-5000",
+      "count": 61,
+      "totalCost": 15182000,
+      "avgCost": 248885,
+      "minCost": 0,
+      "maxCost": 800000,
+      "uniqueSerials": [
+        "1314",
+        "1316",
+        "1317",
+        "1500",
+        "1627",
+        "1628",
+        "1744",
+        "1790",
+        "1792",
+        "1793",
+        "1795",
+        "1796",
+        "1798",
+        "1847",
+        "717",
+        "722",
+        "723",
+        "724",
+        "726",
+        "849",
+        "851",
+        "853",
+        "854",
+        "857",
+        "909"
+      ],
+      "companies": [
+        {
+          "company": "토탈엔지니어링",
+          "count": 46
+        },
+        {
+          "company": "켐익",
+          "count": 15
+        }
+      ]
+    },
+    {
+      "category": "(PM-10) KMS-4200",
+      "count": 150,
+      "totalCost": 10240000,
+      "avgCost": 68267,
+      "minCost": 0,
+      "maxCost": 370000,
+      "uniqueSerials": [
+        "18P353",
+        "18P354",
+        "18P355",
+        "18P356",
+        "18P357",
+        "18P358",
+        "18P359",
+        "18P360",
+        "18P361",
+        "18P366",
+        "18P367",
+        "18P368",
+        "18P369",
+        "18P370",
+        "18P371",
+        "18P372",
+        "18P373",
+        "18P374",
+        "18P375",
+        "19P405",
+        "19P424",
+        "19P425",
+        "19P426",
+        "19P427",
+        "19P428",
+        "19P429",
+        "19P430",
+        "19P431",
+        "19P432",
+        "19P433",
+        "20P569",
+        "20P570",
+        "20P572",
+        "20P573",
+        "22P616",
+        "22P617"
+      ],
+      "companies": [
+        {
+          "company": "켐익",
+          "count": 150
+        }
+      ]
+    },
+    {
+      "category": "(PM-2.5) E-BAM",
+      "count": 20,
+      "totalCost": 8884000,
+      "avgCost": 444200,
+      "minCost": 0,
+      "maxCost": 1960000,
+      "uniqueSerials": [
+        "T25861",
+        "T25862",
+        "T25864",
+        "W17345",
+        "W17346",
+        "W17347"
+      ],
+      "companies": [
+        {
+          "company": "하림",
+          "count": 19
+        },
+        {
+          "company": "켐익",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(PM-2.5) PMS-204",
+      "count": 102,
+      "totalCost": 8250000,
+      "avgCost": 80882,
+      "minCost": 0,
+      "maxCost": 800000,
+      "uniqueSerials": [
+        "1501478",
+        "1501479",
+        "1501481",
+        "1501489",
+        "1501490",
+        "1501504",
+        "1501505",
+        "1501506",
+        "1501507",
+        "1501508",
+        "1501511",
+        "1501512",
+        "1501513",
+        "1501514",
+        "1501515",
+        "1501516",
+        "1501517",
+        "1501518",
+        "1501519",
+        "1501520",
+        "1708786",
+        "1708787",
+        "1708788",
+        "1708789",
+        "1708790",
+        "1708791",
+        "1708792",
+        "1708793",
+        "1708794",
+        "1708795",
+        "1709797",
+        "1709798",
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 102
+        }
+      ]
+    },
+    {
+      "category": "(Pb) T8400ME",
+      "count": 30,
+      "totalCost": 7830000,
+      "avgCost": 261000,
+      "minCost": 0,
+      "maxCost": 450000,
+      "uniqueSerials": [
+        "21",
+        "3973",
+        "4159/TA3671",
+        "4162/TA3674",
+        "4170/TA3682",
+        "4176/TA3688",
+        "4210/TA3712",
+        "4211/TA3713",
+        "4238/TA3741",
+        "4241/TA3744",
+        "TA3265",
+        "TA3275",
+        "TA3696"
+      ],
+      "companies": [
+        {
+          "company": "카인",
+          "count": 30
+        }
+      ]
+    },
+    {
+      "category": "하이볼륨 유량계 본체 교체",
+      "count": 1,
+      "totalCost": 6750000,
+      "avgCost": 6750000,
+      "minCost": 6750000,
+      "maxCost": 6750000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "카인",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "부품교체",
+      "count": 1,
+      "totalCost": 4800000,
+      "avgCost": 4800000,
+      "minCost": 4800000,
+      "maxCost": 4800000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(SO2) Serinus50i",
+      "count": 21,
+      "totalCost": 3900000,
+      "avgCost": 185714,
+      "minCost": 0,
+      "maxCost": 1250000,
+      "uniqueSerials": [
+        "17-0866",
+        "17-1733",
+        "17-1798",
+        "17-1903",
+        "17-1906",
+        "17-1912",
+        "18-0318"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 21
+        }
+      ]
+    },
+    {
+      "category": "(NO2) MEZUS-210",
+      "count": 29,
+      "totalCost": 3500000,
+      "avgCost": 120690,
+      "minCost": 0,
+      "maxCost": 650000,
+      "uniqueSerials": [
+        "K1515019",
+        "K1515020",
+        "K1515021",
+        "K1515022",
+        "K1515023",
+        "K1612016",
+        "K1612017",
+        "K1614022",
+        "K1614023",
+        "K1614024"
+      ],
+      "companies": [
+        {
+          "company": "켄텍",
+          "count": 21
+        },
+        {
+          "company": "켐익",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "category": "(NO2) Serinus40",
+      "count": 19,
+      "totalCost": 2810000,
+      "avgCost": 147895,
+      "minCost": 0,
+      "maxCost": 1200000,
+      "uniqueSerials": [
+        "18-0353",
+        "18-0984",
+        "20-2180",
+        "21-0515",
+        "21-0516",
+        "21-0517",
+        "21-0518"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 19
+        }
+      ]
+    },
+    {
+      "category": "(CO) MEZUS-310",
+      "count": 16,
+      "totalCost": 2800000,
+      "avgCost": 175000,
+      "minCost": 0,
+      "maxCost": 800000,
+      "uniqueSerials": [
+        "K1612019",
+        "K1614025A",
+        "K1614026A",
+        "K1614027A"
+      ],
+      "companies": [
+        {
+          "company": "켄텍",
+          "count": 8
+        },
+        {
+          "company": "켐익",
+          "count": 8
+        }
+      ]
+    },
+    {
+      "category": "필터홀더",
+      "count": 1,
+      "totalCost": 2400000,
+      "avgCost": 2400000,
+      "minCost": 2400000,
+      "maxCost": 2400000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "부품구매",
+      "count": 3,
+      "totalCost": 1830000,
+      "avgCost": 610000,
+      "minCost": 150000,
+      "maxCost": 1080000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 1
+        },
+        {
+          "company": "카인",
+          "count": 1
+        },
+        {
+          "company": "켐익",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(PM-10) PMS-204",
+      "count": 24,
+      "totalCost": 1800000,
+      "avgCost": 75000,
+      "minCost": 50000,
+      "maxCost": 100000,
+      "uniqueSerials": [
+        "1904003",
+        "1904004",
+        "1904005",
+        "1904006",
+        "1904007",
+        "1904008",
+        "1904009",
+        "1904010",
+        "1904011",
+        "1904012"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 24
+        }
+      ]
+    },
+    {
+      "category": "외장펌프",
+      "count": 1,
+      "totalCost": 1800000,
+      "avgCost": 1800000,
+      "minCost": 1800000,
+      "maxCost": 1800000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "켄텍",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "정도검사 대행료",
+      "count": 16,
+      "totalCost": 1800000,
+      "avgCost": 112500,
+      "minCost": 100000,
+      "maxCost": 200000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 16
+        }
+      ]
+    },
+    {
+      "category": "부품교체 (일련번호 확인필요)",
+      "count": 2,
+      "totalCost": 1600000,
+      "avgCost": 800000,
+      "minCost": 400000,
+      "maxCost": 1200000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "켄텍",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "category": "정도검사대행료",
+      "count": 9,
+      "totalCost": 1500000,
+      "avgCost": 166667,
+      "minCost": 100000,
+      "maxCost": 350000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 7
+        },
+        {
+          "company": "KNJ",
+          "count": 1
+        },
+        {
+          "company": "켐익",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "Fitting nut 1/4T KYNAR",
+      "count": 3,
+      "totalCost": 1210000,
+      "avgCost": 403333,
+      "minCost": 300000,
+      "maxCost": 455000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "category": "(Pb) T8400ME(품목등록 안됨)",
+      "count": 1,
+      "totalCost": 850000,
+      "avgCost": 850000,
+      "minCost": 850000,
+      "maxCost": 850000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "카인",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(소음) SC-260",
+      "count": 9,
+      "totalCost": 750000,
+      "avgCost": 83333,
+      "minCost": 0,
+      "maxCost": 750000,
+      "uniqueSerials": [
+        "T242071",
+        "T242072",
+        "T242073",
+        "T242109",
+        "T246352"
+      ],
+      "companies": [
+        {
+          "company": "카인",
+          "count": 9
+        }
+      ]
+    },
+    {
+      "category": "T8400ME 컨트롤러 교체",
+      "count": 1,
+      "totalCost": 600000,
+      "avgCost": 600000,
+      "minCost": 600000,
+      "maxCost": 600000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "카인",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(O3) 49iQ",
+      "count": 3,
+      "totalCost": 540000,
+      "avgCost": 180000,
+      "minCost": 180000,
+      "maxCost": 180000,
+      "uniqueSerials": [
+        "1190581598",
+        "1192754688"
+      ],
+      "companies": [
+        {
+          "company": "KNJ",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "category": "SC-260 부품교체 (일련번호 확인필요)",
+      "count": 1,
+      "totalCost": 500000,
+      "avgCost": 500000,
+      "minCost": 500000,
+      "maxCost": 500000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "카인",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "정도검사대행료료",
+      "count": 2,
+      "totalCost": 500000,
+      "avgCost": 250000,
+      "minCost": 150000,
+      "maxCost": 350000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "KNJ",
+          "count": 1
+        },
+        {
+          "company": "켐익",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(PM-2.5) KMS-4200",
+      "count": 11,
+      "totalCost": 400000,
+      "avgCost": 36364,
+      "minCost": 0,
+      "maxCost": 50000,
+      "uniqueSerials": [
+        "19P404",
+        "20P556",
+        "20P557",
+        "20P558",
+        "20P564",
+        "20P565",
+        "22P615"
+      ],
+      "companies": [
+        {
+          "company": "켐익",
+          "count": 11
+        }
+      ]
+    },
+    {
+      "category": "WINS Impactor assembly",
+      "count": 1,
+      "totalCost": 400000,
+      "avgCost": 400000,
+      "minCost": 400000,
+      "maxCost": 400000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(CO) 48iQ",
+      "count": 2,
+      "totalCost": 360000,
+      "avgCost": 180000,
+      "minCost": 180000,
+      "maxCost": 180000,
+      "uniqueSerials": [
+        "1201888256",
+        "1202038522"
+      ],
+      "companies": [
+        {
+          "company": "KNJ",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "category": "(O3) 49i",
+      "count": 3,
+      "totalCost": 360000,
+      "avgCost": 120000,
+      "minCost": 0,
+      "maxCost": 180000,
+      "uniqueSerials": [
+        "1182050011",
+        "CM19420293",
+        "CM20477383"
+      ],
+      "companies": [
+        {
+          "company": "KNJ",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "category": "유량조절용 고리 및 부속품",
+      "count": 1,
+      "totalCost": 350000,
+      "avgCost": 350000,
+      "minCost": 350000,
+      "maxCost": 350000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "카인",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(PM-10) BAM 1020",
+      "count": 4,
+      "totalCost": 300000,
+      "avgCost": 75000,
+      "minCost": 0,
+      "maxCost": 100000,
+      "uniqueSerials": [
+        "X17815",
+        "X22196"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 4
+        }
+      ]
+    },
+    {
+      "category": "(PM-2.5) BAM 1020",
+      "count": 4,
+      "totalCost": 300000,
+      "avgCost": 75000,
+      "minCost": 0,
+      "maxCost": 100000,
+      "uniqueSerials": [
+        "X16838",
+        "X22198"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 3
+        },
+        {
+          "company": "하림",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "Kestrel5500",
+      "count": 2,
+      "totalCost": 271370,
+      "avgCost": 135685,
+      "minCost": 91850,
+      "maxCost": 179520,
+      "uniqueSerials": [
+        "2390486"
+      ],
+      "companies": [
+        {
+          "company": "표준교정기술원",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "category": "(CO) 48i",
+      "count": 1,
+      "totalCost": 180000,
+      "avgCost": 180000,
+      "minCost": 180000,
+      "maxCost": 180000,
+      "uniqueSerials": [
+        "CM19420243"
+      ],
+      "companies": [
+        {
+          "company": "KNJ",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "49Q",
+      "count": 1,
+      "totalCost": 150000,
+      "avgCost": 150000,
+      "minCost": 150000,
+      "maxCost": 150000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "KNJ",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "COS-100",
+      "count": 6,
+      "totalCost": 150000,
+      "avgCost": 25000,
+      "minCost": 0,
+      "maxCost": 50000,
+      "uniqueSerials": [
+        "KM008W18CO76",
+        "KM008W18CO77",
+        "KM014W16CO22"
+      ],
+      "companies": [
+        {
+          "company": "켐익",
+          "count": 6
+        }
+      ]
+    },
+    {
+      "category": "(CO) Serinus 30",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(NO2) Serinus40(품목등록 안됨)",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(O3) Serinus10i (품목등록 안됨)",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "이동차량 오존장비 (품목등록 없음)",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "자동",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(PM-2.5) PMS-204(품목등록 안됨)",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000,
+      "uniqueSerials": [
+        "21"
+      ],
+      "companies": [
+        {
+          "company": "APM",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "category": "(VOCs) MP-Σ30",
+      "count": 4,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "uniqueSerials": [
+        "442388",
+        "532930"
+      ],
+      "companies": [
+        {
+          "company": "카인",
+          "count": 2
+        },
+        {
+          "company": "태원시바타",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "category": "(VOCs) MP-Σ30KNⅡ",
+      "count": 6,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "uniqueSerials": [
+        "770656",
+        "770657",
+        "770659"
+      ],
+      "companies": [
+        {
+          "company": "태원시바타",
+          "count": 4
+        },
+        {
+          "company": "카인",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "category": "(벤젠) MP-Σ30KNⅡ",
+      "count": 10,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "uniqueSerials": [
+        "141411",
+        "141412",
+        "770654",
+        "770655",
+        "770658",
+        "770660"
+      ],
+      "companies": [
+        {
+          "company": "태원시바타",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "category": "(진동) TYPE3233",
+      "count": 5,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "uniqueSerials": [
+        "160096",
+        "190024",
+        "190025"
+      ],
+      "companies": [
+        {
+          "company": "카인",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "category": "(진동) VM-1220E",
+      "count": 2,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "uniqueSerials": [
+        "20E474"
+      ],
+      "companies": [
+        {
+          "company": "카인",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "category": "MP-Σ100",
+      "count": 2,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "uniqueSerials": [
+        "441002",
+        "461059"
+      ],
+      "companies": [
+        {
+          "company": "태원시바타",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "category": "MP-Σ100KNⅡ",
+      "count": 3,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "uniqueSerials": [
+        "950574",
+        "950575"
+      ],
+      "companies": [
+        {
+          "company": "태원시바타",
+          "count": 3
+        }
+      ]
+    }
+  ]
+}

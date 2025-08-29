@@ -1,0 +1,106 @@
+{
+  "meta": {
+    "_schemaVersion": "1.0.0",
+    "generatedAt": "2025-08-28T06:51:54Z",
+    "sourceFiles": [
+      "equipment_db.json",
+      "movements_db.json",
+      "repairs_db_clean.json",
+      "QC_logs.json"
+    ]
+  },
+  "data": [
+    {
+      "month": "2023-03",
+      "scheduledCalibrations": 1
+    },
+    {
+      "month": "2023-07",
+      "scheduledCalibrations": 1
+    },
+    {
+      "month": "2023-08",
+      "scheduledCalibrations": 4
+    },
+    {
+      "month": "2023-09",
+      "scheduledCalibrations": 1
+    },
+    {
+      "month": "2024-02",
+      "scheduledCalibrations": 1
+    },
+    {
+      "month": "2024-03",
+      "scheduledCalibrations": 1
+    },
+    {
+      "month": "2024-04",
+      "scheduledCalibrations": 1
+    },
+    {
+      "month": "2025-04",
+      "scheduledCalibrations": 1
+    },
+    {
+      "month": "2025-05",
+      "scheduledCalibrations": 1
+    },
+    {
+      "month": "2025-06",
+      "scheduledCalibrations": 4
+    },
+    {
+      "month": "2025-07",
+      "scheduledCalibrations": 19
+    },
+    {
+      "month": "2025-08",
+      "scheduledCalibrations": 6
+    },
+    {
+      "month": "2025-09",
+      "scheduledCalibrations": 11
+    },
+    {
+      "month": "2025-10",
+      "scheduledCalibrations": 4
+    },
+    {
+      "month": "2025-11",
+      "scheduledCalibrations": 6
+    },
+    {
+      "month": "2025-12",
+      "scheduledCalibrations": 14
+    },
+    {
+      "month": "2026-01",
+      "scheduledCalibrations": 25
+    },
+    {
+      "month": "2026-02",
+      "scheduledCalibrations": 6
+    },
+    {
+      "month": "2026-03",
+      "scheduledCalibrations": 27
+    },
+    {
+      "month": "2026-04",
+      "scheduledCalibrations": 26
+    },
+    {
+      "month": "2026-05",
+      "scheduledCalibrations": 26
+    },
+    {
+      "month": "2026-06",
+      "scheduledCalibrations": 23
+    },
+    {
+      "month": "2026-07",
+      "scheduledCalibrations": 5
+    }
+  ]
+}

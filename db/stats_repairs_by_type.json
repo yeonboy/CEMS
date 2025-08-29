@@ -1,0 +1,1350 @@
+{
+  "meta": {
+    "_schemaVersion": "1.0.0",
+    "generatedAt": "2025-08-28T06:51:54Z",
+    "sourceFiles": [
+      "equipment_db.json",
+      "movements_db.json",
+      "repairs_db_clean.json",
+      "QC_logs.json"
+    ]
+  },
+  "data": [
+    {
+      "repairType": "정도검사",
+      "count": 368,
+      "totalCost": 30895000,
+      "avgCost": 83954,
+      "minCost": 0,
+      "maxCost": 500000
+    },
+    {
+      "repairType": "기본점검",
+      "count": 119,
+      "totalCost": 9930000,
+      "avgCost": 83445,
+      "minCost": 0,
+      "maxCost": 250000
+    },
+    {
+      "repairType": "E-BAM Pump & Bracket",
+      "count": 5,
+      "totalCost": 9639000,
+      "avgCost": 1927800,
+      "minCost": 1799000,
+      "maxCost": 1960000
+    },
+    {
+      "repairType": "확인필요(견적서누락)",
+      "count": 3,
+      "totalCost": 8500000,
+      "avgCost": 2833333,
+      "minCost": 900000,
+      "maxCost": 5200000
+    },
+    {
+      "repairType": "Power supply",
+      "count": 7,
+      "totalCost": 7200000,
+      "avgCost": 1028571,
+      "minCost": 0,
+      "maxCost": 1200000
+    },
+    {
+      "repairType": "하이볼륨 유량계 본체 교체",
+      "count": 1,
+      "totalCost": 6750000,
+      "avgCost": 6750000,
+      "minCost": 6750000,
+      "maxCost": 6750000
+    },
+    {
+      "repairType": "Detector",
+      "count": 3,
+      "totalCost": 6380000,
+      "avgCost": 2126667,
+      "minCost": 2100000,
+      "maxCost": 2140000
+    },
+    {
+      "repairType": "POWER SUPPLY (부품 교체 기기 확인필요)",
+      "count": 1,
+      "totalCost": 4800000,
+      "avgCost": 4800000,
+      "minCost": 4800000,
+      "maxCost": 4800000
+    },
+    {
+      "repairType": "Deector",
+      "count": 2,
+      "totalCost": 4280000,
+      "avgCost": 2140000,
+      "minCost": 2140000,
+      "maxCost": 2140000
+    },
+    {
+      "repairType": "Mainboard",
+      "count": 1,
+      "totalCost": 3600000,
+      "avgCost": 3600000,
+      "minCost": 3600000,
+      "maxCost": 3600000
+    },
+    {
+      "repairType": "E-BAM Board Stack",
+      "count": 1,
+      "totalCost": 3553000,
+      "avgCost": 3553000,
+      "minCost": 3553000,
+      "maxCost": 3553000
+    },
+    {
+      "repairType": "컨트롤러 교체",
+      "count": 9,
+      "totalCost": 3000000,
+      "avgCost": 333333,
+      "minCost": 300000,
+      "maxCost": 400000
+    },
+    {
+      "repairType": "Lamp assembly UV Serinus 10",
+      "count": 3,
+      "totalCost": 2800000,
+      "avgCost": 933333,
+      "minCost": 900000,
+      "maxCost": 950000
+    },
+    {
+      "repairType": "A셀 유량계 교체",
+      "count": 6,
+      "totalCost": 2520000,
+      "avgCost": 420000,
+      "minCost": 400000,
+      "maxCost": 440000
+    },
+    {
+      "repairType": "DETECTOR SPARE PART SERINUS30",
+      "count": 1,
+      "totalCost": 2450000,
+      "avgCost": 2450000,
+      "minCost": 2450000,
+      "maxCost": 2450000
+    },
+    {
+      "repairType": "power supply",
+      "count": 2,
+      "totalCost": 2400000,
+      "avgCost": 1200000,
+      "minCost": 1200000,
+      "maxCost": 1200000
+    },
+    {
+      "repairType": "모터 교체",
+      "count": 7,
+      "totalCost": 2400000,
+      "avgCost": 342857,
+      "minCost": 300000,
+      "maxCost": 450000
+    },
+    {
+      "repairType": "필터홀더 for Gas Analyzer",
+      "count": 1,
+      "totalCost": 2400000,
+      "avgCost": 2400000,
+      "minCost": 2400000,
+      "maxCost": 2400000
+    },
+    {
+      "repairType": "모터교체",
+      "count": 6,
+      "totalCost": 2100000,
+      "avgCost": 350000,
+      "minCost": 300000,
+      "maxCost": 450000
+    },
+    {
+      "repairType": "Flow block assembly",
+      "count": 2,
+      "totalCost": 2091000,
+      "avgCost": 1045500,
+      "minCost": 861000,
+      "maxCost": 1230000
+    },
+    {
+      "repairType": "Pump,bracket",
+      "count": 1,
+      "totalCost": 1960000,
+      "avgCost": 1960000,
+      "minCost": 1960000,
+      "maxCost": 1960000
+    },
+    {
+      "repairType": "정도검사 대행료",
+      "count": 17,
+      "totalCost": 1900000,
+      "avgCost": 111765,
+      "minCost": 100000,
+      "maxCost": 200000
+    },
+    {
+      "repairType": "DISPLAY, LCD, 240 X 128 BLUE AND WHITE",
+      "count": 2,
+      "totalCost": 1800000,
+      "avgCost": 900000,
+      "minCost": 900000,
+      "maxCost": 900000
+    },
+    {
+      "repairType": "외장펌프 교체",
+      "count": 1,
+      "totalCost": 1800000,
+      "avgCost": 1800000,
+      "minCost": 1800000,
+      "maxCost": 1800000
+    },
+    {
+      "repairType": "Internal pump",
+      "count": 1,
+      "totalCost": 1680000,
+      "avgCost": 1680000,
+      "minCost": 1680000,
+      "maxCost": 1680000
+    },
+    {
+      "repairType": "Internal Pump Assy, Serinus",
+      "count": 1,
+      "totalCost": 1660000,
+      "avgCost": 1660000,
+      "minCost": 1660000,
+      "maxCost": 1660000
+    },
+    {
+      "repairType": "B셀 유량계 교체",
+      "count": 4,
+      "totalCost": 1600000,
+      "avgCost": 400000,
+      "minCost": 400000,
+      "maxCost": 400000
+    },
+    {
+      "repairType": "A셀 펌프 교체",
+      "count": 4,
+      "totalCost": 1505000,
+      "avgCost": 376250,
+      "minCost": 350000,
+      "maxCost": 385000
+    },
+    {
+      "repairType": "양측 유량계 교체",
+      "count": 2,
+      "totalCost": 1500000,
+      "avgCost": 750000,
+      "minCost": 700000,
+      "maxCost": 800000
+    },
+    {
+      "repairType": "정도검사대행료",
+      "count": 9,
+      "totalCost": 1500000,
+      "avgCost": 166667,
+      "minCost": 100000,
+      "maxCost": 350000
+    },
+    {
+      "repairType": "컨트롤보드 교체",
+      "count": 3,
+      "totalCost": 1320000,
+      "avgCost": 440000,
+      "minCost": 440000,
+      "maxCost": 440000
+    },
+    {
+      "repairType": "Internal Pump Assy",
+      "count": 1,
+      "totalCost": 1250000,
+      "avgCost": 1250000,
+      "minCost": 1250000,
+      "maxCost": 1250000
+    },
+    {
+      "repairType": "Fitting nut 1/4T KYNAR",
+      "count": 3,
+      "totalCost": 1210000,
+      "avgCost": 403333,
+      "minCost": 300000,
+      "maxCost": 455000
+    },
+    {
+      "repairType": "2 Head Sample Pump",
+      "count": 1,
+      "totalCost": 1200000,
+      "avgCost": 1200000,
+      "minCost": 1200000,
+      "maxCost": 1200000
+    },
+    {
+      "repairType": "Power Supply",
+      "count": 1,
+      "totalCost": 1200000,
+      "avgCost": 1200000,
+      "minCost": 1200000,
+      "maxCost": 1200000
+    },
+    {
+      "repairType": "Valve maniffold assy",
+      "count": 1,
+      "totalCost": 1150000,
+      "avgCost": 1150000,
+      "minCost": 1150000,
+      "maxCost": 1150000
+    },
+    {
+      "repairType": "유량미달 펌프교체",
+      "count": 3,
+      "totalCost": 1110000,
+      "avgCost": 370000,
+      "minCost": 370000,
+      "maxCost": 370000
+    },
+    {
+      "repairType": "Solar shield w/o Pres. Temp. RH sensor",
+      "count": 1,
+      "totalCost": 1080000,
+      "avgCost": 1080000,
+      "minCost": 1080000,
+      "maxCost": 1080000
+    },
+    {
+      "repairType": "Pressure Gauge",
+      "count": 2,
+      "totalCost": 1060000,
+      "avgCost": 530000,
+      "minCost": 510000,
+      "maxCost": 550000
+    },
+    {
+      "repairType": "Lamp Assembly",
+      "count": 1,
+      "totalCost": 940000,
+      "avgCost": 940000,
+      "minCost": 940000,
+      "maxCost": 940000
+    },
+    {
+      "repairType": "DISPLAY,LCD, BLUE AND WHITE",
+      "count": 1,
+      "totalCost": 900000,
+      "avgCost": 900000,
+      "minCost": 900000,
+      "maxCost": 900000
+    },
+    {
+      "repairType": "PCA LAMP driver",
+      "count": 1,
+      "totalCost": 900000,
+      "avgCost": 900000,
+      "minCost": 900000,
+      "maxCost": 900000
+    },
+    {
+      "repairType": "외장 온,습도센서 교체",
+      "count": 9,
+      "totalCost": 900000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "모터, 컨트롤러 교체",
+      "count": 1,
+      "totalCost": 850000,
+      "avgCost": 850000,
+      "minCost": 850000,
+      "maxCost": 850000
+    },
+    {
+      "repairType": "104/204 메인보드",
+      "count": 1,
+      "totalCost": 800000,
+      "avgCost": 800000,
+      "minCost": 800000,
+      "maxCost": 800000
+    },
+    {
+      "repairType": "A,B 셀 유량계 교체",
+      "count": 1,
+      "totalCost": 800000,
+      "avgCost": 800000,
+      "minCost": 800000,
+      "maxCost": 800000
+    },
+    {
+      "repairType": "A,B셀 유량계 교체",
+      "count": 2,
+      "totalCost": 800000,
+      "avgCost": 400000,
+      "minCost": 400000,
+      "maxCost": 400000
+    },
+    {
+      "repairType": "CO Wheel",
+      "count": 1,
+      "totalCost": 800000,
+      "avgCost": 800000,
+      "minCost": 800000,
+      "maxCost": 800000
+    },
+    {
+      "repairType": "점검기술료",
+      "count": 7,
+      "totalCost": 800000,
+      "avgCost": 114286,
+      "minCost": 100000,
+      "maxCost": 150000
+    },
+    {
+      "repairType": "PCA Lamp driver",
+      "count": 1,
+      "totalCost": 760000,
+      "avgCost": 760000,
+      "minCost": 760000,
+      "maxCost": 760000
+    },
+    {
+      "repairType": "SC260 보드수리(데이터전송안됨외)",
+      "count": 1,
+      "totalCost": 750000,
+      "avgCost": 750000,
+      "minCost": 750000,
+      "maxCost": 750000
+    },
+    {
+      "repairType": "Flow Meer, 20 SLPM",
+      "count": 1,
+      "totalCost": 727000,
+      "avgCost": 727000,
+      "minCost": 727000,
+      "maxCost": 727000
+    },
+    {
+      "repairType": "A,B 샘플링 펌프 교체",
+      "count": 1,
+      "totalCost": 700000,
+      "avgCost": 700000,
+      "minCost": 700000,
+      "maxCost": 700000
+    },
+    {
+      "repairType": "A,B셀 펌프 교체",
+      "count": 2,
+      "totalCost": 700000,
+      "avgCost": 350000,
+      "minCost": 350000,
+      "maxCost": 350000
+    },
+    {
+      "repairType": "B셀 펌프 교체",
+      "count": 2,
+      "totalCost": 700000,
+      "avgCost": 350000,
+      "minCost": 350000,
+      "maxCost": 350000
+    },
+    {
+      "repairType": "GFC WHEEL ASSY",
+      "count": 1,
+      "totalCost": 700000,
+      "avgCost": 700000,
+      "minCost": 700000,
+      "maxCost": 700000
+    },
+    {
+      "repairType": "양측유량계 교체",
+      "count": 1,
+      "totalCost": 700000,
+      "avgCost": 700000,
+      "minCost": 700000,
+      "maxCost": 700000
+    },
+    {
+      "repairType": "유량센서 교체",
+      "count": 2,
+      "totalCost": 700000,
+      "avgCost": 350000,
+      "minCost": 350000,
+      "maxCost": 350000
+    },
+    {
+      "repairType": "Connector board",
+      "count": 1,
+      "totalCost": 691000,
+      "avgCost": 691000,
+      "minCost": 691000,
+      "maxCost": 691000
+    },
+    {
+      "repairType": "E-BAM CONNECTOR BOARD",
+      "count": 1,
+      "totalCost": 659000,
+      "avgCost": 659000,
+      "minCost": 659000,
+      "maxCost": 659000
+    },
+    {
+      "repairType": "메인보드 교체",
+      "count": 1,
+      "totalCost": 650000,
+      "avgCost": 650000,
+      "minCost": 650000,
+      "maxCost": 650000
+    },
+    {
+      "repairType": "E-BAM Connector Board",
+      "count": 1,
+      "totalCost": 635000,
+      "avgCost": 635000,
+      "minCost": 635000,
+      "maxCost": 635000
+    },
+    {
+      "repairType": "점검 및 정밀교정",
+      "count": 8,
+      "totalCost": 609000,
+      "avgCost": 76125,
+      "minCost": 70000,
+      "maxCost": 77000
+    },
+    {
+      "repairType": "T8400ME 컨트롤러 교체",
+      "count": 1,
+      "totalCost": 600000,
+      "avgCost": 600000,
+      "minCost": 600000,
+      "maxCost": 600000
+    },
+    {
+      "repairType": "카본브러시",
+      "count": 1,
+      "totalCost": 600000,
+      "avgCost": 600000,
+      "minCost": 600000,
+      "maxCost": 600000
+    },
+    {
+      "repairType": "Glass FIber Filter, 25M",
+      "count": 3,
+      "totalCost": 555000,
+      "avgCost": 185000,
+      "minCost": 185000,
+      "maxCost": 185000
+    },
+    {
+      "repairType": "Glass Fiber Fiter, 25M",
+      "count": 3,
+      "totalCost": 555000,
+      "avgCost": 185000,
+      "minCost": 185000,
+      "maxCost": 185000
+    },
+    {
+      "repairType": "Pressure Gauge, Serinus PCA 부품교체",
+      "count": 1,
+      "totalCost": 550000,
+      "avgCost": 550000,
+      "minCost": 550000,
+      "maxCost": 550000
+    },
+    {
+      "repairType": "LCD 액정 교체",
+      "count": 1,
+      "totalCost": 500000,
+      "avgCost": 500000,
+      "minCost": 500000,
+      "maxCost": 500000
+    },
+    {
+      "repairType": "정도검사대행료료",
+      "count": 2,
+      "totalCost": 500000,
+      "avgCost": 250000,
+      "minCost": 150000,
+      "maxCost": 350000
+    },
+    {
+      "repairType": "ATM Sensor PCB SET",
+      "count": 1,
+      "totalCost": 495000,
+      "avgCost": 495000,
+      "minCost": 495000,
+      "maxCost": 495000
+    },
+    {
+      "repairType": "외장온,습도센서 교체",
+      "count": 3,
+      "totalCost": 450000,
+      "avgCost": 150000,
+      "minCost": 150000,
+      "maxCost": 150000
+    },
+    {
+      "repairType": "LCD&TOUCH 7inch",
+      "count": 1,
+      "totalCost": 400000,
+      "avgCost": 400000,
+      "minCost": 400000,
+      "maxCost": 400000
+    },
+    {
+      "repairType": "NOx Pump",
+      "count": 1,
+      "totalCost": 400000,
+      "avgCost": 400000,
+      "minCost": 400000,
+      "maxCost": 400000
+    },
+    {
+      "repairType": "PM2.5 여과 부품",
+      "count": 1,
+      "totalCost": 400000,
+      "avgCost": 400000,
+      "minCost": 400000,
+      "maxCost": 400000
+    },
+    {
+      "repairType": "Sample Pump",
+      "count": 1,
+      "totalCost": 400000,
+      "avgCost": 400000,
+      "minCost": 400000,
+      "maxCost": 400000
+    },
+    {
+      "repairType": "Wins Impactor",
+      "count": 1,
+      "totalCost": 400000,
+      "avgCost": 400000,
+      "minCost": 400000,
+      "maxCost": 400000
+    },
+    {
+      "repairType": "25M, Glass Fiber Filter",
+      "count": 2,
+      "totalCost": 370000,
+      "avgCost": 185000,
+      "minCost": 185000,
+      "maxCost": 185000
+    },
+    {
+      "repairType": "Filter 25M",
+      "count": 2,
+      "totalCost": 370000,
+      "avgCost": 185000,
+      "minCost": 185000,
+      "maxCost": 185000
+    },
+    {
+      "repairType": "Glass Fiber Filter, 25M 부품교체",
+      "count": 2,
+      "totalCost": 370000,
+      "avgCost": 185000,
+      "minCost": 185000,
+      "maxCost": 185000
+    },
+    {
+      "repairType": "A셀 샘플링 펌프 교체",
+      "count": 1,
+      "totalCost": 350000,
+      "avgCost": 350000,
+      "minCost": 350000,
+      "maxCost": 350000
+    },
+    {
+      "repairType": "B셀 샘플링 펌프 교체",
+      "count": 1,
+      "totalCost": 350000,
+      "avgCost": 350000,
+      "minCost": 350000,
+      "maxCost": 350000
+    },
+    {
+      "repairType": "유량조절용 고리 및 부속품",
+      "count": 1,
+      "totalCost": 350000,
+      "avgCost": 350000,
+      "minCost": 350000,
+      "maxCost": 350000
+    },
+    {
+      "repairType": "펌프전사석 회손 교체",
+      "count": 1,
+      "totalCost": 350000,
+      "avgCost": 350000,
+      "minCost": 350000,
+      "maxCost": 350000
+    },
+    {
+      "repairType": "펌프전자석 회손 교체",
+      "count": 1,
+      "totalCost": 350000,
+      "avgCost": 350000,
+      "minCost": 350000,
+      "maxCost": 350000
+    },
+    {
+      "repairType": "Scrubber",
+      "count": 2,
+      "totalCost": 320000,
+      "avgCost": 160000,
+      "minCost": 0,
+      "maxCost": 320000
+    },
+    {
+      "repairType": "Scrubber, assembly ozone",
+      "count": 1,
+      "totalCost": 320000,
+      "avgCost": 320000,
+      "minCost": 320000,
+      "maxCost": 320000
+    },
+    {
+      "repairType": "LCD TOUCH ASSY",
+      "count": 1,
+      "totalCost": 300000,
+      "avgCost": 300000,
+      "minCost": 300000,
+      "maxCost": 300000
+    },
+    {
+      "repairType": "SFM 유량센서 교체",
+      "count": 1,
+      "totalCost": 300000,
+      "avgCost": 300000,
+      "minCost": 300000,
+      "maxCost": 300000
+    },
+    {
+      "repairType": "SFM유량센서 교체",
+      "count": 1,
+      "totalCost": 300000,
+      "avgCost": 300000,
+      "minCost": 300000,
+      "maxCost": 300000
+    },
+    {
+      "repairType": "유량센서교체",
+      "count": 1,
+      "totalCost": 300000,
+      "avgCost": 300000,
+      "minCost": 300000,
+      "maxCost": 300000
+    },
+    {
+      "repairType": "정밀교정",
+      "count": 4,
+      "totalCost": 280000,
+      "avgCost": 70000,
+      "minCost": 70000,
+      "maxCost": 70000
+    },
+    {
+      "repairType": "LCD 교체",
+      "count": 1,
+      "totalCost": 250000,
+      "avgCost": 250000,
+      "minCost": 250000,
+      "maxCost": 250000
+    },
+    {
+      "repairType": "기본점검 및 리크보강",
+      "count": 5,
+      "totalCost": 250000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "기본점검비",
+      "count": 2,
+      "totalCost": 200000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "장비 리크, 다운튜브 고무링 손상, 교체 리크 수정",
+      "count": 2,
+      "totalCost": 200000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "Detector cap",
+      "count": 1,
+      "totalCost": 189000,
+      "avgCost": 189000,
+      "minCost": 189000,
+      "maxCost": 189000
+    },
+    {
+      "repairType": "Filter,25M",
+      "count": 1,
+      "totalCost": 185000,
+      "avgCost": 185000,
+      "minCost": 185000,
+      "maxCost": 185000
+    },
+    {
+      "repairType": "GLASS FIBER FILTER, 25M",
+      "count": 1,
+      "totalCost": 185000,
+      "avgCost": 185000,
+      "minCost": 185000,
+      "maxCost": 185000
+    },
+    {
+      "repairType": "Glass Fiber Filter, 25M",
+      "count": 1,
+      "totalCost": 185000,
+      "avgCost": 185000,
+      "minCost": 185000,
+      "maxCost": 185000
+    },
+    {
+      "repairType": "점검 및 교정",
+      "count": 1,
+      "totalCost": 180000,
+      "avgCost": 180000,
+      "minCost": 180000,
+      "maxCost": 180000
+    },
+    {
+      "repairType": "디지덜 온습도계 교정",
+      "count": 1,
+      "totalCost": 179520,
+      "avgCost": 179520,
+      "minCost": 179520,
+      "maxCost": 179520
+    },
+    {
+      "repairType": "49Q (일련번호 확인필요)",
+      "count": 1,
+      "totalCost": 150000,
+      "avgCost": 150000,
+      "minCost": 150000,
+      "maxCost": 150000
+    },
+    {
+      "repairType": "A,B 펌프 뎀퍼 장착",
+      "count": 1,
+      "totalCost": 150000,
+      "avgCost": 150000,
+      "minCost": 150000,
+      "maxCost": 150000
+    },
+    {
+      "repairType": "KMS-4200 유리병",
+      "count": 1,
+      "totalCost": 150000,
+      "avgCost": 150000,
+      "minCost": 150000,
+      "maxCost": 150000
+    },
+    {
+      "repairType": "백엽상파손 수분유입 교체",
+      "count": 1,
+      "totalCost": 150000,
+      "avgCost": 150000,
+      "minCost": 150000,
+      "maxCost": 150000
+    },
+    {
+      "repairType": "SD 카드 손상 교체",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "USB보드, 통신케이블 교체",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "USB보드,통신케이블 교체",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "기본점검 / (등록 안된 장비)",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "브러시 교체 작업",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "서브모터 교체",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "외장온습도교체",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "장비 리크, 다운튜브 고무링 손상, 교체 리크 수정 펌프 배출 라인 튜브 손상/이탈 확인, 튜브 교체, 재결속 및 고정 상태 점검 완료",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "정도검사(품목등록 안됨)",
+      "count": 1,
+      "totalCost": 100000,
+      "avgCost": 100000,
+      "minCost": 100000,
+      "maxCost": 100000
+    },
+    {
+      "repairType": "절대압계 (기압, 디지털) 교정",
+      "count": 1,
+      "totalCost": 91850,
+      "avgCost": 91850,
+      "minCost": 91850,
+      "maxCost": 91850
+    },
+    {
+      "repairType": "브러시 교체",
+      "count": 1,
+      "totalCost": 80000,
+      "avgCost": 80000,
+      "minCost": 80000,
+      "maxCost": 80000
+    },
+    {
+      "repairType": "A셀 펌프 뎀퍼 장착",
+      "count": 1,
+      "totalCost": 75000,
+      "avgCost": 75000,
+      "minCost": 75000,
+      "maxCost": 75000
+    },
+    {
+      "repairType": "B셀 펌프 뎀퍼 장착",
+      "count": 1,
+      "totalCost": 75000,
+      "avgCost": 75000,
+      "minCost": 75000,
+      "maxCost": 75000
+    },
+    {
+      "repairType": "정밀 교정",
+      "count": 1,
+      "totalCost": 70000,
+      "avgCost": 70000,
+      "minCost": 70000,
+      "maxCost": 70000
+    },
+    {
+      "repairType": "인넷연결부 아답타 나사산 손상 교체",
+      "count": 3,
+      "totalCost": 60000,
+      "avgCost": 20000,
+      "minCost": 20000,
+      "maxCost": 20000
+    },
+    {
+      "repairType": "PG48 리크교체",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "기본점검 및 SD카드교체",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "기본점검 및 손잡이 탈거 재결합",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "기본점검(품목등록 안됨)",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "기본점검검",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "기본점검내역",
+      "count": 3,
+      "totalCost": 50000,
+      "avgCost": 16667,
+      "minCost": 0,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "내부 펌프 흡인후 커넥터 파손교체",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "리니어부싱 부식교체",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "브러시 단자 단선",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "브러시 단자 단선 수리",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "브러시단자 접점부 고정작업",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "정도검사(등록 안되어있음)",
+      "count": 1,
+      "totalCost": 50000,
+      "avgCost": 50000,
+      "minCost": 50000,
+      "maxCost": 50000
+    },
+    {
+      "repairType": "손잡이(상단)유실 교체",
+      "count": 1,
+      "totalCost": 30000,
+      "avgCost": 30000,
+      "minCost": 30000,
+      "maxCost": 30000
+    },
+    {
+      "repairType": "아답터 전원 소켓 교체",
+      "count": 1,
+      "totalCost": 30000,
+      "avgCost": 30000,
+      "minCost": 30000,
+      "maxCost": 30000
+    },
+    {
+      "repairType": "AC 아답터 소켓교체",
+      "count": 1,
+      "totalCost": 20000,
+      "avgCost": 20000,
+      "minCost": 20000,
+      "maxCost": 20000
+    },
+    {
+      "repairType": "AC전원소켓 교체",
+      "count": 1,
+      "totalCost": 20000,
+      "avgCost": 20000,
+      "minCost": 20000,
+      "maxCost": 20000
+    },
+    {
+      "repairType": "볼밸브 손잡이교체",
+      "count": 1,
+      "totalCost": 20000,
+      "avgCost": 20000,
+      "minCost": 20000,
+      "maxCost": 20000
+    },
+    {
+      "repairType": "전원 휴즈교체",
+      "count": 1,
+      "totalCost": 20000,
+      "avgCost": 20000,
+      "minCost": 20000,
+      "maxCost": 20000
+    },
+    {
+      "repairType": "호스 연결 커넥터 교체",
+      "count": 1,
+      "totalCost": 15000,
+      "avgCost": 15000,
+      "minCost": 15000,
+      "maxCost": 15000
+    },
+    {
+      "repairType": "전원 버튼 교체",
+      "count": 1,
+      "totalCost": 13000,
+      "avgCost": 13000,
+      "minCost": 13000,
+      "maxCost": 13000
+    },
+    {
+      "repairType": "O-ring",
+      "count": 1,
+      "totalCost": 5000,
+      "avgCost": 5000,
+      "minCost": 5000,
+      "maxCost": 5000
+    },
+    {
+      "repairType": "Display, Power supply, calibation",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "Lamp Adjust",
+      "count": 4,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "Lamp assembly UV",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "REF 수리",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "REF수리",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "SD카드교체",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "assembly ozone",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "내부 배관 교체",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "내부배관 교체",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "데이터 저장불량 수리",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "디스플레이 수리(확인필요)",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "리니어부싱교체",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "리크보강,리니어부싱 재조립",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "무상점검 (전원 단자 오류 해결)",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "스크린 고장 수리",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "알 수 없음",
+      "count": 5,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "양측 유량불량",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "일반수리",
+      "count": 12,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "좌측 유량불량",
+      "count": 3,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "지지대 오링교체",
+      "count": 2,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "코인전지 교체",
+      "count": 2,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "펌프지지대 교체",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "프로그램 재설치 및 SD카드교체",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "한국 스페인 항공료",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    },
+    {
+      "repairType": "확인필요",
+      "count": 14,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0
+    }
+  ]
+}

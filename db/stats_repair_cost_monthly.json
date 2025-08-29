@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "_schemaVersion": "1.0.0",
+    "generatedAt": "2025-08-28T06:51:54Z",
+    "sourceFiles": [
+      "equipment_db.json",
+      "movements_db.json",
+      "repairs_db_clean.json",
+      "QC_logs.json"
+    ]
+  },
+  "data": [
+    {
+      "month": "2023-01",
+      "totalRepairCost": 9910000
+    },
+    {
+      "month": "2023-02",
+      "totalRepairCost": 5898000
+    },
+    {
+      "month": "2023-03",
+      "totalRepairCost": 3000000
+    },
+    {
+      "month": "2023-04",
+      "totalRepairCost": 3550000
+    },
+    {
+      "month": "2023-05",
+      "totalRepairCost": 12400000
+    },
+    {
+      "month": "2023-06",
+      "totalRepairCost": 3200000
+    },
+    {
+      "month": "2023-07",
+      "totalRepairCost": 20495000
+    },
+    {
+      "month": "2023-08",
+      "totalRepairCost": 2875000
+    },
+    {
+      "month": "2023-09",
+      "totalRepairCost": 1485000
+    },
+    {
+      "month": "2023-10",
+      "totalRepairCost": 6416000
+    },
+    {
+      "month": "2023-11",
+      "totalRepairCost": 2270000
+    },
+    {
+      "month": "2023-12",
+      "totalRepairCost": 6250000
+    },
+    {
+      "month": "2024-01",
+      "totalRepairCost": 3695000
+    },
+    {
+      "month": "2024-02",
+      "totalRepairCost": 8304000
+    },
+    {
+      "month": "2024-03",
+      "totalRepairCost": 3100000
+    },
+    {
+      "month": "2024-04",
+      "totalRepairCost": 8705000
+    },
+    {
+      "month": "2024-05",
+      "totalRepairCost": 3810000
+    },
+    {
+      "month": "2024-06",
+      "totalRepairCost": 2000000
+    },
+    {
+      "month": "2024-07",
+      "totalRepairCost": 15250000
+    },
+    {
+      "month": "2024-08",
+      "totalRepairCost": 1400000
+    },
+    {
+      "month": "2024-09",
+      "totalRepairCost": 5760000
+    },
+    {
+      "month": "2024-10",
+      "totalRepairCost": 3140000
+    },
+    {
+      "month": "2024-11",
+      "totalRepairCost": 5301000
+    },
+    {
+      "month": "2024-12",
+      "totalRepairCost": 15368000
+    },
+    {
+      "month": "2025-01",
+      "totalRepairCost": 13550000
+    },
+    {
+      "month": "2025-02",
+      "totalRepairCost": 1650000
+    },
+    {
+      "month": "2025-03",
+      "totalRepairCost": 5392000
+    },
+    {
+      "month": "2025-04",
+      "totalRepairCost": 470000
+    },
+    {
+      "month": "2025-05",
+      "totalRepairCost": 941370
+    },
+    {
+      "month": "2025-06",
+      "totalRepairCost": 4272000
+    },
+    {
+      "month": "2025-07",
+      "totalRepairCost": 0
+    }
+  ]
+}

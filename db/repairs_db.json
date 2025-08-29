@@ -1,0 +1,5490 @@
+[
+  {
+    "date": "2023-01-10",
+    "serial": "18P353",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-01-10",
+    "serial": "18P354",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-01-10",
+    "serial": "18P355",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-01-10",
+    "serial": "18P357",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-01-10",
+    "serial": "18P359",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-01-10",
+    "serial": "18P360",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-01-10",
+    "serial": "18P361",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-01-10",
+    "serial": "18P355",
+    "company": "켐익",
+    "details": "외장온,습도센서 교체",
+    "cost": 150000
+  },
+  {
+    "date": "2023-01-10",
+    "serial": "21",
+    "company": "켐익",
+    "details": "정도검사대행료료",
+    "cost": 150000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "17-0133",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "20-1382",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "20-1348",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "20-1571",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "20-1560",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "20-1393",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "17-1509",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "20-1508",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "20-1503",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사대행료",
+    "cost": 300000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "17-0129",
+    "company": "APM",
+    "details": "Internal pump",
+    "cost": 1680000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "PCA Lamp driver",
+    "cost": 760000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "20-1348",
+    "company": "APM",
+    "details": "Detector",
+    "cost": 2140000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "20-1502",
+    "company": "APM",
+    "details": "Detector",
+    "cost": 2140000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "17-0132",
+    "company": "APM",
+    "details": "Lamp Assembly",
+    "cost": 940000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "1709797",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-01-12",
+    "serial": "1709798",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-01-30",
+    "serial": "21",
+    "company": "APM",
+    "details": "Fitting nut 1/4T KYNAR",
+    "cost": 300000
+  },
+  {
+    "date": "2023-02-06",
+    "serial": "18P370",
+    "company": "켐익",
+    "details": "리니어부싱 부식교체",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-06",
+    "serial": "18P370",
+    "company": "켐익",
+    "details": "외장온,습도센서 교체",
+    "cost": 150000
+  },
+  {
+    "date": "2023-02-06",
+    "serial": "18P368",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-06",
+    "serial": "18P369",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-06",
+    "serial": "18P371",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-06",
+    "serial": "18P372",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-06",
+    "serial": "18P373",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-06",
+    "serial": "18P375",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-06",
+    "serial": "21",
+    "company": "켐익",
+    "details": "정도검사대행료",
+    "cost": 150000
+  },
+  {
+    "date": "2023-02-07",
+    "serial": "4170/TA3682",
+    "company": "카인",
+    "details": "브러시단자 접점부 고정작업",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-07",
+    "serial": "21",
+    "company": "카인",
+    "details": "브러시 단자 단선",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-07",
+    "serial": "21",
+    "company": "카인",
+    "details": "브러시 교체 작업",
+    "cost": 100000
+  },
+  {
+    "date": "2023-02-07",
+    "serial": "21",
+    "company": "카인",
+    "details": "모터교체",
+    "cost": 450000
+  },
+  {
+    "date": "2023-02-07",
+    "serial": "21",
+    "company": "카인",
+    "details": "컨트롤러 교체",
+    "cost": 400000
+  },
+  {
+    "date": "2023-02-07",
+    "serial": "853",
+    "company": "토탈엔지니어링",
+    "details": "AC 아답터 소켓교체",
+    "cost": 20000
+  },
+  {
+    "date": "2023-02-07",
+    "serial": "1314",
+    "company": "토탈엔지니어링",
+    "details": "양측유량계 교체",
+    "cost": 700000
+  },
+  {
+    "date": "2023-02-07",
+    "serial": "1314",
+    "company": "토탈엔지니어링",
+    "details": "전원 버튼 교체",
+    "cost": 13000
+  },
+  {
+    "date": "2023-02-07",
+    "serial": "1795",
+    "company": "토탈엔지니어링",
+    "details": "호스 연결 커넥터 교체",
+    "cost": 15000
+  },
+  {
+    "date": "2023-02-07",
+    "serial": "853",
+    "company": "토탈엔지니어링",
+    "details": "양측 유량계 교체",
+    "cost": 700000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "1501479",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "1501490",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "1501504",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "1501514",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "1501513",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "1904009",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "X22196",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "X22198",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "17-0988",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "17-1509",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "18-0984",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "18-0318",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "17-1912",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "17-1906",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-02-14",
+    "serial": "17-1733",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-02-23",
+    "serial": "18P366",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-02-23",
+    "serial": "18P366",
+    "company": "켐익",
+    "details": "외장온,습도센서 교체",
+    "cost": 150000
+  },
+  {
+    "date": "2023-02-23",
+    "serial": "18P374",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-03-14",
+    "serial": "20-2128",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-03-14",
+    "serial": "20-2128",
+    "company": "APM",
+    "details": "Power supply",
+    "cost": 1200000
+  },
+  {
+    "date": "2023-03-14",
+    "serial": "21-0330",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-03-14",
+    "serial": "21-0330",
+    "company": "APM",
+    "details": "Power supply",
+    "cost": 1200000
+  },
+  {
+    "date": "2023-03-14",
+    "serial": "17-0131",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-03-14",
+    "serial": "17-0134",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-03-14",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2023-03-14",
+    "serial": "21-0331",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-04-03",
+    "serial": "1501489",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-04-03",
+    "serial": "1501505",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-04-03",
+    "serial": "1501507",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-04-03",
+    "serial": "1501508",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-04-03",
+    "serial": "1501512",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-04-03",
+    "serial": "21",
+    "company": "APM",
+    "details": "PM2.5 여과 부품",
+    "cost": 400000
+  },
+  {
+    "date": "2023-04-03",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2023-04-06",
+    "serial": "K1515022",
+    "company": "켄텍",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-04-06",
+    "serial": "K1515023",
+    "company": "켄텍",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-04-06",
+    "serial": "K1612016",
+    "company": "켄텍",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-04-06",
+    "serial": "K1612017",
+    "company": "켄텍",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-04-11",
+    "serial": "21",
+    "company": "APM",
+    "details": "필터홀더 for Gas Analyzer",
+    "cost": 2400000
+  },
+  {
+    "date": "2023-05-25",
+    "serial": "20-2128",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-25",
+    "serial": "20-2128",
+    "company": "APM",
+    "details": "power supply",
+    "cost": 1200000
+  },
+  {
+    "date": "2023-05-25",
+    "serial": "21-0330",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-25",
+    "serial": "21-0330",
+    "company": "APM",
+    "details": "power supply",
+    "cost": 1200000
+  },
+  {
+    "date": "2023-05-25",
+    "serial": "17-0132",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-25",
+    "serial": "17-0133",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-25",
+    "serial": "21-0331",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-25",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "20-2313",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "20-2313",
+    "company": "APM",
+    "details": "Power supply",
+    "cost": 1200000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "21-0331",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "21-0331",
+    "company": "APM",
+    "details": "Power supply",
+    "cost": 1200000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "20-2171",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "20-2171",
+    "company": "APM",
+    "details": "Power supply",
+    "cost": 1200000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "20-2171",
+    "company": "APM",
+    "details": "Mainboard",
+    "cost": 3600000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "20-2131",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "17-0126",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "17-0129",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "20-2305",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "18-0353",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "21-0356",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "17-0134",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "17-0131",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "20-2180",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "21-0515",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "21-0516",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "21-0517",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "21-0518",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "21-0322",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "20-2132",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-05-26",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사대행료",
+    "cost": 200000
+  },
+  {
+    "date": "2023-06-15",
+    "serial": "K1614024",
+    "company": "켄텍",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-06-15",
+    "serial": "K1515019",
+    "company": "켄텍",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-06-15",
+    "serial": "K1515020",
+    "company": "켄텍",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-06-15",
+    "serial": "K1515021",
+    "company": "켄텍",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-06-15",
+    "serial": "K1612019",
+    "company": "켄텍",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-06-15",
+    "serial": "K1614027A",
+    "company": "켄텍",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "20P570",
+    "company": "켐익",
+    "details": "기본점검 및 리크보강",
+    "cost": 50000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "20P565",
+    "company": "켐익",
+    "details": "기본점검 및 리크보강",
+    "cost": 50000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "20P572",
+    "company": "켐익",
+    "details": "기본점검 및 리크보강",
+    "cost": 50000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "20P558",
+    "company": "켐익",
+    "details": "기본점검 및 리크보강",
+    "cost": 50000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "20P557",
+    "company": "켐익",
+    "details": "기본점검 및 손잡이 탈거 재결합",
+    "cost": 50000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "20P573",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "20P564",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "19P405",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "4162/TA3674",
+    "company": "카인",
+    "details": "컨트롤러 교체",
+    "cost": 400000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "21",
+    "company": "카인",
+    "details": "모터, 컨트롤러 교체",
+    "cost": 850000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "4241/TA3744",
+    "company": "카인",
+    "details": "모터 교체",
+    "cost": 450000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "4170/TA3682",
+    "company": "카인",
+    "details": "브러시 단자 단선 수리",
+    "cost": 50000
+  },
+  {
+    "date": "2023-06-23",
+    "serial": "4159/TA3671",
+    "company": "카인",
+    "details": "모터 교체",
+    "cost": 450000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "20P556",
+    "company": "켐익",
+    "details": "기본점검 및 SD카드교체",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "18P358",
+    "company": "켐익",
+    "details": "외장 온,습도센서 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "18P358",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "18P356",
+    "company": "켐익",
+    "details": "기본점검 및 리크보강",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1501518",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1501519",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1501478",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1708789",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1501517",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1708791",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1708792",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1904012",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1904011",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1904010",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1904009",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1904008",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1501506",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1501513",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1501511",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1501481",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1501520",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1904003",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1904004",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1904005",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1904006",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1904007",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1501515",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "1501516",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-04",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 200000
+  },
+  {
+    "date": "2023-07-12",
+    "serial": "18P357",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-12",
+    "serial": "18P357",
+    "company": "켐익",
+    "details": "외장 온,습도센서 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-12",
+    "serial": "20P573",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-12",
+    "serial": "20P573",
+    "company": "켐익",
+    "details": "펌프전자석 회손 교체",
+    "cost": 350000
+  },
+  {
+    "date": "2023-07-12",
+    "serial": "20P573",
+    "company": "켐익",
+    "details": "SFM유량센서 교체",
+    "cost": 300000
+  },
+  {
+    "date": "2023-07-14",
+    "serial": "21-0321",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-14",
+    "serial": "21-0349",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-14",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-14",
+    "serial": "20-2128",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-14",
+    "serial": "20-2131",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-14",
+    "serial": "20-2311",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-14",
+    "serial": "20-2313",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-14",
+    "serial": "21-0330",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-14",
+    "serial": "21-0331",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "18P361",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "18P361",
+    "company": "켐익",
+    "details": "서브모터 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "19P432",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "19P431",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "19P431",
+    "company": "켐익",
+    "details": "외장 온,습도센서 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "18P373",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "19P430",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "19P424",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "19P428",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "19P425",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "19P433",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "19P427",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "19P426",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-17",
+    "serial": "19P429",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "17-0130",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "17-0126",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "20-1509",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "17-1798",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "20-2305",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "17-1798",
+    "company": "APM",
+    "details": "Power supply",
+    "cost": 1200000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "20-1509",
+    "company": "APM",
+    "details": "Deector",
+    "cost": 2140000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "20-2305",
+    "company": "APM",
+    "details": "Deector",
+    "cost": 2140000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "T25864",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 435000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "R10783",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 500000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "P22857",
+    "company": "하림",
+    "details": "확인필요(견적서누락)",
+    "cost": 900000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "R10454",
+    "company": "하림",
+    "details": "확인필요(견적서누락)",
+    "cost": 2400000
+  },
+  {
+    "date": "2023-07-21",
+    "serial": "R10185",
+    "company": "하림",
+    "details": "확인필요(견적서누락)",
+    "cost": 5200000
+  },
+  {
+    "date": "2023-07-24",
+    "serial": "4210/TA3712",
+    "company": "카인",
+    "details": "브러시 교체",
+    "cost": 80000
+  },
+  {
+    "date": "2023-07-24",
+    "serial": "21",
+    "company": "카인",
+    "details": "카본브러시",
+    "cost": 600000
+  },
+  {
+    "date": "2023-08-09",
+    "serial": "T15942",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 200000
+  },
+  {
+    "date": "2023-08-09",
+    "serial": "T15943",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "1708795",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "1708795",
+    "company": "APM",
+    "details": "Wins Impactor",
+    "cost": 400000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "1501515",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "1501515",
+    "company": "APM",
+    "details": "O-ring",
+    "cost": 5000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "1501511",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "1708794",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "1708786",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "1708787",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "1708788",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "1708790",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "1708793",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-08-11",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2023-08-29",
+    "serial": "21-1394",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-08-29",
+    "serial": "20-1393",
+    "company": "APM",
+    "details": "Pressure Gauge, Serinus PCA 부품교체",
+    "cost": 550000
+  },
+  {
+    "date": "2023-08-29",
+    "serial": "909",
+    "company": "토탈엔지니어링",
+    "details": "양측 유량계 교체",
+    "cost": 800000
+  },
+  {
+    "date": "2023-08-29",
+    "serial": "909",
+    "company": "토탈엔지니어링",
+    "details": "AC전원소켓 교체",
+    "cost": 20000
+  },
+  {
+    "date": "2023-09-04",
+    "serial": "18P374",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-09-04",
+    "serial": "18P374",
+    "company": "켐익",
+    "details": "외장 온,습도센서 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2023-09-04",
+    "serial": "18P356",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-09-04",
+    "serial": "18P375",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2023-09-08",
+    "serial": "W17345",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-09-08",
+    "serial": "W17346",
+    "company": "하림",
+    "details": "Glass Fiber Filter, 25M",
+    "cost": 185000
+  },
+  {
+    "date": "2023-09-08",
+    "serial": "W17346",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-09-08",
+    "serial": "W17347",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-09-19",
+    "serial": "4210/TA3712",
+    "company": "카인",
+    "details": "모터교체",
+    "cost": 300000
+  },
+  {
+    "date": "2023-10-11",
+    "serial": "K1612017",
+    "company": "켄텍",
+    "details": "LCD 교체",
+    "cost": 250000
+  },
+  {
+    "date": "2023-10-11",
+    "serial": "K1515020",
+    "company": "켄텍",
+    "details": "메인보드 교체",
+    "cost": 650000
+  },
+  {
+    "date": "2023-10-20",
+    "serial": "Y17932",
+    "company": "하림",
+    "details": "Glass FIber Filter, 25M",
+    "cost": 185000
+  },
+  {
+    "date": "2023-10-20",
+    "serial": "Y17932",
+    "company": "하림",
+    "details": "Flow Meer, 20 SLPM",
+    "cost": 727000
+  },
+  {
+    "date": "2023-10-20",
+    "serial": "Y17932",
+    "company": "하림",
+    "details": "E-BAM Pump & Bracket",
+    "cost": 1799000
+  },
+  {
+    "date": "2023-10-20",
+    "serial": "Y17932",
+    "company": "하림",
+    "details": "E-BAM Connector Board",
+    "cost": 635000
+  },
+  {
+    "date": "2023-10-20",
+    "serial": "Y17930",
+    "company": "하림",
+    "details": "Glass FIber Filter, 25M",
+    "cost": 185000
+  },
+  {
+    "date": "2023-10-20",
+    "serial": "Y17933",
+    "company": "하림",
+    "details": "Glass FIber Filter, 25M",
+    "cost": 185000
+  },
+  {
+    "date": "2023-10-20",
+    "serial": "Y17930",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-10-20",
+    "serial": "Y17933",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-10-20",
+    "serial": "Y17932",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-10-24",
+    "serial": "21",
+    "company": "켐익",
+    "details": "KMS-4200 유리병",
+    "cost": 150000
+  },
+  {
+    "date": "2023-10-25",
+    "serial": "X17815",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-10-25",
+    "serial": "X16838",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-10-25",
+    "serial": "17-1391",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-10-25",
+    "serial": "18-0353",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-10-25",
+    "serial": "17-0866",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-10-25",
+    "serial": "18-0159",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-10-25",
+    "serial": "18-0147",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2023-10-25",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2023-11-10",
+    "serial": "21-1394",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-11-10",
+    "serial": "20-1393",
+    "company": "APM",
+    "details": "Pressure Gauge",
+    "cost": 550000
+  },
+  {
+    "date": "2023-11-17",
+    "serial": "X18018",
+    "company": "하림",
+    "details": "Glass Fiber Filter, 25M 부품교체",
+    "cost": 185000
+  },
+  {
+    "date": "2023-11-17",
+    "serial": "X18020",
+    "company": "하림",
+    "details": "Glass Fiber Filter, 25M 부품교체",
+    "cost": 185000
+  },
+  {
+    "date": "2023-11-17",
+    "serial": "X18019",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-11-17",
+    "serial": "X18021",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-11-17",
+    "serial": "X18022",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-11-17",
+    "serial": "X18020",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-11-17",
+    "serial": "X18018",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2023-12-28",
+    "serial": "20-2171",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-12-28",
+    "serial": "20-2305",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-12-28",
+    "serial": "20-1503",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-12-28",
+    "serial": "21-1394",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-12-28",
+    "serial": "17-0126",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-12-28",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-12-28",
+    "serial": "17-0127",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-12-28",
+    "serial": "17-1733",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2023-12-28",
+    "serial": "21",
+    "company": "APM",
+    "details": "POWER SUPPLY (부품 교체 기기 확인필요)",
+    "cost": 4800000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "18P353",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "18P354",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "18P355",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "18P357",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "18P358",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "18P359",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "18P360",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "22P615",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "18P359",
+    "company": "켐익",
+    "details": "외장 온,습도센서 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "18P353",
+    "company": "켐익",
+    "details": "USB보드,통신케이블 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "22P615",
+    "company": "켐익",
+    "details": "손잡이(상단)유실 교체",
+    "cost": 30000
+  },
+  {
+    "date": "2023-12-29",
+    "serial": "22P615",
+    "company": "켐익",
+    "details": "인넷연결부 아답타 나사산 손상 교체",
+    "cost": 20000
+  },
+  {
+    "date": "2024-01-23",
+    "serial": "X22196",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-01-23",
+    "serial": "17-1509",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-01-23",
+    "serial": "18-0984",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-01-23",
+    "serial": "18-0318",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-01-23",
+    "serial": "X22198",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-01-23",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2024-01-25",
+    "serial": "1501512",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-25",
+    "serial": "1501512",
+    "company": "APM",
+    "details": "104/204 메인보드",
+    "cost": 800000
+  },
+  {
+    "date": "2024-01-25",
+    "serial": "21",
+    "company": "APM",
+    "details": "기본점검(품목등록 안됨)",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-29",
+    "serial": "TA3265",
+    "company": "카인",
+    "details": "컨트롤러 교체",
+    "cost": 300000
+  },
+  {
+    "date": "2024-01-29",
+    "serial": "21",
+    "company": "APM",
+    "details": "Fitting nut 1/4T KYNAR",
+    "cost": 455000
+  },
+  {
+    "date": "2024-01-29",
+    "serial": "19P428",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-29",
+    "serial": "18P368",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-29",
+    "serial": "18P361",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-29",
+    "serial": "18P371",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-29",
+    "serial": "22P616",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-29",
+    "serial": "22P617",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-29",
+    "serial": "22P616",
+    "company": "켐익",
+    "details": "외장 온,습도센서 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2024-01-29",
+    "serial": "22P617",
+    "company": "켐익",
+    "details": "USB보드, 통신케이블 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2024-01-29",
+    "serial": "19P428",
+    "company": "켐익",
+    "details": "인넷연결부 아답타 나사산 손상 교체",
+    "cost": 20000
+  },
+  {
+    "date": "2024-01-31",
+    "serial": "18P366",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-31",
+    "serial": "18P367",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-31",
+    "serial": "18P370",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-31",
+    "serial": "18P372",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-31",
+    "serial": "18P373",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-31",
+    "serial": "18P375",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-31",
+    "serial": "18P369",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-31",
+    "serial": "18P374",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-01-31",
+    "serial": "18P373",
+    "company": "켐익",
+    "details": "SD 카드 손상 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2024-01-31",
+    "serial": "18P375",
+    "company": "켐익",
+    "details": "리니어부싱교체",
+    "cost": 0
+  },
+  {
+    "date": "2024-02-01",
+    "serial": "4170/TA3682",
+    "company": "카인",
+    "details": "모터 교체",
+    "cost": 300000
+  },
+  {
+    "date": "2024-02-14",
+    "serial": "4211/TA3713",
+    "company": "카인",
+    "details": "모터교체",
+    "cost": 300000
+  },
+  {
+    "date": "2024-02-14",
+    "serial": "4241/TA3744",
+    "company": "카인",
+    "details": "모터교체",
+    "cost": 300000
+  },
+  {
+    "date": "2024-02-14",
+    "serial": "TA3696",
+    "company": "카인",
+    "details": "모터교체",
+    "cost": 300000
+  },
+  {
+    "date": "2024-02-14",
+    "serial": "21",
+    "company": "카인",
+    "details": "LCD 액정 교체",
+    "cost": 500000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "1501479",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "1501514",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "1501504",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "1709797",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "1709798",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사(등록 안되어있음)",
+    "cost": 50000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "726",
+    "company": "토탈엔지니어링",
+    "details": "B셀 유량계 교체",
+    "cost": 400000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "726",
+    "company": "토탈엔지니어링",
+    "details": "정밀교정",
+    "cost": 70000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "1792",
+    "company": "토탈엔지니어링",
+    "details": "아답터 전원 소켓 교체",
+    "cost": 30000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "1792",
+    "company": "토탈엔지니어링",
+    "details": "정밀교정",
+    "cost": 70000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "724",
+    "company": "토탈엔지니어링",
+    "details": "정밀교정",
+    "cost": 70000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "849",
+    "company": "토탈엔지니어링",
+    "details": "B셀 유량계 교체",
+    "cost": 400000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "849",
+    "company": "토탈엔지니어링",
+    "details": "B셀 샘플링 펌프 교체",
+    "cost": 350000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "849",
+    "company": "토탈엔지니어링",
+    "details": "B셀 펌프 뎀퍼 장착",
+    "cost": 75000
+  },
+  {
+    "date": "2024-02-19",
+    "serial": "849",
+    "company": "토탈엔지니어링",
+    "details": "정밀교정",
+    "cost": 70000
+  },
+  {
+    "date": "2024-02-27",
+    "serial": "21",
+    "company": "켄텍",
+    "details": "NOx Pump",
+    "cost": 400000
+  },
+  {
+    "date": "2024-02-27",
+    "serial": "21",
+    "company": "켄텍",
+    "details": "2 Head Sample Pump",
+    "cost": 1200000
+  },
+  {
+    "date": "2024-02-28",
+    "serial": "R10783",
+    "company": "하림",
+    "details": "기본점검",
+    "cost": 250000
+  },
+  {
+    "date": "2024-02-28",
+    "serial": "T25861",
+    "company": "하림",
+    "details": "기본점검",
+    "cost": 250000
+  },
+  {
+    "date": "2024-02-28",
+    "serial": "T25861",
+    "company": "하림",
+    "details": "E-BAM CONNECTOR BOARD",
+    "cost": 659000
+  },
+  {
+    "date": "2024-02-29",
+    "serial": "Y22705",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-02-29",
+    "serial": "Y22710",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-02-29",
+    "serial": "Y22710",
+    "company": "하림",
+    "details": "GLASS FIBER FILTER, 25M",
+    "cost": 185000
+  },
+  {
+    "date": "2024-03-12",
+    "serial": "K1515022",
+    "company": "켄텍",
+    "details": "LCD TOUCH ASSY",
+    "cost": 300000
+  },
+  {
+    "date": "2024-03-12",
+    "serial": "K1614025A",
+    "company": "켄텍",
+    "details": "GFC WHEEL ASSY",
+    "cost": 700000
+  },
+  {
+    "date": "2024-03-12",
+    "serial": "K1614025A",
+    "company": "켄텍",
+    "details": "Sample Pump",
+    "cost": 400000
+  },
+  {
+    "date": "2024-03-12",
+    "serial": "K1612016",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-12",
+    "serial": "K1612017",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-12",
+    "serial": "K1515022",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-12",
+    "serial": "K1515023",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-12",
+    "serial": "K1614022",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-12",
+    "serial": "K1614023",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-12",
+    "serial": "K1614025A",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-12",
+    "serial": "K1614026A",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-14",
+    "serial": "21-0507",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-14",
+    "serial": "21-1357",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-14",
+    "serial": "17-0125",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-14",
+    "serial": "17-0127",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-14",
+    "serial": "17-0130",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-14",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-14",
+    "serial": "17-1903",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-03-14",
+    "serial": "17-1798",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-03",
+    "serial": "21",
+    "company": "APM",
+    "details": "Fitting nut 1/4T KYNAR",
+    "cost": 455000
+  },
+  {
+    "date": "2024-04-09",
+    "serial": "21",
+    "company": "KNJ",
+    "details": "49Q (일련번호 확인필요)",
+    "cost": 150000
+  },
+  {
+    "date": "2024-04-17",
+    "serial": "21",
+    "company": "켄텍",
+    "details": "외장펌프 교체",
+    "cost": 1800000
+  },
+  {
+    "date": "2024-04-17",
+    "serial": "K1515019",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-17",
+    "serial": "K1515020",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-17",
+    "serial": "K1515021",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-17",
+    "serial": "K1614024",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-17",
+    "serial": "K1614027A",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-17",
+    "serial": "K1612019",
+    "company": "켄텍",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-22",
+    "serial": "1501489",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-22",
+    "serial": "1501505",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-22",
+    "serial": "1501507",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-22",
+    "serial": "1501508",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-22",
+    "serial": "1501512",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-22",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "20-2305",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "20-2131",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "21-1394",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "21-2173",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "17-0129",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "21-0517",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "17-0131",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "17-0134",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "21-0517",
+    "company": "APM",
+    "details": "Power Supply",
+    "cost": 1200000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "20-2305",
+    "company": "APM",
+    "details": "Detector",
+    "cost": 2100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "1501518",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "1501519",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "1708791",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "1708792",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "1904012",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "1904009",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "1904008",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "1904007",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "1904005",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-04-29",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-13",
+    "serial": "R10185",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-05-13",
+    "serial": "R10532",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-05-13",
+    "serial": "R10532",
+    "company": "하림",
+    "details": "Filter,25M",
+    "cost": 185000
+  },
+  {
+    "date": "2024-05-13",
+    "serial": "17-1912",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-13",
+    "serial": "17-1906",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-13",
+    "serial": "17-1733",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-13",
+    "serial": "17-0133",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-13",
+    "serial": "17-0132",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-13",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-14",
+    "serial": "21",
+    "company": "APM",
+    "details": "Solar shield w/o Pres. Temp. RH sensor",
+    "cost": 1080000
+  },
+  {
+    "date": "2024-05-21",
+    "serial": "19P404",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-05-21",
+    "serial": "19P405",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-05-21",
+    "serial": "19P404",
+    "company": "켐익",
+    "details": "리크보강,리니어부싱 재조립",
+    "cost": 0
+  },
+  {
+    "date": "2024-05-21",
+    "serial": "19P405",
+    "company": "켐익",
+    "details": "지지대 오링교체",
+    "cost": 0
+  },
+  {
+    "date": "2024-05-21",
+    "serial": "19P430",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-05-30",
+    "serial": "1501478",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-30",
+    "serial": "1708789",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-30",
+    "serial": "1904003",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-30",
+    "serial": "1904004",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-30",
+    "serial": "1904006",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-30",
+    "serial": "1904010",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-30",
+    "serial": "1904011",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-30",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2024-05-30",
+    "serial": "1501478",
+    "company": "APM",
+    "details": "ATM Sensor PCB SET",
+    "cost": 495000
+  },
+  {
+    "date": "2024-06-03",
+    "serial": "1501504",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-25",
+    "serial": "21-0321",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-25",
+    "serial": "21-0349",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-25",
+    "serial": "21-0524",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-25",
+    "serial": "20-2128",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-25",
+    "serial": "20-2131",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-25",
+    "serial": "20-2311",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-25",
+    "serial": "20-2313",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-25",
+    "serial": "21-0330",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-25",
+    "serial": "21-0331",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-25",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-26",
+    "serial": "1501506",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-26",
+    "serial": "1501481",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-26",
+    "serial": "1501511",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-26",
+    "serial": "1501513",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-26",
+    "serial": "1501515",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-26",
+    "serial": "1501516",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-26",
+    "serial": "1501517",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-26",
+    "serial": "1501520",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-06-26",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2024-07-08",
+    "serial": "19P426",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-07-08",
+    "serial": "19P427",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-07-08",
+    "serial": "19P428",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-07-08",
+    "serial": "19P429",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-07-08",
+    "serial": "19P431",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-07-08",
+    "serial": "19P426",
+    "company": "켐익",
+    "details": "펌프지지대 교체",
+    "cost": 0
+  },
+  {
+    "date": "2024-07-08",
+    "serial": "19P427",
+    "company": "켐익",
+    "details": "전원 휴즈교체",
+    "cost": 20000
+  },
+  {
+    "date": "2024-07-11",
+    "serial": "20-2171",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-07-11",
+    "serial": "21-0349",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-07-11",
+    "serial": "20-1382",
+    "company": "APM",
+    "details": "Lamp assembly UV Serinus 10",
+    "cost": 950000
+  },
+  {
+    "date": "2024-07-12",
+    "serial": "19P432",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-07-12",
+    "serial": "19P424",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-07-12",
+    "serial": "19P425",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-07-12",
+    "serial": "19P433",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-07-12",
+    "serial": "19P430",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-07-12",
+    "serial": "19P424",
+    "company": "켐익",
+    "details": "볼밸브 손잡이교체",
+    "cost": 20000
+  },
+  {
+    "date": "2024-07-12",
+    "serial": "20P573",
+    "company": "켐익",
+    "details": "펌프전사석 회손 교체",
+    "cost": 350000
+  },
+  {
+    "date": "2024-07-12",
+    "serial": "20P573",
+    "company": "켐익",
+    "details": "SFM 유량센서 교체",
+    "cost": 300000
+  },
+  {
+    "date": "2024-07-12",
+    "serial": "21-1357",
+    "company": "켐익",
+    "details": "외장 온,습도센서 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2024-07-15",
+    "serial": "17-0129",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-07-15",
+    "serial": "21-1394",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-07-15",
+    "serial": "21-0515",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-07-15",
+    "serial": "21",
+    "company": "APM",
+    "details": "기본점검 / (등록 안된 장비)",
+    "cost": 100000
+  },
+  {
+    "date": "2024-07-16",
+    "serial": "21",
+    "company": "카인",
+    "details": "하이볼륨 유량계 본체 교체",
+    "cost": 6750000
+  },
+  {
+    "date": "2024-07-16",
+    "serial": "21",
+    "company": "카인",
+    "details": "유량조절용 고리 및 부속품",
+    "cost": 350000
+  },
+  {
+    "date": "2024-07-22",
+    "serial": "T15942",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-07-22",
+    "serial": "T25862",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-07-22",
+    "serial": "T25864",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-07-22",
+    "serial": "T25862",
+    "company": "하림",
+    "details": "Detector cap",
+    "cost": 189000
+  },
+  {
+    "date": "2024-07-22",
+    "serial": "T25862",
+    "company": "하림",
+    "details": "Pump,bracket",
+    "cost": 1960000
+  },
+  {
+    "date": "2024-07-22",
+    "serial": "T25862",
+    "company": "하림",
+    "details": "Connector board",
+    "cost": 691000
+  },
+  {
+    "date": "2024-07-22",
+    "serial": "T25862",
+    "company": "하림",
+    "details": "Filter 25M",
+    "cost": 185000
+  },
+  {
+    "date": "2024-07-22",
+    "serial": "T25864",
+    "company": "하림",
+    "details": "Filter 25M",
+    "cost": 185000
+  },
+  {
+    "date": "2024-07-24",
+    "serial": "18-0318",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2024-07-24",
+    "serial": "20-1384",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2024-08-12",
+    "serial": "21",
+    "company": "카인",
+    "details": "T8400ME 컨트롤러 교체",
+    "cost": 600000
+  },
+  {
+    "date": "2024-08-13",
+    "serial": "1708786",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-08-13",
+    "serial": "1708787",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-08-13",
+    "serial": "1708788",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-08-13",
+    "serial": "1708790",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-08-13",
+    "serial": "1708793",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-08-13",
+    "serial": "1708794",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-08-13",
+    "serial": "1708795",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2024-08-13",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2024-08-22",
+    "serial": "X16838",
+    "company": "하림",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2024-08-22",
+    "serial": "17-0866",
+    "company": "APM",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2024-08-22",
+    "serial": "X17815",
+    "company": "APM",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2024-08-22",
+    "serial": "17-1391",
+    "company": "APM",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2024-08-22",
+    "serial": "18-0320",
+    "company": "APM",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2024-08-22",
+    "serial": "18-0353",
+    "company": "APM",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2024-08-22",
+    "serial": "17-0134",
+    "company": "APM",
+    "details": "Display, Power supply, calibation",
+    "cost": 0
+  },
+  {
+    "date": "2024-09-05",
+    "serial": "20P573",
+    "company": "켐익",
+    "details": "PG48 리크교체",
+    "cost": 50000
+  },
+  {
+    "date": "2024-09-20",
+    "serial": "17-0126",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 150000
+  },
+  {
+    "date": "2024-09-20",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 150000
+  },
+  {
+    "date": "2024-09-20",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2024-09-20",
+    "serial": "17-0126",
+    "company": "APM",
+    "details": "Scrubber, assembly ozone",
+    "cost": 320000
+  },
+  {
+    "date": "2024-09-20",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "Lamp assembly UV Serinus 10",
+    "cost": 900000
+  },
+  {
+    "date": "2024-09-20",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "Flow block assembly",
+    "cost": 1230000
+  },
+  {
+    "date": "2024-09-20",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "Valve maniffold assy",
+    "cost": 1150000
+  },
+  {
+    "date": "2024-09-20",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "Internal Pump Assy, Serinus",
+    "cost": 1660000
+  },
+  {
+    "date": "2024-10-10",
+    "serial": "K1612019",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 0
+  },
+  {
+    "date": "2024-10-10",
+    "serial": "CM19420243",
+    "company": "KNJ",
+    "details": "정도검사",
+    "cost": 180000
+  },
+  {
+    "date": "2024-10-10",
+    "serial": "1182050011",
+    "company": "KNJ",
+    "details": "정도검사",
+    "cost": 180000
+  },
+  {
+    "date": "2024-10-10",
+    "serial": "CM19420293",
+    "company": "KNJ",
+    "details": "정도검사",
+    "cost": 180000
+  },
+  {
+    "date": "2024-10-10",
+    "serial": "21",
+    "company": "KNJ",
+    "details": "정도검사대행료료",
+    "cost": 350000
+  },
+  {
+    "date": "2024-10-10",
+    "serial": "4176/TA3688",
+    "company": "카인",
+    "details": "컨트롤러 교체",
+    "cost": 300000
+  },
+  {
+    "date": "2024-10-10",
+    "serial": "4210/TA3712",
+    "company": "카인",
+    "details": "컨트롤러 교체",
+    "cost": 300000
+  },
+  {
+    "date": "2024-10-10",
+    "serial": "4170/TA3682",
+    "company": "카인",
+    "details": "컨트롤러 교체",
+    "cost": 300000
+  },
+  {
+    "date": "2024-10-10",
+    "serial": "4238/TA3741",
+    "company": "카인",
+    "details": "컨트롤러 교체",
+    "cost": 300000
+  },
+  {
+    "date": "2024-10-23",
+    "serial": "19P433",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2024-10-23",
+    "serial": "19P433",
+    "company": "켐익",
+    "details": "외장 온,습도센서 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2024-11-11",
+    "serial": "723",
+    "company": "토탈엔지니어링",
+    "details": "A,B 셀 유량계 교체",
+    "cost": 800000
+  },
+  {
+    "date": "2024-11-11",
+    "serial": "723",
+    "company": "토탈엔지니어링",
+    "details": "A,B 샘플링 펌프 교체",
+    "cost": 700000
+  },
+  {
+    "date": "2024-11-11",
+    "serial": "723",
+    "company": "토탈엔지니어링",
+    "details": "A,B 펌프 뎀퍼 장착",
+    "cost": 150000
+  },
+  {
+    "date": "2024-11-11",
+    "serial": "723",
+    "company": "토탈엔지니어링",
+    "details": "정밀 교정",
+    "cost": 70000
+  },
+  {
+    "date": "2024-11-13",
+    "serial": "19P405",
+    "company": "켐익",
+    "details": "외장 온,습도센서 교체",
+    "cost": 100000
+  },
+  {
+    "date": "2024-11-13",
+    "serial": "19P405",
+    "company": "켐익",
+    "details": "지지대 오링교체",
+    "cost": 0
+  },
+  {
+    "date": "2024-11-13",
+    "serial": "19P405",
+    "company": "켐익",
+    "details": "기본점검내역",
+    "cost": 50000
+  },
+  {
+    "date": "2024-11-13",
+    "serial": "K1612017",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2024-11-13",
+    "serial": "K1612017",
+    "company": "켐익",
+    "details": "LCD&TOUCH 7inch",
+    "cost": 400000
+  },
+  {
+    "date": "2024-11-13",
+    "serial": "K1612019",
+    "company": "켐익",
+    "details": "기본점검비",
+    "cost": 100000
+  },
+  {
+    "date": "2024-11-13",
+    "serial": "K1614027A",
+    "company": "켐익",
+    "details": "CO Wheel",
+    "cost": 800000
+  },
+  {
+    "date": "2024-11-13",
+    "serial": "K1614027A",
+    "company": "켐익",
+    "details": "기본점검비",
+    "cost": 100000
+  },
+  {
+    "date": "2024-11-13",
+    "serial": "17-0126",
+    "company": "APM",
+    "details": "Flow block assembly",
+    "cost": 861000
+  },
+  {
+    "date": "2024-11-26",
+    "serial": "21-0518",
+    "company": "APM",
+    "details": "스크린 고장 수리",
+    "cost": 0
+  },
+  {
+    "date": "2024-11-29",
+    "serial": "1201888256",
+    "company": "KNJ",
+    "details": "정도검사",
+    "cost": 180000
+  },
+  {
+    "date": "2024-11-29",
+    "serial": "1202038522",
+    "company": "KNJ",
+    "details": "정도검사",
+    "cost": 180000
+  },
+  {
+    "date": "2024-11-29",
+    "serial": "1190581598",
+    "company": "KNJ",
+    "details": "정도검사",
+    "cost": 180000
+  },
+  {
+    "date": "2024-11-29",
+    "serial": "1192754688",
+    "company": "KNJ",
+    "details": "정도검사",
+    "cost": 180000
+  },
+  {
+    "date": "2024-11-29",
+    "serial": "21",
+    "company": "KNJ",
+    "details": "정도검사대행료",
+    "cost": 350000
+  },
+  {
+    "date": "2024-12-09",
+    "serial": "3973",
+    "company": "카인",
+    "details": "컨트롤러 교체",
+    "cost": 300000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "X18021",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "X18022",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "X18021",
+    "company": "하림",
+    "details": "25M, Glass Fiber Filter",
+    "cost": 185000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "X18022",
+    "company": "하림",
+    "details": "25M, Glass Fiber Filter",
+    "cost": 185000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "W17345",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "W17346",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "W17347",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "X18018",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "X18019",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "X18020",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "Y17930",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "Y17932",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "Y17933",
+    "company": "하림",
+    "details": "정도검사",
+    "cost": 250000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "W17346",
+    "company": "하림",
+    "details": "E-BAM Pump & Bracket",
+    "cost": 1960000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "X18018",
+    "company": "하림",
+    "details": "E-BAM Pump & Bracket",
+    "cost": 1960000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "X18019",
+    "company": "하림",
+    "details": "E-BAM Pump & Bracket",
+    "cost": 1960000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "X18020",
+    "company": "하림",
+    "details": "E-BAM Pump & Bracket",
+    "cost": 1960000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "W17346",
+    "company": "하림",
+    "details": "Glass Fiber Fiter, 25M",
+    "cost": 185000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "Y17932",
+    "company": "하림",
+    "details": "Glass Fiber Fiter, 25M",
+    "cost": 185000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "Y17933",
+    "company": "하림",
+    "details": "Glass Fiber Fiter, 25M",
+    "cost": 185000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "Y17932",
+    "company": "하림",
+    "details": "E-BAM Board Stack",
+    "cost": 3553000
+  },
+  {
+    "date": "2024-12-11",
+    "serial": "17-0988",
+    "company": "APM",
+    "details": "Lamp assembly UV",
+    "cost": 0
+  },
+  {
+    "date": "2025-01-08",
+    "serial": "KM008W18CO76",
+    "company": "켐익",
+    "details": "내부 펌프 흡인후 커넥터 파손교체",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-08",
+    "serial": "KM008W18CO76",
+    "company": "켐익",
+    "details": "내부 배관 교체",
+    "cost": 0
+  },
+  {
+    "date": "2025-01-08",
+    "serial": "KM014W16CO22",
+    "company": "켐익",
+    "details": "내부배관 교체",
+    "cost": 0
+  },
+  {
+    "date": "2025-01-08",
+    "serial": "KM014W16CO22",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "18P354",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "18P354",
+    "company": "켐익",
+    "details": "유량미달 펌프교체",
+    "cost": 370000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "18P354",
+    "company": "켐익",
+    "details": "유량센서 교체",
+    "cost": 350000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "18P353",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "18P355",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "18P356",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "18P357",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "18P358",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "18P359",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "18P360",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "18P361",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "19P432",
+    "company": "켐익",
+    "details": "유량미달 펌프교체",
+    "cost": 370000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "19P432",
+    "company": "켐익",
+    "details": "유량센서 교체",
+    "cost": 350000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "19P432",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 50000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "1317",
+    "company": "켐익",
+    "details": "B셀 유량계 교체",
+    "cost": 400000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "1317",
+    "company": "켐익",
+    "details": "B셀 펌프 교체",
+    "cost": 350000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "1317",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 70000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "854",
+    "company": "켐익",
+    "details": "B셀 유량계 교체",
+    "cost": 400000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "854",
+    "company": "켐익",
+    "details": "B셀 펌프 교체",
+    "cost": 350000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "854",
+    "company": "켐익",
+    "details": "점검 및 정밀교정",
+    "cost": 70000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "1793",
+    "company": "켐익",
+    "details": "A,B셀 유량계 교체",
+    "cost": 400000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "1793",
+    "company": "켐익",
+    "details": "A,B셀 펌프 교체",
+    "cost": 350000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "1793",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 70000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "851",
+    "company": "켐익",
+    "details": "A,B셀 유량계 교체",
+    "cost": 400000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "851",
+    "company": "켐익",
+    "details": "A,B셀 펌프 교체",
+    "cost": 350000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "851",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 70000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "1316",
+    "company": "켐익",
+    "details": "A셀 유량계 교체",
+    "cost": 400000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "1316",
+    "company": "켐익",
+    "details": "A셀 펌프 교체",
+    "cost": 350000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "1316",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 70000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "K1614027A",
+    "company": "켐익",
+    "details": "기본점검",
+    "cost": 100000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "17-0133",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "17-0132",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "17-1906",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "17-1912",
+    "company": "APM",
+    "details": "Internal Pump Assy",
+    "cost": 1250000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "17-1733",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "21-0330",
+    "company": "APM",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "1709797",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "1709798",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 100000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "21-0516",
+    "company": "APM",
+    "details": "Pressure Gauge",
+    "cost": 510000
+  },
+  {
+    "date": "2025-01-17",
+    "serial": "CM20477383",
+    "company": "KNJ",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1571",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-2311",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1348",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1509",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1502",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1508",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1503",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1560",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1384",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1382",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1393",
+    "company": "APM",
+    "details": "기본점검",
+    "cost": 150000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "21",
+    "company": "APM",
+    "details": "정도검사 대행료",
+    "cost": 200000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1571",
+    "company": "APM",
+    "details": "DISPLAY,LCD, BLUE AND WHITE",
+    "cost": 900000
+  },
+  {
+    "date": "2025-01-23",
+    "serial": "20-1503",
+    "company": "APM",
+    "details": "DETECTOR SPARE PART SERINUS30",
+    "cost": 2450000
+  },
+  {
+    "date": "2025-02-03",
+    "serial": "T242073",
+    "company": "카인",
+    "details": "SC260 보드수리(데이터전송안됨외)",
+    "cost": 750000
+  },
+  {
+    "date": "2025-02-03",
+    "serial": "T242073",
+    "company": "카인",
+    "details": "한국 스페인 항공료",
+    "cost": 0
+  },
+  {
+    "date": "2025-02-10",
+    "serial": "T242071",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-02-10",
+    "serial": "160096",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-02-10",
+    "serial": "461059",
+    "company": "태원시바타",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2025-02-10",
+    "serial": "KM008W18CO77",
+    "company": "켐익",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2025-02-12",
+    "serial": "441002",
+    "company": "태원시바타",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2025-02-17",
+    "serial": "20-2132",
+    "company": "APM",
+    "details": "Power supply",
+    "cost": 0
+  },
+  {
+    "date": "2025-02-17",
+    "serial": "21-0517",
+    "company": "APM",
+    "details": "디스플레이 수리(확인필요)",
+    "cost": 0
+  },
+  {
+    "date": "2025-02-17",
+    "serial": "20-2313",
+    "company": "APM",
+    "details": "데이터 저장불량 수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-02-17",
+    "serial": "17-1903",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-02-17",
+    "serial": "17-1798",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-02-17",
+    "serial": "17-0126",
+    "company": "APM",
+    "details": "PCA LAMP driver",
+    "cost": 900000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "K1614025A",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "K1614022",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "K1614023",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "K1614026A",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "K1515023",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "K1515022",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "K1612016",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "K1612017",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "R10783",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "T25861",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P366",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P367",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P368",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P368",
+    "company": "켐익",
+    "details": "SD카드교체",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P369",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P370",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P371",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P371",
+    "company": "켐익",
+    "details": "백엽상파손 수분유입 교체",
+    "cost": 150000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P372",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P373",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P373",
+    "company": "켐익",
+    "details": "외장온습도교체",
+    "cost": 100000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P374",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "18P375",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 50000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "722",
+    "company": "토탈엔지니어링",
+    "details": "좌측 유량불량",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "857",
+    "company": "토탈엔지니어링",
+    "details": "컨트롤보드 교체",
+    "cost": 440000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "1790",
+    "company": "토탈엔지니어링",
+    "details": "좌측 유량불량",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "1798",
+    "company": "토탈엔지니어링",
+    "details": "좌측 유량불량",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "1627",
+    "company": "토탈엔지니어링",
+    "details": "양측 유량불량",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "1501514",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "1501504",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "1501490",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2025-03-04",
+    "serial": "1501479",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2025-03-06",
+    "serial": "532930",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-06",
+    "serial": "442388",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-06",
+    "serial": "770656",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-10",
+    "serial": "770659",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-18",
+    "serial": "1500",
+    "company": "토탈엔지니어링",
+    "details": "A셀 유량계 교체",
+    "cost": 440000
+  },
+  {
+    "date": "2025-03-18",
+    "serial": "1500",
+    "company": "토탈엔지니어링",
+    "details": "A셀 펌프 교체",
+    "cost": 385000
+  },
+  {
+    "date": "2025-03-18",
+    "serial": "1500",
+    "company": "토탈엔지니어링",
+    "details": "점검 및 정밀교정",
+    "cost": 77000
+  },
+  {
+    "date": "2025-03-18",
+    "serial": "1744",
+    "company": "토탈엔지니어링",
+    "details": "점검 및 정밀교정",
+    "cost": 77000
+  },
+  {
+    "date": "2025-03-18",
+    "serial": "1847",
+    "company": "토탈엔지니어링",
+    "details": "컨트롤보드 교체",
+    "cost": 440000
+  },
+  {
+    "date": "2025-03-18",
+    "serial": "1847",
+    "company": "토탈엔지니어링",
+    "details": "A셀 펌프 교체",
+    "cost": 385000
+  },
+  {
+    "date": "2025-03-18",
+    "serial": "1847",
+    "company": "토탈엔지니어링",
+    "details": "점검 및 정밀교정",
+    "cost": 77000
+  },
+  {
+    "date": "2025-03-18",
+    "serial": "1628",
+    "company": "토탈엔지니어링",
+    "details": "점검 및 정밀교정",
+    "cost": 77000
+  },
+  {
+    "date": "2025-03-18",
+    "serial": "717",
+    "company": "토탈엔지니어링",
+    "details": "점검 및 정밀교정",
+    "cost": 77000
+  },
+  {
+    "date": "2025-03-18",
+    "serial": "909",
+    "company": "토탈엔지니어링",
+    "details": "점검 및 정밀교정",
+    "cost": 77000
+  },
+  {
+    "date": "2025-03-19",
+    "serial": "21-1357",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 150000
+  },
+  {
+    "date": "2025-03-19",
+    "serial": "17-0125",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 150000
+  },
+  {
+    "date": "2025-03-19",
+    "serial": "21-0507",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 150000
+  },
+  {
+    "date": "2025-03-19",
+    "serial": "17-0127",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 150000
+  },
+  {
+    "date": "2025-03-19",
+    "serial": "17-0130",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 150000
+  },
+  {
+    "date": "2025-03-19",
+    "serial": "1501505",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2025-03-19",
+    "serial": "1501507",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2025-03-19",
+    "serial": "1501512",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2025-03-19",
+    "serial": "1501489",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2025-03-19",
+    "serial": "1501508",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 100000
+  },
+  {
+    "date": "2025-03-24",
+    "serial": "770656",
+    "company": "카인",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-24",
+    "serial": "770659",
+    "company": "카인",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-24",
+    "serial": "442388",
+    "company": "카인",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-24",
+    "serial": "532930",
+    "company": "카인",
+    "details": "확인필요",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-26",
+    "serial": "21-0518",
+    "company": "APM",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-26",
+    "serial": "20-2313",
+    "company": "APM",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-26",
+    "serial": "21-0516",
+    "company": "APM",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "18P370",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "18P369",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "18P371",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "18P372",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "18P374",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "18P375",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "18P373",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "18P368",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "18P366",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "18P367",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "19P425",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-03-31",
+    "serial": "K1614027A",
+    "company": "켐익",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-02",
+    "serial": "TA3696",
+    "company": "카인",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-02",
+    "serial": "4211/TA3713",
+    "company": "카인",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-02",
+    "serial": "TA3275",
+    "company": "카인",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "1501508",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "1501489",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "1501505",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "1501512",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "1501490",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "1501479",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "1501514",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "1501504",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "1501507",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "21-0517",
+    "company": "APM",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "21-1357",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "17-0127",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "17-0130",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-21",
+    "serial": "21-0507",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-28",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "점검기술료",
+    "cost": 150000
+  },
+  {
+    "date": "2025-04-28",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "Scrubber",
+    "cost": 320000
+  },
+  {
+    "date": "2025-04-29",
+    "serial": "T242072",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-29",
+    "serial": "T242109",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-29",
+    "serial": "20E474",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-29",
+    "serial": "190025",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-29",
+    "serial": "190024",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-30",
+    "serial": "17-0125",
+    "company": "APM",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-30",
+    "serial": "T242072",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-30",
+    "serial": "T242109",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-30",
+    "serial": "20E474",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-30",
+    "serial": "190024",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-04-30",
+    "serial": "190025",
+    "company": "카인",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-05-08",
+    "serial": "19P430",
+    "company": "켐익",
+    "details": "코인전지 교체",
+    "cost": 0
+  },
+  {
+    "date": "2025-05-08",
+    "serial": "20P569",
+    "company": "켐익",
+    "details": "기본점검내역",
+    "cost": 0
+  },
+  {
+    "date": "2025-05-08",
+    "serial": "20P569",
+    "company": "켐익",
+    "details": "유량미달 펌프교체",
+    "cost": 370000
+  },
+  {
+    "date": "2025-05-08",
+    "serial": "20P569",
+    "company": "켐익",
+    "details": "유량센서교체",
+    "cost": 300000
+  },
+  {
+    "date": "2025-05-22",
+    "serial": "141411",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-05-22",
+    "serial": "141412",
+    "company": "태원시바타",
+    "details": "",
+    "cost": 0
+  },
+  {
+    "date": "2025-05-22",
+    "serial": "2390486",
+    "company": "표준교정기술원",
+    "details": "디지덜 온습도계 교정",
+    "cost": 179520
+  },
+  {
+    "date": "2025-05-22",
+    "serial": "2390486",
+    "company": "표준교정기술원",
+    "details": "절대압계 (기압, 디지털) 교정",
+    "cost": 91850
+  },
+  {
+    "date": "2025-05-22",
+    "serial": "20P558",
+    "company": "켐익",
+    "details": "",
+    "cost": 0
+  },
+  {
+    "date": "2025-05-22",
+    "serial": "18P356",
+    "company": "켐익",
+    "details": "",
+    "cost": 0
+  },
+  {
+    "date": "2025-05-26",
+    "serial": "17-0988",
+    "company": "APM",
+    "details": "",
+    "cost": 0
+  },
+  {
+    "date": "2025-06-02",
+    "serial": "950575",
+    "company": "태원시바타",
+    "details": "",
+    "cost": 0
+  },
+  {
+    "date": "2025-06-05",
+    "serial": "1501518",
+    "company": "APM",
+    "details": "장비 리크, 다운튜브 고무링 손상, 교체 리크 수정",
+    "cost": 100000
+  },
+  {
+    "date": "2025-06-05",
+    "serial": "1501519",
+    "company": "APM",
+    "details": "장비 리크, 다운튜브 고무링 손상, 교체 리크 수정 펌프 배출 라인 튜브 손상/이탈 확인, 튜브 교체, 재결속 및 고정 상태 점검 완료",
+    "cost": 100000
+  },
+  {
+    "date": "2025-06-05",
+    "serial": "1904004",
+    "company": "APM",
+    "details": "장비 리크, 다운튜브 고무링 손상, 교체 리크 수정",
+    "cost": 100000
+  },
+  {
+    "date": "2025-06-10",
+    "serial": "T242109",
+    "company": "카인",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-06-10",
+    "serial": "T246352",
+    "company": "카인",
+    "details": "무상점검 (전원 단자 오류 해결)",
+    "cost": 0
+  },
+  {
+    "date": "2025-06-19",
+    "serial": "724",
+    "company": "토탈엔지니어링",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-06-19",
+    "serial": "849",
+    "company": "토탈엔지니어링",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-06-19",
+    "serial": "1796",
+    "company": "토탈엔지니어링",
+    "details": "컨트롤보드 교체",
+    "cost": 440000
+  },
+  {
+    "date": "2025-06-19",
+    "serial": "1796",
+    "company": "토탈엔지니어링",
+    "details": "A셀 펌프 교체",
+    "cost": 385000
+  },
+  {
+    "date": "2025-06-19",
+    "serial": "1796",
+    "company": "토탈엔지니어링",
+    "details": "점검 및 정밀교정",
+    "cost": 77000
+  },
+  {
+    "date": "2025-06-20",
+    "serial": "20-2132",
+    "company": "APM",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-06-20",
+    "serial": "20-2305",
+    "company": "APM",
+    "details": "점검기술료",
+    "cost": 100000
+  },
+  {
+    "date": "2025-06-20",
+    "serial": "20-2305",
+    "company": "APM",
+    "details": "DISPLAY, LCD, 240 X 128 BLUE AND WHITE",
+    "cost": 900000
+  },
+  {
+    "date": "2025-06-20",
+    "serial": "17-0133",
+    "company": "APM",
+    "details": "점검기술료",
+    "cost": 100000
+  },
+  {
+    "date": "2025-06-20",
+    "serial": "17-0133",
+    "company": "APM",
+    "details": "DISPLAY, LCD, 240 X 128 BLUE AND WHITE",
+    "cost": 900000
+  },
+  {
+    "date": "2025-06-20",
+    "serial": "21-0321",
+    "company": "APM",
+    "details": "일반수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-06-20",
+    "serial": "21-0349",
+    "company": "APM",
+    "details": "점검기술료",
+    "cost": 150000
+  },
+  {
+    "date": "2025-06-20",
+    "serial": "1904004",
+    "company": "APM",
+    "details": "점검기술료",
+    "cost": 100000
+  },
+  {
+    "date": "2025-06-20",
+    "serial": "1501506",
+    "company": "APM",
+    "details": "점검기술료",
+    "cost": 100000
+  },
+  {
+    "date": "2025-06-20",
+    "serial": "1501490",
+    "company": "APM",
+    "details": "점검기술료",
+    "cost": 100000
+  },
+  {
+    "date": "2025-06-24",
+    "serial": "1192754688",
+    "company": "KNJ",
+    "details": "점검 및 교정",
+    "cost": 180000
+  },
+  {
+    "date": "2025-07-04",
+    "serial": "770660",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-04",
+    "serial": "770654",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-04",
+    "serial": "770655",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-04",
+    "serial": "770657",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-04",
+    "serial": "950574",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-04",
+    "serial": "770658",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-04",
+    "serial": "17-0126",
+    "company": "APM",
+    "details": "Lamp Adjust",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-04",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "Lamp Adjust",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-04",
+    "serial": "20-2311",
+    "company": "APM",
+    "details": "REF수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-07",
+    "serial": "20-2311",
+    "company": "APM",
+    "details": "REF 수리",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-07",
+    "serial": "17-0126",
+    "company": "APM",
+    "details": "Lamp Adjust",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-07",
+    "serial": "17-0128",
+    "company": "APM",
+    "details": "Lamp Adjust",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-07",
+    "serial": "770654",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-07",
+    "serial": "770657",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-07",
+    "serial": "770660",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-07",
+    "serial": "770658",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-07",
+    "serial": "950574",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  },
+  {
+    "date": "2025-07-07",
+    "serial": "770655",
+    "company": "태원시바타",
+    "details": "정도검사",
+    "cost": 0
+  }
+]
