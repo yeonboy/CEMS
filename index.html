@@ -2286,7 +2286,7 @@
             try {
                 // serials.csv의 3열(품목계열)로만 분류
                 let serialsText = '';
-                try { serialsText = await fetchKoreanText('청명장비 엑셀/serials.csv'); } catch {}
+                try { serialsText = await fetchKoreanText('assets/data/serials.csv'); } catch {}
                 if (!serialsText) {
                     // 경로 이슈 대비
                     try { serialsText = await fetchKoreanText('serials.csv'); } catch {}
