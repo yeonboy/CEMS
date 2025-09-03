@@ -1,9 +1,124 @@
+// 최근 3개월간 출장 0건(청명 지하 제외) 알림
+function renderLowUtilAlerts(){
+    const container = document.getElementById('lowutil-alerts');
+    const filtersBox = document.getElementById('lowutil-filters');
+    if (!container) return;
+    // 선택 상태(다중 선택) - 전역 유지
+    const selectedCats = (window.__lowutilSelectedCats = window.__lowutilSelectedCats || new Set());
+    const to = new Date();
+    const from = new Date(to.getFullYear(), to.getMonth()-3, to.getDate());
+    function mapType(name){ const s=(name||'').toString(); if (/현장|출장/.test(s)) return 'site'; if (/청명|본사|창고|CEMS|CMES|본사 창고/.test(s)) return 'cmes'; return 'vendor'; }
+    function buildIntervals(moves){
+        const asc = (moves||[]).filter(m=>m.date).sort((a,b)=> new Date(a.date)-new Date(b.date));
+        const within = asc.filter(m => new Date(m.date) >= from && new Date(m.date) <= to);
+        let cur='cmes';
+        const prior = asc.filter(m=> new Date(m.date)<from).sort((a,b)=> new Date(b.date)-new Date(a.date))[0];
+        if (prior && (prior.inLocation||prior.outLocation)) cur = mapType(prior.inLocation||prior.outLocation);
+        let last=new Date(from); const res=[];
+        within.forEach(m=>{ const next=mapType(m.inLocation||m.outLocation); res.push({start:new Date(last), end:new Date(m.date), type:cur}); cur=next; last=new Date(m.date); });
+        res.push({start:new Date(last), end:new Date(to), type:cur});
+        return res;
+    }
+    const baseRows = (equipmentData||[]).map(e=>{
+        const moves = (movementsData||[]).filter(m=>m.serial===e.serial);
+        const intervals = buildIntervals(moves);
+        const trips = intervals.filter(iv=>iv.type==='site').length;
+        return { serial:e.serial, category:e.category, currentLocation:e.currentLocation||'', status:e.status||'', trips };
+    }).filter(r=> r.trips===0 && !/청명\s*지하/.test(r.currentLocation||'') && !/본사\s*창고/.test(r.currentLocation||''));
+
+    // 카테고리 필터 적용
+    let rows = baseRows;
+    if (selectedCats.size > 0){
+        rows = baseRows.filter(r=> selectedCats.has(r.category||'기타'));
+    }
+
+    // 품목계열 토글 생성(카운트 포함)
+    if (filtersBox){
+        const byCat = baseRows.reduce((m,r)=>{ const k=r.category||'기타'; m.set(k,(m.get(k)||0)+1); return m; }, new Map());
+        const cats = Array.from(byCat.entries()).sort((a,b)=> b[1]-a[1]);
+        filtersBox.innerHTML = '';
+        const allBtn = document.createElement('button');
+        allBtn.className = selectedCats.size===0
+            ? 'px-3 py-1.5 rounded border bg-violet-600 text-white hover:bg-violet-700'
+            : 'px-3 py-1.5 rounded border bg-white text-slate-700 hover:bg-slate-50';
+        allBtn.textContent = `전체 (${baseRows.length}대)`;
+        allBtn.onclick = ()=> { selectedCats.clear(); renderLowUtilAlerts(); };
+        filtersBox.appendChild(allBtn);
+        cats.forEach(([cat,count])=>{
+            const btn=document.createElement('button');
+            const isActive = selectedCats.has(cat);
+            btn.className = isActive
+                ? 'px-3 py-1.5 rounded border bg-violet-600 text-white hover:bg-violet-700'
+                : 'px-3 py-1.5 rounded border bg-white text-slate-700 hover:bg-slate-50';
+            btn.textContent=`${cat} (${count}대)`;
+            btn.onclick=()=> {
+                if (selectedCats.has(cat)) selectedCats.delete(cat); else selectedCats.add(cat);
+                renderLowUtilAlerts();
+            };
+            filtersBox.appendChild(btn);
+        });
+    }
+
+    if (!rows.length){ container.innerHTML='<div class="p-4 text-slate-500 border border-slate-200 rounded">최근 3개월 출장 0건 장비가 없습니다.</div>'; return; }
+    const frag = document.createDocumentFragment();
+    rows.forEach(r=>{
+        const div=document.createElement('div');
+        div.className='flex items-center justify-between p-3 bg-violet-50 border border-violet-200 rounded';
+        div.innerHTML=`
+            <div class="flex items-center">
+                <svg class="w-5 h-5 text-violet-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg>
+                <span class="text-violet-800 font-medium">${r.serial}</span>
+                <span class="ml-2 text-slate-700">${r.category||''}</span>
+                <span class="ml-3 text-slate-500">${r.currentLocation||''} • ${r.status||''}</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="text-sm text-violet-700">최근 3개월 출장 0건</div>
+                <button class="px-3 py-1.5 rounded border border-violet-300 text-violet-700 hover:bg-violet-100" data-serial="${r.serial}">상세보기</button>
+            </div>`;
+        const btn = div.querySelector('button[data-serial]');
+        if (btn) btn.onclick = ()=> { try { showEquipmentDetailModal(r.serial); } catch(e) { console.error(e); } };
+        frag.appendChild(div);
+    });
+    container.innerHTML=''; container.appendChild(frag);
+}
+
+// 카테고리 단일 선택(하위 호환) → 상태 갱신 후 메인 렌더 호출
+function renderLowUtilAlertsFilter(category){
+    const selectedCats = (window.__lowutilSelectedCats = window.__lowutilSelectedCats || new Set());
+    selectedCats.clear();
+    if (category) selectedCats.add(category);
+    renderLowUtilAlerts();
+}
 let equipmentData = [];
 let movementsData = [];
 let repairsData = [];
 let logsData = [];
 let qcLogsData = []; // New global variable for QC logs data
 let staffLogsData = []; // 이동 담당자 로그 (CSV)
+let __selectedSeries = new Set(); // 장비 목록: 품목계열 다중 선택 상태
+function getManufacturerByCategory(category){
+    const map = (typeof window !== 'undefined' && window.__manufacturersMap) ? window.__manufacturersMap : {};
+    const key = String(category || '').trim();
+    if (map && map[key]) return map[key];
+    // 느슨한 매칭(공백 차이/부분일치 보정)
+    try {
+        const keys = Object.keys(map || {});
+        const found = keys.find(k => k.trim() === key || key.includes(k.trim()) || k.trim().includes(key));
+        return found ? map[found] : null;
+    } catch { return null; }
+}
+
+// 전역 안전 노출(초기 빈값): 인라인 스크립트가 먼저 실행될 때 ReferenceError 방지
+try {
+    if (typeof window !== 'undefined') {
+        window.equipmentData = equipmentData;
+        window.movementsData = movementsData;
+        window.repairsData = repairsData;
+        window.logsData = logsData;
+        window.qcLogsData = qcLogsData;
+        window.staffLogsData = staffLogsData;
+    }
+} catch {}
 
 document.addEventListener('DOMContentLoaded', () => {
     // 사전 구축된 DB 우선 사용 → 폴백으로 equipment_data.json 지원
@@ -49,15 +164,27 @@ document.addEventListener('DOMContentLoaded', () => {
                 return '';
             })
             .then(text => parseCSVAuto(text))
-            .catch(() => [])
+            .catch(() => []),
+        fetch('./db/manufacturers.json', { cache: 'no-store' })
+            .then(r => r.ok ? r.json() : {})
+            .catch(() => ({}))
     ])
-    .then(([equipment, movements, repairs, logs, qcLogs, staffLogs]) => {
+    .then(([equipment, movements, repairs, logs, qcLogs, staffLogs, manufacturers]) => {
         equipmentData = equipment;
         movementsData = movements;
         repairsData = repairs;
         logsData = logs;
         qcLogsData = qcLogs;
         staffLogsData = Array.isArray(staffLogs) ? staffLogs : [];
+        window.__manufacturersMap = manufacturers || {};
+        try {
+            window.equipmentData = equipmentData;
+            window.movementsData = movementsData;
+            window.repairsData = repairsData;
+            window.logsData = logsData;
+            window.qcLogsData = qcLogsData;
+            window.staffLogsData = staffLogsData;
+        } catch {}
         
         console.log('✅ 데이터 로드 완료:', {
             equipment: equipmentData.length,
@@ -78,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
             equipmentData = enrichEquipmentData(equipmentData, movementsData);
             console.log('✅ 장비 데이터 현재위치 자동 보정 완료');
         }
+        try { window.equipmentData = equipmentData; } catch {}
         
         // 초기화 함수들 호출
         initDashboardCharts();
@@ -86,6 +214,27 @@ document.addEventListener('DOMContentLoaded', () => {
         updateKpis();
         renderCalibrationAlerts(); // 정도검사 알림 렌더링 추가
         renderVendorLongStayAlerts(); // 장기간 업체 입고 알림 렌더링 추가
+        // 알림 탭 토글 바인딩
+        try {
+            const btnA = document.getElementById('alerts-toggle-longstay');
+            const btnM = document.getElementById('alerts-toggle-lowutil');
+            const btnB = document.getElementById('alerts-toggle-calibration');
+            const paneA = document.getElementById('alerts-pane-longstay');
+            const paneM = document.getElementById('alerts-pane-lowutil');
+            const paneB = document.getElementById('alerts-pane-calibration');
+            function setActive(btn, on){ if(!btn) return; btn.classList.toggle('bg-indigo-600', on); btn.classList.toggle('text-white', on); btn.classList.toggle('bg-white', !on); btn.classList.toggle('text-slate-700', !on); btn.setAttribute('aria-pressed', String(on)); }
+            function activate(which){
+                const a = which==='A', m=which==='M', b=which==='B';
+                setActive(btnA,a); setActive(btnM,m); setActive(btnB,b);
+                if (paneA) paneA.classList.toggle('hidden', !a);
+                if (paneM) paneM.classList.toggle('hidden', !m);
+                if (paneB) paneB.classList.toggle('hidden', !b);
+                if (m) renderLowUtilAlerts();
+            }
+            if (btnA) btnA.addEventListener('click', ()=> activate('A'));
+            if (btnM) btnM.addEventListener('click', ()=> activate('M'));
+            if (btnB) btnB.addEventListener('click', ()=> activate('B'));
+        } catch {}
         
         if (document.getElementById('equipment-view')) {
             // switchView 대신 직접 탭 전환 (한 번만 실행)
@@ -111,6 +260,28 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         
         console.log('✅ 전역 함수 할당 완료');
+        // 네비게이션/서브메뉴 전역 안전 바인딩 보강
+        try {
+            window.switchView = window.switchView || switchView;
+            window.switchEquipmentTab = window.switchEquipmentTab || switchEquipmentTab;
+            window.toggleSubmenu = window.toggleSubmenu || toggleSubmenu;
+        } catch {}
+
+        // 제조사 매핑 커버리지 간단 점검 로그 (개발 편의용)
+        try {
+            const catSet = Array.from(new Set((equipmentData||[]).map(e=>e.category).filter(Boolean)));
+            const miss = catSet.filter(c => !getManufacturerByCategory(c));
+            if (miss.length) console.warn('제조사 미매핑 품목계열:', miss);
+        } catch {}
+        // 장비 현황 섹션: 최근 동기화 시간 표기
+        try {
+            const el = document.getElementById('status-last-sync');
+            if (el) {
+                const now = new Date();
+                const ts = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+                el.textContent = `최근 동기화: ${ts}`;
+            }
+        } catch {}
         // 주기별 수리 차트 초기 렌더 트리거
         setTimeout(() => {
             try {
@@ -469,7 +640,6 @@ function switchView(viewId) {
         window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     } catch {}
 }
-
 // 장비 탭 전환
 function switchEquipmentTab(tabName) {
     console.log('🔍 switchEquipmentTab 호출됨:', tabName);
@@ -545,9 +715,7 @@ function switchEquipmentTab(tabName) {
         renderEducationTable();
     }
 }
-
 // 전역 함수 할당은 DOMContentLoaded 이벤트에서 처리
-
 // 뷰 전환 함수 (전역으로 할당)
 function switchView(viewName, event) {
     console.log('🔍 switchView 호출됨:', viewName);
@@ -718,6 +886,13 @@ function toggleSubmenu(menuId) {
     }
 }
 
+// 전역 함수 즉시 바인딩(안전망)
+try {
+    if (typeof window !== 'undefined') {
+        window.toggleSubmenu = toggleSubmenu;
+    }
+} catch {}
+
 // 수리 테이블 렌더링
 function renderRepairTable() {
     const tableBody = document.getElementById('repair-table');
@@ -832,7 +1007,76 @@ function renderEducationTable() {
     const tableBody = document.getElementById('education-table');
     if (!tableBody) return;
     
-    tableBody.innerHTML = '<tr><td colspan="6" class="text-center p-4 text-slate-500">교육 데이터가 없습니다.</td></tr>';
+    // 기본 시드: 장비관리 진행상태 PDF(테스트용). 새로고침 유지(localStorage)
+    let items = [];
+    try { items = JSON.parse(localStorage.getItem('education_items')||'[]')||[]; } catch { items = []; }
+    if (!items.length) {
+        const seedPath = '청명장비 엑셀/2025.05 장비관리 진행상태.pdf';
+        items = [{
+            id: 'seed-progress-202505',
+            title: '장비관리 진행상태 (2025.05)',
+            date: new Date().toISOString().slice(0,10),
+            fileUrl: seedPath,
+            fileName: '2025.05 장비관리 진행상태.pdf',
+            attendees: [],
+            note: '테스트 자료(기본값)',
+            status: '완료'
+        }];
+        try { localStorage.setItem('education_items', JSON.stringify(items)); } catch {}
+    }
+    if (!items.length) {
+        tableBody.innerHTML = '<tr><td colspan="7" class="text-center p-4 text-slate-500">교육 데이터가 없습니다.</td></tr>';
+        return;
+    }
+    // 상단 토글 상태 및 렌더링
+    window.__eduCat1 = window.__eduCat1 || '전체';
+    window.__eduCat2 = window.__eduCat2 || '전체';
+    const t1 = document.getElementById('edu-toggle-cat1');
+    const t2 = document.getElementById('edu-toggle-cat2');
+    function drawToggles(container, options, selected, onClick){
+        if (!container) return;
+        container.innerHTML = options.map(v=>`<button data-v="${v}" class="px-3 py-1.5 rounded border ${selected===v?'bg-indigo-600 text-white':'bg-white text-slate-700'}">${v}</button>`).join('');
+        container.querySelectorAll('button').forEach(btn=> btn.addEventListener('click', ()=> onClick(btn.getAttribute('data-v'))));
+    }
+    if (t1){
+        const level1 = ['전체','측정팀','실험분석팀','총무팀'];
+        drawToggles(t1, level1, window.__eduCat1, (v)=>{ window.__eduCat1=v; window.__eduCat2='전체'; renderEducationTable(); });
+    }
+    let showLevel2 = false;
+    if (t2){
+        let level2 = [];
+        if (window.__eduCat1==='측정팀') { level2 = ['전체','환경대기팀','대기자가팀','수질팀','해양팀','소음,진동팀','악취팀']; showLevel2=true; }
+        else if (window.__eduCat1==='실험분석팀') { level2 = ['전체','대기분석팀','수질분석팀','해양분석팀','소음,진동 분석팀','악취분석팀']; showLevel2=true; }
+        if (showLevel2) { t2.parentElement.classList.remove('hidden'); drawToggles(t2, level2, window.__eduCat2, (v)=>{ window.__eduCat2=v; renderEducationTable(); }); }
+        else { t2.innerHTML=''; try { t2.parentElement.classList.add('hidden'); } catch {} }
+    }
+    // 필터링
+    let list = items.slice();
+    if (window.__eduCat1 && window.__eduCat1 !== '전체') list = list.filter(it => String(it.cat1||'') === window.__eduCat1);
+    if (showLevel2 && window.__eduCat2 && window.__eduCat2 !== '전체') list = list.filter(it => String(it.cat2||'') === window.__eduCat2);
+
+    const frag = document.createDocumentFragment();
+    list.forEach(it => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td class="p-2 whitespace-nowrap">${it.date||''}</td>
+            <td class="p-2">${it.title||''}</td>
+            <td class="p-2">${it.cat1||'-'}</td>
+            <td class="p-2">${it.cat2||'-'}</td>
+            <td class="p-2">${(it.attendees||[]).join(', ')||'-'}</td>
+            <td class="p-2">${it.note||''}</td>
+            <td class="p-2">${it.status||'완료'}</td>
+            <td class="p-2">${it.fileName?`<button class="text-indigo-600 underline" data-file="${it.fileUrl||''}">보기</button>`:'-'}</td>
+            <td class="p-2"><button class="text-rose-600 underline" data-del="${it.id}">삭제</button></td>
+        `;
+        const viewBtn = tr.querySelector('button[data-file]');
+        if (viewBtn) viewBtn.addEventListener('click', (e)=>{ e.stopPropagation(); openPdfInModal(viewBtn.getAttribute('data-file')); });
+        const delBtn = tr.querySelector('button[data-del]');
+        if (delBtn) delBtn.addEventListener('click', ()=>{ deleteEducationItem(it.id); });
+        frag.appendChild(tr);
+    });
+    tableBody.innerHTML = '';
+    tableBody.appendChild(frag);
 }
 
 // 수리 폼 표시
@@ -842,8 +1086,93 @@ function showRepairForm() {
 
 // 교육 폼 표시
 function showEducationForm() {
-    alert('교육 등록 폼을 표시합니다.');
+    const modal = document.getElementById('education-create-modal');
+    if (modal) modal.classList.remove('hidden');
 }
+function closeEducationForm(){ const modal=document.getElementById('education-create-modal'); if(modal) modal.classList.add('hidden'); }
+async function saveEducationItem(){
+    const title = document.getElementById('edu-title')?.value?.trim();
+    const date = document.getElementById('edu-date')?.value;
+    const cat1 = document.getElementById('edu-cat1')?.value || '전체';
+    const cat2 = document.getElementById('edu-cat2')?.value || '-';
+    const fileInput = document.getElementById('edu-file');
+    if (!title){ alert('교육명을 입력하세요.'); return; }
+    const items = JSON.parse(localStorage.getItem('education_items')||'[]');
+    const id = 'edu_'+Date.now();
+    let fileUrl = '' , fileName='';
+    const f = fileInput?.files?.[0];
+    if (f){
+        if (!/pdf$/i.test(f.name)) { alert('HWP/HWPX는 PDF로 변환 후 업로드해주세요.'); return; }
+        try {
+            const form = new FormData();
+            form.append('file', f);
+            form.append('cat1', cat1);
+            form.append('cat2', cat2);
+            form.append('date', date || new Date().toISOString().slice(0,10));
+            const base = 'http://localhost:5173';
+            const resp = await fetch(`${base.replace(/\/$/, '')}/api/education/upload`, { method: 'POST', body: form });
+            const txt = await resp.text();
+            let j = {};
+            try { j = JSON.parse(txt); } catch { j = { ok:false, message: txt || 'Invalid response' }; }
+            if (!resp.ok || !j.ok) throw new Error(j.message || '업로드 실패');
+            fileUrl = j.url; // /assets/education/.../filename.pdf
+            fileName = f.name;
+        } catch (e) {
+            alert('업로드 실패: ' + (e.message||e));
+            return;
+        }
+    }
+    const rec = { id, title, date, cat1, cat2, fileUrl, fileName, attendees:[], note:'', status:'완료' };
+    items.unshift(rec);
+    localStorage.setItem('education_items', JSON.stringify(items));
+    closeEducationForm();
+    renderEducationTable();
+}
+function deleteEducationItem(id){
+    const items = JSON.parse(localStorage.getItem('education_items')||'[]');
+    const next = items.filter(x=>x.id!==id);
+    localStorage.setItem('education_items', JSON.stringify(next));
+    renderEducationTable();
+}
+
+// ===== PDF.js 임베드 뷰어 =====
+// 간단 로더(동적 import 대체). pdfjs-dist를 CDN으로 로드했을 때를 가정하거나, 없으면 <embed> 폴백.
+async function openPdfInModal(url){
+    const modal = document.getElementById('pdf-viewer-modal');
+    const container = document.getElementById('pdf-viewer-container');
+    if (!modal || !container){ window.open(url, '_blank'); return; }
+    container.innerHTML = '';
+    modal.classList.remove('hidden');
+    try {
+        // 전역 PDFJS가 있으면 사용, 없으면 <embed> 폴백
+        if (window['pdfjsLib']){
+            const pdf = await window.pdfjsLib.getDocument(url).promise;
+            let scale = 1.2;
+            async function renderPage(num){
+                const page = await pdf.getPage(num);
+                const viewport = page.getViewport({ scale });
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = viewport.width; canvas.height = viewport.height;
+                container.appendChild(canvas);
+                await page.render({ canvasContext: ctx, viewport }).promise;
+            }
+            for (let i=1;i<=pdf.numPages;i++) await renderPage(i);
+            const zin = document.getElementById('pdf-zoom-in');
+            const zout = document.getElementById('pdf-zoom-out');
+            if (zin && zout){
+                zin.onclick = async ()=>{ scale = Math.min(scale+0.1, 3); container.innerHTML=''; for(let i=1;i<=pdf.numPages;i++) await renderPage(i); };
+                zout.onclick = async ()=>{ scale = Math.max(scale-0.1, 0.5); container.innerHTML=''; for(let i=1;i<=pdf.numPages;i++) await renderPage(i); };
+            }
+        } else {
+            const embed = document.createElement('embed');
+            embed.type = 'application/pdf';
+            embed.src = url; embed.style.width='100%'; embed.style.height='100%';
+            container.appendChild(embed);
+        }
+    } catch (e){ console.warn('PDF 내장 뷰어 실패, 새 탭으로 엽니다.', e); window.open(url, '_blank'); }
+}
+function closePdfViewer(){ const modal=document.getElementById('pdf-viewer-modal'); if(modal) modal.classList.add('hidden'); const container=document.getElementById('pdf-viewer-container'); if(container) container.innerHTML=''; }
 
 // 수리 데이터 내보내기
 function exportRepairData() {
@@ -1003,7 +1332,6 @@ function setupRowListeners(row) {
         });
     }
 }
-
 // 품목 행 추가
 function addItemRow() {
     const itemsTableBody = document.getElementById('items-table-body');
@@ -1217,7 +1545,6 @@ function savePurchaseRequestToStorage(data) {
     // DB 폴더에도 저장 시도
     savePurchaseRequestToDB(newRequest);
 }
-
 // 구매요구서를 DB 폴더에 저장
 async function savePurchaseRequestToDB(data) {
     try {
@@ -1595,7 +1922,6 @@ function generatePrintHTML(data) {
         </html>
     `;
 }
-
 // 견적서 테이블 렌더링
 async function renderQuoteTable() {
     const tbody = document.getElementById('quote-table');
@@ -1973,7 +2299,6 @@ function closeQuoteModal() {
         resetQuoteModalToDefault();
     }
 }
-
 // 견적서 모달을 기본 상태로 복원
 function resetQuoteModalToDefault() {
     // 폼 데이터 초기화
@@ -2235,7 +2560,6 @@ function renderPurchaseImportButton() {
         form.insertBefore(importOption, form.firstChild);
     }
 }
-
 // 구매요구서 불러오기 토글 기능
 function togglePurchaseRequestImport() {
     const toggleBtn = document.getElementById('purchase-request-import-toggle');
@@ -2602,7 +2926,6 @@ function printQuote() {
         printWindow.print();
     }, 500);
 }
-
 // 견적서 인쇄용 HTML 생성
 function generateQuotePrintHTML(data) {
     const itemsHTML = data.items.map((item, index) => `
@@ -2866,7 +3189,6 @@ function generateQuotePrintHTML(data) {
 function showTransactionForm() {
     alert('거래명세서 발행 폼을 표시합니다.');
 }
-
 // 구매요구서 테이블 렌더링
 async function renderPurchaseRequestTable() {
     const tbody = document.getElementById('purchase-request-table');
@@ -3393,12 +3715,9 @@ function saveProductCatalogToDB(data) {
         console.error('제품 카탈로그 DB 저장 오류:', error);
     }
 }
-
 // createSampleOrderData: 사용 안함 (요청에 따라 제거)
-
 // 테이블 렌더링 함수들
 // ==========================================
-
 // 자동완성 데이터 로더 (제품/공급업체)
 let __productCatalogCache = [];
 let __suppliersCache = [];
@@ -3452,7 +3771,6 @@ function autofillItemFromCatalog({ nameInput, specInput, priceInput, supplierInp
     // 합계 갱신
     if (typeof calculateTotals === 'function') calculateTotals();
 }
-
 // 1. 주문 내역 테이블 렌더링
 function renderOrderHistoryTable() {
     const tbody = document.getElementById('order-history-table');
@@ -3957,6 +4275,48 @@ function updateKpis() {
     // 가동률 계산
     const uptimeRate = totalEquipment > 0 ? Math.round((operatingEquipment / totalEquipment) * 100) : 0;
     updateKpiElement('uptime-rate', uptimeRate + '%');
+    // 확인 필요 알림(KPI): 장기간 업체 입고 + 장기간 가동률 저하 + 정도검사 예정 총합
+    try {
+        const longStayCount = (function(){
+            const today = new Date();
+            return (equipmentData||[]).reduce((acc,e)=>{
+                const last = parseYmdSafe(e.lastMovement);
+                const days = last ? Math.floor((today - last)/(1000*60*60*24)) : null;
+                const isVendor = /업체/.test(String(e.currentLocation||'')) || /수리중/.test(String(e.status||''));
+                return acc + ((isVendor && days!==null && days>=30) ? 1 : 0);
+            },0);
+        })();
+        const lowUtilCount = (function(){
+            const to = new Date();
+            const from = new Date(to.getFullYear(), to.getMonth()-3, to.getDate());
+            function mapType(name){ const s=(name||'').toString(); if (/현장|출장/.test(s)) return 'site'; if (/청명|본사|창고|CEMS|CMES|본사 창고/.test(s)) return 'cmes'; return 'vendor'; }
+            function buildIntervals(moves){
+                const asc = (moves||[]).filter(m=>m.date).sort((a,b)=> new Date(a.date)-new Date(b.date));
+                const within = asc.filter(m => new Date(m.date) >= from && new Date(m.date) <= to);
+                let cur='cmes';
+                const prior = asc.filter(m=> new Date(m.date)<from).sort((a,b)=> new Date(b.date)-new Date(a.date))[0];
+                if (prior && (prior.inLocation||prior.outLocation)) cur = mapType(prior.inLocation||prior.outLocation);
+                let last=new Date(from); const res=[];
+                within.forEach(m=>{ const next=mapType(m.inLocation||m.outLocation); res.push({start:new Date(last), end:new Date(m.date), type:cur}); cur=next; last=new Date(m.date); });
+                res.push({start:new Date(last), end:new Date(to), type:cur});
+                return res;
+            }
+            const rows = (equipmentData||[]).map(e=>{
+                const moves = (movementsData||[]).filter(m=>m.serial===e.serial);
+                const intervals = buildIntervals(moves);
+                const trips = intervals.filter(iv=>iv.type==='site').length;
+                return { currentLocation:e.currentLocation||'', trips };
+            }).filter(r=> r.trips===0 && !/청명\s*지하/.test(r.currentLocation||'') && !/본사\s*창고/.test(r.currentLocation||''));
+            return rows.length;
+        })();
+        const qcCount = (function(){
+            const today = new Date();
+            const ym = today.getFullYear() + '-' + String(today.getMonth()+1).padStart(2,'0');
+            const rows = Array.isArray(qcLogsData) ? qcLogsData : [];
+            return rows.filter(log=>{ const d=log&&log.next_calibration_date; if(!d) return false; const dt=new Date(d); if(isNaN(dt)) return false; const key = dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0'); return key===ym; }).length;
+        })();
+        updateKpiElement('pending-alerts', (longStayCount + lowUtilCount + qcCount) + ' 건');
+    } catch(e) { try { updateKpiElement('pending-alerts', '0 건'); } catch(_){} }
 }
 
 // 장기간 업체 입고(30일+) 알림 렌더링
@@ -3964,35 +4324,69 @@ function renderVendorLongStayAlerts() {
     const container = document.getElementById('vendor-longstay-alerts');
     if (!container) return;
     const today = new Date();
-    const rows = (equipmentData || []).map(e => {
+    const items = (equipmentData || []).map(e => {
         const last = parseYmdSafe(e.lastMovement);
         const days = last ? Math.floor((today - last) / (1000*60*60*24)) : null;
         const isVendor = /업체/.test(String(e.currentLocation||'')) || /수리중/.test(String(e.status||''));
         return { serial: e.serial, category: e.category, currentLocation: e.currentLocation, status: e.status, days, lastStr: formatYmd(last), isVendor };
-    }).filter(r => r.isVendor && (r.days !== null && r.days >= 30));
+    }).filter(r => r.isVendor && (r.days !== null && r.days >= 30))
+      .sort((a,b)=> b.days - a.days);
 
-    if (!rows.length) {
-        container.innerHTML = '<div class="p-4 text-slate-500 border border-slate-200 rounded">장기간 업체 입고 장비가 없습니다.</div>';
-        return;
-    }
+    const count = items.length;
+    const btnId = 'longstay-toggle';
+    const panelId = 'longstay-details';
 
-    const frag = document.createDocumentFragment();
-    rows.sort((a,b)=> b.days - a.days).slice(0, 50).forEach(r => {
-        const div = document.createElement('div');
-        div.className = 'flex items-center justify-between p-3 bg-yellow-50 border border-yellow-200 rounded';
-        div.innerHTML = `
+    const detailHtml = items.slice(0, 100).map(r => {
+        const staff = getMovementStaffName(r.serial, r.lastStr) || '-';
+        const ackId = `ack_longstay_${r.serial}`;
+        const noteId = `note_longstay_${r.serial}`;
+        const checked = localStorage.getItem(ackId) === '1';
+        const noteVal = localStorage.getItem(noteId) || '';
+        return `
+        <div class="flex items-center justify-between p-3 bg-yellow-50 border border-yellow-200 rounded">
             <div class="flex items-center">
                 <svg class="w-5 h-5 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 <span class="text-yellow-800 font-medium">${r.serial}</span>
                 <span class="ml-2 text-slate-700">${r.category || ''}</span>
-                <span class="ml-3 text-slate-500">${r.currentLocation || ''} • ${r.status || ''}</span>
+                <span class="ml-3 text-slate-500">${r.currentLocation || ''} • ${r.status || ''} • 담당자: ${staff}</span>
             </div>
-            <div class="text-sm text-yellow-700">${r.days}일 경과 (최근입고: ${r.lastStr || '-'})</div>
-        `;
-        frag.appendChild(div);
+            <div class="flex items-center gap-3">
+                <div class="text-sm text-yellow-700">${r.days}일 경과 (최근입고: ${r.lastStr || '-'})</div>
+                <label class="text-sm text-slate-700 flex items-center gap-1"><input type="checkbox" data-ack-id="${ackId}" ${checked?'checked':''}/> 확인</label>
+                <input type="text" data-note-id="${noteId}" value="${noteVal.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}" placeholder="비고" class="px-2 py-1 border rounded text-sm w-56"/>
+            </div>
+        </div>`;
+    }).join('');
+
+    container.innerHTML = `
+        <button id="${btnId}" class="px-4 py-2 bg-yellow-600 text-white rounded hover:bg-yellow-700" aria-expanded="${count? 'true':'false'}" aria-controls="${panelId}">
+            장기간 업체 입고(30일+): <span class="font-semibold">${count}</span>건
+        </button>
+        <div id="${panelId}" class="mt-3 ${count ? '' : 'hidden'} space-y-3">
+            ${count ? detailHtml : '<div class="p-4 text-slate-500 border border-slate-200 rounded">장기간 업체 입고 장비가 없습니다.</div>'}
+        </div>
+    `;
+
+    const btn = document.getElementById(btnId);
+    const panel = document.getElementById(panelId);
+    if (btn && panel) {
+        btn.addEventListener('click', () => {
+            const hidden = panel.classList.contains('hidden');
+            panel.classList.toggle('hidden', !hidden);
+            btn.setAttribute('aria-expanded', String(hidden));
+        });
+    }
+    // 확인 체크 바인딩
+    panel?.querySelectorAll('input[type="checkbox"][data-ack-id]').forEach(cb => {
+        cb.addEventListener('change', function(){
+            try { localStorage.setItem(this.getAttribute('data-ack-id'), this.checked ? '1' : '0'); } catch {}
+        });
     });
-    container.innerHTML = '';
-    container.appendChild(frag);
+    panel?.querySelectorAll('input[type="text"][data-note-id]').forEach(inp => {
+        inp.addEventListener('input', function(){
+            try { localStorage.setItem(this.getAttribute('data-note-id'), this.value || ''); } catch {}
+        });
+    });
 }
 
 function parseYmdSafe(s) {
@@ -4012,7 +4406,6 @@ function formatYmd(d) {
     const day = String(d.getDate()).padStart(2,'0');
     return `${y}-${m}-${day}`;
 }
-
 // 품목계열별 통계 렌더링
 function renderCategoryStats() {
     console.log('🔍 renderCategoryStats 호출됨');
@@ -4105,15 +4498,22 @@ function getCategoryStatistics() {
     
     return Object.values(categoryMap).sort((a, b) => b.total - a.total);
 }
-
-// 품목계열별 상세 정보 표시
+// 품목계열별 상세 정보 표시 → 우측 탭 선택으로 동작 변경
 function showCategoryDetail(category) {
-    const filteredEquipment = (category === '전체') 
-        ? equipmentData 
-        : equipmentData.filter(item => item.category === category);
-    alert(`${category} 품목계열의 상세 정보:\n총 ${filteredEquipment.length}대\n가동중: ${filteredEquipment.filter(e => normalizeStatus(e.status) === '가동 중').length}대\n수리중: ${filteredEquipment.filter(e => normalizeStatus(e.status) === '수리 중').length}대\n대기중: ${filteredEquipment.filter(e => normalizeStatus(e.status) === '대기 중').length}대`);
+    try {
+        // 탭이 아직 생성되지 않았다면 생성
+        if (!document.querySelector('.product-series-tab')) {
+            renderEquipmentTable();
+        }
+    } catch (e) {}
+    // 해당 품목계열 탭 선택
+    selectProductSeriesTab(category || '전체');
+    // 탭 위치로 스크롤 (가시성 향상)
+    const tabs = document.getElementById('product-series-tabs');
+    if (tabs && typeof tabs.scrollIntoView === 'function') {
+        tabs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
-
 // 장비 목록 렌더링 (품목계열별 구분)
 function renderEquipmentTable() {
     console.log('🔍 renderEquipmentTable 호출됨');
@@ -4121,8 +4521,9 @@ function renderEquipmentTable() {
     
     // 품목계열별 탭 생성
     renderProductSeriesTabs();
-    // 기본 탭 (전체) 선택 및 초기 목록 표시
-    selectProductSeriesTab('전체');
+    // 현재 선택 상태에 맞춰 목록 표시 (없으면 전체)
+    const selected = (__selectedSeries && __selectedSeries.size) ? Array.from(__selectedSeries) : '전체';
+    renderEquipmentTableBySeries(selected);
 }
 
 // 품목계열별 탭 렌더링
@@ -4138,9 +4539,14 @@ function renderProductSeriesTabs() {
     
     // 전체 탭 추가
     const allTab = document.createElement('button');
-    allTab.className = 'px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium product-series-tab active';
+    allTab.className = 'px-4 py-2 rounded-lg text-sm font-medium product-series-tab';
     allTab.textContent = '전체';
-    allTab.onclick = () => selectProductSeriesTab('전체');
+    allTab.setAttribute('data-series', '전체');
+    allTab.onclick = () => {
+        __selectedSeries.clear();
+        updateSeriesTabsActiveState();
+        renderEquipmentTableBySeries('전체');
+    };
     tabsContainer.appendChild(allTab);
     
     // 품목계열별 탭 생성
@@ -4149,29 +4555,47 @@ function renderProductSeriesTabs() {
             const tab = document.createElement('button');
             tab.className = 'px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium product-series-tab hover:bg-gray-300';
             tab.textContent = series;
-            tab.onclick = () => selectProductSeriesTab(series);
+            tab.setAttribute('data-series', series);
+            tab.onclick = () => {
+                if (__selectedSeries.has(series)) {
+                    __selectedSeries.delete(series);
+                } else {
+                    __selectedSeries.add(series);
+                }
+                const current = __selectedSeries.size ? Array.from(__selectedSeries) : '전체';
+                updateSeriesTabsActiveState();
+                renderEquipmentTableBySeries(current);
+            };
             tabsContainer.appendChild(tab);
         }
     });
+
+    // 초기 활성 상태 반영
+    updateSeriesTabsActiveState();
+
+    // 선택 초기화 토글 바인딩
+    const resetBtn = document.getElementById('series-reset-toggle');
+    if (resetBtn && !resetBtn.dataset.bound) {
+        resetBtn.dataset.bound = '1';
+        resetBtn.addEventListener('click', () => {
+            __selectedSeries.clear();
+            updateSeriesTabsActiveState();
+            renderEquipmentTableBySeries('전체');
+        });
+    }
 }
 
 // 품목계열 탭 선택
 function selectProductSeriesTab(series) {
-    // 모든 탭 비활성화
-    document.querySelectorAll('.product-series-tab').forEach(tab => {
-        tab.classList.remove('active', 'bg-blue-600', 'text-white');
-        tab.classList.add('bg-gray-200', 'text-gray-700');
-    });
-    
-    // 선택된 탭 활성화
-    const activeTab = Array.from(document.querySelectorAll('.product-series-tab')).find(tab => tab.textContent === series);
-    if (activeTab) {
-        activeTab.classList.remove('bg-gray-200', 'text-gray-700');
-        activeTab.classList.add('active', 'bg-blue-600', 'text-white');
+    if (series === '전체') {
+        __selectedSeries.clear();
+        updateSeriesTabsActiveState();
+        renderEquipmentTableBySeries('전체');
+        return;
     }
-    
-    // 해당 품목계열의 장비 목록 렌더링
-    renderEquipmentTableBySeries(series);
+    __selectedSeries = new Set([series]);
+    updateSeriesTabsActiveState();
+    renderEquipmentTableBySeries([series]);
 }
 
 // 품목계열별 장비 테이블 렌더링
@@ -4185,8 +4609,11 @@ function renderEquipmentTableBySeries(series) {
     
     let filteredData = equipmentData;
     
-    // 품목계열 필터링 (category 기준)
-    if (series !== '전체') {
+    // 품목계열 필터링 (category 기준) - 다중 선택 지원
+    if (Array.isArray(series) && series.length) {
+        const set = new Set(series);
+        filteredData = filteredData.filter(item => set.has(item.category));
+    } else if (series !== '전체') {
         filteredData = filteredData.filter(item => item.category === series);
     }
     
@@ -4232,6 +4659,22 @@ function renderEquipmentTableBySeries(series) {
             </td>
         </tr>`;
     }).join('');
+}
+
+function updateSeriesTabsActiveState() {
+    const tabs = document.querySelectorAll('.product-series-tab');
+    tabs.forEach(tab => {
+        const name = tab.getAttribute('data-series') || tab.textContent;
+        const isAll = name === '전체';
+        const active = __selectedSeries.size ? __selectedSeries.has(name) : isAll;
+        tab.classList.remove('active', 'bg-blue-600', 'text-white');
+        tab.classList.remove('bg-gray-200', 'text-gray-700');
+        if (active) {
+            tab.classList.add('active', 'bg-blue-600', 'text-white');
+        } else {
+            tab.classList.add('bg-gray-200', 'text-gray-700');
+        }
+    });
 }
 
 // 장비 상세 정보 모달 표시
@@ -4367,6 +4810,7 @@ function renderCalibrationAlerts() {
         if (daysUntil < 0) { alertClass = 'bg-red-50 border-red-200'; iconClass = 'text-red-500'; textClass = 'text-red-800'; }
         else if (daysUntil <= 7) { alertClass = 'bg-orange-50 border-orange-200'; iconClass = 'text-orange-500'; textClass = 'text-orange-800'; }
         else if (daysUntil <= 30) { alertClass = 'bg-yellow-50 border-yellow-200'; iconClass = 'text-yellow-500'; textClass = 'text-yellow-800'; }
+        else { alertClass = 'bg-green-50 border-green-200'; iconClass = 'text-green-500'; textClass = 'text-green-800'; }
         return `
             <div class="flex items-center justify-between p-4 ${alertClass} border rounded">
                 <div class="flex items-center">
@@ -4532,7 +4976,6 @@ function enrichEquipmentData(equipmentData, movementsData) {
         return equipment;
     });
 }
-
 // ===== 상세보기: KPI + 이동 타임라인 + 교체부품 =====
 function showEquipmentDetailModal(serial) {
     if (!serial) return;
@@ -4555,15 +4998,36 @@ function showEquipmentDetailModal(serial) {
     const donutCanvasId = 'utilization-donut-' + (equipment.serial || 'X').replace(/[^a-zA-Z0-9_-]/g, '_');
 
     const staffName = getMovementStaffName(serial, lastMovementDate);
+    const manufacturerName = getManufacturerByCategory(equipment.category) || '-';
+    const manufacturerSegment = ` / 제조사: ${manufacturerName}`;
 
     const timelineHTML = renderMovementTimeline(serial, movements, repairs);
     const partsHTML = renderReplacedParts(serial, repairs);
+
+    // 최근 1년 기준 수치(출장/수리 횟수) 산출: 타임라인과 동일한 기간/구간 로직 사용
+    const __to = new Date();
+    const __from = new Date(__to.getFullYear() - 1, __to.getMonth(), __to.getDate());
+    let tripsLastYear = 0, generalRepairsLastYear = 0, calibRepairsLastYear = 0;
+    try {
+        const ivs = buildLocationIntervals(serial, movements, __from, __to) || [];
+        tripsLastYear = ivs.filter(iv => iv && iv.type === 'site').length;
+    } catch {}
+    try {
+        const lastYearRepairs = (repairs || []).filter(r => {
+            const t = new Date(r.repair_date || r.date);
+            return t >= __from && t <= __to;
+        });
+        calibRepairsLastYear = lastYearRepairs.filter(r => /정도검사/.test(String(r.repair_type || ''))).length;
+        generalRepairsLastYear = lastYearRepairs.length - calibRepairsLastYear;
+    } catch {}
 
     const content = `
       <div class="w-full max-w-none bg-white rounded-lg shadow-xl overflow-y-auto"
            style="width: calc(100vw - var(--sidebar-w, 5rem)); height: calc(100vh - 2rem);">
         <div class="flex items-center justify-between px-6 py-4 border-b">
-          <h2 class="text-xl font-semibold text-slate-900">장비 상세보기 - ${equipment.serial || ''}</h2>
+          <h2 class="text-xl font-semibold text-slate-900">
+            일련번호: ${equipment.serial || '-'} / ${equipment.category || '-'} / ${normalizeStatus(equipment.status)}${manufacturerSegment}
+          </h2>
           <button type="button" onclick="closeEquipmentDetailModal()" class="text-slate-500 hover:text-slate-700">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
@@ -4593,8 +5057,26 @@ function showEquipmentDetailModal(serial) {
 
         <!-- 이동 타임라인 -->
         <div class="px-6">
-          <h3 class="text-lg font-semibold text-slate-800 mb-3">이동 타임라인 (최근 1년)</h3>
-          ${timelineHTML}
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold text-slate-800">이동 타임라인 (<span id=\"mtl-range-label\">최근 1년</span>)</h3>
+            <div class="relative">
+              <button id=\"mtl-range-btn\" class=\"px-2 py-1 text-xs border rounded\">기간 설정</button>
+              <div id=\"mtl-range-menu\" class=\"absolute right-0 mt-1 w-44 bg-white border rounded shadow-lg hidden z-10\">
+                <button data-range=\"1y\" class=\"w-full text-left px-3 py-2 hover:bg-slate-50\">최근 1년</button>
+                <button data-range=\"6m\" class=\"w-full text-left px-3 py-2 hover:bg-slate-50\">최근 6개월</button>
+                <button data-range=\"3m\" class=\"w-full text-left px-3 py-2 hover:bg-slate-50\">최근 3개월</button>
+                <button data-range=\"1m\" class=\"w-full text-left px-3 py-2 hover:bg-slate-50\">최근 1달</button>
+                <div class=\"border-t my-1\"></div>
+                <div class=\"px-3 py-2 text-xs text-slate-600\">날짜지정</div>
+                <div class=\"px-3 pb-2 flex items-center gap-1\">
+                  <input type=\"date\" id=\"mtl-from\" class=\"border rounded px-1 py-0.5 text-xs\">~
+                  <input type=\"date\" id=\"mtl-to\" class=\"border rounded px-1 py-0.5 text-xs\">
+                  <button id=\"mtl-apply\" class=\"ml-1 px-2 py-0.5 text-xs border rounded\">적용</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id=\"movement-timeline-container\">${timelineHTML}</div>
         </div>
 
         <!-- 교체 부품 + 최근 1년 가동 현황 -->
@@ -4603,21 +5085,56 @@ function showEquipmentDetailModal(serial) {
             <div>
               <h3 class="text-lg font-semibold text-slate-800 mb-3">교체 부품/수리 항목</h3>
               ${partsHTML}
+              <div class="mt-6 bg-white border rounded-lg">
+                <div class="flex items-center justify-between p-3 border-b">
+                  <h4 class="font-semibold text-slate-800">전체 수리 내역 상세 (2023.01.01~현재)</h4>
+                  <div class="flex items-center gap-2 text-xs">
+                    <select id="repDet-period" class="border rounded px-2 py-1">
+                      <option value="month">월별</option>
+                      <option value="quarter">분기별</option>
+                      <option value="half">반기별</option>
+                      <option value="year">연간</option>
+                      <option value="custom">날짜지정</option>
+                    </select>
+                    <select id="repDet-dim" class="border rounded px-2 py-1">
+                      <option value="overall">전체</option>
+                      <option value="byVendor">업체별</option>
+                      <option value="bySeries">품목계열별</option>
+                      <option value="byMeasurement">측정항목별</option>
+                    </select>
+                    <span id="repDet-custom" class="hidden">
+                      <input type="date" id="repDet-from" class="border rounded px-1 py-0.5 text-xs">~
+                      <input type="date" id="repDet-to" class="border rounded px-1 py-0.5 text-xs">
+                    </span>
+                  </div>
+                </div>
+                <div class="p-3">
+                  <div class="grid grid-cols-1 gap-3 lg:grid-cols-2">
+                    <div class="h-64">
+                      <canvas id="repairsDetailBar"></canvas>
+                    </div>
+                    <div>
+                      <div class="text-sm text-slate-700 mb-2">상세 필터</div>
+                      <div id="repair-filter-chips" class="flex flex-wrap gap-2"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="bg-white rounded-lg border p-4">
-              <h3 class="text-lg font-semibold text-slate-800 mb-2">최근 1년 가동 현황</h3>
+              <h3 class="text-lg font-semibold text-slate-800 mb-2"><span id=\"util-title-range\">최근 1년</span> 가동 현황</h3>
               <p class="text-sm text-slate-600 mb-3">영업일 기준(주말 제외) 현장 체류 비율로 산정합니다.</p>
               <div class="flex items-center justify-center">
                 <canvas id="${donutCanvasId}" width="220" height="220"></canvas>
               </div>
               <div class="mt-3 text-sm text-slate-700">
-                가동률 <span class="${utilization.className} font-semibold">${utilization.percent}%</span>
-                (현장 ${utilizationBreakdown.siteBiz}일 / 총 ${utilizationBreakdown.totalBiz}영업일)
+                가동률 <span id=\"util-percent\" class=\"${utilization.className} font-semibold\">${utilization.percent}%</span>
+                (<span id=\"util-site-days\">현장 ${utilizationBreakdown.siteBiz}일</span> / <span id=\"util-total-days\">총 ${utilizationBreakdown.totalBiz}영업일</span>)
               </div>
               <div class="mt-2 flex gap-4 text-xs text-slate-600">
                 <span class="flex items-center gap-1"><span style="display:inline-block;width:12px;height:12px;background:#3b82f6;border-radius:3px"></span>청명</span>
-                <span class="flex items-center gap-1"><span style="display:inline-block;width:12px;height:12px;background:#dc2626;border-radius:3px"></span>업체</span>
-                <span class="flex items-center gap-1"><span style="display:inline-block;width:12px;height:12px;background:#a78bfa;border-radius:3px"></span>현장</span>
+                <span class="flex items-center gap-1"><span style="display:inline-block;width:12px;height:12px;background:#dc2626;border-radius:3px"></span>업체 <span class="ml-1 text-slate-700" id=\"legend-repair-text\">(일반수리 ${generalRepairsLastYear}회 / 정도검사 ${calibRepairsLastYear}회)</span></span>
+                <span class="flex items-center gap-1"><span style="display:inline-block;width:12px;height:12px;background:#a78bfa;border-radius:3px"></span>현장 <span class="ml-1 text-slate-700" id=\"legend-trip-text\">(출장 ${tripsLastYear}회)</span></span>
               </div>
             </div>
           </div>
@@ -4632,6 +5149,119 @@ function showEquipmentDetailModal(serial) {
         modal.classList.add('flex');
         // 도넛 차트 렌더링
         try { renderUtilizationDonutChart(donutCanvasId, utilizationBreakdown); } catch (e) { console.error('도넛 차트 렌더 오류:', e); }
+        // 기간 토글 바인딩
+        try {
+            const btn = document.getElementById('mtl-range-btn');
+            const menu = document.getElementById('mtl-range-menu');
+            const label = document.getElementById('mtl-range-label');
+            const utilTitle = document.getElementById('util-title-range');
+            const apply = document.getElementById('mtl-apply');
+            const inpFrom = document.getElementById('mtl-from');
+            const inpTo = document.getElementById('mtl-to');
+
+            function setRange(kind){
+                const now = new Date();
+                let f, t = now;
+                if (kind==='1y'){ f = new Date(now.getFullYear()-1, now.getMonth(), now.getDate()); label.textContent='최근 1년'; utilTitle.textContent='최근 1년'; }
+                else if (kind==='6m'){ f = new Date(now.getFullYear(), now.getMonth()-6, now.getDate()); label.textContent='최근 6개월'; utilTitle.textContent='최근 6개월'; }
+                else if (kind==='3m'){ f = new Date(now.getFullYear(), now.getMonth()-3, now.getDate()); label.textContent='최근 3개월'; utilTitle.textContent='최근 3개월'; }
+                else if (kind==='1m'){ f = new Date(now.getFullYear(), now.getMonth()-1, now.getDate()); label.textContent='최근 1달'; utilTitle.textContent='최근 1달'; }
+                else { return; }
+                currentFrom = f; currentTo = t; menu.classList.add('hidden');
+                rerenderRange();
+            }
+
+            function rerenderRange(){
+                // 이동 타임라인 교체 (기존 영역 그대로 교체)
+                const newHtml = renderMovementTimelineRange(serial, movements, repairs, currentFrom, currentTo);
+                const box = document.getElementById('movement-timeline-container');
+                if (box) {
+                    box.innerHTML = newHtml;
+                }
+                // 가동 현황/도넛 갱신
+                const u = calculateUtilizationBetween(serial, movements, currentFrom, currentTo);
+                const b = calculateBreakdownBetween(serial, movements, currentFrom, currentTo);
+                const percentEl = document.getElementById('util-percent');
+                if (percentEl){ percentEl.textContent = `${u.percent}%`; percentEl.className = `${u.className} font-semibold`; }
+                const siteEl = document.getElementById('util-site-days'); if (siteEl) siteEl.textContent = `현장 ${b.siteBiz}일`;
+                const totalEl = document.getElementById('util-total-days'); if (totalEl) totalEl.textContent = `총 ${b.totalBiz}영업일`;
+                try { renderUtilizationDonutChart(donutCanvasId, b); } catch {}
+                // 범례 괄호 안 데이터(일반수리/정도검사/출장)도 기간에 맞게 갱신
+                try {
+                    const withinRepairs = (repairs || []).filter(r => {
+                        const t = new Date(r.repair_date || r.date);
+                        return t >= currentFrom && t <= currentTo;
+                    });
+                    const calibCnt = withinRepairs.filter(r => /정도검사/.test(String(r.repair_type || r.description || ''))).length;
+                    const generalCnt = withinRepairs.length - calibCnt;
+                    const ivs = buildLocationIntervals(serial, movements, currentFrom, currentTo) || [];
+                    const tripCnt = ivs.filter(iv => iv && iv.type === 'site').length;
+                    const repText = document.getElementById('legend-repair-text');
+                    if (repText) repText.textContent = `(일반수리 ${generalCnt}회 / 정도검사 ${calibCnt}회)`;
+                    const tripText = document.getElementById('legend-trip-text');
+                    if (tripText) tripText.textContent = `(출장 ${tripCnt}회)`;
+                } catch (e) { console.warn('범례 수치 갱신 실패', e); }
+            }
+
+            if (btn && menu){
+                btn.addEventListener('click', ()=> menu.classList.toggle('hidden'));
+                menu.querySelectorAll('button[data-range]')?.forEach(b=> b.addEventListener('click', ()=> setRange(b.getAttribute('data-range'))));
+                apply?.addEventListener('click', ()=>{
+                    const f = new Date(inpFrom.value);
+                    const t = new Date(inpTo.value);
+                    if (String(f)!=='Invalid Date' && String(t)!=='Invalid Date' && f<=t){
+                        currentFrom=f; currentTo=t;
+                        const fmt = (d)=> `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+                        label.textContent = `${fmt(f)}~${fmt(t)}`;
+                        utilTitle.textContent = label.textContent;
+                        menu.classList.add('hidden');
+                        rerenderRange();
+                    }
+                });
+            }
+
+            // 전체 수리 내역 상세: 수평 막대 그래프(교체 부품/수리 항목 기반)
+            function renderRepairsDetailBar() {
+                const cvs = document.getElementById('repairsDetailBar');
+                if (!cvs || !window.Chart) return;
+                // 기존 차트 제거
+                try { if (window._repairsDetailBar && typeof window._repairsDetailBar.destroy==='function') window._repairsDetailBar.destroy(); } catch {}
+                const baseFrom = new Date('2023-01-01T00:00:00');
+                const rows = (repairs || [])
+                  .filter(r => { const d = new Date(r.repair_date || r.date || 0); return d >= baseFrom; })
+                  .sort((a,b)=> new Date(b.repair_date||b.date||0) - new Date(a.repair_date||a.date||0))
+                  .slice(0, 20);
+                const isGreen = (txt)=> /(정도검사|기본점검)/.test(String(txt||''));
+                const labels = rows.map(r => `${formatDateYmd(r.repair_date||r.date) || ''} ${r.repair_company||r.vendor||''}`);
+                const values = rows.map(r => { const n = parseInt(String(r.cost||'0').toString().replace(/,/g,''))||0; return n>0 ? n : 1; });
+                const colors = rows.map(r => isGreen(r.repair_type||r.description) ? '#16a34a' : '#ef4444');
+                window._repairsDetailBar = new Chart(cvs.getContext('2d'), {
+                    type: 'bar',
+                    data: { labels, datasets: [{ label: '수리 내역', data: values, backgroundColor: colors, borderWidth: 0 }] },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: { ticks: { callback: v=> `${Number(v).toLocaleString()}원` } },
+                            y: { ticks: { autoSkip: false } }
+                        },
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { callbacks: { label: (ctx)=> {
+                                const r = rows[ctx.dataIndex];
+                                const cost = parseInt(String(r.cost||'0').toString().replace(/,/g,''))||0;
+                                const type = r.repair_type || r.description || '-';
+                                const vendor = r.repair_company || r.vendor || '-';
+                                return `${type} / ${vendor} / ${cost.toLocaleString()}원`;
+                            }}}
+                        }
+                    }
+                });
+            }
+            // 최초 렌더
+            renderRepairsDetailBar();
+        } catch(e) { console.warn('기간 토글 바인딩 실패', e); }
     }
 }
 
@@ -4662,6 +5292,20 @@ function calculateLastYearUtilization(serial, movements) {
     return { percent: ratio, className: ratio >= 60 ? 'text-green-600' : ratio >= 30 ? 'text-orange-600' : 'text-red-600' };
 }
 
+// 임의 기간 가동률 계산(from~to, 영업일 기준)
+function calculateUtilizationBetween(serial, movements, from, to) {
+    const intervals = buildLocationIntervals(serial, movements, from, to);
+    const totalBiz = countBusinessDays(from, to);
+    let siteBiz = 0;
+    intervals.forEach(iv => {
+        if (iv.type === 'site') {
+            siteBiz += countBusinessDays(new Date(iv.start), new Date(iv.end));
+        }
+    });
+    const ratio = totalBiz > 0 ? Math.round((siteBiz / totalBiz) * 100) : 0;
+    return { percent: ratio, className: ratio >= 60 ? 'text-green-600' : ratio >= 30 ? 'text-orange-600' : 'text-red-600' };
+}
+
 // 최근 1년 가동 현황(청명/업체/현장) 비율 계산
 function calculateLastYearBreakdown(serial, movements) {
     const to = new Date();
@@ -4678,9 +5322,28 @@ function calculateLastYearBreakdown(serial, movements) {
     return { totalBiz, siteBiz, vendorBiz, cmesBiz };
 }
 
+// 임의 기간 가동 현황(청명/업체/현장) 비율 계산
+function calculateBreakdownBetween(serial, movements, from, to) {
+    const intervals = buildLocationIntervals(serial, movements, from, to);
+    const totalBiz = countBusinessDays(from, to);
+    let siteBiz = 0, vendorBiz = 0, cmesBiz = 0;
+    intervals.forEach(iv => {
+        const days = countBusinessDays(new Date(iv.start), new Date(iv.end));
+        if (iv.type === 'site') siteBiz += days;
+        else if (iv.type === 'vendor') vendorBiz += days;
+        else cmesBiz += days; // 'cmes'
+    });
+    return { totalBiz, siteBiz, vendorBiz, cmesBiz };
+}
+
 function renderUtilizationDonutChart(canvasId, breakdown) {
     const el = document.getElementById(canvasId);
     if (!el || !window.Chart) return;
+    try {
+        window._donutCharts = window._donutCharts || {};
+        const prev = window._donutCharts[canvasId];
+        if (prev && typeof prev.destroy === 'function') prev.destroy();
+    } catch {}
     const data = {
         labels: ['청명', '업체', '현장'],
         datasets: [{
@@ -4693,7 +5356,9 @@ function renderUtilizationDonutChart(canvasId, breakdown) {
         responsive: false,
         plugins: { legend: { display: true, position: 'bottom' } }
     };
-    new Chart(el.getContext('2d'), { type: 'doughnut', data, options });
+    try {
+        window._donutCharts[canvasId] = new Chart(el.getContext('2d'), { type: 'doughnut', data, options });
+    } catch (e) { console.error(e); }
 }
 
 function countBusinessDays(start, end) {
@@ -4706,14 +5371,12 @@ function countBusinessDays(start, end) {
     }
     return Math.max(days, 0);
 }
-
 function mapLocationType(name) {
     const str = (name || '').toString();
     if (/청명|본사|창고|CEMS|CMES|본사 창고/.test(str)) return 'cmes';
     if (/현장|출장/.test(str)) return 'site';
     return 'vendor';
 }
-
 // [start,end) 구간 리스트 생성 (from~to 범위 제한)
 function buildLocationIntervals(serial, movementsAsc, from, to) {
     const result = [];
@@ -4742,11 +5405,15 @@ function buildLocationIntervals(serial, movementsAsc, from, to) {
 
     return result;
 }
-
 // 이동 타임라인 렌더링 (최근 1년)
 function renderMovementTimeline(serial, movementsAsc, repairsAsc) {
     const to = new Date();
     const from = new Date(to.getFullYear() - 1, to.getMonth(), to.getDate());
+    return renderMovementTimelineRange(serial, movementsAsc, repairsAsc, from, to);
+}
+
+// 임의 기간 타임라인 렌더링(from~to)
+function renderMovementTimelineRange(serial, movementsAsc, repairsAsc, from, to) {
     const rangeMs = to - from;
     // 기본 구간 생성 후 동일 타입 연속 구간 병합
     const rawIntervals = buildLocationIntervals(serial, movementsAsc, from, to);
@@ -4983,7 +5650,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(render, 0);
     }
 });
-
 function renderRepairsPeriodChart(period = 'month', dimension = 'overall', opts = {}) {
     const ctx = document.getElementById('repairsPeriodChart');
     if (!ctx || !window.Chart) return;
