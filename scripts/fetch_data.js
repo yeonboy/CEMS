@@ -269,9 +269,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const sel = document.getElementById('lowutil-range');
             const wrap = document.getElementById('lowutil-custom');
             const btn = document.getElementById('lowutil-query');
-            const sync = () => { if (wrap && sel) wrap.classList.toggle('hidden', sel.value !== 'custom'); };
+            const sync = () => {
+                if (wrap && sel) wrap.classList.toggle('hidden', sel.value !== 'custom');
+                // 기간 선택 변경 시 즉시 재렌더
+                try { renderLowUtilAlerts(); } catch {}
+            };
             if (sel && !sel.dataset.bound){ sel.dataset.bound='1'; sel.addEventListener('change', sync); }
             if (btn && !btn.dataset.bound){ btn.dataset.bound='1'; btn.addEventListener('click', renderLowUtilAlerts); }
+            const fromEl = document.getElementById('lowutil-from');
+            const toEl = document.getElementById('lowutil-to');
+            if (fromEl && !fromEl.dataset.bound){ fromEl.dataset.bound='1'; fromEl.addEventListener('change', renderLowUtilAlerts); }
+            if (toEl && !toEl.dataset.bound){ toEl.dataset.bound='1'; toEl.addEventListener('change', renderLowUtilAlerts); }
             const ex1 = document.getElementById('lowutil-exclude-hq');
             const ex2 = document.getElementById('lowutil-exclude-cjem');
             if (ex1 && !ex1.dataset.bound){ ex1.dataset.bound='1'; ex1.addEventListener('change', renderLowUtilAlerts); }
