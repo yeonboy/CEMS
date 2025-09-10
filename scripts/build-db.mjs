@@ -91,13 +91,21 @@ function chooseBestKoreanDecoding(buf) {
 
 function detectDelimiter(text) {
   const firstLine = (text.split(/\r?\n/)[0] || '');
-  const countTab = (firstLine.match(/\t/g) || []).length;
-  const countComma = (firstLine.match(/,/g) || []).length;
-  if (countTab > countComma) return '\t';
-  if (countComma > countTab) return ',';
-  // 동률이거나 혼용(\t,) (,\t) 패턴인 경우 탭 우선
-  if (/\t,|,\t/.test(firstLine)) return '\t';
-  return countTab > 0 ? '\t' : ',';
+  // 따옴표 내부의 구분자는 무시하고 카운팅
+  let inQuote = false; let tab = 0; let comma = 0;
+  for (let i = 0; i < firstLine.length; i++) {
+    const ch = firstLine[i];
+    if (ch === '"') inQuote = !inQuote;
+    else if (!inQuote) {
+      if (ch === '\t') tab++;
+      else if (ch === ',') comma++;
+    }
+  }
+  if (tab > comma) return '\t';
+  if (comma > tab) return ',';
+  // 동률이거나 혼용(따옴표 밖 기준)인 경우: 탭보다 콤마 우선(본 파일 패턴 대응)
+  if (/\t,|,\t/.test(firstLine)) return ',';
+  return comma > 0 ? ',' : (tab > 0 ? '\t' : ',');
 }
 
 // CSV 원문 전처리: 메타행 제거, 혼용 구분자 정리
@@ -116,21 +124,31 @@ function readCsvAuto(filePath) {
   const raw = chooseBestKoreanDecoding(buf);
   const text = normalizeCsvText(raw);
   const delimiter = detectDelimiter(text);
-  return new Promise((resolve, reject) => {
+  // 견고성 향상: 따옴표/구분자 이상 케이스 재시도
+  const tryParse = (delim, opts = {}) => new Promise((resolve, reject) => {
     parse(
       text,
-      {
-        relax_column_count: true,
-        trim: true,
-        bom: true,
-        delimiter,
-      },
+      Object.assign(
+        {
+          relax_column_count: true,
+          relax_quotes: true,
+          skip_records_with_error: false,
+          trim: true,
+          bom: true,
+          delimiter: delim,
+        },
+        opts
+      ),
       (err, records) => {
         if (err) return reject(err);
         resolve(records);
       }
     );
   });
+  return tryParse(delimiter)
+    .catch(() => tryParse(delimiter, { quote: "'" }))
+    .catch(() => tryParse(delimiter === '\t' ? ',' : '\t'))
+    .catch((lastErr) => { throw lastErr; });
 }
 
 // 헤더가 있는 CSV를 객체 배열로 파싱
@@ -139,32 +157,63 @@ function readCsvWithHeader(filePath) {
   const raw = chooseBestKoreanDecoding(buf);
   const text = normalizeCsvText(raw);
   const delimiter = detectDelimiter(text);
-  return new Promise((resolve, reject) => {
+  // 견고성 향상: 따옴표 비정상/혼합 구분자 케이스 재시도
+  const tryParse = (delim, opts = {}) => new Promise((resolve, reject) => {
     parse(
       text,
-      {
-        relax_column_count: true,
-        trim: true,
-        bom: true,
-        columns: true, // 1행을 헤더로 사용
-        skip_empty_lines: true,
-        delimiter,
-      },
+      Object.assign(
+        {
+          relax_column_count: true,
+          relax_quotes: true,
+          skip_records_with_error: false,
+          trim: true,
+          bom: true,
+          columns: true, // 1행을 헤더로 사용
+          skip_empty_lines: true,
+          delimiter: delim,
+        },
+        opts
+      ),
       (err, records) => {
         if (err) return reject(err);
         resolve(records);
       }
     );
   });
+  return tryParse(delimiter)
+    .catch(() => tryParse(delimiter, { quote: "'" }))
+    .catch(() => tryParse(delimiter === '\t' ? ',' : '\t'))
+    .catch((lastErr) => { throw lastErr; });
 }
 
 function normalizeKey(key) {
   return (key || '')
     .toString()
     .trim()
+    .replace(/["']/g, '')
     .toLowerCase()
     .replace(/\s+/g, '')
     .replace(/[._-]+/g, '');
+}
+
+function sanitizeCell(value) {
+  let s = (value ?? '').toString();
+  if (!s) return '';
+  s = s.trim();
+  // 앞뒤 큰따옴표 제거
+  if (s.startsWith('"') && s.endsWith('"')) s = s.slice(1, -1);
+  // 흔적 패턴 정리: \",\" / "," / ," / ",
+  s = s.replace(/^\",\"/, '')
+       .replace(/^",\"/, '')
+       .replace(/^\",\"/, '')
+       .replace(/^",/, '')
+       .replace(/,\"$/, '')
+       .replace(/\",$/, '')
+       .replace(/\"\"/g, '"')
+       .trim();
+  // 무의미한 따옴표 다시 제거
+  if (s.startsWith('"') && s.endsWith('"')) s = s.slice(1, -1);
+  return s.trim();
 }
 
 function getByKeys(row, keys) {
@@ -395,20 +444,27 @@ async function build() {
     const out = [];
     const stockRows = [];
     for (const r of moveRows) {
-      const date = parseYmd(getByKeys(r, ['일자-No.', '일자', '입고일자', '출고일자', '일시', '날짜', 'Date', '등록일', '기준일', '재고일']));
-      const outLocation = getByKeys(r, ['출고창고명', '출고창고', '출고', 'From', 'from', '출고지', '출고(창고)', '출고위치']);
-      const inLocation = getByKeys(r, ['입고창고명', '입고창고', '입고', 'To', 'to', '입고지', '입고(창고)', '입고위치', '현재위치']);
-      const equipmentName = getByKeys(r, ['장비명', '품명', '품목명', 'Name', 'Equipment']);
-      const serial = getByKeys(r, ['규격', '일련번호', 'S/N', 'SN', 'Serial', 'Serial No', 'SerialNo', 'SerialNo.', '일련 No', '일련 No.']);
-      const qtyStr = getByKeys(r, ['수량', 'Qty', '수량(EA)', '재고', '재고수량', '수']);
-      const note = getByKeys(r, ['비고', '메모', 'Note', '장비상태']);
-      const status = getByKeys(r, ['상태', 'Status', '장비상태']);
+      const dateRaw = sanitizeCell(getByKeys(r, ['일자-No.', '일자', '입고일자', '출고일자', '일시', '날짜', 'Date', '등록일', '기준일', '재고일']));
+      const outLocationRaw = sanitizeCell(getByKeys(r, ['출고창고명', '출고창고', '출고', 'From', 'from', '출고지', '출고(창고)', '출고위치']));
+      const inLocationRaw = sanitizeCell(getByKeys(r, ['입고창고명', '입고창고', '입고', 'To', 'to', '입고지', '입고(창고)', '입고위치', '현재위치']));
+      const equipmentNameRaw = sanitizeCell(getByKeys(r, ['장비명', '품명', '품목명', 'Name', 'Equipment']));
+      const serialRaw = sanitizeCell(getByKeys(r, ['규격', '일련번호', 'S/N', 'SN', 'Serial', 'Serial No', 'SerialNo', 'SerialNo.', '일련 No', '일련 No.']));
+      const qtyStr = sanitizeCell(getByKeys(r, ['수량', 'Qty', '수량(EA)', '재고', '재고수량', '수'])) || '1';
+      const noteRaw = sanitizeCell(getByKeys(r, ['비고', '메모', 'Note', '장비상태']));
+      const statusRaw = sanitizeCell(getByKeys(r, ['상태', 'Status', '장비상태']));
+      const date = parseYmd(dateRaw);
+      const outLocation = sanitizeCell(outLocationRaw);
+      const inLocation = sanitizeCell(inLocationRaw);
+      const equipmentName = equipmentNameRaw;
+      const serial = serialRaw;
+      const note = noteRaw;
+      const status = statusRaw;
       const quantity = parseInt((qtyStr || '1').replace(/[^0-9-]/g, '')) || 1;
       if (!serial) continue;
       // 재고 스냅샷 감지(청명/현장/업체 열)
-      const stockCheong = getByKeys(r, ['청명', '본사', '본사창고', '청명창고']);
-      const stockHyun = getByKeys(r, ['현장', '현장재고']);
-      const stockUpche = getByKeys(r, ['업체', '수리업체', '외주', '협력사']);
+      const stockCheong = sanitizeCell(getByKeys(r, ['청명', '본사', '본사창고', '청명창고']));
+      const stockHyun = sanitizeCell(getByKeys(r, ['현장', '현장재고']));
+      const stockUpche = sanitizeCell(getByKeys(r, ['업체', '수리업체', '외주', '협력사']));
       const hasStock = [stockCheong, stockHyun, stockUpche].some(v => String(v||'').trim() !== '');
       if (hasStock) {
         stockRows.push({ date, serial, cheong: parseInt(String(stockCheong||'0').replace(/[^0-9-]/g,'')) || 0, hyun: parseInt(String(stockHyun||'0').replace(/[^0-9-]/g,'')) || 0, upche: parseInt(String(stockUpche||'0').replace(/[^0-9-]/g,'')) || 0 });
@@ -447,14 +503,14 @@ async function build() {
         for (let i = 1; i < rowsRaw.length; i++) {
           const r = rowsRaw[i];
           if (!r) continue;
-          const date = parseYmd((r[0] || '').toString().trim());
-          const outLocation = (r[1] || '').toString().trim();
-          const inLocation = (r[2] || '').toString().trim();
-          const equipmentName = (r[3] || '').toString().trim();
-          const serial = (r[4] || '').toString().trim();
-          const quantity = parseInt((r[5] || '1').toString().trim()) || 1;
-          const note = (r[6] || '').toString().trim();
-          const status = (r[7] || '').toString().trim();
+          const date = parseYmd(sanitizeCell(r[0] || ''));
+          const outLocation = sanitizeCell(r[1] || '');
+          const inLocation = sanitizeCell(r[2] || '');
+          const equipmentName = sanitizeCell(r[3] || '');
+          const serial = sanitizeCell(r[4] || '');
+          const quantity = parseInt((sanitizeCell(r[5] || '1')).replace(/[^0-9-]/g,'')) || 1;
+          const note = sanitizeCell(r[6] || '');
+          const status = sanitizeCell(r[7] || '');
           if (!serial) continue;
           movements.push({ date, outLocation, inLocation, equipmentName, serial, quantity, note, status });
           parsedCount++;

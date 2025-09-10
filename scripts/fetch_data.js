@@ -5,8 +5,25 @@ function renderLowUtilAlerts(){
     if (!container) return;
     // 선택 상태(다중 선택) - 전역 유지
     const selectedCats = (window.__lowutilSelectedCats = window.__lowutilSelectedCats || new Set());
-    const to = new Date();
-    const from = new Date(to.getFullYear(), to.getMonth()-3, to.getDate());
+    // 기간 파라미터 수집
+    const rangeSel = document.getElementById('lowutil-range');
+    const now = new Date();
+    let to = now, from = new Date(now.getFullYear(), now.getMonth()-3, now.getDate());
+    if (rangeSel) {
+        const v = rangeSel.value;
+        if (v==='1m') from = new Date(now.getTime()-30*24*60*60*1000);
+        else if (v==='3m') from = new Date(now.getFullYear(), now.getMonth()-3, now.getDate());
+        else if (v==='6m') from = new Date(now.getFullYear(), now.getMonth()-6, now.getDate());
+        else if (v==='1y') from = new Date(now.getFullYear()-1, now.getMonth(), now.getDate());
+        else if (v==='all') from = new Date('2023-01-01T00:00:00');
+        else if (v==='custom') {
+            const f = document.getElementById('lowutil-from')?.value;
+            const t = document.getElementById('lowutil-to')?.value;
+            from = f ? new Date(f) : from;
+            to = t ? new Date(t) : now;
+        }
+        if (from) from.setHours(0,0,0,0); if (to) to.setHours(23,59,59,999);
+    }
     function mapType(name){ const s=(name||'').toString(); if (/현장|출장/.test(s)) return 'site'; if (/청명|본사|창고|CEMS|CMES|본사 창고/.test(s)) return 'cmes'; return 'vendor'; }
     function buildIntervals(moves){
         const asc = (moves||[]).filter(m=>m.date).sort((a,b)=> new Date(a.date)-new Date(b.date));
@@ -19,12 +36,19 @@ function renderLowUtilAlerts(){
         res.push({start:new Date(last), end:new Date(to), type:cur});
         return res;
     }
+    const excludeHQ = true;
+    const excludeCJ = true;
     const baseRows = (equipmentData||[]).map(e=>{
         const moves = (movementsData||[]).filter(m=>m.serial===e.serial);
         const intervals = buildIntervals(moves);
         const trips = intervals.filter(iv=>iv.type==='site').length;
         return { serial:e.serial, category:e.category, currentLocation:e.currentLocation||'', status:e.status||'', trips };
-    }).filter(r=> r.trips===0 && !/청명\s*지하/.test(r.currentLocation||'') && !/본사\s*창고/.test(r.currentLocation||''));
+    }).filter(r=> {
+        if (r.trips!==0) return false;
+        if (excludeCJ && /청명\s*지하/.test(r.currentLocation||'')) return false;
+        if (excludeHQ && /본사\s*창고/.test(r.currentLocation||'')) return false;
+        return true;
+    });
 
     // 카테고리 필터 적용
     let rows = baseRows;
@@ -59,7 +83,7 @@ function renderLowUtilAlerts(){
         });
     }
 
-    if (!rows.length){ container.innerHTML='<div class="p-4 text-slate-500 border border-slate-200 rounded">최근 3개월 출장 0건 장비가 없습니다.</div>'; return; }
+    if (!rows.length){ container.innerHTML='<div class="p-4 text-slate-500 border border-slate-200 rounded">조건에 해당하는 장비가 없습니다.</div>'; return; }
     const frag = document.createDocumentFragment();
     rows.forEach(r=>{
         const div=document.createElement('div');
@@ -72,7 +96,12 @@ function renderLowUtilAlerts(){
                 <span class="ml-3 text-slate-500">${r.currentLocation||''} • ${r.status||''}</span>
             </div>
             <div class="flex items-center gap-2">
-                <div class="text-sm text-violet-700">최근 3개월 출장 0건</div>
+                <div class="text-sm text-violet-700">${(function(){
+                    const sel=document.getElementById('lowutil-range');
+                    const map={ '1m':'최근 1개월','3m':'최근 3개월','6m':'최근 6개월','1y':'최근 1년','all':'전체기간','custom':'지정기간' };
+                    const label=sel? (map[sel.value]||'기간') : '기간';
+                    return `(${label}) 동안 출장 0건`;
+                })()}</div>
                 <button class="px-3 py-1.5 rounded border border-violet-300 text-violet-700 hover:bg-violet-100" data-serial="${r.serial}">상세보기</button>
             </div>`;
         const btn = div.querySelector('button[data-serial]');
@@ -121,53 +150,81 @@ try {
 } catch {}
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 사전 구축된 DB 우선 사용 → 폴백으로 equipment_data.json 지원
-    Promise.all([
-        fetch('./db/equipment_db.json', { cache: 'no-store' })
+    // DataClient 사용(있으면) → 동일 인터페이스로 로딩, 없으면 기존 fetch 경로
+    let dc = null;
+    if (typeof window !== 'undefined') {
+        const mode = (window.APP_CONFIG && window.APP_CONFIG.dataSource) || 'local';
+        if (mode === 'api' && window.BackendApiClient) {
+            dc = new window.BackendApiClient({ baseUrl: window.APP_CONFIG.apiBaseUrl, token: window.APP_CONFIG.apiToken, fetchImpl: fetch });
+        } else if (window.DataClient) {
+            dc = new window.DataClient({ basePath: './db', fetch });
+        }
+    }
+
+    const equipmentPromise = dc
+        ? dc.getEquipment()
+        : fetch('./db/equipment_db.json', { cache: 'no-store' })
             .then(r => r.ok ? r.json() : Promise.reject())
             .catch(() => fetch('./db/equipment_data.json', { cache: 'no-store' })
                 .then(r => r.ok ? r.json() : [])
-                .then(raw => {
-                    // Gemini가 만든 형식(한글 컬럼) → 공통 형식으로 매핑
-                    if (Array.isArray(raw)) {
-                        return raw.map(row => ({
-                            serial: row.시리얼번호 || row.serial || '',
-                            category: row.품목계열 || row.category || '-',
-                            currentLocation: row.입고처 || row.currentLocation || '-',
-                            status: row.상태 || row.status || '',
-                            lastMovement: row.날짜 || row.lastMovement || ''
-                        }));
-                    } else {
-                        return [];
-                    }
-                })
-            ),
-        fetch('./db/movements_db.json', { cache: 'no-store' })
+                .then(raw => Array.isArray(raw)
+                    ? raw.map(row => ({
+                        serial: row.시리얼번호 || row.serial || '',
+                        category: row.품목계열 || row.category || '-',
+                        currentLocation: row.입고처 || row.currentLocation || '-',
+                        status: row.상태 || row.status || '',
+                        lastMovement: row.날짜 || row.lastMovement || ''
+                    })) : []
+                )
+            );
+
+    const movementsPromise = dc
+        ? dc.getMovements()
+        : fetch('./db/movements_db.json', { cache: 'no-store' })
             .then(r => r.ok ? r.json() : [])
-            .catch(() => []),
-        fetch('./db/repairs_db_clean.json', { cache: 'no-store' })
+            .catch(() => []);
+
+    const repairsPromise = dc
+        ? dc.getRepairs()
+        : fetch('./db/repairs_db_clean.json', { cache: 'no-store' })
             .then(r => r.ok ? r.json() : [])
-            .catch(() => []),
-        fetch('./청명장비 엑셀/logs_fixed.csv', { cache: 'no-store' })
-            .then(r => r.ok ? r.text() : '')
-            .then(text => parseCSV(text))
-            .catch(() => []),
-        fetch('./db/QC_logs.json', { cache: 'no-store' })
+            .catch(() => []);
+
+    const logsFixedPromise = fetch('./청명장비 엑셀/logs_fixed.csv', { cache: 'no-store' })
+        .then(r => r.ok ? r.text() : '')
+        .then(text => parseCSV(text))
+        .catch(() => []);
+
+    const qcLogsPromise = dc
+        ? dc.getQcLogs()
+        : fetch('./db/QC_logs.json', { cache: 'no-store' })
             .then(r => r.ok ? r.json() : [])
-            .catch(() => []),
-        // 추가: 담당자명 포함 CSV (옵션, EUC-KR 우선 디코딩)
-        fetch('./청명장비 엑셀/logs_담당자명 추가.csv', { cache: 'no-store' })
-            .then(r => r.ok ? r.arrayBuffer() : Promise.reject())
-            .then(buf => {
-                try { return new TextDecoder('euc-kr').decode(buf); } catch (e) {}
-                try { return new TextDecoder('utf-8').decode(buf); } catch (e) {}
-                return '';
-            })
-            .then(text => parseCSVAuto(text))
-            .catch(() => []),
-        fetch('./db/manufacturers.json', { cache: 'no-store' })
+            .catch(() => []);
+
+    const staffLogsPromise = fetch('./청명장비 엑셀/logs_담당자명 추가.csv', { cache: 'no-store' })
+        .then(r => r.ok ? r.arrayBuffer() : Promise.reject())
+        .then(buf => {
+            try { return new TextDecoder('euc-kr').decode(buf); } catch (e) {}
+            try { return new TextDecoder('utf-8').decode(buf); } catch (e) {}
+            return '';
+        })
+        .then(text => parseCSVAuto(text))
+        .catch(() => []);
+
+    const manufacturersPromise = dc
+        ? dc.getManufacturers()
+        : fetch('./db/manufacturers.json', { cache: 'no-store' })
             .then(r => r.ok ? r.json() : {})
-            .catch(() => ({}))
+            .catch(() => ({}));
+
+    Promise.all([
+        equipmentPromise,
+        movementsPromise,
+        repairsPromise,
+        logsFixedPromise,
+        qcLogsPromise,
+        staffLogsPromise,
+        manufacturersPromise
     ])
     .then(([equipment, movements, repairs, logs, qcLogs, staffLogs, manufacturers]) => {
         equipmentData = equipment;
@@ -207,6 +264,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         try { window.equipmentData = equipmentData; } catch {}
         
+        // LowUtil 컨트롤 바인딩
+        try {
+            const sel = document.getElementById('lowutil-range');
+            const wrap = document.getElementById('lowutil-custom');
+            const btn = document.getElementById('lowutil-query');
+            const sync = () => { if (wrap && sel) wrap.classList.toggle('hidden', sel.value !== 'custom'); };
+            if (sel && !sel.dataset.bound){ sel.dataset.bound='1'; sel.addEventListener('change', sync); }
+            if (btn && !btn.dataset.bound){ btn.dataset.bound='1'; btn.addEventListener('click', renderLowUtilAlerts); }
+            const ex1 = document.getElementById('lowutil-exclude-hq');
+            const ex2 = document.getElementById('lowutil-exclude-cjem');
+            if (ex1 && !ex1.dataset.bound){ ex1.dataset.bound='1'; ex1.addEventListener('change', renderLowUtilAlerts); }
+            if (ex2 && !ex2.dataset.bound){ ex2.dataset.bound='1'; ex2.addEventListener('change', renderLowUtilAlerts); }
+            sync();
+        } catch(e) { /* no-op */ }
+
         // 초기화 함수들 호출
         initDashboardCharts();
         renderEquipmentTable();
@@ -1023,6 +1095,25 @@ function renderEducationTable() {
             status: '완료'
         }];
         try { localStorage.setItem('education_items', JSON.stringify(items)); } catch {}
+    }
+    // 서버 저장 자료 동기화(최초 1회): 업로더가 저장한 /assets/education 하위 PDF를 리스트로 병합
+    if (!window.__eduListSynced) {
+        window.__eduListSynced = true;
+        (async ()=>{
+            try {
+                const resp = await fetch('http://localhost:5173/api/education/list', { cache: 'no-store' });
+                const j = await resp.json().catch(()=>({ ok:false }));
+                if (resp.ok && j && j.ok && Array.isArray(j.items)){
+                    let current = [];
+                    try { current = JSON.parse(localStorage.getItem('education_items')||'[]')||[]; } catch { current = []; }
+                    const map = new Map((current||[]).map(x=>[x.id,x]));
+                    for (const it of j.items){ map.set(it.id, Object.assign({}, map.get(it.id), it)); }
+                    const merged = Array.from(map.values());
+                    try { localStorage.setItem('education_items', JSON.stringify(merged)); } catch {}
+                }
+            } catch {}
+            try { renderEducationTable(); } catch {}
+        })();
     }
     if (!items.length) {
         tableBody.innerHTML = '<tr><td colspan="7" class="text-center p-4 text-slate-500">교육 데이터가 없습니다.</td></tr>';

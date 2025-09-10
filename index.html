@@ -501,6 +501,90 @@
             * { scroll-behavior:auto; transition:none !important; animation:none !important; }
         }
 
+        // 엑셀 상단(1행 등)에서 날짜 구간을 추출해 주차 메타데이터 생성
+        function extractCalendarMeta(rawData) {
+            try {
+                const rowsToScan = rawData.slice(0, 5);
+                const text = rowsToScan.map(r => (Array.isArray(r) ? r.join(' ') : '')).join(' ');
+                const normalized = String(text || '').replace(/\s+/g, ' ');
+
+                // 패턴 예: 2025/09/08~2025/09/13, 2025.09.08~09.13, 2025-09-08 - 2025-09-13
+                let m = normalized.match(/(\d{4})[.\-\/](\d{1,2})[.\-\/](\d{1,2})\s*[~\-–]\s*(?:(\d{4})[.\-\/])?(\d{1,2})[.\-\/](\d{1,2})/);
+                if (!m) {
+                    // 느슨한 폴백
+                    m = normalized.match(/(\d{4})[.\-\/](\d{1,2})[.\-\/](\d{1,2}).{0,5}(\d{4})?[.\-\/]?(\d{1,2})[.\-\/](\d{1,2})/);
+                }
+                if (!m) return null;
+
+                const y1 = parseInt(m[1], 10);
+                const mo1 = parseInt(m[2], 10);
+                const d1 = parseInt(m[3], 10);
+                const y2 = m[4] ? parseInt(m[4], 10) : y1;
+                const mo2 = parseInt(m[5], 10);
+                const d2 = parseInt(m[6], 10);
+
+                const start = new Date(y1, mo1 - 1, d1);
+                const end = new Date(y2, mo2 - 1, d2);
+
+                // 해당 주의 월요일 계산
+                const monday = new Date(start);
+                const diffToMonday = (monday.getDay() + 6) % 7; // 월요일 0 기준
+                monday.setDate(monday.getDate() - diffToMonday);
+
+                // 월 기준 몇 주차인지 계산 (월요일 기준)
+                const firstOfMonth = new Date(monday.getFullYear(), monday.getMonth(), 1);
+                const firstDow = firstOfMonth.getDay();
+                const firstMonday = new Date(firstOfMonth);
+                const offset = (8 - firstDow) % 7; // 첫 월요일까지 이동
+                firstMonday.setDate(1 + offset);
+                let weekIndex = 1;
+                if (monday >= firstMonday) {
+                    const diffDays = Math.floor((monday - firstMonday) / (1000 * 60 * 60 * 24));
+                    weekIndex = Math.floor(diffDays / 7) + 1;
+                }
+
+                const month = monday.getMonth() + 1;
+                const weekLabel = `${month}월 ${weekIndex}주차`;
+
+                // 월~금 날짜 목록 (범위 내)
+                const numericDays = [];
+                for (let i = 0; i < 7; i++) {
+                    const dt = new Date(monday);
+                    dt.setDate(monday.getDate() + i);
+                    const dow = dt.getDay();
+                    if (dow >= 1 && dow <= 5) {
+                        if (!isNaN(start) && !isNaN(end)) {
+                            if (dt >= start && dt <= end) numericDays.push(dt.getDate());
+                        } else {
+                            numericDays.push(dt.getDate());
+                        }
+                    }
+                }
+                if (numericDays.length === 0) {
+                    // 폴백: 월요일부터 5영업일
+                    for (let i = 0; i < 5; i++) {
+                        const dt = new Date(monday);
+                        dt.setDate(monday.getDate() + i);
+                        numericDays.push(dt.getDate());
+                    }
+                }
+
+                return {
+                    year: monday.getFullYear(),
+                    month,
+                    weekIndex,
+                    weekLabel,
+                    startDate: start,
+                    endDate: end,
+                    weekStartMonday: monday,
+                    numericDays
+                };
+            } catch (e) {
+                console.warn('extractCalendarMeta 실패', e);
+                return null;
+            }
+        }
+
         /* 뷰 전환 가시성 보장 */
         .view-section.hidden { display: none !important; }
         .view-section:not(.hidden) { 
@@ -1250,7 +1334,6 @@
                     </div>
                 </div>
             </section>
-            
             <!-- 알림 탭들 -->
             <section id="alarm-equipment-view" class="view-section hidden">
                 <div class="p-6 md:p-10">
@@ -1266,7 +1349,26 @@
                             <div id="vendor-longstay-alerts" class="space-y-3"></div>
                         </div>
                         <div id="alerts-pane-lowutil" class="hidden">
-                            <div id="lowutil-filters" class="flex flex-wrap gap-2 mb-3"></div>
+                            <div class="flex items-center gap-2 mb-3">
+                                <div id="lowutil-filters" class="flex flex-wrap gap-2"></div>
+                                <div id="lowutil-controls" class="ml-auto flex items-center gap-2 text-sm">
+                                    <label>기간:</label>
+                                    <select id="lowutil-range" class="px-2 py-1 border rounded">
+                                        <option value="3m" selected>최근 3개월</option>
+                                        <option value="1m">최근 1개월</option>
+                                        <option value="6m">최근 6개월</option>
+                                        <option value="1y">최근 1년</option>
+                                        <option value="all">전체기간</option>
+                                        <option value="custom">날짜지정</option>
+                                    </select>
+                                    <span id="lowutil-custom" class="hidden">
+                                        <input type="date" id="lowutil-from" class="px-2 py-1 border rounded">
+                                        <span>~</span>
+                                        <input type="date" id="lowutil-to" class="px-2 py-1 border rounded">
+                                    </span>
+                                    <button id="lowutil-query" class="px-2 py-1 text-xs border rounded">조회</button>
+                                </div>
+                            </div>
                             <div id="lowutil-alerts" class="space-y-3"></div>
                         </div>
                         <div id="alerts-pane-calibration" class="hidden">
@@ -1413,7 +1515,7 @@
                         <div class="mb-4 flex flex-wrap gap-4 items-center">
                             <div>
                                 <label for="calendar-file-input" class="block text-sm font-medium text-gray-700 mb-2">Excel 파일 업로드</label>
-                                <input type="file" id="calendar-file-input" accept=".xlsx,.xls" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                                <input type="file" id="calendar-file-input" accept=".xlsx,.xls,.xlsm" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
                             </div>
                             <div>
                                 <label for="calendar-week-select" class="block text-sm font-medium text-gray-700 mb-2">주차 선택</label>
@@ -1557,7 +1659,6 @@
             </div>
         </div>
     </div>
-
     <!-- 물품구매요구서 모달 -->
     <div id="purchase-request-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center" style="display: none !important;">
         <div class="bg-white rounded-lg shadow-xl w-full max-w-7xl max-h-screen overflow-y-auto">
@@ -1773,7 +1874,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <!-- 버튼 -->
                         <div class="flex justify-end space-x-3">
                             <button type="button" onclick="printPurchaseRequest()" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
@@ -2014,6 +2114,11 @@
     <div id="equipment-detail-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
         <!-- 모달 내용은 JavaScript에서 동적으로 생성 -->
     </div>
+    <script type="module" src="scripts/app_config.js"></script>
+    <script type="module" src="scripts/data_client.js"></script>
+    <script type="module" src="scripts/backend_api_client.mjs"></script>
+    <script type="module" src="scripts/store.js"></script>
+    <script type="module" src="scripts/calc.js"></script>
     <script src="scripts/fetch_data.js"></script>
     <script>
         // file:// 환경 금지 및 공통 fetch 유틸 (cache: no-store) + 상태 라벨 표준화
@@ -2084,11 +2189,11 @@
             }
         }
         
-        // 기본 대시보드 데이터 로드 (DB 파일이 없는 경우)
+        // 기본 대시보드 데이터 로드 (DB 파일 우선 사용)
         async function loadDefaultDashboardData() {
             try {
-                // 장비 데이터 로드
-                const equipmentResponse = await safeFetch('db/equipment_db_clean.json');
+                // 장비 데이터 로드 (표준 DB)
+                const equipmentResponse = await safeFetch('db/equipment_db.json');
                 const equipmentData = await equipmentResponse.json();
                 
                 // 수리 데이터 로드
@@ -2110,9 +2215,9 @@
                     recent_activity: { last_repairs: [] }
                 };
                 
-                // 측정항목별 통계
+                // 측정항목(대용: 카테고리)별 통계
                 equipmentData.forEach(equipment => {
-                    const item = equipment.measurement_item || '알 수 없음';
+                    const item = equipment.category || '알 수 없음';
                     dashboardData.equipment_summary.by_measurement_item[item] = 
                         (dashboardData.equipment_summary.by_measurement_item[item] || 0) + 1;
                 });
@@ -2268,7 +2373,6 @@
             if (toDate) toDate.setHours(23,59,59,999);
             return { from: fromDate, to: toDate };
         }
-
         function renderTopCompaniesChart(items) {
             // 호스트 컨테이너 확보: 최초 1회는 canvas를 컨테이너로 교체, 이후 재사용
             let host = document.getElementById('topCompaniesContainer');
@@ -3308,10 +3412,10 @@
         async function updateDashboardStats() {
             try {
                 console.log('대시보드 통계 업데이트 시작...');
-                // 데이터 소스: 전역 equipmentData가 있으면 우선 사용, 없으면 파일 로드
+                // 데이터 소스: 전역 equipmentData가 있으면 우선 사용, 없으면 표준 DB 사용
                 let dataset = Array.isArray(window.equipmentData) && window.equipmentData.length
                     ? window.equipmentData
-                    : (await (await safeFetch('db/equipment_data.json')).json());
+                    : (await (await safeFetch('db/equipment_db.json')).json());
 
                 const getStatusRaw = (e) => (e && (e.status ?? e.상태)) || '';
                 const getLocationRaw = (e) => (e && (e.currentLocation || e.입고처 || e.현재위치)) || '';
@@ -3355,14 +3459,15 @@
             }
             
             try {
-                // equipment_data.json에서 품목계열별 가동률 계산
-                const equipmentResponse = await safeFetch('db/equipment_data.json');
-                const equipmentData = await equipmentResponse.json();
+                // 최신 장비 DB에서 품목계열별 가동률 계산
+                const dataset = Array.isArray(window.equipmentData) && window.equipmentData.length
+                    ? window.equipmentData
+                    : (await (await safeFetch('db/equipment_db.json')).json());
                 
                 // 품목계열별 통계 계산
                 const productSeriesStats = {};
-                equipmentData.forEach(equipment => {
-                    const productSeries = equipment.품목계열 || '알 수 없음';
+                dataset.forEach(equipment => {
+                    const productSeries = equipment.category || '알 수 없음';
                     if (!productSeriesStats[productSeries]) {
                         productSeriesStats[productSeries] = {
                             total: 0,
@@ -3375,7 +3480,7 @@
                     productSeriesStats[productSeries].total++;
                     
                     // 상태별 분류 (표준화 기반)
-                    const statusNorm = normalizeStatus(equipment.상태);
+                    const statusNorm = normalizeStatus(equipment.status);
                     if (statusNorm === '가동 중') {
                         productSeriesStats[productSeries].operating++;
                     } else if (statusNorm === '수리 중') {
@@ -3495,23 +3600,19 @@
                 createBasicEquipmentChart();
             }
         }
-        
         // 기본 장비 차트 (오류 시 사용)
         async function createBasicEquipmentChart() {
             const ctx = document.getElementById('equipmentChart');
             if (!ctx) return;
             
             try {
-                // 기본 측정항목별 장비 분포 차트 표시
-                const equipmentResponse = await safeFetch('db/equipment_data.json');
-                const equipmentData = await equipmentResponse.json();
+                // 기본 측정항목별 장비 분포 차트 표시 (카테고리 기반)
+                const res = await safeFetch('db/equipment_db.json');
+                const equipmentData = await res.json();
                 
-                // 측정항목별 통계 (품목계열에서 첫 번째 괄호 안의 내용 추출)
                 const measurementStats = {};
                 equipmentData.forEach(equipment => {
-                    const productSeries = equipment.품목계열 || '';
-                    const match = productSeries.match(/\(([^)]+)\)/);
-                    const item = match ? match[1] : '알 수 없음';
+                    const item = equipment.category || '알 수 없음';
                     measurementStats[item] = (measurementStats[item] || 0) + 1;
                 });
                 
@@ -3542,7 +3643,6 @@
                 console.error('기본 차트 생성 오류:', error);
             }
         }
-        
         // 수리업체별 수리 건수 차트
         async function createRepairsChart(data) {
             const ctx = document.getElementById('repairsChart');
@@ -3683,19 +3783,15 @@
             
             try {
                 console.log('다음주 예상 가동률 데이터 로드 시작...');
-                const equipmentResponse = await safeFetch('db/equipment_data.json');
-                
-                if (!equipmentResponse.ok) {
-                    throw new Error(`HTTP 오류! 상태: ${equipmentResponse.status}`);
-                }
-                
-                const equipmentData = await equipmentResponse.json();
-                console.log('장비 데이터 로드 성공:', equipmentData.length, '건');
+                const dataset2 = Array.isArray(window.equipmentData) && window.equipmentData.length
+                    ? window.equipmentData
+                    : (await (await safeFetch('db/equipment_db.json')).json());
+                console.log('장비 데이터 로드 성공:', dataset2.length, '건');
                 
                 // 품목계열별 통계 계산
                 const productSeriesStats = {};
-                equipmentData.forEach(equipment => {
-                    const productSeries = equipment.품목계열 || '알 수 없음';
+                dataset2.forEach(equipment => {
+                    const productSeries = equipment.category || '알 수 없음';
                     if (!productSeriesStats[productSeries]) {
                         productSeriesStats[productSeries] = {
                             total: 0,
@@ -3707,7 +3803,7 @@
                     
                     productSeriesStats[productSeries].total++;
                     
-                    const statusNorm = normalizeStatus(equipment.상태);
+                    const statusNorm = normalizeStatus(equipment.status);
                     if (statusNorm === '가동 중') {
                         productSeriesStats[productSeries].operating++;
                     } else if (statusNorm === '수리 중') {
@@ -4004,7 +4100,6 @@
             }
             if (totalNumEl) totalNumEl.value = `( ${total.toLocaleString('ko-KR')} )`;
         }
-
         // 행 추가/삭제
         function addQuoteItemRow() {
             const tbody = document.getElementById('quote-items-table-body');
@@ -4045,41 +4140,72 @@
             });
         }
         bindQuoteInputs();
-
-
-
         // ===== 장비 검색/필터/탭 렌더 =====
         // 이 함수들은 scripts/fetch_data.js에서 처리되므로 제거
-
         // ===== 캘린더 관련 함수들 =====
         let calendarData = null;
         let weekOptions = new Set();
+        let calendarMeta = null;
 
         // Excel 파일 업로드 처리
         document.getElementById('calendar-file-input').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (!file) return;
 
+            if (typeof XLSX === 'undefined') {
+                alert('엑셀 파서(XLSX)가 로드되지 않았습니다. 네트워크 상태 확인 후 새로고침 해주세요.');
+                return;
+            }
+
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function(ev) {
+                const arrayBuffer = ev.target.result;
                 try {
-                    const data = new Uint8Array(e.target.result);
-                    const workbook = XLSX.read(data, {type: 'array'});
-                    const firstSheetName = workbook.SheetNames[0];
+                    let workbook;
+                    try {
+                        // 일반 경로: ArrayBuffer → Uint8Array
+                        const data = new Uint8Array(arrayBuffer);
+                        workbook = XLSX.read(data, { type: 'array' });
+                    } catch (err1) {
+                        // 폴백: 바이너리 문자열로 재시도 (일부 구형 xls 대응)
+                        const u8 = new Uint8Array(arrayBuffer);
+                        let binary = '';
+                        const chunkSize = 0x8000;
+                        for (let i = 0; i < u8.length; i += chunkSize) {
+                            binary += String.fromCharCode.apply(null, u8.subarray(i, i + chunkSize));
+                        }
+                        workbook = XLSX.read(binary, { type: 'binary' });
+                    }
+
+                    const firstSheetName = (workbook.SheetNames && workbook.SheetNames[0]) || '';
+                    if (!firstSheetName) {
+                        alert('엑셀 파일에 시트가 없습니다. 올바른 파일인지 확인해주세요.');
+                        return;
+                    }
                     const worksheet = workbook.Sheets[firstSheetName];
-                    
+                    if (!worksheet) {
+                        alert('엑셀 첫 번째 시트를 읽을 수 없습니다. 시트 보호나 암호 설정 여부를 확인해주세요.');
+                        return;
+                    }
+
                     // Excel 데이터를 JSON으로 변환
-                    const jsonData = XLSX.utils.sheet_to_json(worksheet, {header: 1});
-                    
+                    const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, defval: '' });
+
                     // 데이터 파싱 및 주차 옵션 생성
                     parseCalendarData(jsonData);
-                    
+
                 } catch (error) {
                     console.error('Excel 파일 읽기 오류:', error);
-                    alert('Excel 파일을 읽는 중 오류가 발생했습니다.');
+                    alert('Excel 파일을 읽는 중 오류가 발생했습니다: ' + (error && error.message ? error.message : '원인 미상'));
                 }
             };
-            reader.readAsArrayBuffer(file);
+
+            try {
+                reader.readAsArrayBuffer(file);
+            } catch (readErr) {
+                console.error('FileReader 오류:', readErr);
+                alert('파일을 여는 중 오류가 발생했습니다: ' + (readErr && readErr.message ? readErr.message : ''));
+            }
         });
 
         // Excel 데이터 파싱
@@ -4088,6 +4214,8 @@
                 alert('데이터가 부족합니다. 최소 3행 이상의 데이터가 필요합니다.');
                 return;
             }
+            // 상단 제목/머리글에서 주간 날짜 구간을 추출해 메타데이터 저장
+            calendarMeta = extractCalendarMeta(rawData);
 
             // 1행은 제목, 2행은 헤더이므로 3행부터 데이터
             const headers = rawData[1]; // 2행이 헤더
@@ -4127,6 +4255,90 @@
 
             // 주차 선택 옵션 업데이트
             updateWeekOptions();
+        }
+        
+        // 엑셀 상단(1행 등)에서 날짜 구간을 추출해 주차 메타데이터 생성
+        function extractCalendarMeta(rawData) {
+            try {
+                const rowsToScan = rawData.slice(0, 5);
+                const text = rowsToScan.map(r => (Array.isArray(r) ? r.join(' ') : '')).join(' ');
+                const normalized = String(text || '').replace(/\s+/g, ' ');
+
+                // 패턴 예: 2025/09/08~2025/09/13, 2025.09.08~09.13, 2025-09-08 - 2025-09-13
+                let m = normalized.match(/(\d{4})[.\-\/](\d{1,2})[.\-\/](\d{1,2})\s*[~\-–]\s*(?:(\d{4})[.\-\/])?(\d{1,2})[.\-\/](\d{1,2})/);
+                if (!m) {
+                    // 느슨한 폴백
+                    m = normalized.match(/(\d{4})[.\-\/](\d{1,2})[.\-\/](\d{1,2}).{0,5}(\d{4})?[.\-\/]?(\d{1,2})[.\-\/](\d{1,2})/);
+                }
+                if (!m) return null;
+
+                const y1 = parseInt(m[1], 10);
+                const mo1 = parseInt(m[2], 10);
+                const d1 = parseInt(m[3], 10);
+                const y2 = m[4] ? parseInt(m[4], 10) : y1;
+                const mo2 = parseInt(m[5], 10);
+                const d2 = parseInt(m[6], 10);
+
+                const start = new Date(y1, mo1 - 1, d1);
+                const end = new Date(y2, mo2 - 1, d2);
+
+                // 해당 주의 월요일 계산
+                const monday = new Date(start);
+                const diffToMonday = (monday.getDay() + 6) % 7; // 월요일 기준 0
+                monday.setDate(monday.getDate() - diffToMonday);
+
+                // 월 기준 몇 주차인지 계산 (월요일 기준)
+                const firstOfMonth = new Date(monday.getFullYear(), monday.getMonth(), 1);
+                const firstDow = firstOfMonth.getDay();
+                const firstMonday = new Date(firstOfMonth);
+                const offset = (8 - firstDow) % 7; // 첫 월요일까지 이동
+                firstMonday.setDate(1 + offset);
+                let weekIndex = 1;
+                if (monday >= firstMonday) {
+                    const diffDays = Math.floor((monday - firstMonday) / (1000 * 60 * 60 * 24));
+                    weekIndex = Math.floor(diffDays / 7) + 1;
+                }
+
+                const month = monday.getMonth() + 1;
+                const weekLabel = `${month}월 ${weekIndex}주차`;
+
+                // 월~금 날짜 목록 (범위 내 필터링)
+                const numericDays = [];
+                for (let i = 0; i < 7; i++) {
+                    const dt = new Date(monday);
+                    dt.setDate(monday.getDate() + i);
+                    const dow = dt.getDay();
+                    if (dow >= 1 && dow <= 5) {
+                        if (!isNaN(start) && !isNaN(end)) {
+                            if (dt >= start && dt <= end) numericDays.push(dt.getDate());
+                        } else {
+                            numericDays.push(dt.getDate());
+                        }
+                    }
+                }
+                if (numericDays.length === 0) {
+                    // 폴백: 월요일부터 5영업일
+                    for (let i = 0; i < 5; i++) {
+                        const dt = new Date(monday);
+                        dt.setDate(monday.getDate() + i);
+                        numericDays.push(dt.getDate());
+                    }
+                }
+
+                return {
+                    year: monday.getFullYear(),
+                    month,
+                    weekIndex,
+                    weekLabel,
+                    startDate: start,
+                    endDate: end,
+                    weekStartMonday: monday,
+                    numericDays
+                };
+            } catch (e) {
+                console.warn('extractCalendarMeta 실패', e);
+                return null;
+            }
         }
 
         // 기간 문자열 파싱 (예: "25~27" -> [25, 26, 27])
@@ -4168,25 +4380,19 @@
             return days.sort((a, b) => a - b);
         }
 
-        // 주차 정보 생성
+        // 주차 정보 생성 (엑셀 메타가 있으면 우선 사용)
         function getWeekInfo(days) {
-            if (days.length === 0) return '';
-            
+            if (calendarMeta && calendarMeta.weekLabel) return calendarMeta.weekLabel;
+            if (!days || days.length === 0) return '';
             const minDay = Math.min(...days);
             const maxDay = Math.max(...days);
-            
-            // 8월 4주차로 가정 (실제로는 더 정교한 로직 필요)
-            if (minDay >= 25 && maxDay <= 31) {
-                return '8월 4주차';
-            } else if (minDay >= 18 && maxDay <= 24) {
-                return '8월 3주차';
-            } else if (minDay >= 11 && maxDay <= 17) {
-                return '8월 2주차';
-            } else if (minDay >= 4 && maxDay <= 10) {
-                return '8월 1주차';
-            } else {
-                return `${minDay}일~${maxDay}일`;
-            }
+            return `${minDay}일~${maxDay}일`;
+        }
+
+        function getKoreanWeekday(year, month, day) {
+            const names = ['일', '월', '화', '수', '목', '금', '토'];
+            const d = new Date(year, month - 1, day);
+            return names[d.getDay()];
         }
 
         // 주차 선택 옵션 업데이트
@@ -4243,21 +4449,13 @@
             let sortedDays;
             const weekSelection = document.getElementById('calendar-week-select').value;
             
-            if (weekSelection === '8월 4주차') {
-                // 8월 4주차: 8월 25일(월)부터 29일(금)까지
-                sortedDays = [25, 26, 27, 28, 29];
-            } else if (weekSelection === '8월 3주차') {
-                // 8월 3주차: 8월 18일(월)부터 22일(금)까지
-                sortedDays = [18, 19, 20, 21, 22];
-            } else if (weekSelection === '8월 2주차') {
-                // 8월 2주차: 8월 11일(월)부터 15일(금)까지
-                sortedDays = [11, 12, 13, 14, 15];
-            } else if (weekSelection === '8월 1주차') {
-                // 8월 1주차: 8월 4일(월)부터 8일(금)까지
-                sortedDays = [4, 5, 6, 7, 8];
+            if (calendarMeta && Array.isArray(calendarMeta.numericDays) && calendarMeta.numericDays.length > 0) {
+                sortedDays = calendarMeta.numericDays.slice();
             } else {
-                // 기본값: 8월 4주차
-                sortedDays = [25, 26, 27, 28, 29];
+                // 폴백: 데이터 내 날짜를 모아 상위 5개 사용
+                const unique = new Set();
+                data.forEach(item => (item.days || []).forEach(d => unique.add(d)));
+                sortedDays = Array.from(unique).sort((a, b) => a - b).slice(0, 5);
             }
             
             // 팀별 데이터 그룹화
@@ -4293,58 +4491,13 @@
             
             // 날짜 헤더 (주중 5일만 표시)
             sortedDays.forEach(day => {
-                // 선택된 주차에 따른 정확한 요일 계산
-                let dayOfWeek;
-                if (weekSelection === '8월 4주차') {
-                    // 8월 4주차: 25일(월), 26일(화), 27일(수), 28일(목), 29일(금)
-                    switch(day) {
-                        case 25: dayOfWeek = '월'; break;
-                        case 26: dayOfWeek = '화'; break;
-                        case 27: dayOfWeek = '수'; break;
-                        case 28: dayOfWeek = '목'; break;
-                        case 29: dayOfWeek = '금'; break;
-                        default: dayOfWeek = '월'; break;
-                    }
-                } else if (weekSelection === '8월 3주차') {
-                    // 8월 3주차: 18일(월), 19일(화), 20일(수), 21일(목), 22일(금)
-                    switch(day) {
-                        case 18: dayOfWeek = '월'; break;
-                        case 19: dayOfWeek = '화'; break;
-                        case 20: dayOfWeek = '수'; break;
-                        case 21: dayOfWeek = '목'; break;
-                        case 22: dayOfWeek = '금'; break;
-                        default: dayOfWeek = '월'; break;
-                    }
-                } else if (weekSelection === '8월 2주차') {
-                    // 8월 2주차: 11일(월), 12일(화), 13일(수), 14일(목), 15일(금)
-                    switch(day) {
-                        case 11: dayOfWeek = '월'; break;
-                        case 12: dayOfWeek = '화'; break;
-                        case 13: dayOfWeek = '수'; break;
-                        case 14: dayOfWeek = '목'; break;
-                        case 15: dayOfWeek = '금'; break;
-                        default: dayOfWeek = '월'; break;
-                    }
-                } else if (weekSelection === '8월 1주차') {
-                    // 8월 1주차: 4일(월), 5일(화), 6일(수), 7일(목), 8일(금)
-                    switch(day) {
-                        case 4: dayOfWeek = '월'; break;
-                        case 5: dayOfWeek = '화'; break;
-                        case 6: dayOfWeek = '수'; break;
-                        case 7: dayOfWeek = '목'; break;
-                        case 8: dayOfWeek = '금'; break;
-                        default: dayOfWeek = '월'; break;
-                    }
-                } else {
-                    // 기본값: 8월 4주차
-                    switch(day) {
-                        case 25: dayOfWeek = '월'; break;
-                        case 26: dayOfWeek = '화'; break;
-                        case 27: dayOfWeek = '수'; break;
-                        case 28: dayOfWeek = '목'; break;
-                        case 29: dayOfWeek = '금'; break;
-                        default: dayOfWeek = '월'; break;
-                    }
+                // 동적 요일 계산
+                let dayOfWeek = '월';
+                if (calendarMeta && calendarMeta.year && calendarMeta.month) {
+                    const names = ['일', '월', '화', '수', '목', '금', '토'];
+                    const dow = new Date(calendarMeta.year, calendarMeta.month - 1, day).getDay();
+                    const label = names[dow];
+                    if (['월', '화', '수', '목', '금'].includes(label)) dayOfWeek = label;
                 }
                 
                 const dayHeader = document.createElement('th');
@@ -4394,12 +4547,8 @@
             periodHeader.className = 'period-header';
             periodHeader.rowSpan = 2;
             headerRow.appendChild(periodHeader);
-            
-
-            
             thead.appendChild(headerRow);
             table.appendChild(thead);
-
             // 바디 생성
             const tbody = document.createElement('tbody');
             
@@ -4444,58 +4593,13 @@
                     // 날짜별 셀 생성 (자동 병합 로직 포함)
                     const dayCells = [];
                     sortedDays.forEach(day => {
-                        // 선택된 주차에 따른 정확한 요일 계산
-                        let dayOfWeek;
-                        if (weekSelection === '8월 4주차') {
-                            // 8월 4주차: 25일(월), 26일(화), 27일(수), 28일(목), 29일(금)
-                            switch(day) {
-                                case 25: dayOfWeek = '월'; break;
-                                case 26: dayOfWeek = '화'; break;
-                                case 27: dayOfWeek = '수'; break;
-                                case 28: dayOfWeek = '목'; break;
-                                case 29: dayOfWeek = '금'; break;
-                                default: dayOfWeek = '월'; break;
-                            }
-                        } else if (weekSelection === '8월 3주차') {
-                            // 8월 3주차: 18일(월), 19일(화), 20일(수), 21일(목), 22일(금)
-                            switch(day) {
-                                case 18: dayOfWeek = '월'; break;
-                                case 19: dayOfWeek = '화'; break;
-                                case 20: dayOfWeek = '수'; break;
-                                case 21: dayOfWeek = '목'; break;
-                                case 22: dayOfWeek = '금'; break;
-                                default: dayOfWeek = '월'; break;
-                            }
-                        } else if (weekSelection === '8월 2주차') {
-                            // 8월 2주차: 11일(월), 12일(화), 13일(수), 14일(목), 15일(금)
-                            switch(day) {
-                                case 11: dayOfWeek = '월'; break;
-                                case 12: dayOfWeek = '화'; break;
-                                case 13: dayOfWeek = '수'; break;
-                                case 14: dayOfWeek = '목'; break;
-                                case 15: dayOfWeek = '금'; break;
-                                default: dayOfWeek = '월'; break;
-                            }
-                        } else if (weekSelection === '8월 1주차') {
-                            // 8월 1주차: 4일(월), 5일(화), 6일(수), 7일(목), 8일(금)
-                            switch(day) {
-                                case 4: dayOfWeek = '월'; break;
-                                case 5: dayOfWeek = '화'; break;
-                                case 6: dayOfWeek = '수'; break;
-                                case 7: dayOfWeek = '목'; break;
-                                case 8: dayOfWeek = '금'; break;
-                                default: dayOfWeek = '월'; break;
-                            }
-                        } else {
-                            // 기본값: 8월 4주차
-                            switch(day) {
-                                case 25: dayOfWeek = '월'; break;
-                                case 26: dayOfWeek = '화'; break;
-                                case 27: dayOfWeek = '수'; break;
-                                case 28: dayOfWeek = '목'; break;
-                                case 29: dayOfWeek = '금'; break;
-                                default: dayOfWeek = '월'; break;
-                            }
+                        // 동적 요일 계산
+                        let dayOfWeek = '월';
+                        if (calendarMeta && calendarMeta.year && calendarMeta.month) {
+                            const names = ['일', '월', '화', '수', '목', '금', '토'];
+                            const dow = new Date(calendarMeta.year, calendarMeta.month - 1, day).getDay();
+                            const label = names[dow];
+                            if (['월', '화', '수', '목', '금'].includes(label)) dayOfWeek = label;
                         }
                         
                         const dayCell = document.createElement('td');
@@ -4757,7 +4861,6 @@
             // 디버깅용 로그
             console.log('셀 선택 해제됨');
         }
-        
         // 선택된 셀들에 대한 컨트롤 패널 표시
         function showSelectionControls() {
             if (selectedCells.length === 0) return;
@@ -4920,7 +5023,6 @@
             
             clearCellSelection();
         }
-        
         // 좌우 셀 병합
         function mergeCellsHorizontally(cells) {
             // 셀들을 날짜 순으로 정렬
@@ -5251,7 +5353,6 @@
                 }
             }
         }
-        
         // 셀 메뉴 표시
         function showCellMenu(button) {
             const cell = button.closest('td');
@@ -5383,7 +5484,6 @@
                 setTimeout(() => toast.remove(), 300);
             }, 2000);
         }
-        
         // 리사이즈 핸들 추가
         function addResizeHandles() {
             const table = document.getElementById('calendar-table');

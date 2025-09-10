@@ -64,6 +64,42 @@ app.post('/api/education/upload', upload.single('file'), async (req, res) => {
   }
 });
 
+// 리스트 API: /assets/education 하위의 PDF 파일들을 트리 스캔하여 반환
+app.get('/api/education/list', async (req, res) => {
+  try {
+    const results = [];
+    async function walk(dir, relParts = []){
+      const ents = await fsp.readdir(dir, { withFileTypes: true });
+      for (const ent of ents){
+        const full = path.join(dir, ent.name);
+        const rel = [...relParts, ent.name];
+        if (ent.isDirectory()){
+          await walk(full, rel);
+        } else if (/\.pdf$/i.test(ent.name)){
+          // 기대 경로: education/<cat1>/<cat2>/<yyyy>/<mm>/<file>
+          const [cat1='전체', cat2='-', yyyy='', mm='', filename] = rel;
+          const url = `/assets/education/${rel.map(encodeURIComponent).join('/')}`;
+          results.push({
+            id: `fs_${Buffer.from(url).toString('base64')}`,
+            title: filename.replace(/\.pdf$/i,''),
+            date: `${yyyy||''}-${mm||''}-01`.replace(/-01-01$/,'') || '',
+            cat1, cat2,
+            fileUrl: url,
+            fileName: filename,
+            attendees: [], note: '', status: '완료'
+          });
+        }
+      }
+    }
+    await walk(educationRoot, []);
+    results.sort((a,b)=> (a.date||'') < (b.date||'') ? 1 : -1);
+    res.json({ ok: true, items: results });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ ok:false, message: e.message||'list failed' });
+  }
+});
+
 // Serve static assets (for local dev). In production, your web server should serve /assets.
 app.use('/assets', express.static(assetsRoot, { fallthrough: true }));
 

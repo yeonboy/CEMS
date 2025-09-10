@@ -8,6 +8,9 @@
     "clean:db": "node scripts/clean-db-unused.mjs",
     "clean:db:core": "node scripts/clean-db-core-empties.mjs",
     "build:stats": "node scripts/build-stats.mjs",
+    "backend:start": "node scripts/backend_server.mjs",
+    "smoke": "node scripts/smoke_check.mjs",
+    "test:unit": "node scripts/tests.mjs",
     "backend:ecount:sync": "node scripts/backend_ecount_sync.mjs",
     "backend:ecount:start": "node \"ecount api/ecount-zone-api-backend.js\""
   },
