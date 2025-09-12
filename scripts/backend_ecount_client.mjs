@@ -2,6 +2,8 @@
 import fs from 'fs';
 import path from 'path';
 import axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const CACHE_DIR = path.resolve('db/.cache');
 if (!fs.existsSync(CACHE_DIR)) fs.mkdirSync(CACHE_DIR, { recursive: true });
@@ -68,7 +70,8 @@ export async function ecountCall(apiPath, body = {}, { timeoutMs = 30000, retrie
   }
   const doCall = async () => {
     const url = `${SERVER_BASE}/api/ecount/call`;
-    const { data } = await axios.post(url, { path: apiPath, body }, { timeout: timeoutMs, headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });
+    const password = process.env.USER_PW || process.env.ECOUNT_USER_PW || process.env.PASSWORD || undefined;
+    const { data } = await axios.post(url, { path: apiPath, body, password }, { timeout: timeoutMs, headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' } });
     if (data && data.data) return data.data;
     return data;
   };

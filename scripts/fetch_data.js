@@ -125,6 +125,7 @@ let logsData = [];
 let qcLogsData = []; // New global variable for QC logs data
 let staffLogsData = []; // 이동 담당자 로그 (CSV)
 let __selectedSeries = new Set(); // 장비 목록: 품목계열 다중 선택 상태
+let __utilSort = null; // null|"asc"|"desc" 최근 1년 가동률 정렬 상태
 function getManufacturerByCategory(category){
     const map = (typeof window !== 'undefined' && window.__manufacturersMap) ? window.__manufacturersMap : {};
     const key = String(category || '').trim();
@@ -4682,6 +4683,22 @@ function renderProductSeriesTabs() {
             renderEquipmentTableBySeries('전체');
         });
     }
+
+    // 가동률 정렬 토글 바인딩
+    const utilBtn = document.getElementById('util-sort-toggle');
+    if (utilBtn && !utilBtn.dataset.bound) {
+        utilBtn.dataset.bound = '1';
+        utilBtn.addEventListener('click', () => {
+            // 토글 순서: null -> asc -> desc -> null
+            __utilSort = __utilSort === null ? 'asc' : (__utilSort === 'asc' ? 'desc' : null);
+            // 버튼 레이블 업데이트
+            if (__utilSort === 'asc') utilBtn.textContent = '가동률 ▲';
+            else if (__utilSort === 'desc') utilBtn.textContent = '가동률 ▼';
+            else utilBtn.textContent = '가동률 ▷';
+            const current = (__selectedSeries && __selectedSeries.size) ? Array.from(__selectedSeries) : '전체';
+            renderEquipmentTableBySeries(current);
+        });
+    }
 }
 
 // 품목계열 탭 선택
@@ -4734,13 +4751,23 @@ function renderEquipmentTableBySeries(series) {
     
     console.log(`🔍 ${series} 품목계열 필터링된 데이터:`, filteredData.length, '개');
     
-    // 테이블 내용 생성
-    tableBody.innerHTML = filteredData.map(item => {
+    // 테이블 내용 생성 (가동률 계산과 함께 정렬 옵션을 위해 임시 배열 구성)
+    const rows = filteredData.map(item => {
         const mv = (movementsData || [])
             .filter(m => m.serial === item.serial && m.date)
             .sort((a, b) => new Date(a.date) - new Date(b.date));
         const util = calculateLastYearUtilization(item.serial, mv);
-        return `
+        return { item, util };
+    });
+
+    // 가동률 정렬 적용
+    if (__utilSort === 'asc') {
+        rows.sort((a, b) => a.util.percent - b.util.percent);
+    } else if (__utilSort === 'desc') {
+        rows.sort((a, b) => b.util.percent - a.util.percent);
+    }
+
+    tableBody.innerHTML = rows.map(({item, util}) => `
         <tr class="border-b hover:bg-slate-50">
             <td class="p-2 font-medium text-blue-600 truncate" title="${item.serial || ''}">${item.serial || ''}</td>
             <td class="p-2 truncate" title="${item.category || ''}">${item.category || ''}</td>
@@ -4756,8 +4783,7 @@ function renderEquipmentTableBySeries(series) {
                     상세보기
                 </button>
             </td>
-        </tr>`;
-    }).join('');
+        </tr>`).join('');
 }
 
 function updateSeriesTabsActiveState() {
@@ -5120,13 +5146,44 @@ function showEquipmentDetailModal(serial) {
         generalRepairsLastYear = lastYearRepairs.length - calibRepairsLastYear;
     } catch {}
 
+    // 같은 품목계열 내 일련번호 목록(내비게이션용)
+    const _siblings = (equipmentData || [])
+      .filter(it => it && it.category === equipment.category)
+      .map(it => it.serial)
+      .filter(Boolean);
+    try {
+      _siblings.sort((a,b)=>{
+        const an = parseInt(String(a).replace(/\D/g,''))||0;
+        const bn = parseInt(String(b).replace(/\D/g,''))||0;
+        return an === bn ? String(a).localeCompare(String(b)) : an - bn;
+      });
+    } catch {}
+    const _curIdx = _siblings.indexOf(equipment.serial);
+    const _prevSerial = _curIdx >= 0 && _siblings.length ? _siblings[(_curIdx - 1 + _siblings.length) % _siblings.length] : null;
+    const _nextSerial = _curIdx >= 0 && _siblings.length ? _siblings[(_curIdx + 1) % _siblings.length] : null;
+    const _hasNav = _siblings.length > 1;
+    const _serialListHtml = _siblings.map(sn => sn === equipment.serial
+      ? `<button type="button" class="w-full text-left px-3 py-1.5 bg-indigo-50 font-semibold" data-serial="${sn}">${sn} (현재)</button>`
+      : `<button type="button" class="w-full text-left px-3 py-1.5 hover:bg-slate-50" data-serial="${sn}">${sn}</button>`
+    ).join('');
+
     const content = `
       <div class="w-full max-w-none bg-white rounded-lg shadow-xl overflow-y-auto"
            style="width: calc(100vw - var(--sidebar-w, 5rem)); height: calc(100vh - 2rem);">
         <div class="flex items-center justify-between px-6 py-4 border-b">
-          <h2 class="text-xl font-semibold text-slate-900">
-            일련번호: ${equipment.serial || '-'} / ${equipment.category || '-'} / ${normalizeStatus(equipment.status)}${manufacturerSegment}
-          </h2>
+          <div class="flex items-center gap-3 min-w-0">
+            <div id="serial-switcher-container" class="relative inline-flex items-center gap-2">
+              <button id="serial-prev" type="button" aria-label="이전 일련번호" class="px-2 py-1 text-xs border rounded ${_hasNav ? '' : 'opacity-40 cursor-not-allowed'}" ${_hasNav ? '' : 'disabled'}>&larr;</button>
+              <button id="serial-switcher-btn" type="button" class="text-indigo-700 underline font-semibold truncate">${equipment.serial || '-'}</button>
+              <button id="serial-next" type="button" aria-label="다음 일련번호" class="px-2 py-1 text-xs border rounded ${_hasNav ? '' : 'opacity-40 cursor-not-allowed'}" ${_hasNav ? '' : 'disabled'}>&rarr;</button>
+              <div id="serial-switcher-menu" class="absolute left-0 top-full mt-1 w-56 bg-white border rounded shadow-lg z-10 hidden max-h-64 overflow-auto">
+                ${_serialListHtml || '<div class="px-3 py-2 text-sm text-slate-500">동일 품목계열 장비가 없습니다.</div>'}
+              </div>
+            </div>
+            <h2 class="text-xl font-semibold text-slate-900 whitespace-nowrap">
+              / ${equipment.category || '-'} / ${normalizeStatus(equipment.status)}${manufacturerSegment}
+            </h2>
+          </div>
           <button type="button" onclick="closeEquipmentDetailModal()" class="text-slate-500 hover:text-slate-700">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
@@ -5361,6 +5418,32 @@ function showEquipmentDetailModal(serial) {
             // 최초 렌더
             renderRepairsDetailBar();
         } catch(e) { console.warn('기간 토글 바인딩 실패', e); }
+
+        // 일련번호 내비게이션/목록 바인딩
+        try {
+            const prevBtn = document.getElementById('serial-prev');
+            const nextBtn = document.getElementById('serial-next');
+            const switchBtn = document.getElementById('serial-switcher-btn');
+            const menu = document.getElementById('serial-switcher-menu');
+            const container = document.getElementById('serial-switcher-container');
+            function go(sn){ if (!sn) return; try { showEquipmentDetailModal(sn); } catch(e) { console.error(e); } }
+            if (prevBtn && _hasNav) prevBtn.addEventListener('click', ()=> go(_prevSerial));
+            if (nextBtn && _hasNav) nextBtn.addEventListener('click', ()=> go(_nextSerial));
+            if (switchBtn) switchBtn.addEventListener('click', ()=> menu && menu.classList.toggle('hidden'));
+            if (menu) {
+                menu.querySelectorAll('button[data-serial]')?.forEach(b=> b.addEventListener('click', ()=> go(b.getAttribute('data-serial'))));
+            }
+            // 외부 클릭 시 드롭다운 닫기
+            setTimeout(()=>{
+                function onDocClick(e){
+                    try {
+                        if (container && !container.contains(e.target)) menu && menu.classList.add('hidden');
+                    } catch {}
+                    document.removeEventListener('click', onDocClick);
+                }
+                document.addEventListener('click', onDocClick);
+            }, 0);
+        } catch(e) { console.warn('일련번호 내비게이션 초기화 실패', e); }
     }
 }
 

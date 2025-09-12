@@ -971,7 +971,10 @@
                                 <div class="mb-4">
                                     <div class="flex items-center justify-between gap-3 mb-2">
                                         <div class="text-sm text-slate-600">품목계열 선택 (다중 선택 가능)</div>
-                                        <button id="series-reset-toggle" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded">선택 초기화</button>
+                                        <div class="flex items-center gap-2">
+                                            <button id="util-sort-toggle" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded" title="최근 1년 가동률 정렬 토글(오름/내림)">가동률 ▷</button>
+                                            <button id="series-reset-toggle" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded">선택 초기화</button>
+                                        </div>
                                     </div>
                                     <div class="flex flex-wrap gap-2" id="product-series-tabs">
                                         <!-- 품목계열 탭이 여기에 동적으로 생성됩니다 -->

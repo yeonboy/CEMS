@@ -49,47 +49,42 @@ function buildLoginBodies(comCode, userId, apiKey, lanType, zone, userPw) {
 	];
 }
 
-// 로그인: POST https://sboapi{ZONE}.ecount.com/OAPI/V2/OAPILogin (필요 시 비밀번호 포함)
+// 로그인: 다양한 호스트/경로/본문 조합을 순회 시도
 async function login(comCode = COM_CODE, userId = USER_ID, zone, userPw = ENV_USER_PW) {
 	const z = zone || (await getZone(comCode));
-	const apiHost = buildSboapiZoneHost(z);
+	const hosts = [
+		buildSboapiZoneHost(z),
+		`https://oapi${z}.ecount.com`,
+		'https://sboapicd.ecount.com'
+	];
+	const paths = [
+		'/OAPI/V2/OAPILogin',
+		'/ECERP/OAPI/V2/OAPILogin',
+		'/OAPI/V2/Login',
+		'/ECERP/OAPI/V2/Login',
+	];
 	const bodies = buildLoginBodies(comCode, userId, API_CERT_KEY, LAN_TYPE, z, userPw);
 
-	// 1차: OAPILogin (여러 본문 케이스 시도)
-	for (const body of bodies) {
-		try {
-			const url = `${apiHost}/OAPI/V2/OAPILogin`;
-			const { data } = await axios.post(url, body, { timeout: 20000 });
-			if (data && data.ERR_CODE === '0' && data.SESSION_ID) {
-				return { zone: z, sessionId: data.SESSION_ID, apiHost: apiHost };
+	for (const base of hosts) {
+		for (const rel of paths) {
+			for (const body of bodies) {
+				try {
+					const url = `${base}${rel}`;
+					const { data } = await axios.post(url, body, { timeout: 20000, headers: { 'Accept': 'application/json', 'Content-Type': 'application/json; charset=utf-8' } });
+					if (data && data.ERR_CODE === '0' && data.SESSION_ID) {
+						return { zone: z, sessionId: data.SESSION_ID, apiHost: base };
+					}
+					if (data && String(data.Status) === '200') {
+						const sessionId = data?.Data?.SESSION_ID || data?.Data?.Datas?.SESSION_ID;
+						const hostUrl = data?.Data?.HOST_URL;
+						if (sessionId) {
+							const hostFromLogin = hostUrl ? `https://${hostUrl}` : base;
+							return { zone: z, sessionId, apiHost: hostFromLogin };
+						}
+					}
+				} catch (e) { /* 다음 조합 시도 */ }
 			}
-			if (data && String(data.Status) === '200') {
-				const sessionId = data?.Data?.SESSION_ID || data?.Data?.Datas?.SESSION_ID;
-				const hostUrl = data?.Data?.HOST_URL;
-				if (sessionId) {
-					const hostFromLogin = hostUrl ? `https://${hostUrl}` : apiHost;
-					return { zone: z, sessionId, apiHost: hostFromLogin };
-				}
-			}
-		} catch (e) { /* 다음 케이스 시도 */ }
-	}
-	// 2차: Login 경로 폴백
-	for (const body of bodies) {
-		try {
-			const url2 = `${apiHost}/OAPI/V2/Login`;
-			const { data } = await axios.post(url2, body, { timeout: 20000 });
-			if (data && data.ERR_CODE === '0' && data.SESSION_ID) {
-				return { zone: z, sessionId: data.SESSION_ID, apiHost: apiHost };
-			}
-			if (data && String(data.Status) === '200') {
-				const sessionId = data?.Data?.SESSION_ID || data?.Data?.Datas?.SESSION_ID;
-				const hostUrl = data?.Data?.HOST_URL;
-				if (sessionId) {
-					const hostFromLogin = hostUrl ? `https://${hostUrl}` : apiHost;
-					return { zone: z, sessionId, apiHost: hostFromLogin };
-				}
-			}
-		} catch (e) { /* 다음 케이스 시도 */ }
+		}
 	}
 	throw new Error('로그인 실패: 모든 조합 시도 실패');
 }
@@ -112,7 +107,9 @@ async function ecountPost(zone, sessionId, apiPath, body) {
 	const hostCandidates = Array.from(new Set([
 		preferBase,
 		buildSboapiZoneHost(zone),
-		'https://sboapi.ecount.com'
+		`https://oapi${zone}.ecount.com`,
+		'https://sboapi.ecount.com',
+		'https://sboapicd.ecount.com'
 	])).filter(Boolean);
 	const pathBases = ['/OAPI/V2', '/ECERP/OAPI/V2'];
 	const subPath = apiPath.replace(/^\/(?:OAPI\/V2|ECERP\/OAPI\/V2)/, '');
