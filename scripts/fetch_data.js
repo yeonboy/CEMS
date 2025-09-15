@@ -5501,6 +5501,7 @@ function showEquipmentDetailModal(serial) {
                 const labels = rows.map(r => `${formatDateYmd(r.repair_date||r.date) || ''} ${r.repair_company||r.vendor||''}`);
                 const values = rows.map(r => { const n = parseInt(String(r.cost||'0').toString().replace(/,/g,''))||0; return n>0 ? n : 1; });
                 const colors = rows.map(r => isGreen(r.repair_type||r.description) ? '#16a34a' : '#ef4444');
+                const dataKeys = rows.map(r => buildRepairKeyFromFields(r.repair_date||r.date, r.repair_company||r.vendor, r.repair_type||r.description));
                 window._repairsDetailBar = new Chart(cvs.getContext('2d'), {
                     type: 'bar',
                     data: { labels, datasets: [{ label: '수리 내역', data: values, backgroundColor: colors, borderWidth: 0 }] },
@@ -5521,6 +5522,22 @@ function showEquipmentDetailModal(serial) {
                                 const vendor = r.repair_company || r.vendor || '-';
                                 return `${type} / ${vendor} / ${cost.toLocaleString()}원`;
                             }}}
+                        },
+                        // 막대 클릭 시 상단 교체부품/수리 항목으로 스크롤 및 하이라이트
+                        onClick: (evt, els)=>{
+                            try {
+                                if (!els || !els.length) return;
+                                const idx = els[0].index;
+                                const key = dataKeys[idx];
+                                const list = document.getElementById('replaced-parts-list');
+                                if (!list) return;
+                                const target = list.querySelector(`[data-repair-key="${key}"]`);
+                                if (target){
+                                    target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+                                    target.classList.add('ring','ring-2','ring-indigo-400');
+                                    setTimeout(()=> target.classList.remove('ring','ring-2','ring-indigo-400'), 1400);
+                                }
+                            } catch(e) { console.warn('막대 클릭 스크롤 실패', e); }
                         }
                     }
                 });
@@ -5566,6 +5583,14 @@ function formatDateYmd(dateLike) {
     const m = String(d.getMonth() + 1).padStart(2, '0');
     const dd = String(d.getDate()).padStart(2, '0');
     return `${y}.${m}.${dd}`;
+}
+
+// 수리 레코드 → 파트 키(slug) 생성 (날짜/업체/설명 기반)
+function buildRepairKeyFromFields(dateLike, vendor, desc) {
+    const d = formatDateYmd(dateLike) || '';
+    const v = String(vendor || '').trim();
+    const t = String(desc || '').trim();
+    return encodeURIComponent(`${d}|${v}|${t}`.replace(/\s+/g,' '));
 }
 
 // 최근 1년 가동률 (영업일 기준: 주말 제외, 현장 체류 일수 / 총 영업일)
@@ -5865,7 +5890,8 @@ function renderReplacedParts(serial, repairsAsc) {
         const vendor = r.repair_company || r.vendor || '-';
         const desc = r.description || r.repair_type || '-';
         const cost = r.cost ? `${Number(r.cost).toLocaleString()}원` : '-';
-        return { when, vendor, desc, cost };
+        const key = buildRepairKeyFromFields(r.repair_date || r.date, vendor, desc);
+        return { when, vendor, desc, cost, key };
     });
 
     if (rows.length === 0) {
@@ -5873,7 +5899,7 @@ function renderReplacedParts(serial, repairsAsc) {
     }
 
     const items = rows.map(x => `
-      <div class="flex flex-col gap-1 bg-white border rounded-md p-3 min-w-[220px]">
+      <div class="flex flex-col gap-1 bg-white border rounded-md p-3 min-w-[220px] cursor-pointer hover:bg-slate-50" data-repair-key="${x.key}">
         <div class="text-sm font-semibold text-slate-800 truncate" title="${x.desc}">${x.desc}</div>
         <div class="text-xs text-slate-600">${x.vendor}</div>
         <div class="text-sm text-slate-900">${x.cost}</div>
@@ -5881,7 +5907,7 @@ function renderReplacedParts(serial, repairsAsc) {
       </div>
     `).join('');
 
-    return `<div class="flex gap-3 overflow-x-auto pb-1">${items}</div>`;
+    return `<div id="replaced-parts-list" class="flex gap-3 overflow-x-auto pb-1">${items}</div>`;
 }
 
 // 장비 상세정보 모달 닫기
