@@ -3376,8 +3376,8 @@
             createEquipmentChart();
                 await createRepairsChart(data.repairs_summary?.by_company || {});
                 
-                // 새로운 테이블 업데이트
-                updateNextWeekUptimeTable();
+                // 새로운 테이블 업데이트 (대시보드 캘린더 임베드)
+                try { updateNextWeekUptimeTable(); } catch (e) { console.error(e); }
                 updateRecentRepairsTable(data.recent_activity?.last_repairs || []);
                 updateAlertsTable();
                 
@@ -3408,7 +3408,7 @@
                 await createRepairsChart({});
             
             // 테이블 업데이트
-                updateNextWeekUptimeTable();
+                try { updateNextWeekUptimeTable(); } catch (e) { console.error(e); }
                 updateRecentRepairsTable([]);
                 updateAlertsTable();
             
@@ -3742,7 +3742,7 @@
                         if (j && j.ok && Array.isArray(j.items)) return j.items;
                     } catch {}
                     try {
-                        const r2 = await fetch('/db/calendar_schedules.json', { cache:'no-store' });
+                        const r2 = await fetch('./db/calendar_schedules.json', { cache:'no-store' });
                         const j2 = await r2.json();
                         if (Array.isArray(j2)) return j2;
                     } catch {}

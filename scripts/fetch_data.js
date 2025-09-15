@@ -731,6 +731,7 @@ function switchView(viewId) {
     
     if (viewId === 'dashboard') {
         initDashboardCharts();
+        try { if (typeof updateNextWeekUptimeTable === 'function') updateNextWeekUptimeTable(); } catch(e) {}
     } else if (viewId === 'accounting-purchase-request') {
         renderPurchaseRequestTable();
     }
