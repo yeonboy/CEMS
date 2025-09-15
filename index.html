@@ -772,7 +772,7 @@
                                     <option value="last6m">최근 6개월</option>
                                     <option value="last3m">최근 3개월</option>
                                 </select>
-                            </div>
+                        </div>
                         </div>
                         <div id="vendor-logs" class="mt-4 max-h-[420px] overflow-y-auto divide-y"></div>
                     </div>
@@ -788,11 +788,11 @@
                                 <label for="dashboard-calendar-select" class="text-sm text-slate-600">주차</label>
                                 <select id="dashboard-calendar-select" class="px-2 py-1 border rounded text-sm min-w-[140px]"></select>
                                 <span id="dashboard-calendar-last-sync" class="text-xs text-slate-500">-</span>
-                            </div>
                         </div>
+                    </div>
                         <div id="dashboard-calendar-embed" class="overflow-x-auto">
                             <div class="text-slate-500 text-sm">저장된 캘린더를 불러오는 중...</div>
-                        </div>
+                            </div>
                     </div>
                 </div>
                 
@@ -2557,7 +2557,7 @@
             if (qBtn && !qBtn.dataset.bound) {
                 qBtn.dataset.bound = '1';
                 qBtn.addEventListener('click', () => renderTopCategoriesTable(items));
-            }
+        }
         }
         async function renderTopSerialsTable(items) {
             const tbody = document.getElementById('topSerialsBody');
