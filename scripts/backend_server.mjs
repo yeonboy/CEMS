@@ -40,6 +40,38 @@ app.use('/assets', express.static(path.join(PROJECT_ROOT, 'assets'), { etag: fal
 app.use('/scripts', express.static(path.join(PROJECT_ROOT, 'scripts'), { etag: false, lastModified: false, setHeaders: noStore, fallthrough: true }));
 app.use('/', express.static(PROJECT_ROOT, { etag: false, lastModified: false, extensions: ['html'], setHeaders: noStore }));
 
+// ===== Calendar Save APIs =====
+const CAL_FILE = path.join(DB_DIR, 'calendar_schedules.json');
+function readCalendarSafe(){ try { return JSON.parse(fs.readFileSync(CAL_FILE,'utf8')); } catch { return []; } }
+function writeCalendar(items){ fs.writeFileSync(CAL_FILE, JSON.stringify(items, null, 2)); }
+
+// 리스트
+app.get('/api/calendar', (req, res)=>{
+  try { return res.json({ ok:true, items: readCalendarSafe() }); } catch(e){ return res.status(500).json({ ok:false, message:e.message }); }
+});
+// 단건 조회(weekKey)
+app.get('/api/calendar/:weekKey', (req, res)=>{
+  try {
+    const items = readCalendarSafe();
+    const item = items.find(x => x && String(x.weekKey||'') === String(req.params.weekKey||''));
+    return res.json({ ok:true, item: item || null });
+  } catch(e){ return res.status(500).json({ ok:false, message:e.message }); }
+});
+// 저장/업서트
+app.post('/api/calendar/save', async (req, res)=>{
+  try {
+    const { weekKey, title, html, meta={} } = req.body || {};
+    if (!weekKey || !html) return res.status(400).json({ ok:false, message:'weekKey, html required' });
+    const now = new Date();
+    const items = readCalendarSafe();
+    const idx = items.findIndex(x => x && String(x.weekKey||'') === String(weekKey));
+    const rec = { id: `wk_${Buffer.from(String(weekKey)).toString('base64')}`, weekKey, title: title||'', html, meta, updatedAt: now.toISOString() };
+    if (idx >= 0) items[idx] = rec; else items.push(rec);
+    writeCalendar(items);
+    return res.json({ ok:true, item: rec });
+  } catch(e){ return res.status(500).json({ ok:false, message:e.message }); }
+});
+
 // SPA 루트 폴백(index.html)
 app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api/')) return next();

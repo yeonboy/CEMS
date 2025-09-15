@@ -4,9 +4,9 @@
     "category": "(벤젠) MP-Σ30KNⅡ",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
@@ -15,8 +15,8 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
@@ -24,19 +24,19 @@
     "category": "(벤젠) MP-Σ30KNⅡ",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-09-05",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "770660",
     "category": "(벤젠) MP-Σ30KNⅡ",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
@@ -45,8 +45,8 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
@@ -55,8 +55,8 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
@@ -65,7 +65,7 @@
     "currentLocation": "업체",
     "status": "수리중",
     "lastMovement": "2025-09-03",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -75,9 +75,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 300000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-1906",
@@ -85,9 +85,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-22",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-1912",
@@ -95,9 +95,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 1450000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18-0318",
@@ -105,9 +105,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 350000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-1798",
@@ -115,9 +115,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 1400000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-1903",
@@ -125,9 +125,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-04-03",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-0866",
@@ -135,29 +135,29 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501478",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-08-25",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 645000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501479",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 250000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501481",
@@ -165,39 +165,39 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501489",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 250000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501490",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 300000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501504",
     "category": "(PM-2.5) PMS-204",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-22",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 350000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501505",
@@ -205,19 +205,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 250000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501506",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "업체",
-    "status": "수리중",
-    "lastMovement": "2025-07-18",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 250000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501507",
@@ -225,19 +225,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 250000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501508",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 250000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501511",
@@ -245,29 +245,29 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-12",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501512",
     "category": "(PM-2.5) PMS-204",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-09-05",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 1100000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501513",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 250000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501514",
@@ -275,9 +275,9 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 250000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501515",
@@ -285,49 +285,49 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 205000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501516",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501517",
     "category": "(PM-2.5) PMS-204",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501518",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 250000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501519",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 250000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1501520",
@@ -335,49 +335,49 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1708786",
     "category": "(PM-2.5) PMS-204",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1708787",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "업체",
-    "status": "수리중",
-    "lastMovement": "2025-07-18",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1708788",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1708789",
     "category": "(PM-2.5) PMS-204",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "lastMovement": "2025-09-02",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1708790",
@@ -385,19 +385,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1708793",
     "category": "(PM-2.5) PMS-204",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1709797",
@@ -405,9 +405,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-12",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1709798",
@@ -415,9 +415,9 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1708791",
@@ -425,9 +425,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1708792",
@@ -435,109 +435,109 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-22",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1708794",
     "category": "(PM-2.5) PMS-204",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1708795",
     "category": "(PM-2.5) PMS-204",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-01",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 550000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P404",
     "category": "(PM-2.5) KMS-4200",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 50000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20P556",
     "category": "(PM-2.5) KMS-4200",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 50000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20P557",
     "category": "(PM-2.5) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 50000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20P558",
     "category": "(PM-2.5) KMS-4200",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 50000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20P564",
     "category": "(PM-2.5) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 50000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20P565",
     "category": "(PM-2.5) KMS-4200",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 50000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "22P614",
     "category": "(PM-2.5) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "22P615",
     "category": "(PM-2.5) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 100000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "T25861",
@@ -545,9 +545,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 909000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "T25864",
@@ -555,9 +555,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-07",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 870000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "W17343",
@@ -565,7 +565,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-03-27",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -575,7 +575,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -585,9 +585,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 500000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "W17346",
@@ -595,9 +595,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 2830000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "W17347",
@@ -605,9 +605,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 500000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "T25860",
@@ -615,7 +615,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-03-27",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -625,9 +625,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 3275000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "T25863",
@@ -635,7 +635,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-03-27",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -645,9 +645,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "X16838",
@@ -655,9 +655,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1904003",
@@ -665,9 +665,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-03-10",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1904004",
@@ -675,39 +675,39 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-15",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 350000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1904005",
     "category": "(PM-10) PMS-204",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1904006",
     "category": "(PM-10) PMS-204",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-08-25",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1904007",
     "category": "(PM-10) PMS-204",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-05",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1904008",
@@ -715,9 +715,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-25",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1904009",
@@ -725,9 +725,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 250000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1904010",
@@ -735,9 +735,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-25",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1904011",
@@ -745,39 +745,39 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-25",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1904012",
     "category": "(PM-10) PMS-204",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-08-25",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P353",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 250000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P354",
     "category": "(PM-10) KMS-4200",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 870000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P355",
@@ -785,29 +785,29 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 300000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P356",
     "category": "(PM-10) KMS-4200",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-09-05",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 150000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P357",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 300000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P358",
@@ -815,9 +815,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 250000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P359",
@@ -825,9 +825,9 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 250000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P360",
@@ -835,89 +835,89 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P361",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 300000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P366",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 300000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P367",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 100000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P368",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 150000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P369",
     "category": "(PM-10) KMS-4200",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 150000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P370",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "업체",
-    "status": "수리중",
-    "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 350000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P371",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 300000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P372",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 150000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P373",
@@ -925,29 +925,29 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 7,
-    "totalRepairCost": 400000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P374",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 300000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18P375",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 200000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P424",
@@ -955,39 +955,39 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-25",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 120000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P425",
     "category": "(PM-10) KMS-4200",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 100000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P426",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 100000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P427",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-05",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 120000
+    "currentLocation": "업체",
+    "status": "수리중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P428",
@@ -995,29 +995,29 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-25",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 190000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P433",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "업체",
-    "status": "수리중",
-    "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 250000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P405",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 7,
-    "totalRepairCost": 250000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P429",
@@ -1025,9 +1025,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P430",
@@ -1035,37 +1035,37 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P431",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 200000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "19P432",
     "category": "(PM-10) KMS-4200",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 870000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20P568",
     "category": "(PM-10) KMS-4200",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1075,59 +1075,59 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 670000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20P570",
     "category": "(PM-10) KMS-4200",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 50000
+    "lastMovement": "2025-09-02",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20P572",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 50000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20P573",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "업체",
-    "status": "수리중",
-    "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 8,
-    "totalRepairCost": 1500000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "22P616",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "22P617",
     "category": "(PM-10) KMS-4200",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 150000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "P22857",
@@ -1135,9 +1135,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-03-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 900000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "R10783",
@@ -1145,9 +1145,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 750000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "T15942",
@@ -1155,9 +1155,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2024-10-18",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 450000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "T15943",
@@ -1165,9 +1165,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-03-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 250000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "T15945",
@@ -1175,7 +1175,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1185,7 +1185,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-03-27",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1195,7 +1195,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-03-27",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1205,9 +1205,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2024-11-21",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 2645000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "X18019",
@@ -1215,9 +1215,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 2460000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "X18020",
@@ -1225,9 +1225,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2024-11-21",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 2645000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "X18021",
@@ -1235,19 +1235,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 685000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "X18022",
     "category": "(PM-10) E-BAM",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 685000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "Y17930",
@@ -1255,9 +1255,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2024-12-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 685000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "Y17932",
@@ -1265,9 +1265,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 8,
-    "totalRepairCost": 7584000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "Y17933",
@@ -1275,19 +1275,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2024-12-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 870000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "R10532",
     "category": "(PM-10) E-BAM",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 435000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "R10454",
@@ -1295,19 +1295,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-03-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 2400000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "R10185",
     "category": "(PM-10) E-BAM",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 5450000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "Y22710",
@@ -1315,9 +1315,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 435000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "Y22705",
@@ -1325,9 +1325,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 250000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "X22196",
@@ -1335,9 +1335,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "X17815",
@@ -1345,9 +1345,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "25281T",
@@ -1355,7 +1355,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1365,7 +1365,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1375,7 +1375,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-27",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1385,7 +1385,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-27",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1395,19 +1395,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-01",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "TA3265",
     "category": "(Pb) T8400ME",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 600000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "TA2902",
@@ -1415,7 +1415,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2024-12-02",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1425,7 +1425,7 @@
     "currentLocation": "업체",
     "status": "수리중",
     "lastMovement": "2025-07-29",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1435,7 +1435,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-20",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1445,7 +1445,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2024-08-21",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1454,9 +1454,9 @@
     "category": "(Pb) T8400ME",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
@@ -1465,7 +1465,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2024-09-30",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1475,7 +1475,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2024-11-04",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1485,7 +1485,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1494,8 +1494,8 @@
     "category": "(Pb) T8400ME",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1505,7 +1505,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-04-30",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1514,8 +1514,8 @@
     "category": "(Pb) T8400ME",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-28",
-    "uptimeEstimatePct": 100,
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1525,7 +1525,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-01-17",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1535,9 +1535,9 @@
     "currentLocation": "업체",
     "status": "수리중",
     "lastMovement": "2025-07-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 300000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "TA3703",
@@ -1545,7 +1545,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-05",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1555,39 +1555,39 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-01-17",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "4159/TA3671",
     "category": "(Pb) T8400ME",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 450000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "4162/TA3674",
     "category": "(Pb) T8400ME",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-01-17",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 400000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "4170/TA3682",
     "category": "(Pb) T8400ME",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-09-05",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 1000000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "4176/TA3688",
@@ -1595,9 +1595,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 600000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "4210/TA3712",
@@ -1605,9 +1605,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 980000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "4211/TA3713",
@@ -1615,9 +1615,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-01",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 300000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "4212/TA3714",
@@ -1625,7 +1625,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-03-04",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1635,9 +1635,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-30",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 300000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "4241/TA3744",
@@ -1645,19 +1645,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-01",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 750000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "3973",
     "category": "(Pb) T8400ME",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-28",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 300000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "TA3281",
@@ -1665,7 +1665,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-04-22",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1675,9 +1675,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-15",
-    "uptimeEstimatePct": 100,
-    "repairCount": 9,
-    "totalRepairCost": 2531000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-0128",
@@ -1685,9 +1685,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-15",
-    "uptimeEstimatePct": 100,
-    "repairCount": 13,
-    "totalRepairCost": 6620000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-0129",
@@ -1695,9 +1695,9 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-08-26",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 1980000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-0131",
@@ -1705,19 +1705,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 300000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-0132",
     "category": "(O3) Serinus10i",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 1140000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-0133",
@@ -1725,9 +1725,9 @@
     "currentLocation": "업체",
     "status": "수리중",
     "lastMovement": "2025-06-20",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 1300000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-0134",
@@ -1735,9 +1735,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-25",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 300000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-0988",
@@ -1745,9 +1745,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-1382",
@@ -1755,19 +1755,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-24",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 2150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-1384",
     "category": "(O3) Serinus10i",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 300000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-1393",
@@ -1775,9 +1775,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 1350000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-1560",
@@ -1785,9 +1785,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 250000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-1571",
@@ -1795,29 +1795,29 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-05",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 1150000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0321",
     "category": "(O3) Serinus10i",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 200000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0349",
     "category": "(O3) Serinus10i",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-11",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 550000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0524",
@@ -1825,39 +1825,39 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-01",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-0125",
     "category": "(O3) Serinus10i",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 250000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-0127",
     "category": "(O3) Serinus10i",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 350000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-0130",
     "category": "(O3) Serinus10i",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-28",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 350000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0322",
@@ -1865,9 +1865,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-01",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0353",
@@ -1875,7 +1875,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-05",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -1885,9 +1885,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-18",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0507",
@@ -1895,9 +1895,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 250000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-1357",
@@ -1905,9 +1905,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 350000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-1391",
@@ -1915,9 +1915,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1190581598",
@@ -1925,9 +1925,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-02-10",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 180000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1192754688",
@@ -1935,9 +1935,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-11",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 360000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1182050011",
@@ -1945,9 +1945,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-19",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 180000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "CM19420293",
@@ -1955,9 +1955,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-13",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 180000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "CM20477383",
@@ -1965,8 +1965,8 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-03-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
@@ -1974,9 +1974,9 @@
     "category": "(NOx, SOx) BMW-5000",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
@@ -1985,19 +1985,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 1720000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "724",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 70000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "726",
@@ -2005,9 +2005,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 870000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "848",
@@ -2015,7 +2015,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-08",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2025,17 +2025,17 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 8,
-    "totalRepairCost": 1720000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "850",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2045,17 +2045,17 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 820000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "852",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
     "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2064,10 +2064,10 @@
     "category": "(NOx, SOx) BMW-5000",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 720000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "854",
@@ -2075,17 +2075,17 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-10",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 820000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "855",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2095,7 +2095,7 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2105,9 +2105,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-03",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 440000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "858",
@@ -2115,17 +2115,17 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "1311",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2134,8 +2134,8 @@
     "category": "(NOx, SOx) BMW-5000",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2145,57 +2145,57 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "1314",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 713000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1315",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "1316",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 820000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1317",
     "category": "(NOx, SOx) BMW-5000",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-25",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 820000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1318",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2205,27 +2205,27 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-30",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "1320",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "1789",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2235,17 +2235,17 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-07-03",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "1791",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-12",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2255,27 +2255,27 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1793",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 820000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1794",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-08-22",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2284,28 +2284,28 @@
     "category": "(NOx, SOx) BMW-5000",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-09-05",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 15000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1796",
     "category": "(NOx, SOx) BMW-5000",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 1342000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1797",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2315,19 +2315,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-20",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "717",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 77000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "718",
@@ -2335,7 +2335,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2345,7 +2345,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-20",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2354,8 +2354,8 @@
     "category": "(NOx, SOx) BMW-5000",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-09-05",
-    "uptimeEstimatePct": 100,
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2365,27 +2365,27 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 897000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1500",
     "category": "(NOx, SOx) BMW-5000",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-18",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 902000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1626",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2394,20 +2394,20 @@
     "category": "(NOx, SOx) BMW-5000",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
     "serial": "1628",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
     "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 77000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1744",
@@ -2415,17 +2415,17 @@
     "currentLocation": "현장",
     "status": "가동 중",
     "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 77000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1745",
     "category": "(NOx, SOx) BMW-5000",
     "currentLocation": "현장",
     "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2435,7 +2435,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2445,17 +2445,17 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-25",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 1342000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1848",
     "category": "(NOx, SOx) BMW-5000",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-02",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2465,9 +2465,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-2180",
@@ -2475,19 +2475,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-05",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0515",
     "category": "(NO2) Serinus40",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 200000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0516",
@@ -2495,9 +2495,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-01",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 610000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0517",
@@ -2505,9 +2505,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-04-21",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 1400000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0518",
@@ -2515,9 +2515,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-05",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18-0353",
@@ -2525,9 +2525,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1515022",
@@ -2535,9 +2535,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 500000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1515023",
@@ -2545,9 +2545,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1612016",
@@ -2555,9 +2555,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1612017",
@@ -2565,9 +2565,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-04",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 950000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1614022",
@@ -2575,9 +2575,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1614024",
@@ -2585,9 +2585,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-20",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1515019",
@@ -2595,9 +2595,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1515020",
@@ -2605,19 +2605,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-20",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 850000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1515021",
     "category": "(NO2) MEZUS-210",
-    "currentLocation": "본사 창고",
-    "status": "대기 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 200000
+    "currentLocation": "현장",
+    "status": "가동 중",
+    "lastMovement": "2025-09-09",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1614023",
@@ -2625,9 +2625,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-09-01",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "17-1509",
@@ -2635,19 +2635,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 300000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-1348",
     "category": "(CO) Serinus30i",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 2390000
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-1502",
@@ -2655,9 +2655,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 2290000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-1503",
@@ -2665,19 +2665,19 @@
     "currentLocation": "업체",
     "status": "수리중",
     "lastMovement": "2025-07-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 2800000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-1508",
     "category": "(CO) Serinus30i",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-22",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 250000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-1509",
@@ -2685,9 +2685,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-06-12",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 2390000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-2128",
@@ -2695,9 +2695,9 @@
     "currentLocation": "업체",
     "status": "수리중",
     "lastMovement": "2025-07-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 2800000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-2131",
@@ -2705,9 +2705,9 @@
     "currentLocation": "업체",
     "status": "수리중",
     "lastMovement": "2025-07-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 400000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-2311",
@@ -2715,9 +2715,9 @@
     "currentLocation": "업체",
     "status": "수리중",
     "lastMovement": "2025-07-07",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 350000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-2313",
@@ -2725,9 +2725,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-28",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 1500000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0330",
@@ -2735,19 +2735,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-01",
-    "uptimeEstimatePct": 100,
-    "repairCount": 7,
-    "totalRepairCost": 2800000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-0331",
     "category": "(CO) Serinus30i",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 1700000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18-0145",
@@ -2755,7 +2755,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2765,9 +2765,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-01",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18-0159",
@@ -2775,17 +2775,17 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-28",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18-0310",
     "category": "(CO) Serinus30i",
-    "currentLocation": "현장",
-    "status": "가동 중",
-    "lastMovement": "2025-09-08",
-    "uptimeEstimatePct": 100,
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2795,7 +2795,7 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
+    "uptimeEstimatePct": 0,
     "repairCount": 0,
     "totalRepairCost": 0
   },
@@ -2805,9 +2805,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-01",
-    "uptimeEstimatePct": 100,
-    "repairCount": 3,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-2171",
@@ -2815,29 +2815,29 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-01",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 5200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "20-2305",
     "category": "(CO) Serinus30i",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 8,
-    "totalRepairCost": 5640000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-1394",
     "category": "(CO) Serinus30i",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-06-24",
-    "uptimeEstimatePct": 100,
-    "repairCount": 5,
-    "totalRepairCost": 500000
+    "lastMovement": "2025-09-11",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "21-2173",
@@ -2845,9 +2845,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-05-30",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 100000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "18-0320",
@@ -2855,8 +2855,8 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-27",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
     "totalRepairCost": 0
   },
   {
@@ -2865,9 +2865,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2024-12-09",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 300000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1614025A",
@@ -2875,19 +2875,19 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 4,
-    "totalRepairCost": 1200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1614026A",
     "category": "(CO) MEZUS-310",
     "currentLocation": "본사 창고",
     "status": "대기 중",
-    "lastMovement": "2025-05-30",
-    "uptimeEstimatePct": 100,
-    "repairCount": 2,
-    "totalRepairCost": 100000
+    "lastMovement": "2025-09-15",
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "K1614027A",
@@ -2895,9 +2895,9 @@
     "currentLocation": "업체",
     "status": "수리중",
     "lastMovement": "2025-08-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 6,
-    "totalRepairCost": 1200000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1201888256",
@@ -2905,9 +2905,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-08-11",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 180000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "1202038522",
@@ -2915,9 +2915,9 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2025-05-07",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 180000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   },
   {
     "serial": "CM19420243",
@@ -2925,8 +2925,8 @@
     "currentLocation": "본사 창고",
     "status": "대기 중",
     "lastMovement": "2024-11-29",
-    "uptimeEstimatePct": 100,
-    "repairCount": 1,
-    "totalRepairCost": 180000
+    "uptimeEstimatePct": 0,
+    "repairCount": 0,
+    "totalRepairCost": 0
   }
 ]

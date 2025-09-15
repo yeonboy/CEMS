@@ -212,6 +212,17 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(text => parseCSVAuto(text))
         .catch(() => []);
 
+    // 추가: 최신 이동 CSV에도 '담당자명'이 포함되어 있어 병합 반영
+    const staffLogsPromise2 = fetch('./청명장비 엑셀/8.29~9.15movements_logs.csv', { cache: 'no-store' })
+        .then(r => r.ok ? r.arrayBuffer() : Promise.reject())
+        .then(buf => {
+            try { return new TextDecoder('euc-kr').decode(buf); } catch (e) {}
+            try { return new TextDecoder('utf-8').decode(buf); } catch (e) {}
+            return '';
+        })
+        .then(text => parseCSVAuto(text))
+        .catch(() => []);
+
     const manufacturersPromise = dc
         ? dc.getManufacturers()
         : fetch('./db/manufacturers.json', { cache: 'no-store' })
@@ -225,15 +236,19 @@ document.addEventListener('DOMContentLoaded', () => {
         logsFixedPromise,
         qcLogsPromise,
         staffLogsPromise,
+        staffLogsPromise2,
         manufacturersPromise
     ])
-    .then(([equipment, movements, repairs, logs, qcLogs, staffLogs, manufacturers]) => {
+    .then(([equipment, movements, repairs, logs, qcLogs, staffLogs, staffLogs2, manufacturers]) => {
         equipmentData = equipment;
         movementsData = movements;
         repairsData = repairs;
         logsData = logs;
         qcLogsData = qcLogs;
-        staffLogsData = Array.isArray(staffLogs) ? staffLogs : [];
+        // 담당자 로그 병합(구 CSV + 최신 이동 CSV)
+        const a = Array.isArray(staffLogs) ? staffLogs : [];
+        const b = Array.isArray(staffLogs2) ? staffLogs2 : [];
+        staffLogsData = a.concat(b);
         window.__manufacturersMap = manufacturers || {};
         try {
             window.equipmentData = equipmentData;
@@ -287,6 +302,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (ex2 && !ex2.dataset.bound){ ex2.dataset.bound='1'; ex2.addEventListener('change', renderLowUtilAlerts); }
             sync();
         } catch(e) { /* no-op */ }
+
+        // QC 월 범위 선택 바인딩 (9~12월 등 변경 시 즉시 재렌더)
+        try {
+            const qcSel = document.getElementById('qc-range');
+            if (qcSel && !qcSel.dataset.bound){
+                qcSel.dataset.bound = '1';
+                qcSel.addEventListener('change', () => { try { renderCalibrationAlerts(); } catch {} });
+            }
+        } catch {}
 
         // 초기화 함수들 호출
         initDashboardCharts();
@@ -625,9 +649,6 @@ function updateKpiElement(id, value) {
         element.textContent = value;
     }
 }
-
-
-
 // 상태 정규화 함수
 function normalizeStatus(status) {
     if (!status) return '대기 중';
@@ -1278,7 +1299,6 @@ function closePdfViewer(){ const modal=document.getElementById('pdf-viewer-modal
 function exportRepairData() {
     alert('수리 데이터를 내보냅니다.');
 }
-
 // 교육 데이터 내보내기
 function exportEducationData() {
     alert('교육 데이터를 내보냅니다.');
@@ -1831,7 +1851,6 @@ function collectFormData() {
         totalAmount: document.getElementById('total-amount').value
     };
 }
-
 // 인쇄용 HTML 생성
 function generatePrintHTML(data) {
     const itemsHTML = data.items.map(item => `
@@ -2476,7 +2495,6 @@ function setupQuoteForm() {
     // 합계 계산 초기화
     calculateQuoteTotals();
 }
-
 // 견적서 품목 테이블 이벤트 리스너 설정
 function setupQuoteItemTableListeners() {
     const itemsTableBody = document.getElementById('quote-items-table-body');
@@ -3667,7 +3685,6 @@ function createOrderHistory() {
     console.log('주문 내역서 생성 완료:', orderHistory.id);
     return orderHistory;
 }
-
 function saveOrderHistoryToDB(data) {
     try {
         let dbData = JSON.parse(localStorage.getItem('orderHistoryDB') || '[]');
@@ -4302,7 +4319,6 @@ function getEquipmentCategoryDistribution() {
         values: sortedCategories.map(([,count]) => count)
     };
 }
-
 // 수리 빈도 데이터 계산
 function getRepairFrequencyData() {
     if (repairsData.length === 0) {
@@ -4803,11 +4819,30 @@ function updateSeriesTabsActiveState() {
 }
 
 // 장비 상세 정보 모달 표시
+function normalizeSerialValue(s) {
+    try { return String(s || '').replace(/\u200B/g,'').trim(); } catch { return String(s||''); }
+}
 function showEquipmentDetailModal(serial) {
-    const equipment = equipmentData.find(item => item.serial === serial);
+    const normTarget = normalizeSerialValue(serial);
+    let equipment = equipmentData.find(item => normalizeSerialValue(item.serial) === normTarget);
     if (!equipment) {
-        alert('장비 정보를 찾을 수 없습니다.');
-        return;
+        // 보정: 대소문자/공백 차이 외에도 원천 DB 미합류 케이스 → movements 기반 카테고리 추정 시도
+        try {
+            const mv = (movementsData || []).filter(m => normalizeSerialValue(m.serial) === normTarget);
+            if (mv && mv.length) {
+                const last = mv.slice().sort((a,b)=> new Date(a.date) - new Date(b.date))[mv.length-1];
+                equipment = {
+                    serial: serial,
+                    category: (equipmentData.find(e=> normalizeSerialValue(e.serial) === normTarget)?.category) || '-',
+                    currentLocation: last?.inLocation || '-',
+                    status: normalizeStatus(last?.inLocation||'')
+                };
+            }
+        } catch {}
+        if (!equipment) {
+            alert('장비 정보를 찾을 수 없습니다.');
+            return;
+        }
     }
     
     // 수리 이력 조회
@@ -4902,30 +4937,46 @@ function closeEquipmentDetailModal() {
     modal.classList.add('hidden');
     modal.classList.remove('flex');
 }
-
 // 정도검사 알림 렌더링 (이번달 카운트 버튼 + 펼침 상세)
 function renderCalibrationAlerts() {
     const alertsContainer = document.getElementById('calibration-alerts');
     if (!alertsContainer) return;
     const today = new Date();
-    const ym = today.getFullYear() + '-' + String(today.getMonth() + 1).padStart(2, '0');
+    const rangeSel = document.getElementById('qc-range');
+    const mode = rangeSel ? (rangeSel.value || 'month') : 'month';
     const monthLabel = `${today.getFullYear()}년 ${String(today.getMonth() + 1)}월`;
 
+    // 기간 계산
+    let label = monthLabel;
+    let from = new Date(today.getFullYear(), today.getMonth(), 1, 0, 0, 0, 0);
+    let to = new Date(today.getFullYear(), today.getMonth() + 1, 0, 23, 59, 59, 999);
+    if (mode === 'next3') {
+        label = '향후 3개월';
+        from = new Date(today.getFullYear(), today.getMonth(), 1, 0, 0, 0, 0);
+        to = new Date(today.getFullYear(), today.getMonth() + 3, 0, 23, 59, 59, 999);
+    } else if (/^m(9|10|11|12)$/.test(mode)) {
+        const m = Number(mode.slice(1));
+        label = `${today.getFullYear()}년 ${m}월`;
+        from = new Date(today.getFullYear(), m - 1, 1, 0, 0, 0, 0);
+        to = new Date(today.getFullYear(), m, 0, 23, 59, 59, 999);
+    }
+
     const rows = Array.isArray(qcLogsData) ? qcLogsData : [];
-    const monthItems = rows.filter(log => {
+    const monthItems = rows
+        .filter(log => {
         const dStr = log && log.next_calibration_date;
         if (!dStr) return false;
         const d = new Date(dStr);
         if (isNaN(d.getTime())) return false;
-        const key = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0');
-        return key === ym;
-    });
+            return d >= from && d <= to;
+        })
+        .sort((a,b)=> new Date(a.next_calibration_date) - new Date(b.next_calibration_date));
 
     const count = monthItems.length;
     const btnId = 'qc-month-toggle';
     const panelId = 'qc-month-details';
 
-    // 상세 알림 카드 HTML
+    // 상세 알림 카드 HTML (최근 1년 가동률 + 상세보기 연동)
     const detailHtml = monthItems.map(log => {
         const nextDate = new Date(log.next_calibration_date);
         const daysUntil = Math.ceil((nextDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
@@ -4936,14 +4987,72 @@ function renderCalibrationAlerts() {
         else if (daysUntil <= 7) { alertClass = 'bg-orange-50 border-orange-200'; iconClass = 'text-orange-500'; textClass = 'text-orange-800'; }
         else if (daysUntil <= 30) { alertClass = 'bg-yellow-50 border-yellow-200'; iconClass = 'text-yellow-500'; textClass = 'text-yellow-800'; }
         else { alertClass = 'bg-green-50 border-green-200'; iconClass = 'text-green-500'; textClass = 'text-green-800'; }
+
+        // 가동률 계산
+        let utilPct = 0; let utilClass = '';
+        try {
+            const serial = log.serial_number || '';
+            const mv = (movementsData || []).filter(m => m.serial === serial && m.date).sort((a,b)=> new Date(a.date) - new Date(b.date));
+            const util = calculateLastYearUtilization(serial, mv);
+            utilPct = util.percent || 0;
+            utilClass = util.className || '';
+        } catch {}
+
+        const serial = log.serial_number || '-';
+        const onClick = serial && serial !== '-' ? `onclick=\"showEquipmentDetailModal('${serial}')\"` : '';
+        // 품목계열, 제조사, 수리업체 표시 준비
+        const equip = (equipmentData || []).find(e => e.serial === serial) || {};
+        const category = equip.category || '-';
+        const manufacturer = getManufacturerByCategory ? (getManufacturerByCategory(category) || '-') : '-';
+        // 수리업체: 최근 1년 내 '정도검사' 수리 로그의 업체명 우선, 없으면 전체 최근 수리 업체
+        let repairCompany = '-';
+        try {
+            const oneYearAgo = new Date(); oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+            const reps = (repairsData || []).filter(r => r.serial === serial);
+            const calib = reps.filter(r => /정도검사/.test(String(r.repair_type || r.description || '')));
+            const calibRecent = calib.sort((a,b)=> new Date(b.repair_date||b.date) - new Date(a.repair_date||a.date))[0];
+            if (calibRecent && calibRecent.company) repairCompany = calibRecent.company;
+            else {
+                const latest = reps.sort((a,b)=> new Date(b.repair_date||b.date) - new Date(a.repair_date||a.date))[0];
+                if (latest && latest.company) repairCompany = latest.company;
+            }
+        } catch {}
+
+        // 2023-01-01 ~ 오늘까지 총 수리 건수/금액 집계
+        let totalRepairsCnt = 0; let totalRepairsCost = 0;
+        try {
+            const fromAll = new Date(2023, 0, 1);
+            const repsAll = (repairsData || []).filter(r => {
+                if (!r || String(r.serial||'').trim() !== String(serial).trim()) return false;
+                const dt = new Date(r.repair_date || r.date);
+                return !isNaN(dt) && dt >= fromAll && dt <= today;
+            });
+            totalRepairsCnt = repsAll.length;
+            totalRepairsCost = repsAll.reduce((sum, r) => {
+                const v = parseInt(String(r.cost || 0).toString().replace(/[^0-9-]/g, '')) || 0;
+                return sum + v;
+            }, 0);
+        } catch {}
+
         return `
             <div class="flex items-center justify-between p-4 ${alertClass} border rounded">
-                <div class="flex items-center">
-                    <svg class="w-5 h-5 ${iconClass} mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <div class="flex items-start gap-2 mr-3">
+                    <svg class="w-5 h-5 ${iconClass} mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <div>
-                        <span class="${textClass} font-medium">정도검사 예정</span>
-                        <div class="text-sm text-slate-600">시리얼번호: ${log.serial_number || '-'}</div>
+                        <div class="flex items-center gap-2">
+                            <span class="${textClass} font-medium">정도검사 예정</span>
+                            <span class="text-xs px-2 py-0.5 bg-slate-100 rounded">${category}</span>
+                            <span class="text-xs px-2 py-0.5 bg-slate-100 rounded">${manufacturer}</span>
+                            <span class="text-xs px-2 py-0.5 bg-slate-100 rounded">${repairCompany}</span>
+                        </div>
+                        <div class="text-sm text-slate-600 mt-1">시리얼번호: <button type=\"button\" class=\"underline text-indigo-700\" ${onClick}>${serial}</button></div>
+                        <div class="text-xs ${utilClass} mt-0.5">최근 1년 가동률: ${utilPct}%</div>
                     </div>
+                </div>
+                <div class="flex-1 text-center">
+                    <div class="text-xs text-slate-500">2023.01.01~현재</div>
+                    <div class="text-2xl font-bold text-slate-900 mt-0.5">총 수리항목 ${totalRepairsCnt}건</div>
+                    <div class="text-xl font-semibold text-slate-800">총 수리금액 ${totalRepairsCost.toLocaleString()}원</div>
                 </div>
                 <div class="text-right">
                     <div class="text-sm ${textClass}">${log.next_calibration_date || '-'}</div>
@@ -4954,10 +5063,10 @@ function renderCalibrationAlerts() {
 
     alertsContainer.innerHTML = `
         <button id="${btnId}" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700" aria-expanded="false" aria-controls="${panelId}">
-            ${monthLabel} 정도검사 예정: <span class="font-semibold">${count}</span>건
+            ${label} 정도검사 예정: <span class="font-semibold">${count}</span>건
         </button>
-        <div id="${panelId}" class="mt-3 ${count ? '' : 'hidden'} space-y-3" role="region" aria-label="${monthLabel} 정도검사 목록">
-            ${count ? detailHtml : '<div class="p-4 text-slate-500 border border-slate-200 rounded">이번 달 예정인 정도검사가 없습니다.</div>'}
+        <div id="${panelId}" class="mt-3 ${count ? '' : 'hidden'} space-y-3" role="region" aria-label="${label} 정도검사 목록">
+            ${count ? detailHtml : `<div class=\"p-4 text-slate-500 border border-slate-200 rounded\">${label}에 예정된 정도검사가 없습니다.</div>`}
         </div>
     `;
 
@@ -5182,7 +5291,7 @@ function showEquipmentDetailModal(serial) {
             </div>
             <h2 class="text-xl font-semibold text-slate-900 whitespace-nowrap">
               / ${equipment.category || '-'} / ${normalizeStatus(equipment.status)}${manufacturerSegment}
-            </h2>
+          </h2>
           </div>
           <button type="button" onclick="closeEquipmentDetailModal()" class="text-slate-500 hover:text-slate-700">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -5517,7 +5626,6 @@ function calculateBreakdownBetween(serial, movements, from, to) {
     });
     return { totalBiz, siteBiz, vendorBiz, cmesBiz };
 }
-
 function renderUtilizationDonutChart(canvasId, breakdown) {
     const el = document.getElementById(canvasId);
     if (!el || !window.Chart) return;

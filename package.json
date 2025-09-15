@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "start": "node scripts/backend_server.mjs",
     "build:db": "node scripts/build-db.mjs",
     "clean:db": "node scripts/clean-db-unused.mjs",
     "clean:db:core": "node scripts/clean-db-core-empties.mjs",

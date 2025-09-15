@@ -269,30 +269,45 @@
                 overflow: visible !important;
             }
             
-                    /* 인쇄 시 숨길 요소들 */
-        .no-print,
-        #calendar-file-input,
-        #calendar-week-select,
-        button[onclick*="generateCalendar"],
-        button[onclick*="printCalendar"],
-        button[onclick*="resetCalendar"] {
-            display: none !important;
-        }
-        
-        /* 주간 캘린더 헤더 숨김 */
-        h1.text-3xl.font-bold.text-slate-800.mb-6 {
-            display: none !important;
-        }
-        
-        /* 파일 업로드 및 주차 선택 섹션 숨김 */
-        .mb-4.flex.flex-wrap.gap-4.items-center {
-            display: none !important;
-        }
-        
-        /* 캘린더 플레이스홀더 숨김 */
-        #calendar-placeholder {
-            display: none !important;
-        }
+            /* 인쇄 시 숨길 요소들 */
+            .no-print,
+            #calendar-file-input,
+            #calendar-week-select,
+            button[onclick*="generateCalendar"],
+            button[onclick*="printCalendar"],
+            button[onclick*="resetCalendar"] {
+                display: none !important;
+            }
+            
+            /* 주간 캘린더 헤더 숨김 */
+            h1.text-3xl.font-bold.text-slate-800.mb-6 {
+                display: none !important;
+            }
+            
+            /* 파일 업로드 및 주차 선택 섹션 숨김 */
+            .mb-4.flex.flex-wrap.gap-4.items-center {
+                display: none !important;
+            }
+
+            /* 네비게이션 바 숨김 */
+            nav[role="navigation"],
+            .submenu,
+            .nav-item,
+            .sidebar-icon {
+                display: none !important;
+            }
+
+            /* 메인 영역은 전체 폭 사용 */
+            #main, #dashboard-view, #accounting-calendar-view {
+                margin: 0 !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+            
+            /* 캘린더 플레이스홀더 숨김 */
+            #calendar-placeholder {
+                display: none !important;
+            }
             
             /* 캘린더 제목 스타일 */
             .calendar-title {
@@ -342,13 +357,13 @@
                 table-layout: fixed !important;
             }
             
-                    /* 스크롤바 제거 */
-        * {
-            -webkit-print-color-adjust: exact !important;
-            color-adjust: exact !important;
-        }
-        
-                    /* 인쇄 시 테이블 최적화 */
+            /* 스크롤바 제거 */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            
+            /* 인쇄 시 테이블 최적화 */
             .calendar-table thead th {
                 background: #f3f4f6 !important;
                 font-weight: bold !important;
@@ -383,18 +398,19 @@
                 min-width: 0 !important;
             }
         
-        /* 인쇄 시 분할된 셀 스타일 */
-        .calendar-table .split-cell .top-content,
-        .calendar-table .split-cell .bottom-content {
-            background: transparent !important;
-            border: 1px solid #d1d5db !important;
-        }
-        /* 인쇄 시 병합된 셀 스타일 */
-        .calendar-table .merged-cell,
-        .calendar-table .merged-cell-vertical {
-            background: transparent !important;
-            border: 2px solid #000 !important;
-        }
+            /* 인쇄 시 분할된 셀 스타일 */
+            .calendar-table .split-cell .top-content,
+            .calendar-table .split-cell .bottom-content {
+                background: transparent !important;
+                border: 1px solid #d1d5db !important;
+            }
+            
+            /* 인쇄 시 병합된 셀 스타일 */
+            .calendar-table .merged-cell,
+            .calendar-table .merged-cell-vertical {
+                background: transparent !important;
+                border: 2px solid #000 !important;
+            }
         }
         
         /* 날짜 헤더 스타일 */
@@ -500,7 +516,6 @@
         @media (prefers-reduced-motion: reduce) {
             * { scroll-behavior:auto; transition:none !important; animation:none !important; }
         }
-
         // 엑셀 상단(1행 등)에서 날짜 구간을 추출해 주차 메타데이터 생성
         function extractCalendarMeta(rawData) {
             try {
@@ -736,86 +751,47 @@
                 <!-- 차트 섹션 -->
                 <div class="mt-8 grid grid-cols-1 xl:grid-cols-2 gap-6">
                     <div class="bg-white p-6 rounded-lg shadow-md" role="region" aria-labelledby="equipmentChartTitle">
-                        <h3 id="equipmentChartTitle" class="text-lg font-semibold text-slate-700">품목계열별 가동률</h3>
+                        <h3 id="equipmentChartTitle" class="text-lg font-semibold text-slate-700">품목계열별 현재 현황</h3>
+                        <div class="flex items-center justify-between mt-1">
+                            <div class="text-sm text-slate-500">장비 카테고리별 가동률 및 분포</div>
+                            <span id="equipment-chart-last-sync" class="text-xs text-slate-500">-</span>
+                        </div>
                         <div class="chart-container mt-4">
                             <canvas id="equipmentChart" role="img" aria-label="품목계열별 가동률 도넛 차트">그래프를 표시할 수 없는 환경입니다. 표를 참고하세요.</canvas>
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md" role="region" aria-labelledby="repairsChartTitle">
+                    
+                    <!-- 우측: 업체 최근 이동 로그 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md" role="region" aria-labelledby="vendorLogsTitle">
                         <div class="flex items-center justify-between">
-                            <h3 id="repairsChartTitle" class="text-lg font-semibold text-slate-700">수리업체별 수리 건수</h3>
-                            <div class="text-xs text-slate-500">상위 10개 업체</div>
+                            <h3 id="vendorLogsTitle" class="text-lg font-semibold text-slate-700">업체 최근 이동 로그</h3>
+                            <div class="flex items-center gap-2 text-sm">
+                                <label for="vendor-util-range" class="text-slate-600">가동률</label>
+                                <select id="vendor-util-range" class="px-2 py-1 border rounded">
+                                    <option value="lastYear" selected>최근 1년</option>
+                                    <option value="last6m">최근 6개월</option>
+                                    <option value="last3m">최근 3개월</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="chart-container mt-4">
-                            <canvas id="repairsChart" role="img" aria-label="수리업체별 수리 건수 막대 차트">그래프를 표시할 수 없는 환경입니다. 표를 참고하세요.</canvas>
-                        </div>
+                        <div id="vendor-logs" class="mt-4 max-h-[420px] overflow-y-auto divide-y"></div>
                     </div>
                 </div>
                 
                 <!-- 하단 섹션 -->
                 <div class="mt-8 grid grid-cols-1 xl:grid-cols-2 gap-6">
-                    <!-- 좌측: 차주 품목계열별 예상 가동 대수 -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold text-slate-700 mb-4">다음주 예상 가동률</h3>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm">
-                                <caption class="sr-only">다음주 예상 가동률 표</caption>
-                                <thead>
-                                    <tr class="border-b border-slate-200">
-                                        <th scope="col" class="text-left py-2">품목계열</th>
-                                        <th scope="col" class="text-center py-2">예상 가동 대수</th>
-                                        <th scope="col" class="text-center py-2">현재 청명 위치 대수</th>
-                                        <th scope="col" class="text-center py-2">가동률</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="next-week-uptime-body">
-                                    <!-- 데이터가 여기에 로드됩니다 -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    
-                    <!-- 우측: 알림 미조치 섹션 -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold text-slate-700 mb-4">알림 미조치 (건)</h3>
-                        
-                        <!-- 우선순위별 알림 카드 -->
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                            <div class="text-center p-4 bg-red-50 rounded-lg border border-red-200">
-                                <div class="text-2xl font-bold text-red-600" id="critical-alerts">1</div>
-                                <div class="text-sm text-red-600">긴급</div>
-                            </div>
-                            <div class="text-center p-4 bg-orange-50 rounded-lg border border-orange-200">
-                                <div class="text-2xl font-bold text-orange-600" id="high-alerts">2</div>
-                                <div class="text-sm text-orange-600">높음</div>
-                            </div>
-                            <div class="text-center p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-                                <div class="text-2xl font-bold text-yellow-600" id="medium-alerts">3</div>
-                                <div class="text-sm text-yellow-600">보통</div>
-                            </div>
-                            <div class="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
-                                <div class="text-2xl font-bold text-blue-600" id="low-alerts">1</div>
-                                <div class="text-sm text-blue-600">낮음</div>
+                    <!-- 좌측: 0월0주차 캘린더 (확장 필요 시 xl:col-span-2) -->
+                    <div class="bg-white p-6 rounded-lg shadow-md xl:col-span-2">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-lg font-semibold text-slate-700" id="dashboard-calendar-title">0월0주차 캘린더</h3>
+                            <div class="flex items-center gap-3">
+                                <label for="dashboard-calendar-select" class="text-sm text-slate-600">주차</label>
+                                <select id="dashboard-calendar-select" class="px-2 py-1 border rounded text-sm min-w-[140px]"></select>
+                                <span id="dashboard-calendar-last-sync" class="text-xs text-slate-500">-</span>
                             </div>
                         </div>
-                        
-                        <!-- 알림 상세 테이블 -->
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-sm">
-                                <caption class="sr-only">알림 미조치 목록</caption>
-                                <thead>
-                                    <tr class="border-b border-slate-200">
-                                        <th scope="col" class="text-left py-2">알림시간</th>
-                                        <th scope="col" class="text-left py-2">품목계열</th>
-                                        <th scope="col" class="text-left py-2">알림내용</th>
-                                        <th scope="col" class="text-center py-2">우선순위</th>
-                                        <th scope="col" class="text-center py-2">상태</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="alerts-body">
-                                    <!-- 알림 데이터가 여기에 로드됩니다 -->
-                                </tbody>
-                            </table>
+                        <div id="dashboard-calendar-embed" class="overflow-x-auto">
+                            <div class="text-slate-500 text-sm">저장된 캘린더를 불러오는 중...</div>
                         </div>
                     </div>
                 </div>
@@ -932,10 +908,10 @@
                                 <div class="space-y-3 max-h-96 overflow-y-auto">
                                         <div id="category-stats-container">
                                             <!-- 품목계열별 통계가 여기에 동적으로 생성됩니다 -->
-                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         
                         <!-- 우측: 장비 상세 정보 -->
                         <div class="space-y-6 md:col-span-8">
@@ -1243,7 +1219,7 @@
                                     <thead class="bg-slate-100">
                                         <tr>
                                             <th class="text-left p-2">카테고리</th>
-                                            <th class="text-left p-2">최근 1년 가동률 평균</th>
+                                            <th class="text-left p-2"><span id="topCategoriesUtilLabel">최근 1년</span> 가동률 평균</th>
                                             <th class="text-left p-2">건수</th>
                                             <th class="text-left p-2">총비용</th>
                                             <th class="text-left p-2">평균</th>
@@ -1278,7 +1254,7 @@
                                         <tr>
                                             <th class="text-left p-2">일련번호</th>
                                             <th class="text-left p-2">카테고리</th>
-                                            <th class="text-left p-2">최근 1년 가동률</th>
+                                            <th class="text-left p-2"><span id="topSerialsUtilLabel">최근 1년</span> 가동률</th>
                                             <th class="text-left p-2">건수</th>
                                             <th class="text-left p-2">총비용</th>
                                         </tr>
@@ -1313,8 +1289,8 @@
                                         <div id="edu-toggle-cat2" class="flex flex-wrap gap-2"></div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                                    </div>
+                                </div>
                         <div class="overflow-x-auto">
                             <table class="w-full text-sm">
                                 <thead class="bg-slate-100">
@@ -1349,8 +1325,8 @@
                         </div>
                         <div id="alerts-pane-longstay">
                             <p class="text-sm text-slate-600 mb-3">최근 이동일 기준 30일 이상 업체에 머문 장비</p>
-                            <div id="vendor-longstay-alerts" class="space-y-3"></div>
-                        </div>
+                        <div id="vendor-longstay-alerts" class="space-y-3"></div>
+                    </div>
                         <div id="alerts-pane-lowutil" class="hidden">
                             <div class="flex items-center gap-2 mb-3">
                                 <div id="lowutil-filters" class="flex flex-wrap gap-2"></div>
@@ -1375,6 +1351,15 @@
                             <div id="lowutil-alerts" class="space-y-3"></div>
                         </div>
                         <div id="alerts-pane-calibration" class="hidden">
+                            <div class="flex items-center gap-2 mb-3 text-sm">
+                                <label for="qc-range" class="text-slate-700">보기</label>
+                                <select id="qc-range" class="px-2 py-1 border rounded">
+                                    <option value="m9">9월</option>
+                                    <option value="m10">10월</option>
+                                    <option value="m11">11월</option>
+                                    <option value="m12">12월</option>
+                                </select>
+                            </div>
                             <div id="calibration-alerts" class="space-y-4 max-h-[60vh] overflow-y-auto"></div>
                         </div>
                     </div>
@@ -1527,11 +1512,14 @@
                                 </select>
                             </div>
                             <div class="flex gap-2 mt-6">
-                                <button onclick="generateCalendar()" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">
+                                <button id="calendar-generate-btn" onclick="generateCalendar()" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 pointer-events-auto relative z-10">
                                     캘린더 생성
                                 </button>
                                 <button onclick="downloadExcel()" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
                                     엑셀 다운로드
+                                </button>
+                                <button onclick="saveCalendarToDB()" class="px-4 py-2 bg-emerald-600 text-white rounded hover:bg-emerald-700">
+                                    저장
                                 </button>
                                 <button onclick="printCalendar()" class="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700">
                                     인쇄
@@ -1988,7 +1976,6 @@
                             </tbody>
                         </table>
                     </div>
-
                     <!-- 품목 리스트 테이블 (양식 본문) -->
                     <div class="mt-4">
                         <label class="block text-sm font-medium text-gray-700 mb-2">품목 리스트</label>
@@ -2322,7 +2309,6 @@
                 console.warn('수리 가시성 통계 로드 실패:', e);
             }
         }
-
         function renderRepairsMonthlyChart(rows) {
             const canvas = document.getElementById('repairsMonthlyChart');
             if (!canvas) return;
@@ -2342,7 +2328,6 @@
             table.appendChild(thead); table.appendChild(tbody);
             parent.replaceChild(table, canvas);
         }
-
         // 공용: 기간 선택(프리셋/커스텀)에서 Date 범위 가져오기
         function __getRangeFromControls(rangeId, fromId, toId) {
             const sel = document.getElementById(rangeId);
@@ -2380,7 +2365,7 @@
             // 호스트 컨테이너 확보: 최초 1회는 canvas를 컨테이너로 교체, 이후 재사용
             let host = document.getElementById('topCompaniesContainer');
             if (!host) {
-                const canvas = document.getElementById('topCompaniesByCostChart');
+            const canvas = document.getElementById('topCompaniesByCostChart');
                 if (!canvas || !canvas.parentElement) return;
                 host = document.createElement('div');
                 host.id = 'topCompaniesContainer';
@@ -2503,6 +2488,15 @@
             if (!tbody) return;
             // 기간 필터 적용
             const { from, to } = __getRangeFromControls('topCategoryRange','topCategoryFrom','topCategoryTo');
+            // 헤더 라벨 동기화
+            try {
+                const hdr = document.getElementById('topCategoriesUtilLabel');
+                const sel = document.getElementById('topCategoryRange');
+                if (hdr && sel) {
+                    const map = { all: '전체기간', '1y': '최근 1년', '6m': '최근 6개월', '3m': '최근 3개월', '1m': '최근 1개월', custom: '선택 기간' };
+                    hdr.textContent = map[sel.value] || '최근 1년';
+                }
+            } catch {}
             let source = items || [];
             if (from || to) {
                 try {
@@ -2525,14 +2519,22 @@
                 // 특정 행 숨김: 하이볼륨 유량계 본체 교체 / 부품교체
                 const name = String(row.category||'');
                 if (name.includes('하이볼륨 유량계 본체 교체') || name === '부품교체') return;
-                // 최근 1년 가동률 평균 계산: 해당 품목계열의 일련번호별 평균
+                // 기간 선택에 따른 가동률 평균 계산: 해당 품목계열의 일련번호별 평균
                 let avgPct = '-'; let cls = '';
                 try {
                     const cat = row.category || '';
                     const serials = Array.from(new Set((equipmentData||[]).filter(e => (e.category||'')===cat).map(e=>e.serial))).filter(Boolean);
+                    const rg = __getRangeFromControls('topCategoryRange','topCategoryFrom','topCategoryTo');
                     const pcts = serials.map(sn => {
                         const mv = (Array.isArray(window.movementsData)?window.movementsData:[]).filter(m => m.serial===sn && m.date).sort((a,b)=> new Date(a.date)-new Date(b.date));
-                        const u = (typeof calculateLastYearUtilization==='function')?calculateLastYearUtilization(sn, mv):{percent:0};
+                        let u = { percent: 0 };
+                        if (typeof calculateUtilizationBetween==='function' && (rg.from || rg.to)) {
+                            const f = rg.from || new Date('2023-01-01T00:00:00');
+                            const t = rg.to || new Date();
+                            u = calculateUtilizationBetween(sn, mv, f, t);
+                        } else if (typeof calculateLastYearUtilization==='function') {
+                            u = calculateLastYearUtilization(sn, mv);
+                        }
                         return Number(u.percent)||0;
                     }).filter(n=>Number.isFinite(n));
                     if (pcts.length) {
@@ -2557,13 +2559,21 @@
                 qBtn.addEventListener('click', () => renderTopCategoriesTable(items));
             }
         }
-
         async function renderTopSerialsTable(items) {
             const tbody = document.getElementById('topSerialsBody');
             if (!tbody) return;
             tbody.innerHTML = '';
             // 기간 필터 적용을 위해 수리 로그에서 직접 집계(가능 시)
             const { from, to } = __getRangeFromControls('topSerialRange','topSerialFrom','topSerialTo');
+            // 헤더 라벨 동기화
+            try {
+                const hdr = document.getElementById('topSerialsUtilLabel');
+                const sel = document.getElementById('topSerialRange');
+                if (hdr && sel) {
+                    const map = { all: '전체기간', '1y': '최근 1년', '6m': '최근 6개월', '3m': '최근 3개월', '1m': '최근 1개월', custom: '선택 기간' };
+                    hdr.textContent = map[sel.value] || '최근 1년';
+                }
+            } catch {}
             let sourceRows = (Array.isArray(__repairLogAllRows) && __repairLogAllRows.length) ? __repairLogAllRows : (window.repairsData || []);
             if (!sourceRows || !sourceRows.length) {
                 try {
@@ -2582,8 +2592,8 @@
             }
             if (!sourceRows.length && Array.isArray(items) && items.length) {
                 // 폴백: 사전 집계 데이터 사용(기간 미적용)
-                items.slice(0, 15).forEach(row => {
-                    const tr = document.createElement('tr');
+            items.slice(0, 15).forEach(row => {
+                const tr = document.createElement('tr');
                     tr.innerHTML = `<td class="p-2 font-medium">${row.serial}</td><td class="p-2">${row.category||'-'}</td><td class="p-2">-</td><td class="p-2">${(row.count||0).toLocaleString()}건</td><td class="p-2">${(row.totalCost||0).toLocaleString()}원</td>`;
                     tbody.appendChild(tr);
                 });
@@ -2603,7 +2613,18 @@
                 const mv = (Array.isArray(window.movementsData)?window.movementsData:[])
                     .filter(m => m.serial === row.serial && m.date)
                     .sort((a,b)=> new Date(a.date) - new Date(b.date));
-                const util = (typeof calculateLastYearUtilization === 'function') ? calculateLastYearUtilization(row.serial, mv) : { percent: 0, className: '' };
+                // 기간 선택 반영: topSerialRange 값에 맞춰 가동률 구간 계산
+                let util = { percent: 0, className: '' };
+                try {
+                    const rg = __getRangeFromControls('topSerialRange','topSerialFrom','topSerialTo');
+                    if ((rg.from || rg.to) && typeof calculateUtilizationBetween==='function') {
+                        const f = rg.from || new Date('2023-01-01T00:00:00');
+                        const t = rg.to || new Date();
+                        util = calculateUtilizationBetween(row.serial, mv, f, t);
+                    } else if (typeof calculateLastYearUtilization==='function') {
+                        util = calculateLastYearUtilization(row.serial, mv);
+                    }
+                } catch {}
                 tr.innerHTML = `
                     <td class="p-2 font-medium">${row.serial}</td>
                     <td class="p-2">${row.category||'-'}</td>
@@ -2617,7 +2638,7 @@
             if (qBtn && !qBtn.dataset.bound) {
                 qBtn.dataset.bound = '1';
                 qBtn.addEventListener('click', () => renderTopSerialsTable(items));
-            }
+        }
         }
         // ===== 수리 로그 로딩/필터/드래그 스크롤 =====
         let __repairLogAllRows = [];
@@ -2646,7 +2667,6 @@
                 if (tbody) tbody.innerHTML = '<tr><td colspan="9" class="p-4 text-center text-gray-500">수리 데이터가 없습니다</td></tr>';
             }
         }
-
         function buildRepairCategoryFilter(rows) {
             // 커스텀 드롭다운 데이터 렌더
             const cats = Array.from(new Set(rows.map(r => mapRepairCategoryForFilters(r)))).filter(Boolean).sort();
@@ -2902,7 +2922,6 @@
                 console.warn('카테고리 그리드 생성 실패:', e);
             }
         }
-
         async function showRepairCategoryDetail(category) {
             const title = document.getElementById('repair-category-title');
             const stats = document.getElementById('repair-category-stats');
@@ -3332,7 +3351,6 @@
             a.href = url; a.download = filename; a.click();
             URL.revokeObjectURL(url);
         }
-        
         // 대시보드 업데이트
         async function updateDashboard(data) {
             try {
@@ -3351,11 +3369,6 @@
                     const matchEl = document.getElementById('match-rate');
                     if (matchEl && typeof data.repairs_summary?.equipment_in_vendor === 'number') {
                         matchEl.textContent = `${data.repairs_summary.equipment_in_vendor} 대`;
-                    }
-                    // 확인 필요 알림(가능 시 서버 제공값)
-                    const pendingEl = document.getElementById('pending-alerts');
-                    if (pendingEl && typeof data.alerts_summary?.total_pending === 'number') {
-                        pendingEl.textContent = `${data.alerts_summary.total_pending} 건`;
                     }
                 }
             
@@ -3419,10 +3432,10 @@
                 let dataset = Array.isArray(window.equipmentData) && window.equipmentData.length
                     ? window.equipmentData
                     : (await (await safeFetch('db/equipment_db.json')).json());
-
+                
                 const getStatusRaw = (e) => (e && (e.status ?? e.상태)) || '';
                 const getLocationRaw = (e) => (e && (e.currentLocation || e.입고처 || e.현재위치)) || '';
-
+                
                 const totalEquipment = dataset.length;
                 const operatingEquipment = dataset.filter(e => normalizeStatus(getStatusRaw(e)) === '가동 중').length;
                 const uptimeRate = totalEquipment > 0 ? Math.round((operatingEquipment / totalEquipment) * 100) : 0;
@@ -3440,6 +3453,16 @@
                 if (matchEl) matchEl.textContent = `${companyRepairCount} 대`;
                 console.log('업체 수리중 장비 수:', companyRepairCount);
                 
+                // 동기화 타임스탬프(우측 상단 표시)
+                try {
+                    const el = document.getElementById('equipment-chart-last-sync');
+                    if (el) {
+                        const now = new Date();
+                        const ts = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+                        el.textContent = `최근 동기화: ${ts}`;
+                    }
+                } catch {}
+
                 console.log('대시보드 통계 업데이트 완료:', { totalEquipment, uptimeRate, companyRepairCount });
                 
             } catch (error) {
@@ -3462,50 +3485,45 @@
             }
             
             try {
-                // 최신 장비 DB에서 품목계열별 가동률 계산
-                const dataset = Array.isArray(window.equipmentData) && window.equipmentData.length
-                    ? window.equipmentData
-                    : (await (await safeFetch('db/equipment_db.json')).json());
-                
-                // 품목계열별 통계 계산
+                // 장비탭_현황탭의 "품목계열별 현재 현황"과 동일 데이터 사용
+                const useStats = (typeof getCategoryStatistics === 'function') ? getCategoryStatistics() : null;
+                let uptimeData;
+                if (useStats && Array.isArray(useStats) && useStats.length) {
+                    // getCategoryStatistics()는 총대수 내림차순으로 정렬된 {category,total,operating,repair,idle}
+                    uptimeData = useStats.map(stat => ({
+                        series: stat.category,
+                        uptime: stat.total > 0 ? Math.round((stat.operating / stat.total) * 100) : 0,
+                        total: stat.total,
+                        operating: stat.operating,
+                        repair: stat.repair,
+                        standby: stat.idle
+                    }));
+                } else {
+                    // 폴백: 기존 계산 로직 유지
+                    const dataset = Array.isArray(window.equipmentData) && window.equipmentData.length
+                        ? window.equipmentData
+                        : (await (await safeFetch('db/equipment_db.json')).json());
                 const productSeriesStats = {};
-                dataset.forEach(equipment => {
-                    const productSeries = equipment.category || '알 수 없음';
+                    dataset.forEach(equipment => {
+                        const productSeries = equipment.category || '알 수 없음';
                     if (!productSeriesStats[productSeries]) {
-                        productSeriesStats[productSeries] = {
-                            total: 0,
-                            operating: 0,
-                            repair: 0,
-                            standby: 0
-                        };
-                    }
-                    
+                            productSeriesStats[productSeries] = { total: 0, operating: 0, repair: 0, standby: 0 };
+                        }
                     productSeriesStats[productSeries].total++;
-                    
-                    // 상태별 분류 (표준화 기반)
-                    const statusNorm = normalizeStatus(equipment.status);
-                    if (statusNorm === '가동 중') {
-                        productSeriesStats[productSeries].operating++;
-                    } else if (statusNorm === '수리 중') {
-                        productSeriesStats[productSeries].repair++;
-                    } else {
-                        productSeriesStats[productSeries].standby++;
-                    }
-                });
-                
-                // 가동률 계산 및 상위 10개 선택
-                const uptimeData = Object.entries(productSeriesStats)
-                    .map(([series, stats]) => ({
+                        const statusNorm = normalizeStatus(equipment.status);
+                        if (statusNorm === '가동 중') productSeriesStats[productSeries].operating++;
+                        else if (statusNorm === '수리 중') productSeriesStats[productSeries].repair++;
+                        else productSeriesStats[productSeries].standby++;
+                    });
+                    uptimeData = Object.entries(productSeriesStats).map(([series, stats]) => ({
                         series,
                         uptime: stats.total > 0 ? Math.round((stats.operating / stats.total) * 100) : 0,
                         total: stats.total,
                         operating: stats.operating,
                         repair: stats.repair,
                         standby: stats.standby
-                    }))
-                    .filter(item => item.total >= 3) // 최소 3대 이상인 품목계열만
-                    .sort((a, b) => b.uptime - a.uptime)
-                    .slice(0, 10);
+                    }));
+                }
                 
                 // 차트 데이터 생성
                 const labels = uptimeData.map(item => item.series);
@@ -3597,6 +3615,11 @@
                     }
                 });
                 
+                // 마지막 동기화 시간 업데이트
+                const lastSyncEl = document.getElementById('equipment-chart-last-sync');
+                if (lastSyncEl) {
+                    lastSyncEl.textContent = new Date().toLocaleString('ko-KR');
+                }
             } catch (error) {
                 console.error('품목계열별 가동률 차트 생성 오류:', error);
                 // 오류 시 기본 차트 표시
@@ -3648,226 +3671,122 @@
         }
         // 수리업체별 수리 건수 차트
         async function createRepairsChart(data) {
-            const ctx = document.getElementById('repairsChart');
-            if (!ctx) return;
-            
-            // 기존 차트 제거
-            if (window.repairsChart && typeof window.repairsChart.destroy === 'function') {
-                window.repairsChart.destroy();
-            }
-            
-            try {
-                // repairs_db_clean.json에서 수리 데이터 로드
-                const repairsResponse = await safeFetch('db/repairs_db_clean.json');
-                if (repairsResponse.ok) {
-                    const repairsData = await repairsResponse.json();
-                    
-                    // 수리업체별 통계 계산 (건수 + 총 수리금액)
-            const companyStats = {};
-                    repairsData.forEach(repair => {
-                    const company = repair.repair_company || '알 수 없음';
-                        if (!companyStats[company]) {
-                            companyStats[company] = {
-                                count: 0,
-                                totalCost: 0
-                            };
-                        }
-                        companyStats[company].count++;
-                        companyStats[company].totalCost += repair.cost || 0;
-                    });
-                    
-                    // 상위 10개 수리업체만 표시 (건수 기준)
-                    const topCompanies = Object.entries(companyStats)
-                        .sort(([,a], [,b]) => b.count - a.count)
-                        .slice(0, 10);
-                    
-                    const chartLabels = topCompanies.map(([company]) => company);
-                    const chartData = topCompanies.map(([,stats]) => stats.count);
-                    const chartCosts = topCompanies.map(([,stats]) => stats.totalCost);
-                    
-                    console.log('수리업체별 통계:', topCompanies);
-                    console.log('차트 데이터:', { labels: chartLabels, data: chartData, costs: chartCosts });
-            
-            window.repairsChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                            labels: chartLabels,
-                    datasets: [{
-                        label: '수리 건수',
-                                data: chartData,
-                        backgroundColor: '#667eea',
-                        borderColor: '#5a6fd8',
-                                borderWidth: 1,
-                                borderRadius: 4
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            scales: {
-                                y: {
-                                    beginAtZero: true,
-                                    ticks: {
-                                        stepSize: 1
-                                    },
-                                    title: {
-                                        display: true,
-                                        text: '수리 건수'
-                                    }
-                                }
-                            },
-                            plugins: {
-                                legend: {
-                                    display: false
-                                },
-                                tooltip: {
-                                    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                                    titleColor: '#fff',
-                                    bodyColor: '#fff',
-                                    borderColor: '#667eea',
-                                    borderWidth: 1,
-                                    callbacks: {
-                                        title: function(context) {
-                                            return context[0].label;
-                                        },
-                                        label: function(context) {
-                                            const index = context.dataIndex;
-                                            const count = context.parsed.y;
-                                            const totalCost = chartCosts[index];
-                                            return [
-                                                `수리 건수: ${count}건`,
-                                                `총 수리금액: ${totalCost.toLocaleString()}원`
-                                            ];
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    });
-                } else {
-                    throw new Error(`수리 데이터 로드 실패: ${repairsResponse.status}`);
-                }
-            } catch (error) {
-                console.error('수리업체별 차트 생성 오류:', error);
-                // 오류 시 빈 차트 생성
-                window.repairsChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['데이터 없음'],
-                        datasets: [{
-                            label: '수리 건수',
-                            data: [0],
-                            backgroundColor: '#e5e7eb',
-                            borderColor: '#d1d5db',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    }
-                }
-            });
+            // 이 섹션은 업체 최근 이동 로그 리스트로 대체되었으므로 차트 생성 대신 리스트 렌더를 호출합니다.
+            try { renderVendorRecentLogs(); } catch (e) { console.error(e); }
+        }
+        function getUtilRangeDates(mode){
+            const now = new Date();
+            if (mode==='last3m') return { from: new Date(now.getFullYear(), now.getMonth()-3, now.getDate()), to: now };
+            if (mode==='last6m') return { from: new Date(now.getFullYear(), now.getMonth()-6, now.getDate()), to: now };
+            return { from: new Date(now.getFullYear()-1, now.getMonth(), now.getDate()), to: now };
+        }
+        function renderVendorRecentLogs(){
+            const wrap = document.getElementById('vendor-logs');
+            if (!wrap) return;
+            const rangeSel = document.getElementById('vendor-util-range');
+            const mode = rangeSel ? rangeSel.value : 'lastYear';
+            const { from, to } = getUtilRangeDates(mode);
+            const moves = (Array.isArray(window.movementsData)? window.movementsData : []);
+            // inLocation에 '업체' 포함된 최근 이동만, 날짜 내림차순
+            const vendorMoves = moves.filter(m=> ( (/업체/.test(String(m.inLocation||'')) || /업체/.test(String(m.outLocation||'')) ) && m.date))
+                .sort((a,b)=> new Date(b.date) - new Date(a.date))
+                .slice(0, 300);
+            // 각 항목에 가동률 계산
+            const rows = vendorMoves.map(m=>{
+                const serial = m.serial;
+                const mvAll = moves.filter(x=> x.serial===serial && x.date).sort((a,b)=> new Date(a.date)-new Date(b.date));
+                // util range에 맞는 가동률
+                const util = (function(){
+                    const toD = to;
+                    const fromD = from;
+                    try { return calculateUtilizationBetween(serial, mvAll, fromD, toD); } catch { return { percent: 0, className: '' }; }
+                })();
+                const utilText = `${util.percent||0}%`;
+                const utilClass = util.className||'';
+                const staffName = (typeof getMovementStaffName==='function' ? (getMovementStaffName(serial, m.date) || '-') : '-');
+                const onClick = `onclick=\"showEquipmentDetailModal('${serial}')\"`;
+                return `
+                <div class=\"py-3 flex items-center justify-between\"> 
+                    <div class=\"text-sm text-slate-700\">
+                        <div><span class=\"font-medium\">${m.date||''}</span> • ${m.outLocation||''} → ${m.inLocation||''}</div>
+                        <div class=\"text-slate-500\">시리얼: <button type=\"button\" class=\"underline text-indigo-700\" ${onClick}>${serial}</button></div>
+                    </div>
+                    <div class=\"flex-1 text-center\"> 
+                        <div class=\"text-xs text-slate-500\">담당자</div> 
+                        <div class=\"text-base font-medium text-slate-900\">${staffName}</div> 
+                    </div> 
+                    <div class=\"text-right\">
+                        <div class=\"text-xs text-slate-500\">가동률(${mode==='lastYear'?'1년':mode==='last6m'?'6개월':'3개월'})</div>
+                        <div class=\"text-lg font-semibold ${utilClass}\">${utilText}</div>
+                    </div>
+                </div>`;
+            }).join('');
+            wrap.innerHTML = rows || '<div class="p-4 text-slate-500">업체 관련 이동 로그가 없습니다.</div>';
+            // 바인딩: 범위 변경 시 재렌더
+            if (rangeSel && !rangeSel.dataset.bound){
+                rangeSel.dataset.bound='1';
+                rangeSel.addEventListener('change', renderVendorRecentLogs);
             }
         }
         // 다음주 예상 가동률 테이블 업데이트
         async function updateNextWeekUptimeTable() {
-            const tbody = document.getElementById('next-week-uptime-body');
-            if (!tbody) return;
-            
+            // 대시보드 캘린더 임베드로 변경
+            const host = location.origin;
+            const target = document.getElementById('dashboard-calendar-embed');
+            if (!target) return;
             try {
-                console.log('다음주 예상 가동률 데이터 로드 시작...');
-                const dataset2 = Array.isArray(window.equipmentData) && window.equipmentData.length
-                    ? window.equipmentData
-                    : (await (await safeFetch('db/equipment_db.json')).json());
-                console.log('장비 데이터 로드 성공:', dataset2.length, '건');
-                
-                // 품목계열별 통계 계산
-                const productSeriesStats = {};
-                dataset2.forEach(equipment => {
-                    const productSeries = equipment.category || '알 수 없음';
-                    if (!productSeriesStats[productSeries]) {
-                        productSeriesStats[productSeries] = {
-                            total: 0,
-                            operating: 0,
-                            repair: 0,
-                            standby: 0
-                        };
-                    }
-                    
-                    productSeriesStats[productSeries].total++;
-                    
-                    const statusNorm = normalizeStatus(equipment.status);
-                    if (statusNorm === '가동 중') {
-                        productSeriesStats[productSeries].operating++;
-                    } else if (statusNorm === '수리 중') {
-                        productSeriesStats[productSeries].repair++;
-                    } else {
-                        productSeriesStats[productSeries].standby++;
-                    }
-                });
-                
-                console.log('품목계열별 통계 계산 완료:', Object.keys(productSeriesStats).length, '개');
-                
-                // 다음주 예상 가동률 계산 (수리 완료 예정 장비 포함)
-                const nextWeekData = Object.entries(productSeriesStats)
-                    .map(([series, stats]) => {
-                        const currentOperating = stats.operating;
-                        const repairCompletion = Math.min(stats.repair, Math.floor(stats.repair * 0.3)); // 30% 수리 완료 예상
-                        const nextWeekOperating = currentOperating + repairCompletion;
-                        const uptime = stats.total > 0 ? Math.round((nextWeekOperating / stats.total) * 100) : 0;
-                        
-                        return {
-                            series,
-                            nextWeekOperating,
-                            currentCheongmyeong: stats.total,
-                            uptime
-                        };
-                    })
-                    .filter(item => item.currentCheongmyeong >= 3) // 최소 3대 이상인 품목계열만
-                    .sort((a, b) => b.uptime - a.uptime)
-                    .slice(0, 10);
-                
-                console.log('다음주 예상 가동률 데이터 생성 완료:', nextWeekData.length, '개');
-            
-            tbody.innerHTML = '';
-            
-                nextWeekData.forEach(item => {
-                    const row = document.createElement('tr');
-                    row.className = 'border-b border-slate-200';
-                row.innerHTML = `
-                        <td class="py-2 text-sm text-gray-900">${item.series}</td>
-                        <td class="py-2 text-sm text-center text-blue-600 font-medium">${item.nextWeekOperating}대</td>
-                        <td class="py-2 text-sm text-center text-gray-600">${item.currentCheongmyeong}대</td>
-                        <td class="py-2 text-sm text-center text-green-600 font-medium">${item.uptime}%</td>
-                    `;
-                    tbody.appendChild(row);
-                });
-                
-                console.log('다음주 예상 가동률 테이블 업데이트 완료');
-                
-            } catch (error) {
-                console.error('다음주 예상 가동률 테이블 업데이트 오류:', error);
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="4" class="py-4 text-center">
-                            <div class="text-gray-500 mb-2">데이터를 로드할 수 없습니다</div>
-                            <div class="text-xs text-gray-400">오류: ${error.message}</div>
-                            <button onclick="updateNextWeekUptimeTable()" class="mt-2 px-3 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200">
-                                다시 시도
-                            </button>
-                        </td>
-                    </tr>
-                `;
+                async function fetchCalendars(){
+                    try {
+                        const r = await fetch(host + '/api/calendar', { cache:'no-store' });
+                        const j = await r.json();
+                        if (j && j.ok && Array.isArray(j.items)) return j.items;
+                    } catch {}
+                    try {
+                        const r2 = await fetch('/db/calendar_schedules.json', { cache:'no-store' });
+                        const j2 = await r2.json();
+                        if (Array.isArray(j2)) return j2;
+                    } catch {}
+                    return [];
+                }
+                const itemsRaw = await fetchCalendars();
+                if (!itemsRaw.length){
+                    target.innerHTML = '<div class="p-4 text-slate-500">저장된 캘린더가 없습니다.</div>';
+                    return;
+                }
+                // 정렬 및 셀렉트 채우기
+                const items = itemsRaw.slice().sort((a,b)=> new Date(b.updatedAt||0) - new Date(a.updatedAt||0));
+                const sel = document.getElementById('dashboard-calendar-select');
+                if (sel){
+                    const currentVal = sel.value;
+                    sel.innerHTML = items.map(it => {
+                        const label = `${it.weekKey || it.title || it.id}`;
+                        return `<option value="${it.id}">${label}</option>`;
+                    }).join('');
+                    if (currentVal && items.find(it=> it.id===currentVal)) sel.value = currentVal; else sel.value = items[0].id;
+                }
+                function renderItem(item){
+                    const title = item.title || item.weekKey || '주차 캘린더';
+                    let html = item.html || '';
+                    html = html.replace(/id=\"calendar-table\"/g, 'id=\"dashboard-calendar-table\"');
+                    target.innerHTML = html || '<div class="p-4 text-slate-500">캘린더 내용이 비어 있습니다.</div>';
+                    const last = document.getElementById('dashboard-calendar-last-sync');
+                    if (last) last.textContent = '최근 저장: ' + (item.updatedAt ? item.updatedAt.replace('T',' ').slice(0,16) : '-');
+                    const h = target.closest('.bg-white')?.querySelector('h3');
+                    if (h) h.textContent = title || '0월0주차 캘린더';
+                }
+                const pick = items.find(it => it.id === (document.getElementById('dashboard-calendar-select')?.value)) || items[0];
+                renderItem(pick);
+                if (sel && !sel.dataset.bound){
+                    sel.dataset.bound = '1';
+                    sel.addEventListener('change', ()=>{
+                        const id = sel.value;
+                        const item = items.find(it => it.id===id);
+                        if (item) renderItem(item);
+                    });
+                }
+            } catch (e) {
+                console.error(e);
+                target.innerHTML = '<div class="p-4 text-red-600">캘린더 불러오기 실패</div>';
             }
         }
         // 최근 수리 기록 테이블 업데이트
@@ -3892,7 +3811,6 @@
                 `;
             });
         }
-        
         // 알림 테이블 업데이트
         async function updateAlertsTable() {
             try {
@@ -3989,7 +3907,6 @@
                 syncProgressText.textContent = Math.round(progress) + '%';
             }, 200);
         }
-        
         // 페이지 로드 시 대시보드 데이터 로드
         document.addEventListener('DOMContentLoaded', function() {
             console.log('페이지 로드 완료');
@@ -4259,7 +4176,12 @@
             // 주차 선택 옵션 업데이트
             updateWeekOptions();
         }
-        
+
+        // 안전장치: 버튼이 덮이는 경우를 대비해 강제 포인터 허용
+        try {
+            const btn = document.getElementById('calendar-generate-btn');
+            if (btn){ btn.style.pointerEvents = 'auto'; btn.style.position='relative'; btn.style.zIndex='10'; }
+        } catch {}
         // 엑셀 상단(1행 등)에서 날짜 구간을 추출해 주차 메타데이터 생성
         function extractCalendarMeta(rawData) {
             try {
@@ -4343,7 +4265,6 @@
                 return null;
             }
         }
-
         // 기간 문자열 파싱 (예: "25~27" -> [25, 26, 27])
         function parsePeriod(period) {
             if (!period) return [];
@@ -4391,7 +4312,6 @@
             const maxDay = Math.max(...days);
             return `${minDay}일~${maxDay}일`;
         }
-
         function getKoreanWeekday(year, month, day) {
             const names = ['일', '월', '화', '수', '목', '금', '토'];
             const d = new Date(year, month - 1, day);
@@ -4489,9 +4409,6 @@
             attendeeHeader.textContent = '담당자';
             attendeeHeader.className = 'attendee-header';
             headerRow.appendChild(attendeeHeader);
-            
-
-            
             // 날짜 헤더 (주중 5일만 표시)
             sortedDays.forEach(day => {
                 // 동적 요일 계산
@@ -4592,7 +4509,6 @@
                     });
                     
                     row.appendChild(attendeeCell);
-                    
                     // 날짜별 셀 생성 (자동 병합 로직 포함)
                     const dayCells = [];
                     sortedDays.forEach(day => {
@@ -4700,9 +4616,14 @@
             
             calendarTitle.textContent = `${selectedWeek} ${teamSummary} 일정`;
             
-            // 제목을 테이블 앞에 삽입
+            // 제목을 테이블 앞에 삽입 (테이블이 container의 직계 자식이 아닐 가능성 대비)
             const container = document.getElementById('calendar-container');
-            container.insertBefore(calendarTitle, table);
+            if (table.parentNode === container) {
+                container.insertBefore(calendarTitle, table);
+            } else {
+                // fallback: 컨테이너 맨 앞에 추가
+                container.prepend(calendarTitle);
+            }
             
             // 테이블 표시
             placeholder.style.display = 'none';
@@ -4934,7 +4855,6 @@
                     showToast('하나의 셀만 선택해주세요.');
                 }
             };
-            
             const unmergeBtn = document.createElement('button');
             unmergeBtn.textContent = '병합 해제';
             unmergeBtn.style.cssText = `
@@ -5169,63 +5089,6 @@
                 showToast('하나의 셀만 선택해주세요.');
             }
         }
-        
-        // 분할된 셀을 위한 컨트롤 패널 표시
-        function showSplitCellControls(cell) {
-            // 기존 컨트롤 패널 제거
-            hideSelectionControls();
-            
-            const rect = cell.getBoundingClientRect();
-            
-            const controlPanel = document.createElement('div');
-            controlPanel.className = 'split-cell-control-panel';
-            controlPanel.style.cssText = `
-                position: fixed;
-                top: ${rect.top - 50}px;
-                left: ${rect.left}px;
-                background: white;
-                border: 2px solid #10b981;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                z-index: 1000;
-                padding: 8px;
-                display: flex;
-                gap: 8px;
-                align-items: center;
-            `;
-            
-            const mergeSplitBtn = document.createElement('button');
-            mergeSplitBtn.textContent = '분할 셀 병합';
-            mergeSplitBtn.style.cssText = `
-                background: #10b981;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                padding: 4px 8px;
-                font-size: 12px;
-                cursor: pointer;
-            `;
-            mergeSplitBtn.onclick = () => mergeSplitCell(cell);
-            
-            const clearBtn = document.createElement('button');
-            clearBtn.textContent = '선택 해제';
-            clearBtn.style.cssText = `
-                background: #6b7280;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                padding: 4px 8px;
-                font-size: 12px;
-                cursor: pointer;
-            `;
-            clearBtn.onclick = clearCellSelection;
-            
-            controlPanel.appendChild(mergeSplitBtn);
-            controlPanel.appendChild(clearBtn);
-            
-            document.body.appendChild(controlPanel);
-        }
-        
         // 분할된 셀 병합
         function mergeSplitCell(cell) {
             if (!cell.classList.contains('split-cell')) {
@@ -5580,6 +5443,36 @@
             window.print();
         }
 
+        // 캘린더 저장 (백엔드로 업서트)
+        async function saveCalendarToDB() {
+            const table = document.getElementById('calendar-table');
+            if (!table || table.style.display === 'none' || !table.innerHTML.trim()) { alert('먼저 캘린더를 생성해주세요.'); return; }
+            const weekSel = document.getElementById('calendar-week-select');
+            // 주차 라벨은 드롭다운의 표시 텍스트를 그대로 사용(예: "9월 2주차")
+            const weekKey = weekSel && weekSel.selectedOptions && weekSel.selectedOptions[0]
+                ? weekSel.selectedOptions[0].textContent.trim()
+                : (weekSel && weekSel.value ? String(weekSel.value).trim() : (document.querySelector('.calendar-title')?.textContent || '').trim());
+            if (!weekKey) { alert('주차 정보를 확인할 수 없습니다.'); return; }
+            const title = document.querySelector('.calendar-title')?.textContent || '';
+            const html = table.outerHTML;
+            // 메타: 연/월/주차 파싱(예: 9월 2주차)
+            let monthNum = null, weekIndex = null;
+            try {
+                const m = weekKey.match(/(\d+)\s*월\s*(\d+)\s*주차/);
+                if (m) { monthNum = Number(m[1]); weekIndex = Number(m[2]); }
+            } catch {}
+            const now = new Date();
+            const payload = { weekKey, title, html, meta: { savedBy: 'local-user', savedAt: now.toISOString(), year: now.getFullYear(), month: monthNum, weekIndex } };
+            try {
+                const res = await fetch('/api/calendar/save', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(payload) });
+                const data = await res.json();
+                if (!data.ok) throw new Error(data.message||'save failed');
+                alert('캘린더가 저장되었습니다.');
+            } catch (e) {
+                console.error(e);
+                alert('저장 중 오류가 발생했습니다. 백엔드 서버가 실행 중인지 확인해주세요.');
+            }
+        }
         // 엑셀 다운로드
         function downloadExcel() {
             const table = document.getElementById('calendar-table');
