@@ -3742,7 +3742,7 @@
                         if (j && j.ok && Array.isArray(j.items)) return j.items;
                     } catch {}
                     try {
-                        const r2 = await fetch('./db/calendar_schedules.json', { cache:'no-store' });
+                        const r2 = await fetch('./db/calendar_schedules.json?v=' + Date.now(), { cache:'no-store' });
                         const j2 = await r2.json();
                         if (Array.isArray(j2)) return j2;
                     } catch {}
