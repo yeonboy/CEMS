@@ -679,7 +679,7 @@
                                     <option value="6m">최근 6개월</option>
                                     <option value="1y" selected>최근 1년</option>
                                 </select>
-                                <span id="equipment-chart-last-sync" class="text-xs text-slate-500">-</span>
+                            <span id="equipment-chart-last-sync" class="text-xs text-slate-500"></span>
                             </div>
                         </div>
                         <div class="text-sm text-slate-500 mt-1">장비 카테고리별 가동률 및 분포</div>
@@ -839,7 +839,7 @@
                                             <option value="6m">최근 6개월</option>
                                             <option value="1y" selected>최근 1년</option>
                                         </select>
-                                        <span id="status-last-sync" class="text-xs text-slate-500">-</span>
+                                        <span id="status-last-sync" class="text-xs text-slate-500"></span>
                                     </div>
                                 </div>
                                 <div class="space-y-3 max-h-96 overflow-y-auto">
@@ -3427,7 +3427,14 @@
                 const mode = sel ? sel.value : '1y';
                 const label = document.getElementById('series-period-label');
                 if (label) {
-                    label.textContent = '(' + (mode==='1m'?'최근 1달':mode==='3m'?'최근 3개월':mode==='6m'?'최근 6개월':'최근 1년') + ')';
+                    if (mode==='now') {
+                        const mv = Array.isArray(window.movementsData) ? window.movementsData : [];
+                        const dates = mv.map(m=> String(m?.date||'').slice(0,10)).filter(Boolean).sort();
+                        const last = dates[dates.length-1] || '';
+                        label.textContent = `(현재: ${last||'-'})`;
+                    } else {
+                        label.textContent = '(' + (mode==='1m'?'최근 1달':mode==='3m'?'최근 3개월':mode==='6m'?'최근 6개월':'최근 1년') + ')';
+                    }
                 }
                 let useStats = null;
                 if (typeof getCategoryStatisticsRange === 'function') {

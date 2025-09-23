@@ -643,7 +643,6 @@ function normalizeStatus(s) {
     if (t === '가동중' || t === '가동 중' || /RUN|Running/i.test(t)) return '가동 중';
     return '대기 중';
 }
-
 // KPI 요소 업데이트
 function updateKpiElement(id, value) {
     const element = document.getElementById(id);
@@ -2501,7 +2500,6 @@ function setupQuoteItemTableListeners() {
         setupQuoteRowListeners(row);
     });
 }
-
 // 견적서 행 이벤트 리스너 설정
 function setupQuoteRowListeners(row) {
     const inputs = row.querySelectorAll('input');
@@ -4527,7 +4525,16 @@ function renderCategoryStats() {
         const sel = document.getElementById('status-period-filter');
         if (sel) mode = sel.value || '1y';
         const label = document.getElementById('status-period-label');
-        if (label) label.textContent = '(' + (mode==='now'?'현재':mode==='1m'?'최근 1달':mode==='3m'?'최근 3개월':mode==='6m'?'최근 6개월':'최근 1년') + ')';
+        if (label) {
+            if (mode === 'now') {
+                const mv = Array.isArray(window.movementsData) ? window.movementsData : [];
+                const dates = mv.map(m=> String(m?.date||'').slice(0,10)).filter(Boolean).sort();
+                const last = dates[dates.length-1] || '';
+                label.textContent = `(현재: ${last||'-'})`;
+            } else {
+                label.textContent = '(' + (mode==='1m'?'최근 1달':mode==='3m'?'최근 3개월':mode==='6m'?'최근 6개월':'최근 1년') + ')';
+            }
+        }
         if (sel && !sel.dataset.bound) {
             sel.dataset.bound = '1';
             sel.addEventListener('change', ()=> { try { renderCategoryStats(); } catch(e){ console.error(e); } });
@@ -4959,7 +4966,6 @@ function showEquipmentDetailModal(serial) {
     modal.classList.remove('hidden');
     modal.classList.add('flex');
 }
-
 // 장비 상세 정보 모달 닫기
 function closeEquipmentDetailModal() {
     const modal = document.getElementById('equipment-detail-modal');
@@ -5610,7 +5616,6 @@ function formatDateYmd(dateLike) {
     const dd = String(d.getDate()).padStart(2, '0');
     return `${y}.${m}.${dd}`;
 }
-
 // 수리 레코드 → 파트 키(slug) 생성 (날짜/업체/설명 기반)
 function buildRepairKeyFromFields(dateLike, vendor, desc) {
     const d = formatDateYmd(dateLike) || '';
@@ -6247,7 +6252,6 @@ function renderRepairsPeriodChart(period = 'month', dimension = 'overall', opts 
         options: { responsive: true, maintainAspectRatio: false, scales: scalesConfig, plugins: pluginsConfig }
     });
 }
-
 function getMovementStaffName(serial, lastDateLike) {
     try {
         if (!Array.isArray(staffLogsData) || staffLogsData.length === 0) return null;
