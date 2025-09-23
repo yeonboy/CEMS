@@ -381,14 +381,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const miss = catSet.filter(c => !getManufacturerByCategory(c));
             if (miss.length) console.warn('제조사 미매핑 품목계열:', miss);
         } catch {}
-        // 장비 현황 섹션: 최근 동기화 시간 표기
+        // 장비 현황 섹션: 최근 동기화 텍스트 비표시(요청 반영)
         try {
             const el = document.getElementById('status-last-sync');
-            if (el) {
-                const now = new Date();
-                const ts = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-                el.textContent = `최근 동기화: ${ts}`;
-            }
+            if (el) { el.textContent = ''; }
         } catch {}
         // 주기별 수리 차트 초기 렌더 트리거
         setTimeout(() => {
