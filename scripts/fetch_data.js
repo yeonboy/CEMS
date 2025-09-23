@@ -4567,6 +4567,17 @@ function renderCategoryStats() {
         repair: repairEquipmentCount,
         idle: idleEquipmentCount
     };
+    // 기간 평균 요구사항: now 외 기간은 카테고리별 가동률(avgUptime 또는 대체값)의 단순 평균을 표시
+    if (mode !== 'now' && Array.isArray(categoryStats) && categoryStats.length) {
+        try {
+            const vals = categoryStats.map(stat => {
+                if (typeof stat.uptimeOverride === 'number') return stat.uptimeOverride;
+                return stat.total > 0 ? Math.round((stat.operating / stat.total) * 100) : 0;
+            });
+            const avg = Math.round(vals.reduce((a,b)=> a+b, 0) / vals.length);
+            overallStat.uptimeOverride = avg;
+        } catch {}
+    }
 
     const allStats = [overallStat, ...categoryStats];
 

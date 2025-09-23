@@ -3484,6 +3484,16 @@
                 // 차트 데이터 생성
                 const labels = uptimeData.map(item => item.series);
                 const uptimeValues = uptimeData.map(item => item.uptime);
+                // 기간 평균 요구사항: now 외 기간은 카테고리별 가동률의 단순 평균을 차트 상단 부제목으로 표시
+                try {
+                    const selNow = document.getElementById('series-period-filter');
+                    const modeNow = selNow ? selNow.value : '1y';
+                    const avgEl = document.getElementById('equipment-chart-last-sync');
+                    if (avgEl && modeNow !== 'now') {
+                        const avg = Math.round(uptimeValues.reduce((a,b)=>a+b,0) / (uptimeValues.length||1));
+                        avgEl.textContent = `평균 가동률: ${avg}%`;
+                    }
+                } catch {}
                 const totalValues = uptimeData.map(item => item.total);
                 
                 window.equipmentChart = new Chart(ctx, {
