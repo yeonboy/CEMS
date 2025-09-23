@@ -3671,7 +3671,15 @@
             const { from, to } = getUtilRangeDates(mode);
             const moves = (Array.isArray(window.movementsData)? window.movementsData : []);
             // inLocation에 '업체' 포함된 최근 이동만, 날짜 내림차순
-            const vendorMoves = moves.filter(m=> ( (/업체/.test(String(m.inLocation||'')) || /업체/.test(String(m.outLocation||'')) ) && m.date))
+            const isCmes = (s)=> /청명|본사|창고|CEMS|CMES/.test(String(s)) || /\?꾩옣/.test(String(s));
+            const isSite = (s)=> /현장|출장/.test(String(s)) || /泥\?챸/.test(String(s));
+            const isVendorLoc = (s)=> {
+                const str = String(s||'');
+                if (!str) return false;
+                if (/업체|외주|수리|협력/.test(str)) return true;
+                return !isCmes(str) && !isSite(str);
+            };
+            const vendorMoves = moves.filter(m=> ((isVendorLoc(m.inLocation) || isVendorLoc(m.outLocation)) && m.date))
                 .sort((a,b)=> new Date(b.date) - new Date(a.date))
                 .slice(0, 300);
             // 각 항목에 가동률 계산
