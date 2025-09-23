@@ -4605,6 +4605,7 @@ function renderCategoryStats() {
                 </div>
                 <div class="text-sm text-slate-500 mt-1">총 ${stat.total}대</div>
             </div>
+            ${ (mode !== 'now' && stat.category === '전체') ? '' : `
             <div class="grid grid-cols-3 gap-2 text-sm">
                 <div class="text-center">
                     <div class="text-green-600 font-semibold">${stat.operating}</div>
@@ -4618,7 +4619,7 @@ function renderCategoryStats() {
                     <div class="text-blue-600 font-semibold">${stat.idle}</div>
                     <div class="text-xs text-slate-500">대기중</div>
                 </div>
-            </div>
+            </div>`}
         </div>
     `).join('');
 }
