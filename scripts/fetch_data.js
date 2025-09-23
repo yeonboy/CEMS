@@ -4579,6 +4579,15 @@ function renderCategoryStats() {
             });
             const avg = Math.round(vals.reduce((a,b)=> a+b, 0) / vals.length);
             overallStat.uptimeOverride = avg;
+
+            // 하단 카운트(가동중/수리중/대기중)도 기간별 각 품목계열 값의 단순 평균으로 표시
+            const n = categoryStats.length;
+            const sumOperating = categoryStats.reduce((acc, s) => acc + (s.operating || 0), 0);
+            const sumRepair    = categoryStats.reduce((acc, s) => acc + (s.repair    || 0), 0);
+            const sumIdle      = categoryStats.reduce((acc, s) => acc + (s.idle      || 0), 0);
+            overallStat.operating = Math.round(sumOperating / n);
+            overallStat.repair    = Math.round(sumRepair    / n);
+            overallStat.idle      = Math.round(sumIdle      / n);
         } catch {}
     }
 
