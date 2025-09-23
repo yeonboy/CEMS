@@ -828,8 +828,17 @@
                             <!-- 품목계열별 통계 -->
                             <div class="bg-white p-6 rounded-lg shadow-md">
                                 <div class="flex items-center justify-between mb-4">
-                                    <h3 class="text-lg font-semibold text-slate-800">품목계열별 현재 현황</h3>
-                                    <span id="status-last-sync" class="text-xs text-slate-500">-</span>
+                                    <h3 class="text-lg font-semibold text-slate-800">품목계열별 현재 현황 <span id="status-period-label" class="text-sm text-slate-500 ml-2">(최근 1년)</span></h3>
+                                    <div class="flex items-center gap-2">
+                                        <label for="status-period-filter" class="text-sm text-slate-600">기간</label>
+                                        <select id="status-period-filter" class="px-2 py-1 border rounded">
+                                            <option value="1m">최근 1달</option>
+                                            <option value="3m">최근 3개월</option>
+                                            <option value="6m">최근 6개월</option>
+                                            <option value="1y" selected>최근 1년</option>
+                                        </select>
+                                        <span id="status-last-sync" class="text-xs text-slate-500">-</span>
+                                    </div>
                                 </div>
                                 <div class="space-y-3 max-h-96 overflow-y-auto">
                                         <div id="category-stats-container">

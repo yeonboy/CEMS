@@ -494,7 +494,6 @@ function splitCsvQuoted(line, delim) {
     out.push(cur);
     return out;
 }
-
 function cleanCsvCell(s) {
     let v = (s || '').replace(/\u0000/g,'').trim();
     // 양끝 큰따옴표 제거
@@ -991,7 +990,6 @@ function toggleSubmenu(menuId) {
         toggleIcon.classList.toggle('rotated');
     }
 }
-
 // 전역 함수 즉시 바인딩(안전망)
 try {
     if (typeof window !== 'undefined') {
@@ -2342,7 +2340,6 @@ function updateApprovalProgress(step) {
         }
     });
 }
-
 // 승인 단계 시뮬레이션 (테스트용)
 function simulateApproval() {
     const steps = ['담당자', '기술 책임자', '품질 책임자', '부사장', '사장'];
@@ -2843,7 +2840,6 @@ async function importPurchaseRequestData() {
         alert('데이터 가져오기 중 오류가 발생했습니다.');
     }
 }
-
 // 미리보기 관련 로직 제거 (규칙은 코드로만 반영하여 바로 적용)
 
 // 물품구매요구서 데이터로 견적서 채우기
@@ -3788,7 +3784,6 @@ function saveSupplierToDB(data) {
         console.error('공급업체 DB 저장 오류:', error);
     }
 }
-
 // 4. 제품 카탈로그 관리
 // ==========================================
 function createProductCatalog(productData) {
@@ -4288,7 +4283,6 @@ function showDetail(sn) {
 
     alert(`장비 상세 정보: ${sn}\n카테고리: ${item.category || item.품목계열 || '-'}\n상태: ${normalizeStatus(item.status || item.상태)}`);
 }
-
 // 장비 상태별 분포 데이터 계산
 function getEquipmentStatusDistribution() {
     const statusCount = {};
@@ -4537,7 +4531,39 @@ function renderCategoryStats() {
         return;
     }
     
-    const categoryStats = getCategoryStatistics();
+    // 기간 필터 반영(장비탭 현황 섹션)
+    let mode = '1y';
+    try {
+        const sel = document.getElementById('status-period-filter');
+        if (sel) mode = sel.value || '1y';
+        const label = document.getElementById('status-period-label');
+        if (label) label.textContent = '(' + (mode==='1m'?'최근 1달':mode==='3m'?'최근 3개월':mode==='6m'?'최근 6개월':'최근 1년') + ')';
+        if (sel && !sel.dataset.bound) {
+            sel.dataset.bound = '1';
+            sel.addEventListener('change', ()=> { try { renderCategoryStats(); } catch(e){ console.error(e); } });
+        }
+    } catch {}
+    
+    // 기간별 통계 계산 (폴백: 기존 로직)
+    let categoryStats;
+    try {
+        if (typeof getCategoryStatisticsRange === 'function') {
+            const ranged = getCategoryStatisticsRange(mode);
+            if (Array.isArray(ranged) && ranged.length) {
+                categoryStats = ranged.map(x=>({
+                    category: x.category,
+                    total: x.total,
+                    operating: x.operating,
+                    repair: x.repair,
+                    idle: x.idle,
+                    uptimeOverride: x.avgUptime
+                }));
+            }
+        }
+    } catch {}
+    if (!categoryStats) {
+        categoryStats = getCategoryStatistics();
+    }
 
     // 전체 집계 카드(최상단)
     const totalEquipmentCount = equipmentData.length;
@@ -4560,9 +4586,9 @@ function renderCategoryStats() {
             <div class="text-center mb-3">
                 <h4 class="font-medium text-slate-800">${stat.category}</h4>
                 <div class="text-2xl font-bold text-slate-900 mt-1 inline-block">
-                    <span class="mr-2 align-middle">현재 가동률</span>
-                    ${Math.round(stat.total ? (stat.operating / stat.total) * 100 : 0)}%
-                    <div class="mt-1 h-1.5 rounded ${ (stat.total ? Math.round((stat.operating / stat.total) * 100) : 0) < 20 ? 'bg-red-300' : 'bg-blue-300' }"></div>
+                    <span class="mr-2 align-middle">${mode==='1y'?'현재 가동률':'평균 가동률'}</span>
+                    ${typeof stat.uptimeOverride === 'number' ? stat.uptimeOverride : Math.round(stat.total ? (stat.operating / stat.total) * 100 : 0)}%
+                    <div class="mt-1 h-1.5 rounded ${ (typeof stat.uptimeOverride === 'number' ? stat.uptimeOverride : Math.round(stat.total ? (stat.operating / stat.total) * 100 : 0)) < 20 ? 'bg-red-300' : 'bg-blue-300' }"></div>
                 </div>
                 <div class="text-sm text-slate-500 mt-1">총 ${stat.total}대</div>
             </div>
@@ -4733,7 +4759,6 @@ function selectProductSeriesTab(series) {
     updateSeriesTabsActiveState();
     renderEquipmentTableBySeries([series]);
 }
-
 // 품목계열별 장비 테이블 렌더링
 function renderEquipmentTableBySeries(series) {
     const tableBody = document.getElementById('equipment-list-body');
@@ -5679,7 +5704,6 @@ function renderUtilizationDonutChart(canvasId, breakdown) {
         window._donutCharts[canvasId] = new Chart(el.getContext('2d'), { type: 'doughnut', data, options });
     } catch (e) { console.error(e); }
 }
-
 class CategoryPeriodCalculator {
     constructor(equipment, movements) {
         this.equipment = Array.isArray(equipment) ? equipment : [];
