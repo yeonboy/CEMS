@@ -669,15 +669,15 @@
                 <div class="mt-8 grid grid-cols-1 xl:grid-cols-2 gap-6">
                     <div class="bg-white p-6 rounded-lg shadow-md" role="region" aria-labelledby="equipmentChartTitle">
                         <div class="flex items-center justify-between">
-                            <h3 id="equipmentChartTitle" class="text-lg font-semibold text-slate-700">품목계열별 현재 현황 <span id="series-period-label" class="text-sm text-slate-500 ml-2">(최근 1년)</span></h3>
+                            <h3 id="equipmentChartTitle" class="text-lg font-semibold text-slate-700">품목계열별 현재 현황 <span id="series-period-label" class="text-sm text-slate-500 ml-2">(현재)</span></h3>
                             <div class="flex items-center gap-2">
                                 <label for="series-period-filter" class="text-sm text-slate-600">기간</label>
                                 <select id="series-period-filter" class="px-2 py-1 border rounded">
-                                    <option value="now">현재</option>
+                                    <option value="now" selected>현재</option>
                                     <option value="1m">최근 1달</option>
                                     <option value="3m">최근 3개월</option>
                                     <option value="6m">최근 6개월</option>
-                                    <option value="1y" selected>최근 1년</option>
+                                    <option value="1y">최근 1년</option>
                                 </select>
                             <span id="equipment-chart-last-sync" class="text-xs text-slate-500"></span>
                             </div>
@@ -829,15 +829,15 @@
                             <!-- 품목계열별 통계 -->
                             <div class="bg-white p-6 rounded-lg shadow-md">
                                 <div class="flex items-center justify-between mb-4">
-                                    <h3 class="text-lg font-semibold text-slate-800">품목계열별 현재 현황 <span id="status-period-label" class="text-sm text-slate-500 ml-2">(최근 1년)</span></h3>
+                                    <h3 class="text-lg font-semibold text-slate-800">품목계열별 현재 현황 <span id="status-period-label" class="text-sm text-slate-500 ml-2">(현재)</span></h3>
                                     <div class="flex items-center gap-2">
                                         <label for="status-period-filter" class="text-sm text-slate-600">기간</label>
                                         <select id="status-period-filter" class="px-2 py-1 border rounded">
-                                            <option value="now">현재</option>
+                                            <option value="now" selected>현재</option>
                                             <option value="1m">최근 1달</option>
                                             <option value="3m">최근 3개월</option>
                                             <option value="6m">최근 6개월</option>
-                                            <option value="1y" selected>최근 1년</option>
+                                            <option value="1y">최근 1년</option>
                                         </select>
                                         <span id="status-last-sync" class="text-xs text-slate-500"></span>
                                     </div>
@@ -3390,14 +3390,10 @@
                 if (matchEl) matchEl.textContent = `${companyRepairCount} 대`;
                 console.log('업체 수리중 장비 수:', companyRepairCount);
                 
-                // 동기화 타임스탬프(우측 상단 표시)
+                // 동기화 텍스트 출력 제거(요청 반영)
                 try {
                     const el = document.getElementById('equipment-chart-last-sync');
-                    if (el) {
-                        const now = new Date();
-                        const ts = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
-                        el.textContent = `최근 동기화: ${ts}`;
-                    }
+                    if (el) { el.textContent = ''; }
                 } catch {}
 
                 console.log('대시보드 통계 업데이트 완료:', { totalEquipment, uptimeRate, companyRepairCount });
