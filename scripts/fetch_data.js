@@ -689,7 +689,6 @@ function getStatusBadgeClass(status) {
             return 'bg-gray-100 text-gray-800';
     }
 }
-
 // 배열 병합 유틸: id 기준으로 중복 제거, 최신(updatedAt/createdAt) 우선
 function mergeById(primary, secondary) {
     const a = Array.isArray(primary) ? primary : [];
@@ -996,7 +995,6 @@ try {
         window.toggleSubmenu = toggleSubmenu;
     }
 } catch {}
-
 // 수리 테이블 렌더링
 function renderRepairTable() {
     const tableBody = document.getElementById('repair-table');
@@ -1336,7 +1334,6 @@ function showPurchaseRequestModal() {
         setupPurchaseRequestForm();
     }
 }
-
 // 구매요구서 모달 닫기
 function closePurchaseRequestModal() {
     const modal = document.getElementById('purchase-request-modal');
@@ -2007,7 +2004,6 @@ function generatePrintHTML(data) {
                     ${itemsHTML}
                 </tbody>
             </table>
-            
             <table class="summary-table">
                 <tbody>
                     <tr>
@@ -2354,7 +2350,6 @@ function simulateApproval() {
         }
     }, 2000);
 }
-
 // 견적 폼 표시
 function showQuoteForm() {
     // 현재 활성화된 뷰가 회계-견적서인지 확인
@@ -3020,7 +3015,6 @@ async function saveQuoteToDB(data) {
         // DB 저장 실패 시 로컬 스토리지만 사용
     }
 }
-
 // 견적서 인쇄
 function printQuote() {
     // 현재 폼 데이터 수집
@@ -3358,7 +3352,6 @@ async function renderPurchaseRequestTable() {
         `;
         return;
     }
-    
     // 최신 순으로 정렬
     purchaseRequests.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     
@@ -3698,7 +3691,6 @@ function saveOrderHistoryToDB(data) {
         console.error('주문 내역서 DB 저장 오류:', error);
     }
 }
-
 // 2. 주문 품목 상세 관리
 // ==========================================
 function createOrderItem(orderHistoryId, itemData) {
@@ -4029,7 +4021,6 @@ function renderOrderItemsTable() {
         `;
     });
 }
-
 // 3. 공급업체 테이블 렌더링
 function renderSuppliersTable() {
     const tbody = document.getElementById('suppliers-table');
@@ -4366,7 +4357,6 @@ function getCostTrendData() {
     
     return { labels: months, values };
 }
-
 // 기존 KPI 업데이트 함수 수정 (중복 제거)
 function updateKpis() {
     const totalEquipment = equipmentData.length;
@@ -4537,7 +4527,7 @@ function renderCategoryStats() {
         const sel = document.getElementById('status-period-filter');
         if (sel) mode = sel.value || '1y';
         const label = document.getElementById('status-period-label');
-        if (label) label.textContent = '(' + (mode==='1m'?'최근 1달':mode==='3m'?'최근 3개월':mode==='6m'?'최근 6개월':'최근 1년') + ')';
+        if (label) label.textContent = '(' + (mode==='now'?'현재':mode==='1m'?'최근 1달':mode==='3m'?'최근 3개월':mode==='6m'?'최근 6개월':'최근 1년') + ')';
         if (sel && !sel.dataset.bound) {
             sel.dataset.bound = '1';
             sel.addEventListener('change', ()=> { try { renderCategoryStats(); } catch(e){ console.error(e); } });
@@ -4556,7 +4546,7 @@ function renderCategoryStats() {
                     operating: x.operating,
                     repair: x.repair,
                     idle: x.idle,
-                    uptimeOverride: x.avgUptime
+                    uptimeOverride: (mode==='now' ? undefined : x.avgUptime)
                 }));
             }
         }
@@ -4586,7 +4576,7 @@ function renderCategoryStats() {
             <div class="text-center mb-3">
                 <h4 class="font-medium text-slate-800">${stat.category}</h4>
                 <div class="text-2xl font-bold text-slate-900 mt-1 inline-block">
-                    <span class="mr-2 align-middle">${mode==='1y'?'현재 가동률':'평균 가동률'}</span>
+                    <span class="mr-2 align-middle">${mode==='now'?'현재 가동률':'평균 가동률'}</span>
                     ${typeof stat.uptimeOverride === 'number' ? stat.uptimeOverride : Math.round(stat.total ? (stat.operating / stat.total) * 100 : 0)}%
                     <div class="mt-1 h-1.5 rounded ${ (typeof stat.uptimeOverride === 'number' ? stat.uptimeOverride : Math.round(stat.total ? (stat.operating / stat.total) * 100 : 0)) < 20 ? 'bg-red-300' : 'bg-blue-300' }"></div>
                 </div>
@@ -4671,7 +4661,6 @@ function renderEquipmentTable() {
     const selected = (__selectedSeries && __selectedSeries.size) ? Array.from(__selectedSeries) : '전체';
     renderEquipmentTableBySeries(selected);
 }
-
 // 품목계열별 탭 렌더링
 function renderProductSeriesTabs() {
     const tabsContainer = document.getElementById('product-series-tabs');
@@ -5004,7 +4993,6 @@ function renderCalibrationAlerts() {
     const count = monthItems.length;
     const btnId = 'qc-month-toggle';
     const panelId = 'qc-month-details';
-
     // 상세 알림 카드 HTML (최근 1년 가동률 + 상세보기 연동)
     const detailHtml = monthItems.map(log => {
         const nextDate = new Date(log.next_calibration_date);
@@ -5304,7 +5292,6 @@ function showEquipmentDetailModal(serial) {
       ? `<button type="button" class="w-full text-left px-3 py-1.5 bg-indigo-50 font-semibold" data-serial="${sn}">${sn} (현재)</button>`
       : `<button type="button" class="w-full text-left px-3 py-1.5 hover:bg-slate-50" data-serial="${sn}">${sn}</button>`
     ).join('');
-
     const content = `
       <div class="w-full max-w-none bg-white rounded-lg shadow-xl overflow-y-auto"
            style="width: calc(100vw - var(--sidebar-w, 5rem)); height: calc(100vh - 2rem);">
@@ -5650,7 +5637,6 @@ function calculateUtilizationBetween(serial, movements, from, to) {
     const ratio = totalBiz > 0 ? Math.round((siteBiz / totalBiz) * 100) : 0;
     return { percent: ratio, className: ratio >= 60 ? 'text-green-600' : ratio >= 30 ? 'text-orange-600' : 'text-red-600' };
 }
-
 // 최근 1년 가동 현황(청명/업체/현장) 비율 계산
 function calculateLastYearBreakdown(serial, movements) {
     const to = new Date();
@@ -5771,6 +5757,7 @@ class CategoryPeriodCalculator {
 
 function getCategoryStatisticsRange(mode) {
     try {
+        if (mode === 'now') return getCategoryStatistics();
         const svc = new CategoryPeriodCalculator(equipmentData, movementsData);
         return svc.computeForMode(mode || '1y');
     } catch { return getCategoryStatistics(); }
@@ -5981,7 +5968,6 @@ function renderMovementTimelineRange(serial, movementsAsc, repairsAsc, from, to)
         ${monthTicks.join('')}
       </div>`;
 }
-
 // 교체 부품/수리 항목 요약 (가용 데이터 기반)
 function renderReplacedParts(serial, repairsAsc) {
     const rows = (repairsAsc || []).map(r => {
