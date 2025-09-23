@@ -5680,6 +5680,78 @@ function renderUtilizationDonutChart(canvasId, breakdown) {
     } catch (e) { console.error(e); }
 }
 
+class CategoryPeriodCalculator {
+    constructor(equipment, movements) {
+        this.equipment = Array.isArray(equipment) ? equipment : [];
+        this.movements = Array.isArray(movements) ? movements : [];
+        this.serialToMoves = new Map();
+        this._buildIndex();
+    }
+    _buildIndex() {
+        try {
+            for (const m of this.movements) {
+                if (!m || !m.serial || !m.date) continue;
+                const s = m.serial;
+                if (!this.serialToMoves.has(s)) this.serialToMoves.set(s, []);
+                this.serialToMoves.get(s).push(m);
+            }
+            for (const [s, list] of this.serialToMoves) list.sort((a,b)=> new Date(a.date) - new Date(b.date));
+        } catch {}
+    }
+    getRange(mode) {
+        const now = new Date();
+        if (mode === '1m') return { from: new Date(now.getFullYear(), now.getMonth()-1, now.getDate()), to: now };
+        if (mode === '3m') return { from: new Date(now.getFullYear(), now.getMonth()-3, now.getDate()), to: now };
+        if (mode === '6m') return { from: new Date(now.getFullYear(), now.getMonth()-6, now.getDate()), to: now };
+        return { from: new Date(now.getFullYear()-1, now.getMonth(), now.getDate()), to: now };
+    }
+    compute(from, to) {
+        const categoryMap = new Map();
+        const getCatEntry = (cat)=>{
+            if (!categoryMap.has(cat)) categoryMap.set(cat, { category: cat, total: 0, operating: 0, repair: 0, idle: 0, _uptimeSum: 0, _uptimeCnt: 0 });
+            return categoryMap.get(cat);
+        };
+        for (const eq of this.equipment) {
+            const cat = eq?.category || '기타';
+            const entry = getCatEntry(cat);
+            entry.total += 1;
+            const serial = eq?.serial;
+            const mv = (this.serialToMoves.get(serial) || []);
+            let up = { percent: 0, className: '' };
+            let br = { totalBiz: 0, siteBiz: 0, vendorBiz: 0, cmesBiz: 0 };
+            try { up = calculateUtilizationBetween(serial, mv, from, to) || up; } catch {}
+            try { br = calculateBreakdownBetween(serial, mv, from, to) || br; } catch {}
+            entry._uptimeSum += up.percent || 0;
+            entry._uptimeCnt += 1;
+            const dom = Math.max(br.siteBiz||0, br.vendorBiz||0, br.cmesBiz||0);
+            if (dom === (br.siteBiz||0)) entry.operating += 1;
+            else if (dom === (br.vendorBiz||0)) entry.repair += 1;
+            else entry.idle += 1;
+        }
+        const out = Array.from(categoryMap.values()).map(v => ({
+            category: v.category,
+            total: v.total,
+            operating: v.operating,
+            repair: v.repair,
+            idle: v.idle,
+            avgUptime: v._uptimeCnt ? Math.round(v._uptimeSum / v._uptimeCnt) : 0
+        }));
+        out.sort((a,b)=> b.total - a.total);
+        return out;
+    }
+    computeForMode(mode) {
+        const { from, to } = this.getRange(mode);
+        return this.compute(from, to);
+    }
+}
+
+function getCategoryStatisticsRange(mode) {
+    try {
+        const svc = new CategoryPeriodCalculator(equipmentData, movementsData);
+        return svc.computeForMode(mode || '1y');
+    } catch { return getCategoryStatistics(); }
+}
+
 function countBusinessDays(start, end) {
     const s = new Date(start.getFullYear(), start.getMonth(), start.getDate());
     const e = new Date(end.getFullYear(), end.getMonth(), end.getDate());
