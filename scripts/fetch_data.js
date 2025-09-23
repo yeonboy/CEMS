@@ -213,8 +213,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .catch(() => []);
 
     // 추가: 최신 이동 CSV에도 '담당자명'이 포함되어 있어 병합 반영
-    const staffLogsPromise2 = fetch('./청명장비 엑셀/8.29~9.15movements_logs.csv', { cache: 'no-store' })
-        .then(r => r.ok ? r.arrayBuffer() : Promise.reject())
+    const staffLogsPromise2 = fetch('./청명장비 엑셀/8.29~9.23movements_logs.csv', { cache: 'no-store' })
+        .then(r => r.ok
+            ? r.arrayBuffer()
+            : fetch('./청명장비 엑셀/8.29~9.15movements_logs.csv', { cache: 'no-store' }).then(r2 => r2.ok ? r2.arrayBuffer() : Promise.reject())
+        )
         .then(buf => {
             try { return new TextDecoder('euc-kr').decode(buf); } catch (e) {}
             try { return new TextDecoder('utf-8').decode(buf); } catch (e) {}
