@@ -5235,18 +5235,25 @@ function enrichEquipmentData(equipmentData, movementsData) {
         }
     });
 
+    function statusFromLocationName(loc){
+        const t = String(loc||'');
+        if (/업체|수리|협력|외주/.test(t)) return '수리 중';
+        if (/현장|출장/.test(t)) return '가동 중';
+        if (/청명|본사|창고|지하|CEMS|CMES/.test(t)) return '대기 중';
+        return '대기 중';
+    }
+
     // 장비 데이터에 현재위치 보정 적용
     return equipmentData.map(equipment => {
-        if (!equipment.currentLocation || equipment.currentLocation === '본사 창고') {
-            const latestMovement = latestMovements.get(equipment.serial);
-            if (latestMovement) {
-                // 최신 이동 기록에서 현재위치 추정
-                if (latestMovement.inLocation && latestMovement.inLocation !== '') {
-                    equipment.currentLocation = latestMovement.inLocation;
-                } else if (latestMovement.outLocation && latestMovement.outLocation !== '') {
-                    equipment.currentLocation = latestMovement.outLocation;
-                }
-            }
+        const latestMovement = latestMovements.get(equipment.serial);
+        if (latestMovement) {
+            // 최신 이동을 기준으로 항상 현재 위치/최근 이동/상태를 갱신
+            const nextLoc = (latestMovement.inLocation && latestMovement.inLocation !== '')
+                ? latestMovement.inLocation
+                : (latestMovement.outLocation || equipment.currentLocation);
+            if (nextLoc) equipment.currentLocation = nextLoc;
+            if (latestMovement.date) equipment.lastMovement = latestMovement.date;
+            equipment.status = statusFromLocationName(nextLoc);
         }
         return equipment;
     });
