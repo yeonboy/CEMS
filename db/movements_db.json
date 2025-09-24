@@ -170498,5 +170498,25 @@
     "quantity": 1,
     "note": "",
     "status": ""
+  },
+  {
+    "date": "2025-09-05",
+    "outLocation": "업체",
+    "inLocation": "청명지하",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "TA3376",
+    "quantity": 1,
+    "note": "불용",
+    "status": "불용"
+  },
+  {
+    "date": "2025-09-05",
+    "outLocation": "업체",
+    "inLocation": "청명지하",
+    "equipmentName": "(Pb) T8400ME",
+    "serial": "TA3696",
+    "quantity": 1,
+    "note": "불용",
+    "status": "불용"
   }
 ]
