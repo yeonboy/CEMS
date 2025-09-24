@@ -158,7 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mode === 'api' && window.BackendApiClient) {
             dc = new window.BackendApiClient({ baseUrl: window.APP_CONFIG.apiBaseUrl, token: window.APP_CONFIG.apiToken, fetchImpl: fetch });
         } else if (window.DataClient) {
-            dc = new window.DataClient({ basePath: './db', fetch });
+            // GH Pages 캐시 무효화를 위해 쿼리스트링 추가
+            dc = new window.DataClient({ basePath: './db', fetch, cacheBust: `v=${Date.now()}` });
         }
     }
 
@@ -181,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const movementsPromise = dc
         ? dc.getMovements()
-        : fetch('./db/movements_db.json', { cache: 'no-store' })
+        : fetch(`./db/movements_db.json?v=${Date.now()}`, { cache: 'no-store' })
             .then(r => r.ok ? r.json() : [])
             .catch(() => []);
 

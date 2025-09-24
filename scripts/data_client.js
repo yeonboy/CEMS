@@ -4,10 +4,18 @@
 export class DataClient {
   constructor(options = {}) {
     this.basePath = options.basePath || '/db';
+    this.cacheBust = options.cacheBust || `v=${Date.now()}`;
+  }
+
+  _withBust(url){
+    try {
+      const hasQuery = url.includes('?');
+      return `${url}${hasQuery ? '&' : '?'}${this.cacheBust}`;
+    } catch { return url; }
   }
 
   async _json(url) {
-    const res = await globalThis.fetch(url, { cache: 'no-store' });
+    const res = await globalThis.fetch(this._withBust(url), { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
     return res.json();
   }
