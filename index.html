@@ -4297,10 +4297,35 @@
             return days.sort((a, b) => a - b);
         }
 
-        // 주차 정보 생성 (엑셀 메타가 있으면 우선 사용)
+        // 주차 정보 생성
         function getWeekInfo(days) {
-            if (calendarMeta && calendarMeta.weekLabel) return calendarMeta.weekLabel;
             if (!days || days.length === 0) return '';
+            // 메타에 year/month가 있으면, 각 행의 최소 날짜 기준으로 실제 주차를 계산
+            if (calendarMeta && calendarMeta.year && calendarMeta.month) {
+                try {
+                    const year = Number(calendarMeta.year);
+                    const month = Number(calendarMeta.month); // 1-12
+                    const minDay = Math.min(...days);
+                    const baseDate = new Date(year, month - 1, minDay);
+                    // 해당 날짜의 월요일
+                    const monday = new Date(baseDate);
+                    const diffToMonday = (monday.getDay() + 6) % 7; // 월요일 기준 0
+                    monday.setDate(monday.getDate() - diffToMonday);
+                    // 그 달의 첫 월요일
+                    const firstOfMonth = new Date(monday.getFullYear(), monday.getMonth(), 1);
+                    const firstDow = firstOfMonth.getDay();
+                    const firstMonday = new Date(firstOfMonth);
+                    const offset = (8 - firstDow) % 7; // 첫 월요일까지 이동
+                    firstMonday.setDate(1 + offset);
+                    let weekIndex = 1;
+                    if (monday >= firstMonday) {
+                        const diffDays = Math.floor((monday - firstMonday) / (1000 * 60 * 60 * 24));
+                        weekIndex = Math.floor(diffDays / 7) + 1;
+                    }
+                    return `${month}월 ${weekIndex}주차`;
+                } catch {}
+            }
+            // 폴백: 범위 표기
             const minDay = Math.min(...days);
             const maxDay = Math.max(...days);
             return `${minDay}일~${maxDay}일`;
@@ -4361,29 +4386,38 @@
             table.innerHTML = '';
             table.className = 'calendar-table w-full border-collapse border border-gray-300';
             
-            // 날짜 범위 계산 - 선택된 주차에 따라 동적 계산
+            // 날짜 범위 계산 - 선택된 주차의 데이터로부터 직접 계산
             let sortedDays;
-            const weekSelection = document.getElementById('calendar-week-select').value;
-            
-            if (calendarMeta && Array.isArray(calendarMeta.numericDays) && calendarMeta.numericDays.length > 0) {
-                sortedDays = calendarMeta.numericDays.slice();
-            } else {
-                // 폴백: 데이터 내 날짜를 모아 상위 5개 사용
+            {
                 const unique = new Set();
                 data.forEach(item => (item.days || []).forEach(d => unique.add(d)));
                 sortedDays = Array.from(unique).sort((a, b) => a - b).slice(0, 5);
+                // 데이터에 일자가 전혀 없으면 마지막 폴백으로 메타 사용
+                if ((!sortedDays || sortedDays.length === 0) && calendarMeta && Array.isArray(calendarMeta.numericDays) && calendarMeta.numericDays.length > 0) {
+                    sortedDays = calendarMeta.numericDays.slice();
+                }
             }
             
-            // 팀별 데이터 그룹화
+            // 팀별 데이터 그룹화 (담당자 이름 순서 무시, 정렬 키로 병합)
+            function normalizeAttendeeKey(name) {
+                return String(name || '')
+                    .split(',')
+                    .map(s => s.trim())
+                    .filter(Boolean)
+                    .sort((a, b) => a.localeCompare(b))
+                    .join(', ');
+            }
             const teamGroups = {};
             data.forEach(item => {
-                if (!teamGroups[item.team]) {
-                    teamGroups[item.team] = {};
+                const teamName = item.team || '';
+                const key = normalizeAttendeeKey(item.attendee);
+                if (!teamGroups[teamName]) {
+                    teamGroups[teamName] = {};
                 }
-                if (!teamGroups[item.team][item.attendee]) {
-                    teamGroups[item.team][item.attendee] = [];
+                if (!teamGroups[teamName][key]) {
+                    teamGroups[teamName][key] = [];
                 }
-                teamGroups[item.team][item.attendee].push(item);
+                teamGroups[teamName][key].push(item);
             });
 
             // 헤더 생성
