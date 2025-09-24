@@ -1422,9 +1422,9 @@
   {
     "serial": "TA3376",
     "category": "(Pb) T8400ME",
-    "currentLocation": "업체",
-    "status": "수리중",
-    "lastMovement": "2025-07-29",
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-05",
     "uptimeEstimatePct": 100,
     "repairCount": 0,
     "totalRepairCost": 0
@@ -1532,9 +1532,9 @@
   {
     "serial": "TA3696",
     "category": "(Pb) T8400ME",
-    "currentLocation": "업체",
-    "status": "수리중",
-    "lastMovement": "2025-07-29",
+    "currentLocation": "본사 창고",
+    "status": "대기 중",
+    "lastMovement": "2025-09-05",
     "uptimeEstimatePct": 100,
     "repairCount": 2,
     "totalRepairCost": 300000
