@@ -3368,7 +3368,23 @@
                 // 데이터 소스: 전역 equipmentData가 있으면 우선 사용, 없으면 표준 DB 사용
                 let dataset = Array.isArray(window.equipmentData) && window.equipmentData.length
                     ? window.equipmentData
-                    : (await (await safeFetch('db/equipment_db.json')).json());
+                    : (await (await safeFetch('db/equipment_db.json'))
+                        .json());
+                // 강제 최신화: GH Pages 캐시로 인해 오래된 movements가 반영될 수 있어, 전역 movementsData가 비어있거나 오래된 경우 강제 로드
+                try {
+                    const mv = Array.isArray(window.movementsData) ? window.movementsData : [];
+                    const newest = mv.map(m=> String(m?.date||'').slice(0,10)).filter(Boolean).sort().pop();
+                    if (!newest) {
+                        const r = await fetch('./db/movements_db.json?v=' + Date.now(), { cache:'no-store' });
+                        if (r.ok) {
+                            window.movementsData = await r.json();
+                            console.log('대시보드: movements 강제 로드 완료', window.movementsData.length);
+                            if (Array.isArray(dataset) && dataset.length) {
+                                dataset = enrichEquipmentData(dataset, window.movementsData);
+                            }
+                        }
+                    }
+                } catch {}
                 
                 const getStatusRaw = (e) => (e && (e.status ?? e.상태)) || '';
                 const getLocationRaw = (e) => (e && (e.currentLocation || e.입고처 || e.현재위치)) || '';

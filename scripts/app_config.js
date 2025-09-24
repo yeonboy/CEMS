@@ -25,7 +25,15 @@
   }
 
   const q = pickQuery();
-  const dataSource = ((q.DATA_SOURCE || localStorage.getItem('DATA_SOURCE') || 'local') + '').toLowerCase();
+  const host = (typeof location !== 'undefined' ? location.hostname : '');
+  const isLocalHost = /^(localhost|127\.|::1)/.test(host || '');
+  const isGhPages = /github\.io$/.test(host || '');
+  let dataSource = ((q.DATA_SOURCE || localStorage.getItem('DATA_SOURCE') || 'local') + '').toLowerCase();
+  // 안전장치: GH Pages 등 외부 호스트에서는 기본적으로 local 모드 강제(쿼리로 api 요청한 경우만 예외)
+  if (!isLocalHost && isGhPages && !q.DATA_SOURCE) {
+    dataSource = 'local';
+    try { localStorage.setItem('DATA_SOURCE', 'local'); } catch {}
+  }
   const apiBaseUrl = q.API_BASE_URL || localStorage.getItem('API_BASE_URL') || 'http://localhost:5173';
   const apiToken = q.API_TOKEN || localStorage.getItem('API_TOKEN') || '';
   const cfg = { dataSource, apiBaseUrl, apiToken };
