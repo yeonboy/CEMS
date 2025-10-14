@@ -3,7 +3,7 @@
 
 export class DataClient {
   constructor(options = {}) {
-    this.basePath = options.basePath || '/db';
+    this.basePath = options.basePath || './db';
     this.cacheBust = options.cacheBust || `v=${Date.now()}`;
   }
 
