@@ -1,0 +1,5352 @@
+{
+  "meta": {
+    "_schemaVersion": "1.0.0",
+    "generatedAt": "2025-09-29T08:55:56.150Z",
+    "sourceFile": "청명장비 엑셀\\계약정리.csv",
+    "quarter": {
+      "from": "2025-10-01",
+      "to": "2025-12-31"
+    }
+  },
+  "data": [
+    {
+      "projectId": "row-4",
+      "projectName": "망포역세권 복합개발사업 사후환경영향조사",
+      "client": "㈜KG엔지니어링종합건축사사무소",
+      "period": {
+        "from": "2025-08-01",
+        "to": "2031-05-11"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.09~2029.02 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2030.03~2031.02"
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 4
+      }
+    },
+    {
+      "projectId": "row-5",
+      "projectName": "화성태안(3) 택지개발사업지구 사후환경영향조사 용역",
+      "client": "㈜KG엔지니어링종합건축사사무소",
+      "period": {
+        "from": "2007-03-29",
+        "to": "2029-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.01~2026.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.11~2026.02(월1회)"
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 8,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 5
+      }
+    },
+    {
+      "projectId": "row-6",
+      "projectName": "P시설 건설사업 사후환경영향조사용역 중 환경질 조사",
+      "client": "㈜KG엔지니어링종합건축사사무소",
+      "period": {
+        "from": "2025-05-26",
+        "to": "2027-06-30"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.05~2027.06 (분기 1회)"
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM-2.5",
+            "NO2",
+            "SO2",
+            "CO"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 6
+      }
+    },
+    {
+      "projectId": "row-7",
+      "projectName": "소양강댐 호수둘레길 조성사업 소규모환경영향평가 용역 중 환경질조사",
+      "client": "강원길엔지니어링(주)",
+      "period": {
+        "from": "2025-08-25",
+        "to": "2025-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.08~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 7
+      }
+    },
+    {
+      "projectId": "row-8",
+      "projectName": "지방도 494호선 시동지구 도로재구조화 사업 소규모환경영향 평가용역 중 환경질 조사",
+      "client": "강원길엔지니어링(주)",
+      "period": {
+        "from": "2025-04-25",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.04~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 8
+      }
+    },
+    {
+      "projectId": "row-9",
+      "projectName": "하남감일 공공주택지구 사후환경영향조사(운영시) 용역 중 환경질",
+      "client": "㈜강호엔지니어링",
+      "period": {
+        "from": "2025-05-28",
+        "to": "2027-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.06~2027.12(반기 1회)"
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 8,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "NO2"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 9
+      }
+    },
+    {
+      "projectId": "row-10",
+      "projectName": "임진강유원지 조성계획(변경) 및 주변지역 정비사업 환경영향평가용역 중 환경질",
+      "client": "㈜경호엔지니어링종합건축사사무소",
+      "period": {
+        "from": "2025-02-03",
+        "to": "2025-11-07"
+      },
+      "overlapQ4Days": 38,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.02~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 2,
+        "operation": 1,
+        "post": 2,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 10
+      }
+    },
+    {
+      "projectId": "row-11",
+      "projectName": "안성 중소기업 일반산업단지 사후환경영향조사",
+      "client": "㈜경호엔지니어링종합건축사사무소",
+      "period": {
+        "from": "2023-07-17",
+        "to": "2026-07-16"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2024.07~2026.07(분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 9,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 11
+      }
+    },
+    {
+      "projectId": "row-12",
+      "projectName": "대구 연호 공공주택지구",
+      "client": "㈜경호엔지니어링종합건축사사무소",
+      "period": {
+        "from": "2023-05-31",
+        "to": "2027-01-12"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2023.05~2027.01 (분기1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 5,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 12
+      }
+    },
+    {
+      "projectId": "row-13",
+      "projectName": "광주쌍령공원 민간공원조성 특례사업 사후환경영향조사",
+      "client": "㈜국일건설엔지니어링",
+      "period": {
+        "from": "2023-11-28",
+        "to": "2027-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2023.11~2027.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 13
+      }
+    },
+    {
+      "projectId": "row-14",
+      "projectName": "블루컬리넌C,C조성사업 사후환경영향조사",
+      "client": "㈜국일건설엔지니어링",
+      "period": {
+        "from": "2024-12-23",
+        "to": "2029-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2024.12~2029.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 14
+      }
+    },
+    {
+      "projectId": "row-15",
+      "projectName": "용인 신갈 C.C 조성사업",
+      "client": "㈜국일건설엔지니어링",
+      "period": {
+        "from": "2025-07-29",
+        "to": "2027-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.07~2027.12 (분기 1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 7,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "NO2"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 15
+      }
+    },
+    {
+      "projectId": "row-16",
+      "projectName": "25-강설-육-79) 소규모환경영향평가",
+      "client": "㈜국일건설엔지니어링",
+      "period": {
+        "from": "2025-08-20",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.08~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 16
+      }
+    },
+    {
+      "projectId": "row-17",
+      "projectName": "인천검단하수처리장 환경질조사",
+      "client": "기술법인 이움",
+      "period": {
+        "from": "2025-09-01",
+        "to": "2025-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.09~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        },
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM-2.5"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 17
+      }
+    },
+    {
+      "projectId": "row-18",
+      "projectName": "남원 드래곤 관광단지 조성사업 사후환경영향조사 (공사시)",
+      "client": "주식회사 다원피앤디",
+      "period": {
+        "from": "2023-05-08",
+        "to": "2027-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2023.05~2027.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 18
+      }
+    },
+    {
+      "projectId": "row-19",
+      "projectName": "신가~구만 지방도 확포장공사 소규모 환경영향평가 용역 중 환경질 측정 분석",
+      "client": "주식회사 다원피앤디",
+      "period": {
+        "from": "2025-08-12",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.08~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 19
+      }
+    },
+    {
+      "projectId": "row-20",
+      "projectName": "충북,진천,음성 혁신도시개발사업 사후환경영향조사 중 환경질측정",
+      "client": "㈜동일기술공사",
+      "period": {
+        "from": "2009-07-03",
+        "to": "2028-04-30"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2009.07.~2028.04 (분기1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "NO2"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 20
+      }
+    },
+    {
+      "projectId": "row-21",
+      "projectName": "(신)한울 원전 주변 일반환경조사 및 평가 용역",
+      "client": "㈜동일기술공사",
+      "period": {
+        "from": "2025-05-19",
+        "to": "2028-04-23"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.05~2028.04(반기1회)"
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 7,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "NO2",
+            "SO2",
+            "CO"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 21
+      }
+    },
+    {
+      "projectId": "row-22",
+      "projectName": "고객 주차장 증축공사 사후(서울대병원)공사시",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2024-11-15",
+        "to": "2030-11-14"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2024.11~2030.11 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 22
+      }
+    },
+    {
+      "projectId": "row-23",
+      "projectName": "용인언남지구 사후환경영향조사",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2025-02-10",
+        "to": "2029-04-30"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.02~2029.04 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 6,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 23
+      }
+    },
+    {
+      "projectId": "row-24",
+      "projectName": "김포시 통진레코파크 증설사업 사후환경영향평가",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2024-10-23",
+        "to": "2026-09-30"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2024.10~2026.09 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 24
+      }
+    },
+    {
+      "projectId": "row-25",
+      "projectName": "고양창릉공공주택지구 사후환경영향조사",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2023-07-25",
+        "to": "2030-07-13"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2023.07~2030.07 (분기 1회 )"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 8,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 25
+      }
+    },
+    {
+      "projectId": "row-26",
+      "projectName": "이문4재정비촉진구역 주택재개발 정비사업에 따른 사후환경영향조사",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2025-07-11",
+        "to": "2029-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.07~2029.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 26
+      }
+    },
+    {
+      "projectId": "row-27",
+      "projectName": "상봉9 재정비촉진구역 도시정비형 재개발사업 사후환경영향조사",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2024-03-26",
+        "to": "2031-03-26"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2024.03~2031.03 (월1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 27
+      }
+    },
+    {
+      "projectId": "row-28",
+      "projectName": "남양주 양정역세권 도시개발사업지구 사후환경영향조사(공사시) 용역",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2023-10-16",
+        "to": "2029-05-29"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2023.10~2029.05 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 5,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 28
+      }
+    },
+    {
+      "projectId": "row-29",
+      "projectName": "여수 화태-백야(1공구)도로건설공사 사후",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2025-01-01",
+        "to": "2031-12-27"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2023.01~2031.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 29
+      }
+    },
+    {
+      "projectId": "row-30",
+      "projectName": "여수 화태-백야(1공구)도로건설공사 사후",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2025-04-10",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.04~2031.08 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 30
+      }
+    },
+    {
+      "projectId": "row-31",
+      "projectName": "남영동 업무지구 제2구역 도시정비형 재개발사업 환경영향평가 용역",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2025-07-30",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.07~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 0,
+        "automatic": 3
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 31
+      }
+    },
+    {
+      "projectId": "row-32",
+      "projectName": "성수동 삼표부지 개발을 위한 전략환경영향평가 용역",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2025-01-15",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.01~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 32
+      }
+    },
+    {
+      "projectId": "row-33",
+      "projectName": "성남시 생활폐기물처리시설 민간투자사업 사후환경영향조사(공사시)",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2025-03-06",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2024.12~2027.11 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM-2.5"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 33
+      }
+    },
+    {
+      "projectId": "row-34",
+      "projectName": "주암장군마을 주택재개발정비사업 사후환경영향조사 용역",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2024-04-05",
+        "to": "2029-04-30"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2024.04~2029.04 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 1
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 34
+      }
+    },
+    {
+      "projectId": "row-35",
+      "projectName": "창동역 복합환승센터 개발사업 환경영향평가 용역 중 환경질측정",
+      "client": "㈜동해기술공사",
+      "period": {
+        "from": "2025-03-24",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.04~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 0,
+        "automatic": 2
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM-2.5"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 35
+      }
+    },
+    {
+      "projectId": "row-36",
+      "projectName": "광양항 광역 준설토 투기장 조성공사 사후환경영향조사용역(공사시)",
+      "client": "㈜마린",
+      "period": {
+        "from": "2023-03-08",
+        "to": "2027-03-28"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2023.03~2027.03 (분기1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 0,
+        "automatic": 1
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM-2.5"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 36
+      }
+    },
+    {
+      "projectId": "row-37",
+      "projectName": "인천 로봇랜드 조성사업 사후환경영향조사(공사시) 용역 중 환경질 조사",
+      "client": "㈜마린",
+      "period": {
+        "from": "2025-01-20",
+        "to": "2027-12-17"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.01~2027.12 (분기1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 0,
+        "automatic": 3
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM-2.5"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 37
+      }
+    },
+    {
+      "projectId": "row-38",
+      "projectName": "포항영일만항 남방파제(2단계) 축조공사 사후환경영향조사용역(공사시)중 환경질 및 해양환경 조사",
+      "client": "㈜마린",
+      "period": {
+        "from": "2025-04-30",
+        "to": "2028-12-08"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.04~2028.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 38
+      }
+    },
+    {
+      "projectId": "row-39",
+      "projectName": "영동군 용산면 청화리 산22-1번지 일원 개간사업 소규모 환경영향평가 용역 중 환경질 측정 용역",
+      "client": "㈜미강이엔씨",
+      "period": {
+        "from": "2025-06-09",
+        "to": "2025-09-30"
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.09~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 0,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 39
+      }
+    },
+    {
+      "projectId": "row-40",
+      "projectName": "인천 중구 운북동 일원 대지조성사업 설계용역 중 소규모환경영향평가 용역 중 환경질 용역",
+      "client": "㈜미강이엔씨",
+      "period": {
+        "from": "2025-08-25",
+        "to": "2026-02-20"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.08~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 40
+      }
+    },
+    {
+      "projectId": "row-41",
+      "projectName": "2025년 맹방관광단지 사후환경영향조사용역",
+      "client": "㈜백두엔지니어링",
+      "period": {
+        "from": "2025-07-07",
+        "to": "2026-07-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.07~2026.07 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM-2.5",
+            "NO2",
+            "SO2",
+            "CO"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 41
+      }
+    },
+    {
+      "projectId": "row-42",
+      "projectName": "강릉체육시설단지 빙상경기장(ITS)사후환경영향조사",
+      "client": "㈜백두엔지니어링",
+      "period": {
+        "from": "2023-01-02",
+        "to": "2027-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2023.12~2027.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 5,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "NO2"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 42
+      }
+    },
+    {
+      "projectId": "row-43",
+      "projectName": "삼척시 도계읍 심포리 26번지 일원 태양광발전소 소규모환경영향평가 용역",
+      "client": "㈜백두엔지니어링",
+      "period": {
+        "from": "2025-03-10",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.03.~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 43
+      }
+    },
+    {
+      "projectId": "row-44",
+      "projectName": "약사촉진4구역 주택재개발정비사업 소규모환경영향평가 중 환경질 측정 용역",
+      "client": "㈜백두엔지니어링",
+      "period": {
+        "from": "2025-06-09",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.06.09~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 44
+      }
+    },
+    {
+      "projectId": "row-45",
+      "projectName": "영주시 단산면 개간사업(인삼밭) 소규모환경영향평가 용역",
+      "client": "㈜백두엔지니어링",
+      "period": {
+        "from": "2025-07-24",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.07.24~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 45
+      }
+    },
+    {
+      "projectId": "row-46",
+      "projectName": "용문 방공대대 부지 군관리계획(지구단위계획 등) 전략환경영향평가 용역",
+      "client": "㈜백두엔지니어링",
+      "period": {
+        "from": "2025-07-24",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.07.24~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 46
+      }
+    },
+    {
+      "projectId": "row-47",
+      "projectName": "월문리 134번지 외 3필지 유통시설 조성사업 소규모환경영향평가 용역",
+      "client": "㈜백두엔지니어링",
+      "period": {
+        "from": "2025-06-05",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.06.05~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 47
+      }
+    },
+    {
+      "projectId": "row-48",
+      "projectName": "임진강 유원지 조성계획(변경) 및 주변지역 정비사업 환경영향평가\n용역 중 환경질(대기질, 악취, 지표수질, 소음진동) 측정 분야",
+      "client": "㈜빈텍코리아",
+      "period": {
+        "from": "2025-02-03",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 3,
+          "raw": "2025.02.03~과업완료시 (3회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 3
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 48
+      }
+    },
+    {
+      "projectId": "row-49",
+      "projectName": "용인언남지구 사후환경영향조사(공사시) 용역 중 환경질 조사",
+      "client": "㈜삼영기술",
+      "period": {
+        "from": "2024-10-18",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2024.10~2029.6 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 3
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 49
+      }
+    },
+    {
+      "projectId": "row-50",
+      "projectName": "도시계획도로(안산근린공원 옆) 사업 소규모환경영향평가용역 중 환경질 측정(수질, 대기질, 소음진동) 용역",
+      "client": "㈜삼육건설엔지니어링",
+      "period": {
+        "from": "2025-04-01",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.04.01~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 50
+      }
+    },
+    {
+      "projectId": "row-51",
+      "projectName": "서산 북부권 파크골프장 조성사업 소규모환경영향평가용역 중 환경질 측정(",
+      "client": "㈜삼육건설엔지니어링",
+      "period": {
+        "from": "2025-04-01",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.04.01~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 51
+      }
+    },
+    {
+      "projectId": "row-52",
+      "projectName": "미호강 인산지구 등 3개소 사후환경영향조사용역 중 환경질 측정",
+      "client": "(주)선진엔지니어링종합건축사사무소",
+      "period": {
+        "from": "2025-01-21",
+        "to": "2030-10-06"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.01~2030.10 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 6,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 52
+      }
+    },
+    {
+      "projectId": "row-53",
+      "projectName": "부산항 북항 1단계 재개발사업 사후환경영향조사 중 환경질조사",
+      "client": "㈜세일종합기술공사",
+      "period": {
+        "from": "2025-06-20",
+        "to": "2027-06-12"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.06~2027.06 (분기1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 5,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "NO2"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 53
+      }
+    },
+    {
+      "projectId": "row-54",
+      "projectName": "천안시 일봉근린공원(민간공원) 조성사업 사후환경영향조사",
+      "client": "㈜세일종합기술공사",
+      "period": {
+        "from": "2023-06-01",
+        "to": "2028-09-28"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.06~2028.09 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 5,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 54
+      }
+    },
+    {
+      "projectId": "row-55",
+      "projectName": "오천항 건설공사 사후환경영향조사용역(공사시)",
+      "client": "㈜세일종합기술공사",
+      "period": {
+        "from": "2025-02-07",
+        "to": "2028-06-30"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.02~2028.06 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM-2.5"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 55
+      }
+    },
+    {
+      "projectId": "row-56",
+      "projectName": "녹촌배수지 및 송배수관로 설치공사 소규모환경영향평가용역 중 환경질 [대기질, 지표수질 소음진동] 측정부분",
+      "client": "㈜소운이앤씨",
+      "period": {
+        "from": "2025-03-04",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.03.04~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 56
+      }
+    },
+    {
+      "projectId": "row-57",
+      "projectName": "차단벽구조사격장 신축등 소규모환경영향평가용역 중 환경질(대기질, 지표수질,소음진동) 측정부분",
+      "client": "㈜소운이앤씨",
+      "period": {
+        "from": "2025-04-16",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.04~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 57
+      }
+    },
+    {
+      "projectId": "row-58",
+      "projectName": "미호강 인산지구 등 3개소 사후환경영향조사용역 중 환경질측정(대기, 수질 소음 진동)",
+      "client": "(주)씨엔에스환경기술",
+      "period": {
+        "from": "2025-02-18",
+        "to": "2026-02-17"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.02~과업완료시(분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 6,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 58
+      }
+    },
+    {
+      "projectId": "row-59",
+      "projectName": "면목선 도시철도 건설사업 전략환경영향평가용역 중 환경질 측정",
+      "client": "(주)엔탑엔지니어링",
+      "period": {
+        "from": "2025-04-03",
+        "to": "2026-02-26"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.04~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 59
+      }
+    },
+    {
+      "projectId": "row-60",
+      "projectName": "영양 군립공원묘원 환경영향평가용역 중 환경질 측정",
+      "client": "(주)엔탑엔지니어링",
+      "period": {
+        "from": "2025-04-08",
+        "to": "2026-02-26"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 2,
+          "raw": "2025.04~과업완료시 (2회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 2
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 60
+      }
+    },
+    {
+      "projectId": "row-61",
+      "projectName": "임진강유원지 조성계획(변경) 및 주변지역 정비사업 환경영향평가용역 중 환경질 측정",
+      "client": "㈜이음",
+      "period": {
+        "from": "2025-02-03",
+        "to": "2025-11-07"
+      },
+      "overlapQ4Days": 38,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 2,
+          "raw": "2025.02~과업완료시 (2회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 2,
+        "operation": 1,
+        "post": 2,
+        "strategy": 2
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 61
+      }
+    },
+    {
+      "projectId": "row-62",
+      "projectName": "춘천 한화리조트 골프장조성사업 사후환경영조사",
+      "client": "㈜자연과사람",
+      "period": {
+        "from": "2024-09-20",
+        "to": "2028-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2024.09~2028.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 62
+      }
+    },
+    {
+      "projectId": "row-63",
+      "projectName": "춘천시 남산면 수동리 산 109번지 일원 토석채취 및 공장부지 조성 소규모환경영향평가",
+      "client": "㈜자연과사람",
+      "period": {
+        "from": "2024-11-15",
+        "to": "2025-11-14"
+      },
+      "overlapQ4Days": 45,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 2,
+          "raw": "2024.11~과업완료시 (2회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 2,
+        "operation": 1,
+        "post": 2,
+        "strategy": 2
+      },
+      "siteCounts": {
+        "manual": 0,
+        "automatic": 2
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 63
+      }
+    },
+    {
+      "projectId": "row-64",
+      "projectName": "2030 화천군관리계획(재정비) 전략환경영향평가 용역",
+      "client": "㈜자연과사람",
+      "period": {
+        "from": "2025-02-24",
+        "to": "2026-02-23"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.02~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 5,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 64
+      }
+    },
+    {
+      "projectId": "row-65",
+      "projectName": "간동힐링공원 조성사업 소규모환경영향평가용역",
+      "client": "㈜자연과사람",
+      "period": {
+        "from": "2025-08-26",
+        "to": "2026-08-25"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.08~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 8,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 65
+      }
+    },
+    {
+      "projectId": "row-66",
+      "projectName": "강원특별자치도교육청유아교육원 유아놀이체험장 소규모환경영향평가 용역",
+      "client": "㈜자연과사람",
+      "period": {
+        "from": "2025-03-07",
+        "to": "2026-03-06"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.03~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 66
+      }
+    },
+    {
+      "projectId": "row-67",
+      "projectName": "내설악 용대관광지 조성계획(변경) 소규모환경영향평가 용역",
+      "client": "㈜자연과사람",
+      "period": {
+        "from": "2025-03-19",
+        "to": "2026-03-18"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.03~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 67
+      }
+    },
+    {
+      "projectId": "row-68",
+      "projectName": "북면 원통리 역세권 일원(중로1~4호선) 군계획도로 개설공사 소규모환경영향평가 용역",
+      "client": "㈜자연과사람",
+      "period": {
+        "from": "2025-03-25",
+        "to": "2026-03-24"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.03~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 68
+      }
+    },
+    {
+      "projectId": "row-69",
+      "projectName": "산청 송림골프장 조성사업 전략 및 환경영향평가 용역",
+      "client": "㈜자연과사람",
+      "period": {
+        "from": "2025-04-04",
+        "to": "2025-04-03"
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 3,
+          "raw": "2025.04~과업완료시 (3회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 3
+      },
+      "siteCounts": {
+        "manual": 5,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 69
+      }
+    },
+    {
+      "projectId": "row-70",
+      "projectName": "원주시 데이터센터 도시첨단산업단지 전략환경영향평가 및 경관심의 용역",
+      "client": "㈜자연과사람",
+      "period": {
+        "from": "2025-07-29",
+        "to": "2026-07-28"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.07~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 70
+      }
+    },
+    {
+      "projectId": "row-71",
+      "projectName": "학저수지 군관리계획(용도지역, 체육시설) 결정(변경) 및 실시설계 소규모 환경영향평가",
+      "client": "㈜자연과사람",
+      "period": {
+        "from": "2025-09-10",
+        "to": "2026-09-09"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.09~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 71
+      }
+    },
+    {
+      "projectId": "row-72",
+      "projectName": "화진포 관광지에 조성계획 변경에 따른 환경영향평가 변경협의 등 용역",
+      "client": "㈜자연과사람",
+      "period": {
+        "from": "2025-07-23",
+        "to": "2026-07-22"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.09~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 72
+      }
+    },
+    {
+      "projectId": "row-73",
+      "projectName": "포천 영중면 영송리 축사시설 확장사업 소규모 환경영향평가 중 환경질측정 용역",
+      "client": "(주)청림엔지니어링",
+      "period": {
+        "from": "2025-05-23",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.05~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 73
+      }
+    },
+    {
+      "projectId": "row-74",
+      "projectName": "포천 일동면 화대리 동식물관련시설 부지조성사업 소규모 환경영향평가 중 환경질측정 용역",
+      "client": "(주)청림엔지니어링",
+      "period": {
+        "from": "2025-05-23",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 1,
+          "raw": "2025.05~과업완료시 (1회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 1
+      },
+      "siteCounts": {
+        "manual": 1,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 74
+      }
+    },
+    {
+      "projectId": "row-75",
+      "projectName": "강화종합리조트 조성사업 사후환경영향조사 환경질측정",
+      "client": "㈜청운이엔씨",
+      "period": {
+        "from": "2025-03-14",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.03.14~과업완료시 (연1회)"
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 5,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "NO2"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 75
+      }
+    },
+    {
+      "projectId": "row-76",
+      "projectName": "송도항 건설공사 사후환경영향조사용역(공사시) 중 환경질 조사",
+      "client": "㈜퍼스트이앤씨",
+      "period": {
+        "from": "2025-02-19",
+        "to": "2029-11-20"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.02~2029.11 (분기1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 76
+      }
+    },
+    {
+      "projectId": "row-77",
+      "projectName": "청주 하수처리장 증설사업(3단계) 사후환경영향조사(운영시)",
+      "client": "㈜도화엔지니어링",
+      "period": {
+        "from": "2025-09-03",
+        "to": "2028-08-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.09~2028.08 (반기 1회)"
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "NO2"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 77
+      }
+    },
+    {
+      "projectId": "row-78",
+      "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+      "client": "㈜도화엔지니어링",
+      "period": {
+        "from": "2025-08-07",
+        "to": "2026-08-06"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.08~2026.08 (분기 1회 / 연1회)"
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 11,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "NO2",
+            "SO2",
+            "CO",
+            "PB",
+            "O3"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 78
+      }
+    },
+    {
+      "projectId": "row-79",
+      "projectName": "구룡마을 도시개발사업 사후환경영향조사",
+      "client": "㈜도화엔지니어링",
+      "period": {
+        "from": "2025-04-30",
+        "to": "2031-03-27"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.04.30~2031.03.27 (월1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.04.30~2031.03.27 (반기 1회)"
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 79
+      }
+    },
+    {
+      "projectId": "row-80",
+      "projectName": "고한 풍력발전 조성사업 소규모 환경영향평가 용역 용역",
+      "client": "㈜백두엔지니어링",
+      "period": {
+        "from": "2025-08-22",
+        "to": ""
+      },
+      "overlapQ4Days": 0,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": "2025.08~과업완료시"
+        }
+      },
+      "executionsQ4": {
+        "construction": 0,
+        "operation": 0,
+        "post": 0,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 80
+      }
+    },
+    {
+      "projectId": "row-81",
+      "projectName": "삼성~동탄 광역급행철도 제1공구 사후환경영향조사",
+      "client": "㈜서영엔지니어링",
+      "period": {
+        "from": "2019-08-26",
+        "to": "2027-03-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2019.08~2027.03 (분기 1회)"
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 5,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 81
+      }
+    },
+    {
+      "projectId": "row-82",
+      "projectName": "의성 황학산 풍력발전 조성사업 사후",
+      "client": "㈜서영엔지니어링",
+      "period": {
+        "from": "2022-11-01",
+        "to": "2028-11-02"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2022.11~2028.11 (분기 1회)"
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 82
+      }
+    },
+    {
+      "projectId": "row-83",
+      "projectName": "부천옥길 공공주택지구 사후환경영향조사(운영시)",
+      "client": "㈜서영엔지니어링",
+      "period": {
+        "from": "2023-05-01",
+        "to": "2025-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2023.05.01~2025.12.31 (분기1회)"
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 0,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 83
+      }
+    },
+    {
+      "projectId": "row-84",
+      "projectName": "광주연구개발특구 첨단3지구 개발사업 사후환경영향조사",
+      "client": "㈜서영엔지니어링",
+      "period": {
+        "from": "2021-11-26",
+        "to": "2025-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2021.11~2025.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 8,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 84
+      }
+    },
+    {
+      "projectId": "row-85",
+      "projectName": "고부~영원간 지방도 확.포장공사 사후환경영향조사",
+      "client": "㈜서영엔지니어링",
+      "period": {
+        "from": "2022-11-07",
+        "to": "2028-11-02"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2022.11~2028.11 (분기 1회)"
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 85
+      }
+    },
+    {
+      "projectId": "row-86",
+      "projectName": "화성동탄(2)택지개발사업 사후환경영향조사(공사시) 용역",
+      "client": "㈜서영엔지니어링",
+      "period": {
+        "from": "2025-01-23",
+        "to": "2030-01-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.06~2026.12 (분기1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2022.11~2025.10(반기 1회)"
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "NO2"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 86
+      }
+    },
+    {
+      "projectId": "row-87",
+      "projectName": "부산항 북항 1단계 재개발사업 사후환경영향조사용역(6차) 중 환경질 조사용역",
+      "client": "(주)한국항만기술단",
+      "period": {
+        "from": "2025-06-20",
+        "to": "2027-06-12"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.06~2027.06 (분기1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 5,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "NO2"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 87
+      }
+    },
+    {
+      "projectId": "row-88",
+      "projectName": "송도항 건설공사 사후환경영향조사용역(공사시) 중 환경질조사 용역",
+      "client": "(주)한국항만기술단",
+      "period": {
+        "from": "2025-02-19",
+        "to": "2029-11-20"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.02~2029.11 (분기1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 88
+      }
+    },
+    {
+      "projectId": "row-89",
+      "projectName": "오천항 건설공사 사후환경영향조사용역(공사시) 중 환경질조사 용역",
+      "client": "(주)한국항만기술단",
+      "period": {
+        "from": "2025-02-24",
+        "to": "2028-06-30"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.02~2028.06 (분기1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 2,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "NO2"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 89
+      }
+    },
+    {
+      "projectId": "row-90",
+      "projectName": "포항영일만항 남방파제(2단계) 축조공사 사후환경영향조사용역 (공사시)",
+      "client": "(주)한국항만기술단",
+      "period": {
+        "from": "2025-06-17",
+        "to": "2028-12-08"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.06~2028.12 (분기1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 90
+      }
+    },
+    {
+      "projectId": "row-91",
+      "projectName": "제 4차 전국무역항 기본계획 수정계획 전략환경영향평가",
+      "client": "㈜해담솔루션",
+      "period": {
+        "from": "2025-02-19",
+        "to": "2026-10-02"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 14,
+          "raw": "2024.02~2026.10 (14회)"
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 14
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "ALL_8",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx",
+            "SOx",
+            "Pb",
+            "CO",
+            "O3",
+            "벤젠"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 91
+      }
+    },
+    {
+      "projectId": "row-92",
+      "projectName": "미호강 인산지구 등 3개소 사후환경영향조사 용역",
+      "client": "㈜화신엔지니어링",
+      "period": {
+        "from": "2025-01-23",
+        "to": "2030-10-06"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.01~2030.10 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 6,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 92
+      }
+    },
+    {
+      "projectId": "row-93",
+      "projectName": "사천진항 정비사업 사후환경영향조사(운영시)",
+      "client": "㈜건일",
+      "period": {
+        "from": "2022-03-28",
+        "to": "2027-02-28"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2022.03~2027.02 (반기 1회)"
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 3,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "NO2"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 93
+      }
+    },
+    {
+      "projectId": "row-94",
+      "projectName": "한화토탈에너지스(주) 주변 환경질 조사",
+      "client": "한화토탈에너지스㈜",
+      "period": {
+        "from": "2025-01-01",
+        "to": "2026-12-31"
+      },
+      "overlapQ4Days": 92,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2025.01~2026.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 4,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "CUSTOM",
+          "days": 1,
+          "items": [
+            "PM-10",
+            "O3",
+            "NO2",
+            "SO2",
+            "CO"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 94
+      }
+    },
+    {
+      "projectId": "row-95",
+      "projectName": "성남금토 공공주택지구 사후환경영향조사",
+      "client": "㈜동성엔지니어링",
+      "period": {
+        "from": "2023-05-19",
+        "to": "2025-12-11"
+      },
+      "overlapQ4Days": 72,
+      "classification": {
+        "construction": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": "2023.05~2025.12 (분기 1회)"
+        },
+        "operation": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "post": {
+          "totalSurveys": 0,
+          "requestedSurveys": 0,
+          "raw": ""
+        },
+        "strategy": {
+          "remainingExecutions": 0,
+          "raw": ""
+        }
+      },
+      "executionsQ4": {
+        "construction": 1,
+        "operation": 1,
+        "post": 3,
+        "strategy": 0
+      },
+      "siteCounts": {
+        "manual": 5,
+        "automatic": 0
+      },
+      "measurementPlans": [
+        {
+          "type": "PM_NOX",
+          "days": 3,
+          "items": [
+            "PM-10",
+            "PM2.5",
+            "NOx"
+          ]
+        }
+      ],
+      "source": {
+        "file": "청명장비 엑셀\\계약정리.csv",
+        "row": 95
+      }
+    }
+  ]
+}

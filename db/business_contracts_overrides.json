@@ -1,0 +1,480 @@
+[
+  {
+    "projectId": "row-4",
+    "overrides": {
+      "periodFrom": "2025-08-01",
+      "periodTo": "2031-05-11",
+      "execConstruction": 3,
+      "execOperation": 1,
+      "execPost": 0,
+      "execStrategy": 0,
+      "manual": 4,
+      "automatic": 0,
+      "selectedItems": [
+        "PM-10",
+        "PM-2.5",
+        "NO2"
+      ],
+      "items": {
+        "PM-10": {
+          "requiredDevices": 4,
+          "requiredSiteDays": 12,
+          "selectedCategory": ""
+        },
+        "PM-2.5": {
+          "requiredDevices": 4,
+          "requiredSiteDays": 12,
+          "selectedCategory": ""
+        },
+        "NO2": {
+          "requiredDevices": 4,
+          "requiredSiteDays": 12,
+          "selectedCategory": "(NO2) MEZUS-210"
+        }
+      }
+    },
+    "updatedAt": "2025-09-30T00:36:27.020Z"
+  },
+  {
+    "projectId": "row-69",
+    "overrides": {
+      "manual": 5,
+      "automatic": 0,
+      "strategyRemaining": 3,
+      "selectedItems": [
+        "PM-10",
+        "PM-2.5",
+        "NO2",
+        "SO2",
+        "CO",
+        "O3",
+        "Pb",
+        "벤젠"
+      ],
+      "items": {
+        "PM-10": {
+          "requiredDevices": 5,
+          "requiredSiteDays": 15,
+          "selectedCategory": "(PM-10) KMS-4200"
+        },
+        "PM-2.5": {
+          "requiredDevices": 5,
+          "requiredSiteDays": 15,
+          "selectedCategory": ""
+        },
+        "NO2": {
+          "requiredDevices": 5,
+          "requiredSiteDays": 15,
+          "selectedCategory": "(NO2) MEZUS-210"
+        },
+        "SO2": {
+          "requiredDevices": 5,
+          "requiredSiteDays": 15,
+          "selectedCategory": ""
+        },
+        "CO": {
+          "requiredDevices": 5,
+          "requiredSiteDays": 15,
+          "selectedCategory": "(CO) 48iQ"
+        },
+        "O3": {
+          "requiredDevices": 5,
+          "requiredSiteDays": 15,
+          "selectedCategory": "(O3) 49iQ"
+        },
+        "Pb": {
+          "requiredDevices": 5,
+          "requiredSiteDays": 15,
+          "selectedCategory": ""
+        },
+        "벤젠": {
+          "requiredDevices": 5,
+          "requiredSiteDays": 15,
+          "selectedCategory": ""
+        }
+      }
+    },
+    "updatedAt": "2025-09-29T08:29:39.186Z"
+  },
+  {
+    "projectId": "row-5",
+    "overrides": {
+      "manual": 8,
+      "automatic": 0,
+      "strategyRemaining": 0,
+      "selectedItems": [
+        "PM-10",
+        "PM-2.5",
+        "NO2"
+      ],
+      "items": {
+        "PM-10": {
+          "requiredDevices": 8,
+          "requiredSiteDays": 24,
+          "selectedCategory": "(PM-10) BAM 1020"
+        },
+        "PM-2.5": {
+          "requiredDevices": 8,
+          "requiredSiteDays": 24,
+          "selectedCategory": "(PM-2.5) KMS-4200"
+        },
+        "NO2": {
+          "requiredDevices": 8,
+          "requiredSiteDays": 24,
+          "selectedCategory": "(NO2) Serinus40"
+        }
+      }
+    },
+    "updatedAt": "2025-09-29T08:59:09.646Z"
+  },
+  {
+    "projectId": "row-38",
+    "overrides": {
+      "manual": 4,
+      "automatic": 0,
+      "strategyRemaining": 0,
+      "selectedItems": [
+        "PM-10",
+        "PM-2.5",
+        "NO2"
+      ],
+      "items": {
+        "PM-10": {
+          "requiredDevices": 4,
+          "requiredSiteDays": 4,
+          "selectedCategory": ""
+        },
+        "PM-2.5": {
+          "requiredDevices": 4,
+          "requiredSiteDays": 4,
+          "selectedCategory": ""
+        },
+        "NO2": {
+          "requiredDevices": 4,
+          "requiredSiteDays": 4,
+          "selectedCategory": ""
+        }
+      }
+    },
+    "updatedAt": "2025-09-30T00:25:52.069Z"
+  },
+  {
+    "projectId": "row-72",
+    "overrides": {
+      "periodFrom": "2025-07-23",
+      "periodTo": "2026-07-22",
+      "execConstruction": 3,
+      "execOperation": 1,
+      "execPost": 3,
+      "execStrategy": 1,
+      "manual": 3,
+      "automatic": 0,
+      "selectedItems": [
+        "PM-10",
+        "PM-2.5",
+        "NO2",
+        "SO2",
+        "CO",
+        "O3",
+        "Pb",
+        "벤젠"
+      ],
+      "items": {
+        "PM-10": {
+          "requiredDevices": 3,
+          "requiredSiteDays": 3,
+          "selectedCategory": ""
+        },
+        "PM-2.5": {
+          "requiredDevices": 3,
+          "requiredSiteDays": 3,
+          "selectedCategory": ""
+        },
+        "NO2": {
+          "requiredDevices": 3,
+          "requiredSiteDays": 3,
+          "selectedCategory": ""
+        },
+        "SO2": {
+          "requiredDevices": 3,
+          "requiredSiteDays": 3,
+          "selectedCategory": "(NOx, SOx) BMW-5000"
+        },
+        "CO": {
+          "requiredDevices": 3,
+          "requiredSiteDays": 3,
+          "selectedCategory": ""
+        },
+        "O3": {
+          "requiredDevices": 3,
+          "requiredSiteDays": 3,
+          "selectedCategory": ""
+        },
+        "Pb": {
+          "requiredDevices": 3,
+          "requiredSiteDays": 3,
+          "selectedCategory": "(Pb) T8400ME"
+        },
+        "벤젠": {
+          "requiredDevices": 3,
+          "requiredSiteDays": 3,
+          "selectedCategory": ""
+        }
+      }
+    },
+    "updatedAt": "2025-09-30T01:01:52.853Z"
+  },
+  {
+    "projectId": "row-33",
+    "overrides": {
+      "periodFrom": "2025-03-06",
+      "periodTo": "",
+      "execConstructionPeriod": "quarter",
+      "execConstructionCount": 1,
+      "execOperationPeriod": "quarter",
+      "execOperationCount": 0,
+      "execPostPeriod": "month",
+      "execPostCount": 0,
+      "execStrategyPeriod": "total",
+      "execStrategyCount": 0,
+      "totalSites": 1,
+      "measurementDays": 7,
+      "manual": 0,
+      "automatic": 1,
+      "selectedItems": [],
+      "items": {}
+    },
+    "updatedAt": "2025-09-30T01:22:55.507Z"
+  },
+  {
+    "projectId": "row-92",
+    "overrides": {
+      "periodFrom": "2025-01-23",
+      "periodTo": "2030-10-06",
+      "execConstructionPeriod": "total",
+      "execConstructionCount": 3,
+      "execOperationPeriod": "quarter",
+      "execOperationCount": 1,
+      "execPostPeriod": "month",
+      "execPostCount": 3,
+      "execStrategyPeriod": "total",
+      "execStrategyCount": 0,
+      "totalSites": 6,
+      "measurementDays": 1,
+      "manual": 3,
+      "automatic": 3,
+      "selectedItems": [
+        "PM-10",
+        "PM-2.5",
+        "NO2",
+        "벤젠"
+      ],
+      "items": {
+        "PM-10": {
+          "requiredDevices": 6,
+          "requiredSiteDays": 42,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        },
+        "PM-2.5": {
+          "requiredDevices": 6,
+          "requiredSiteDays": 42,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        },
+        "NO2": {
+          "requiredDevices": 6,
+          "requiredSiteDays": 42,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        },
+        "벤젠": {
+          "requiredDevices": 1,
+          "requiredSiteDays": 42,
+          "selectedCategories": [
+            "(벤젠) MP-Σ30KNⅡ"
+          ],
+          "selectedCategory": "(벤젠) MP-Σ30KNⅡ"
+        }
+      }
+    },
+    "updatedAt": "2025-09-30T04:15:50.759Z"
+  },
+  {
+    "projectId": "row-54",
+    "overrides": {
+      "periodFrom": "2023-06-01",
+      "periodTo": "2028-09-28",
+      "execConstructionPeriod": "total",
+      "execConstructionCount": 1,
+      "execOperationPeriod": "quarter",
+      "execOperationCount": 1,
+      "execPostPeriod": "month",
+      "execPostCount": 3,
+      "execStrategyPeriod": "total",
+      "execStrategyCount": 0,
+      "totalSites": 5,
+      "measurementDays": 3,
+      "manual": 2,
+      "automatic": 3,
+      "selectedItems": [
+        "PM-10",
+        "PM-2.5",
+        "NO2"
+      ],
+      "items": {
+        "PM-10": {
+          "requiredDevices": 5,
+          "requiredSiteDays": 75,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        },
+        "PM-2.5": {
+          "requiredDevices": 5,
+          "requiredSiteDays": 75,
+          "selectedCategories": [
+            "(PM-2.5) E-BAM"
+          ],
+          "selectedCategory": "(PM-2.5) E-BAM"
+        },
+        "NO2": {
+          "requiredDevices": 5,
+          "requiredSiteDays": 75,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        }
+      }
+    },
+    "updatedAt": "2025-09-30T08:42:22.489Z"
+  },
+  {
+    "projectId": "row-94",
+    "overrides": {
+      "periodFrom": "2025-01-01",
+      "periodTo": "2026-12-31",
+      "execConstructionPeriod": "total",
+      "execConstructionCount": 1,
+      "execOperationPeriod": "quarter",
+      "execOperationCount": 1,
+      "execPostPeriod": "month",
+      "execPostCount": 3,
+      "execStrategyPeriod": "total",
+      "execStrategyCount": 0,
+      "totalSites": 4,
+      "measurementDays": 1,
+      "manual": 2,
+      "automatic": 2,
+      "selectedItems": [
+        "PM-10",
+        "NO2",
+        "SO2",
+        "CO",
+        "O3"
+      ],
+      "items": {
+        "PM-10": {
+          "requiredDevices": 4,
+          "requiredSiteDays": 20,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        },
+        "NO2": {
+          "requiredDevices": 4,
+          "requiredSiteDays": 20,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        },
+        "SO2": {
+          "requiredDevices": 4,
+          "requiredSiteDays": 20,
+          "selectedCategories": [
+            "(NOx, SOx) BMW-5000",
+            "(SO2) Serinus50i"
+          ],
+          "selectedCategory": "(NOx, SOx) BMW-5000"
+        },
+        "CO": {
+          "requiredDevices": 4,
+          "requiredSiteDays": 20,
+          "selectedCategories": [
+            "(CO) Serinus30i"
+          ],
+          "selectedCategory": "(CO) Serinus30i"
+        },
+        "O3": {
+          "requiredDevices": 4,
+          "requiredSiteDays": 20,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        }
+      }
+    },
+    "updatedAt": "2025-09-30T08:42:45.934Z"
+  },
+  {
+    "projectId": "row-78",
+    "overrides": {
+      "periodFrom": "2025-08-07",
+      "periodTo": "2026-08-06",
+      "execConstructionPeriod": "total",
+      "execConstructionCount": 1,
+      "execOperationPeriod": "quarter",
+      "execOperationCount": 0,
+      "execPostPeriod": "month",
+      "execPostCount": 0,
+      "execStrategyPeriod": "total",
+      "execStrategyCount": 0,
+      "totalSites": 11,
+      "measurementDays": 3,
+      "manual": 5,
+      "automatic": 6,
+      "selectedItems": [
+        "PM-10",
+        "NO2",
+        "SO2",
+        "CO",
+        "O3",
+        "Pb"
+      ],
+      "items": {
+        "PM-10": {
+          "requiredDevices": 11,
+          "requiredSiteDays": 165,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        },
+        "NO2": {
+          "requiredDevices": 11,
+          "requiredSiteDays": 165,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        },
+        "SO2": {
+          "requiredDevices": 11,
+          "requiredSiteDays": 165,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        },
+        "CO": {
+          "requiredDevices": 11,
+          "requiredSiteDays": 165,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        },
+        "O3": {
+          "requiredDevices": 11,
+          "requiredSiteDays": 165,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        },
+        "Pb": {
+          "requiredDevices": 11,
+          "requiredSiteDays": 165,
+          "selectedCategories": [],
+          "selectedCategory": ""
+        }
+      }
+    },
+    "updatedAt": "2025-09-30T08:49:13.314Z"
+  }
+]

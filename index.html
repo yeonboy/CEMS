@@ -269,26 +269,26 @@
                 overflow: visible !important;
             }
             
-            /* 인쇄 시 숨길 요소들 */
-            .no-print,
-            #calendar-file-input,
-            #calendar-week-select,
-            button[onclick*="generateCalendar"],
-            button[onclick*="printCalendar"],
-            button[onclick*="resetCalendar"] {
-                display: none !important;
-            }
-            
-            /* 주간 캘린더 헤더 숨김 */
-            h1.text-3xl.font-bold.text-slate-800.mb-6 {
-                display: none !important;
-            }
-            
-            /* 파일 업로드 및 주차 선택 섹션 숨김 */
-            .mb-4.flex.flex-wrap.gap-4.items-center {
-                display: none !important;
-            }
-
+                    /* 인쇄 시 숨길 요소들 */
+        .no-print,
+        #calendar-file-input,
+        #calendar-week-select,
+        button[onclick*="generateCalendar"],
+        button[onclick*="printCalendar"],
+        button[onclick*="resetCalendar"] {
+            display: none !important;
+        }
+        
+        /* 주간 캘린더 헤더 숨김 */
+        h1.text-3xl.font-bold.text-slate-800.mb-6 {
+            display: none !important;
+        }
+        
+        /* 파일 업로드 및 주차 선택 섹션 숨김 */
+        .mb-4.flex.flex-wrap.gap-4.items-center {
+            display: none !important;
+        }
+        
             /* 네비게이션 바 숨김 */
             nav[role="navigation"],
             .submenu,
@@ -304,10 +304,10 @@
                 max-width: 100% !important;
             }
             
-            /* 캘린더 플레이스홀더 숨김 */
-            #calendar-placeholder {
-                display: none !important;
-            }
+        /* 캘린더 플레이스홀더 숨김 */
+        #calendar-placeholder {
+            display: none !important;
+        }
             
             /* 캘린더 제목 스타일 */
             .calendar-title {
@@ -357,13 +357,13 @@
                 table-layout: fixed !important;
             }
             
-            /* 스크롤바 제거 */
-            * {
-                -webkit-print-color-adjust: exact !important;
-                color-adjust: exact !important;
-            }
-            
-            /* 인쇄 시 테이블 최적화 */
+                    /* 스크롤바 제거 */
+        * {
+            -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+        }
+        
+                    /* 인쇄 시 테이블 최적화 */
             .calendar-table thead th {
                 background: #f3f4f6 !important;
                 font-weight: bold !important;
@@ -398,19 +398,19 @@
                 min-width: 0 !important;
             }
         
-            /* 인쇄 시 분할된 셀 스타일 */
-            .calendar-table .split-cell .top-content,
-            .calendar-table .split-cell .bottom-content {
-                background: transparent !important;
-                border: 1px solid #d1d5db !important;
-            }
+        /* 인쇄 시 분할된 셀 스타일 */
+        .calendar-table .split-cell .top-content,
+        .calendar-table .split-cell .bottom-content {
+            background: transparent !important;
+            border: 1px solid #d1d5db !important;
+        }
             
-            /* 인쇄 시 병합된 셀 스타일 */
-            .calendar-table .merged-cell,
-            .calendar-table .merged-cell-vertical {
-                background: transparent !important;
-                border: 2px solid #000 !important;
-            }
+        /* 인쇄 시 병합된 셀 스타일 */
+        .calendar-table .merged-cell,
+        .calendar-table .merged-cell-vertical {
+            background: transparent !important;
+            border: 2px solid #000 !important;
+        }
         }
         
         /* 날짜 헤더 스타일 */
@@ -600,23 +600,18 @@
                     <svg class="sidebar-icon ml-auto submenu-toggle" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </li>
                 <ul id="accounting-menu" class="submenu hidden">
-                    <li class="nav-item p-4 md:pl-12 flex items-center cursor-pointer" onclick="switchView('accounting-purchase-request')">
-                        <svg class="sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-                        <span class="hidden md:block ml-4">물품구매요구서</span>
-                    </li>
-                    <li class="nav-item p-4 md:pl-12 flex items-center cursor-pointer" onclick="switchView('accounting-quote')">
-                        <svg class="sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        <span class="hidden md:block ml-4">견적 발행</span>
-                    </li>
-                    <li class="nav-item p-4 md:pl-12 flex items-center cursor-pointer" onclick="switchView('accounting-transaction')">
-                        <svg class="sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        <span class="hidden md:block ml-4">거래명세서 발행</span>
-                    </li>
                     <li class="nav-item p-4 md:pl-12 flex items-center cursor-pointer" onclick="switchView('accounting-calendar')">
                         <svg class="sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         <span class="hidden md:block ml-4">캘린더</span>
                     </li>
-                    
+                    <li class="nav-item p-4 md:pl-12 flex items-center cursor-pointer" onclick="switchView('business')">
+                        <svg class="sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18"></path></svg>
+                        <span class="hidden md:block ml-4">사업관리</span>
+                    </li>
+                    <li class="nav-item p-4 md:pl-12 flex items-center cursor-pointer" onclick="switchView('uptime-predictions')">
+                        <svg class="sidebar-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3v18m-8-7h18"></path></svg>
+                        <span class="hidden md:block ml-4">장비 가동률 예측</span>
+                    </li>
                 </ul>
             </ul>
         </nav>
@@ -679,8 +674,7 @@
                                     <option value="6m">최근 6개월</option>
                                     <option value="1y">최근 1년</option>
                                 </select>
-                            <span id="equipment-chart-last-sync" class="text-xs text-slate-500"></span>
-                            </div>
+                        </div>
                         </div>
                         <div class="text-sm text-slate-500 mt-1">장비 카테고리별 가동률 및 분포</div>
                         <div class="chart-container mt-4">
@@ -706,75 +700,484 @@
                 </div>
                 
                 <!-- 하단 섹션 -->
-                <div class="mt-8 grid grid-cols-1 xl:grid-cols-2 gap-6">
-                    <!-- 좌측: 0월0주차 캘린더 (확장 필요 시 xl:col-span-2) -->
-                    <div class="bg-white p-6 rounded-lg shadow-md xl:col-span-2">
+                <div class="mt-8">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
                         <div class="flex items-center justify-between mb-2">
                             <h3 class="text-lg font-semibold text-slate-700" id="dashboard-calendar-title">0월0주차 캘린더</h3>
                             <div class="flex items-center gap-3">
                                 <label for="dashboard-calendar-select" class="text-sm text-slate-600">주차</label>
                                 <select id="dashboard-calendar-select" class="px-2 py-1 border rounded text-sm min-w-[140px]"></select>
                                 <span id="dashboard-calendar-last-sync" class="text-xs text-slate-500">-</span>
+                            </div>
                         </div>
-                    </div>
                         <div id="dashboard-calendar-embed" class="overflow-x-auto">
                             <div class="text-slate-500 text-sm">저장된 캘린더를 불러오는 중...</div>
-                            </div>
+                        </div>
                     </div>
                 </div>
                 
 
                 
-                <!-- 이카운트 동기화 업데이트 정보 -->
+                <!-- 이동로그 CSV 업로드 (이카운트 동기화 섹션 대체) -->
                 <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
                     <div class="flex items-center justify-between">
                         <div>
-                            <h3 class="text-lg font-semibold text-slate-700">이카운트 동기화 상태</h3>
-                            <p class="text-sm text-slate-500 mt-1">ERP 시스템과의 데이터 동기화 현황</p>
+                            <h3 class="text-lg font-semibold text-slate-700">이동로그 업로드 <span id="mv-last-updated" class="text-sm font-normal text-slate-500">(최신화: -)</span></h3>
+                            <p class="text-sm text-slate-500 mt-1">프론트 참조 형식 CSV 업로드 시 DB 자동 병합 · 대시보드 갱신</p>
                         </div>
-                        <div class="text-right">
-                            <div class="flex items-center space-x-4">
-                                <div class="text-center">
-                                    <p class="text-sm text-slate-500">마지막 동기화</p>
-                                    <p class="text-sm font-medium text-slate-700" id="last-sync-time" aria-live="polite">로딩 중...</p>
+                    </div>
+
+                    <form id="mv-upload-form" class="mt-4" onsubmit="return window.__handleMovementsCsvUpload(event)">
+                        <div class="flex items-center gap-3">
+                            <input id="mv-upload-file" name="file" type="file" accept=".csv" class="block w-full text-sm text-slate-700" required />
+                            <label class="inline-flex items-center text-sm text-slate-600 gap-2">
+                                <input id="mv-rebuild-stats" type="checkbox" class="rounded" checked />
+                                통계 재생성
+                            </label>
+                            <button id="mv-upload-btn" type="submit" class="px-3 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 text-sm">업로드</button>
+                        </div>
+                    </form>
+
+                    <!-- 진행률 표시 -->
+                    <div class="mt-4">
+                        <div class="flex items-center justify-between text-sm text-slate-600 mb-2">
+                            <span>처리 진행률</span>
+                            <span id="mv-progress-text">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-2">
+                            <div id="mv-progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- 결과/로그 -->
+                    <div class="mt-4 p-3 bg-slate-50 rounded-lg">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-slate-700">처리 결과</span>
+                            <div class="flex items-center gap-2">
+                                <button onclick="window.__moveBackupsToHistory()" class="text-xs text-slate-600 hover:text-slate-800">백업 history로 이동</button>
+                                <button onclick="window.loadDashboardData && window.loadDashboardData()" class="text-xs text-blue-600 hover:text-blue-800">대시보드 새로고침</button>
+                            </div>
+                        </div>
+                        <div id="mv-upload-log" class="text-xs text-slate-600 space-y-1"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 사업관리 뷰 -->
+            <section id="business-view" class="view-section hidden">
+                <div class="p-6 md:p-10">
+                    <h1 class="text-3xl font-bold text-slate-800 mb-6">사업관리</h1>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="mb-6">
+                            <h2 class="text-lg font-semibold text-slate-800 mb-4">올해 4분기 계약 현황</h2>
+                            <!-- 사업 분류별 현황 카드 -->
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                                <button onclick="scrollToBusinessSection('construction')" class="bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg p-4 text-left transition-colors">
+                                    <div class="text-sm text-slate-600">공사시</div>
+                                    <div class="text-xl font-semibold text-slate-800" id="biz-construction-count">0</div>
+                                    <div class="text-xs text-slate-500">건</div>
+                                </button>
+                                <button onclick="scrollToBusinessSection('operation')" class="bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg p-4 text-left transition-colors">
+                                    <div class="text-sm text-slate-600">운영시</div>
+                                    <div class="text-xl font-semibold text-slate-800" id="biz-operation-count">0</div>
+                                    <div class="text-xs text-slate-500">건</div>
+                                </button>
+                                <button onclick="scrollToBusinessSection('post')" class="bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg p-4 text-left transition-colors">
+                                    <div class="text-sm text-slate-600">사후</div>
+                                    <div class="text-xl font-semibold text-slate-800" id="biz-post-count">0</div>
+                                    <div class="text-xs text-slate-500">건</div>
+                                </button>
+                                <button onclick="scrollToBusinessSection('strategy')" class="bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-lg p-4 text-left transition-colors">
+                                    <div class="text-sm text-slate-600">전략</div>
+                                    <div class="text-xl font-semibold text-slate-800" id="biz-strategy-count">0</div>
+                                    <div class="text-xs text-slate-500">건</div>
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="text-sm text-slate-600">총 <span id="biz-total-count">0</span>건 | 완료 <span id="biz-completed-count">0</span>건</div>
+                            <div class="flex items-center gap-2">
+                                <select id="business-type-filter" class="px-3 py-2 border rounded text-sm">
+                                    <option value="all">전체 분류</option>
+                                    <option value="construction">공사시</option>
+                                    <option value="operation">운영시</option>
+                                    <option value="post">사후</option>
+                                    <option value="strategy">전략</option>
+                                </select>
+                                <input id="business-search-input" type="text" placeholder="사업명/의뢰사 검색" class="px-3 py-2 border rounded text-sm" />
+                                <button id="btn-refresh-business" class="px-3 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">새로고침</button>
+                                <button id="btn-export-business" class="px-3 py-2 bg-green-600 text-white rounded hover:bg-green-700">엑셀 내보내기</button>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div id="business-section-construction">
+                                <h3 class="text-base font-semibold text-slate-700 mb-2">공사시</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                        <thead class="bg-slate-100">
+                                            <tr>
+                                                <th class="text-left p-2 w-12">완료</th>
+                                                <th class="text-left p-2">사업명</th>
+                                                <th class="text-left p-2">의뢰사</th>
+                                                <th class="text-left p-2">계약기간</th>
+                                                <th class="text-left p-2">공사시</th>
+                                                <th class="text-left p-2">상세</th>
+                                    </tr>
+                                </thead>
+                                        <tbody id="biz-construction"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                            <div id="business-section-operation">
+                                <h3 class="text-base font-semibold text-slate-700 mb-2">운영시</h3>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm">
+                                        <thead class="bg-slate-100">
+                                            <tr>
+                                                <th class="text-left p-2 w-12">완료</th>
+                                                <th class="text-left p-2">사업명</th>
+                                                <th class="text-left p-2">의뢰사</th>
+                                                <th class="text-left p-2">계약기간</th>
+                                                <th class="text-left p-2">운영시(총/의뢰)</th>
+                                                <th class="text-left p-2">상세</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="biz-operation"></tbody>
+                                    </table>
+                            </div>
+                            </div>
+                            <div id="business-section-post">
+                                <h3 class="text-base font-semibold text-slate-700 mb-2">사후</h3>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm">
+                                        <thead class="bg-slate-100">
+                                            <tr>
+                                                <th class="text-left p-2 w-12">완료</th>
+                                                <th class="text-left p-2">사업명</th>
+                                                <th class="text-left p-2">의뢰사</th>
+                                                <th class="text-left p-2">계약기간</th>
+                                                <th class="text-left p-2">사후</th>
+                                                <th class="text-left p-2">상세</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="biz-post"></tbody>
+                                    </table>
+                            </div>
+                            </div>
+                            <div id="business-section-strategy">
+                                <h3 class="text-base font-semibold text-slate-700 mb-2">전략</h3>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm">
+                                        <thead class="bg-slate-100">
+                                            <tr>
+                                                <th class="text-left p-2 w-12">완료</th>
+                                                <th class="text-left p-2">사업명</th>
+                                                <th class="text-left p-2">의뢰사</th>
+                                                <th class="text-left p-2">계약기간</th>
+                                                <th class="text-left p-2">상세</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="biz-strategy"></tbody>
+                                    </table>
                                 </div>
-                                <div class="text-center">
-                                    <p class="text-sm text-slate-500">동기화 상태</p>
-                                    <span id="sync-status" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800" aria-live="polite">
-                                        <svg class="w-2 h-2 mr-1.5" fill="currentColor" viewBox="0 0 8 8">
-                                            <circle cx="4" cy="4" r="3"/>
-                                        </svg>
-                                        대기 중
-                                    </span>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-semibold text-slate-700 mb-2">품목계열 요약</h3>
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-sm">
+                                        <thead class="bg-slate-100">
+                                            <tr>
+                                                <th class="text-left p-2">항목</th>
+                                                <th class="text-left p-2">필요 대수</th>
+                                                <th class="text-left p-2">보유 대수</th>
+                                                <th class="text-left p-2">가동률(%)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="biz-item-summary"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 완료된 사업 섹션 -->
+                        <div class="mt-8">
+                            <h2 class="text-lg font-semibold text-slate-800 mb-4">완료된 사업</h2>
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 class="text-base font-semibold text-slate-700 mb-2">완료된 공사시</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                            <thead class="bg-slate-100">
+                                                <tr>
+                                                    <th class="text-left p-2 w-12">완료</th>
+                                                    <th class="text-left p-2">사업명</th>
+                                                    <th class="text-left p-2">의뢰사</th>
+                                                    <th class="text-left p-2">계약기간</th>
+                                                    <th class="text-left p-2">공사시</th>
+                                                    <th class="text-left p-2">상세</th>
+                                    </tr>
+                                </thead>
+                                            <tbody id="biz-construction-completed"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                                <div>
+                                    <h3 class="text-base font-semibold text-slate-700 mb-2">완료된 운영시</h3>
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-sm">
+                                            <thead class="bg-slate-100">
+                                                <tr>
+                                                    <th class="text-left p-2 w-12">완료</th>
+                                                    <th class="text-left p-2">사업명</th>
+                                                    <th class="text-left p-2">의뢰사</th>
+                                                    <th class="text-left p-2">계약기간</th>
+                                                    <th class="text-left p-2">운영시(총/의뢰)</th>
+                                                    <th class="text-left p-2">상세</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="biz-operation-completed"></tbody>
+                                        </table>
+                </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-base font-semibold text-slate-700 mb-2">완료된 사후</h3>
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-sm">
+                                            <thead class="bg-slate-100">
+                                                <tr>
+                                                    <th class="text-left p-2 w-12">완료</th>
+                                                    <th class="text-left p-2">사업명</th>
+                                                    <th class="text-left p-2">의뢰사</th>
+                                                    <th class="text-left p-2">계약기간</th>
+                                                    <th class="text-left p-2">사후</th>
+                                                    <th class="text-left p-2">상세</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="biz-post-completed"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-base font-semibold text-slate-700 mb-2">완료된 전략</h3>
+                                    <div class="overflow-x-auto">
+                                        <table class="w-full text-sm">
+                                            <thead class="bg-slate-100">
+                                                <tr>
+                                                    <th class="text-left p-2 w-12">완료</th>
+                                                    <th class="text-left p-2">사업명</th>
+                                                    <th class="text-left p-2">의뢰사</th>
+                                                    <th class="text-left p-2">계약기간</th>
+                                                    <th class="text-left p-2">상세</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="biz-strategy-completed"></tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- 동기화 진행률 표시 -->
-                    <div class="mt-4">
-                        <div class="flex items-center justify-between text-sm text-slate-600 mb-2">
-                            <span>동기화 진행률</span>
-                            <span id="sync-progress-text">0%</span>
+                </div>
+                <!-- 사업 상세 모달 -->
+                <div id="business-detail-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden z-40"></div>
+                <div id="business-detail-modal" class="fixed inset-0 hidden z-50 flex items-center justify-center">
+                    <div class="bg-white rounded-lg shadow-xl w-full max-w-3xl max-h-[80vh] overflow-y-auto">
+                        <div class="p-4 border-b flex items-center justify-between">
+                            <h3 class="text-lg font-semibold text-slate-800">사업 상세</h3>
+                            <button class="text-slate-500 hover:text-slate-700" onclick="hideBusinessDetail()">닫기</button>
                         </div>
-                        <div class="w-full bg-slate-200 rounded-full h-2">
-                            <div id="sync-progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        <div class="p-4 space-y-3 text-sm" id="business-detail-content">
+                        </div>
+                        <div class="p-3 border-t text-right">
+                            <button class="px-3 py-1.5 bg-slate-700 text-white rounded" onclick="hideBusinessDetail()">확인</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 장비 가동률 예측 뷰 -->
+            <section id="uptime-predictions-view" class="view-section hidden">
+                <div class="p-6 md:p-10">
+                    <h1 class="text-3xl font-bold text-slate-800 mb-6">장비 가동률 예측</h1>
+                    
+                    <!-- 상단 요약 차트 -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-lg font-semibold text-slate-800 mb-4">가동률 분포</h3>
+                            <div class="h-64">
+                                <canvas id="uptime-distribution-chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-lg font-semibold text-slate-800 mb-4">부족 장비 TOP 5</h3>
+                            <div id="shortage-ranking" class="space-y-3"></div>
                         </div>
                     </div>
                     
-                    <!-- 동기화 로그 -->
-                    <div class="mt-4 p-3 bg-slate-50 rounded-lg">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-sm font-medium text-slate-700">최근 동기화 로그</span>
-                            <button onclick="refreshSyncStatus()" class="text-xs text-blue-600 hover:text-blue-800">
-                                새로고침
-                            </button>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="mb-4 flex flex-wrap gap-3 items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <button id="btn-refresh-uptime-predictions" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">데이터 새로고침</button>
+                                <select id="uptime-view-mode" class="px-3 py-2 border rounded">
+                                    <option value="all">전체 항목</option>
+                                    <option value="shortage">부족 항목만</option>
+                                    <option value="sufficient">충분 항목만</option>
+                                </select>
                         </div>
-                        <div id="sync-log" class="text-xs text-slate-600 space-y-1">
-                            <div>2025-01-27 15:30:00 - 동기화 시작</div>
-                            <div>2025-01-27 15:30:15 - 장비 데이터 동기화 완료 (293건)</div>
-                            <div>2025-01-27 15:30:30 - 수리 데이터 동기화 완료 (852건)</div>
-                            <div>2025-01-27 15:30:45 - 동기화 완료</div>
+                            <div class="text-sm text-slate-600">
+                                총 <span id="uptime-total-items">0</span>개 항목 | 부족 <span id="uptime-shortage-items">0</span>개 | 충분 <span id="uptime-sufficient-items">0</span>개
+                                </div>
+                                </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead class="bg-slate-100">
+                                    <tr>
+                                        <th class="text-left p-2">항목</th>
+                                        <th class="text-left p-2">필요 대수</th>
+                                        <th class="text-left p-2">필요 일수(총)</th>
+                                        <th class="text-left p-2">수동 지점-일</th>
+                                        <th class="text-left p-2">자동 지점-일</th>
+                                        <th class="text-left p-2">보유 대수</th>
+                                        <th class="text-left p-2">가동률(%)</th>
+                                        <th class="text-left p-2">부족/여유</th>
+                                        <th class="text-left p-2">예측 근거</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="uptime-predictions-table"><tr><td class="p-2 text-slate-500" colspan="7">데이터를 불러오세요</td></tr></tbody>
+                            </table>
+                            </div>
+                        <div class="text-xs text-slate-500 mt-3">db/stats_equipment_uptime_predictions.json 기반</div>
+                    </div>
+                    
+                    <!-- 과거 데이터 기반 보조 통계: 최근 1년 가동/수리 컨텍스트 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md mt-6">
+                        <h3 class="text-lg font-semibold text-slate-800 mb-4">과거 1년 가동/수리 통계(참고)</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead class="bg-slate-100">
+                                    <tr>
+                                        <th class="text-left p-2">항목</th>
+                                        <th class="text-left p-2">평균 가동률(1년)</th>
+                                        <th class="text-left p-2">현장일 비율</th>
+                                        <th class="text-left p-2">업체일 비율</th>
+                                        <th class="text-left p-2">청명일 비율</th>
+                                        <th class="text-left p-2">평균 출장 회수</th>
+                                        <th class="text-left p-2">평균 수리 회수</th>
+                                        <th class="text-left p-2">평균 수리로그</th>
+                                        <th class="text-left p-2">평균 정도검사</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="uptime-historical-table"><tr><td class="p-2 text-slate-500" colspan="9">불러오는 중...</td></tr></tbody>
+                            </table>
+                            <div class="text-xs text-slate-500 mt-3">db/stats_uptime_historical.json 기반 (최근 1년, 영업일 기준)</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 경향(트렌드) 분석: 품목/기간별 과부하(예상 여유분 초과) 탐지 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md mt-6">
+                        <div class="mb-4 flex flex-wrap gap-3 items-center justify-between">
+                            <h3 class="text-lg font-semibold text-slate-800">경향 분석(과거 12개월)</h3>
+                            <div class="flex items-center gap-3">
+                                <select id="trend-item-filter" class="px-3 py-2 border rounded" multiple></select>
+                                <select id="trend-overcap-threshold" class="px-3 py-2 border rounded">
+                                    <option value="80">임계 80%</option>
+                                    <option value="85">임계 85%</option>
+                                    <option value="90">임계 90%</option>
+                                </select>
+                                <input id="trend-overcap-input" type="number" min="0" max="100" value="80" class="w-24 px-3 py-2 border rounded" placeholder="임계%" />
+                                <label class="inline-flex items-center gap-2 text-sm text-slate-700">
+                                    <input id="trend-buffer-mode" type="checkbox" class="align-middle" /> 여유분 보기
+                                </label>
+                                <span id="trend-max-operating" class="text-sm text-slate-500"></span>
+                        </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                            <div>
+                                <h4 class="text-sm font-medium text-slate-700 mb-2">스파크라인</h4>
+                                <div class="h-40">
+                                    <canvas id="trend-sparkline" height="140"></canvas>
+                        </div>
+                    </div>
+                    
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead class="bg-slate-100">
+                                    <tr>
+                                        <th class="text-left p-2">월</th>
+                                        <th class="text-left p-2">항목</th>
+                                        <th class="text-left p-2">현장-일(합)</th>
+                                        <th class="text-left p-2">보유 대수</th>
+                                        <th class="text-left p-2">월 평균 가동장비 수</th>
+                                        <th class="text-left p-2">월 가동률 / 여유분</th>
+                                        <th class="text-left p-2">최대 가동장비수(날짜)</th>
+                                        <th class="text-left p-2">상태</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="uptime-trend-table"><tr><td class="p-2 text-slate-500" colspan="7">불러오는 중...</td></tr></tbody>
+                            </table>
+                            <div class="text-xs text-slate-500 mt-3">db/stats_uptime_historical_timeseries.json 기반. ‘월 평균 가동장비 수’=현장-일÷당월 영업일수.</div>
+                        </div>
+                    </div>
+
+                    <!-- Q4 계약 기반: 월간 요구량 vs 용량 (예측 과부하 탐지) -->
+                    <div class="bg-white p-6 rounded-lg shadow-md mt-6">
+                        <div class="mb-4 flex flex-wrap gap-3 items-center justify-between">
+                            <h3 class="text-lg font-semibold text-slate-800">Q4 계약 기반 월간 요구량 vs 용량</h3>
+                            <div class="flex items-center gap-3">
+                                <select id="biz-item-filter" class="px-3 py-2 border rounded" multiple></select>
+                                <select id="biz-overcap-threshold" class="px-3 py-2 border rounded">
+                                    <option value="80">임계 80%</option>
+                                    <option value="85">임계 85%</option>
+                                    <option value="90">임계 90%</option>
+                                </select>
+                                <input id="biz-overcap-input" type="number" min="0" max="100" value="80" class="w-24 px-3 py-2 border rounded" placeholder="임계%" />
+                                <label class="inline-flex items-center gap-2 text-sm text-slate-700">
+                                    <input id="biz-buffer-mode" type="checkbox" class="align-middle" /> 여유분 보기
+                                </label>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+                            <div>
+                                <h4 class="text-sm font-medium text-slate-700 mb-2">스파크라인</h4>
+                                <div class="h-40">
+                                    <canvas id="biz-sparkline" height="140"></canvas>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-slate-700 mb-2">막대 차트</h4>
+                                <div class="h-40">
+                                    <canvas id="biz-barchart" height="140"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead class="bg-slate-100">
+                                    <tr>
+                                        <th class="text-left p-2">월</th>
+                                        <th class="text-left p-2">항목</th>
+                                        <th class="text-left p-2">요구 지점-일</th>
+                                        <th class="text-left p-2">용량(보유×영업일)</th>
+                                        <th class="text-left p-2">예상 가동률</th>
+                                        <th class="text-left p-2">상태</th>
+                                        <th class="text-left p-2">기여 TOP</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="biz-month-table"><tr><td class="p-2 text-slate-500" colspan="7">불러오는 중...</td></tr></tbody>
+                            </table>
+                            <div class="text-xs text-slate-500 mt-3">db/stats_business_item_timeseries_q4_2025.json + db/stats_equipment_uptime_predictions_v2.json 기반</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 예측 상세 모달 (항목별 근거/사업 기여도) -->
+                <div id="uptime-prediction-detail-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+                    <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-screen overflow-y-auto">
+                        <div class="px-5 py-3 border-b flex items-center justify-between">
+                            <h3 class="text-lg font-semibold text-slate-800">예측 상세</h3>
+                            <button class="text-slate-500 hover:text-slate-700" onclick="(function(){document.getElementById('uptime-prediction-detail-modal').classList.add('hidden');})();">닫기</button>
+                        </div>
+                        <div class="p-6" id="uptime-prediction-detail-content">
+                            <!-- JS로 동적 렌더링 -->
                         </div>
                     </div>
                 </div>
@@ -845,10 +1248,10 @@
                                 <div class="space-y-3 max-h-96 overflow-y-auto">
                                         <div id="category-stats-container">
                                             <!-- 품목계열별 통계가 여기에 동적으로 생성됩니다 -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         
                         <!-- 우측: 장비 상세 정보 -->
                         <div class="space-y-6 md:col-span-8">
@@ -886,7 +1289,7 @@
                                         <div class="text-sm text-slate-600">품목계열 선택 (다중 선택 가능)</div>
                                         <div class="flex items-center gap-2">
                                             <button id="util-sort-toggle" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded" title="최근 1년 가동률 정렬 토글(오름/내림)">가동률 ▷</button>
-                                            <button id="series-reset-toggle" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded">선택 초기화</button>
+                                        <button id="series-reset-toggle" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded">선택 초기화</button>
                                         </div>
                                     </div>
                                     <div class="flex flex-wrap gap-2" id="product-series-tabs">
@@ -1226,8 +1629,8 @@
                                         <div id="edu-toggle-cat2" class="flex flex-wrap gap-2"></div>
                                     </div>
                                 </div>
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
                         <div class="overflow-x-auto">
                             <table class="w-full text-sm">
                                 <thead class="bg-slate-100">
@@ -1259,11 +1662,12 @@
                             <button id="alerts-toggle-longstay" class="px-3 py-1.5 rounded border bg-indigo-600 text-white hover:bg-indigo-700" aria-pressed="true">장기간 업체 입고</button>
                             <button id="alerts-toggle-lowutil" class="px-3 py-1.5 rounded border bg-white text-slate-700 hover:bg-slate-50" aria-pressed="false">장기간 가동률 저하</button>
                             <button id="alerts-toggle-calibration" class="px-3 py-1.5 rounded border bg-white text-slate-700 hover:bg-slate-50" aria-pressed="false">정도검사</button>
+                            <button id="alerts-toggle-bottleneck" class="px-3 py-1.5 rounded border bg-white text-slate-700 hover:bg-slate-50" aria-pressed="false">🚨 장비 병목 위험</button>
                         </div>
                         <div id="alerts-pane-longstay">
                             <p class="text-sm text-slate-600 mb-3">최근 이동일 기준 30일 이상 업체에 머문 장비</p>
-                        <div id="vendor-longstay-alerts" class="space-y-3"></div>
-                    </div>
+                            <div id="vendor-longstay-alerts" class="space-y-3"></div>
+                        </div>
                         <div id="alerts-pane-lowutil" class="hidden">
                             <div class="flex items-center gap-2 mb-3">
                                 <div id="lowutil-filters" class="flex flex-wrap gap-2"></div>
@@ -1298,6 +1702,37 @@
                                 </select>
                             </div>
                             <div id="calibration-alerts" class="space-y-4 max-h-[60vh] overflow-y-auto"></div>
+                        </div>
+                        <div id="alerts-pane-bottleneck" class="hidden">
+                            <p class="text-sm text-slate-600 mb-3">4분기 특정 기간 장비 부족 위험 분석</p>
+                            <div class="mb-4">
+                                <div class="grid grid-cols-3 gap-4 mb-4">
+                                    <div class="bg-red-50 p-3 rounded-lg border border-red-200">
+                                        <div class="text-red-800 font-semibold text-sm">위험 알림</div>
+                                        <div class="text-red-600 text-2xl font-bold" id="bottleneck-critical-count">0</div>
+                                    </div>
+                                    <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+                                        <div class="text-yellow-800 font-semibold text-sm">주의 알림</div>
+                                        <div class="text-yellow-600 text-2xl font-bold" id="bottleneck-high-count">0</div>
+                                    </div>
+                                    <div class="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                                        <div class="text-blue-800 font-semibold text-sm">모니터링</div>
+                                        <div class="text-blue-600 text-2xl font-bold" id="bottleneck-medium-count">0</div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <select id="bottleneck-month-filter" class="px-3 py-2 border border-slate-300 rounded-md">
+                                        <option value="all">전체 월</option>
+                                        <option value="2025-10">2025년 10월</option>
+                                        <option value="2025-11">2025년 11월</option>
+                                        <option value="2025-12">2025년 12월</option>
+                                    </select>
+                                    <select id="bottleneck-item-filter" class="ml-2 px-3 py-2 border border-slate-300 rounded-md">
+                                        <option value="all">전체 측정기</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="bottleneck-alerts" class="space-y-3 max-h-[50vh] overflow-y-auto"></div>
                         </div>
                     </div>
                 </div>
@@ -2021,7 +2456,7 @@
                     <div class="flex justify-end space-x-3">
                         <button type="button" onclick="printQuote()" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 no-print">
                             <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2h6a2 2 0 002-2z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v3M4 7h16"></path>
                             </svg>
                             인쇄
                         </button>
@@ -2041,12 +2476,12 @@
     <div id="equipment-detail-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
         <!-- 모달 내용은 JavaScript에서 동적으로 생성 -->
     </div>
-    <script type="module" src="scripts/app_config.js?v=20250912"></script>
-    <script type="module" src="scripts/data_client.js?v=20250912"></script>
-    <script type="module" src="scripts/backend_api_client.mjs?v=20250912"></script>
-    <script type="module" src="scripts/store.js?v=20250912"></script>
+    <script type="module" src="scripts/app_config.js?v=20250930"></script>
+    <script type="module" src="scripts/data_client.js?v=20250930"></script>
+    <script type="module" src="scripts/backend_api_client.mjs?v=20250930"></script>
+    <script type="module" src="scripts/store.js?v=20250930"></script>
     <script type="module" src="scripts/calc.js?v=20250912"></script>
-    <script src="scripts/fetch_data.js?v=20250912"></script>
+    <script src="scripts/fetch_data.js?v=20250930"></script>
     <script>
         // file:// 환경 금지 및 공통 fetch 유틸 (cache: no-store) + 상태 라벨 표준화
         function assertHttpProtocol() {
@@ -2302,7 +2737,7 @@
             // 호스트 컨테이너 확보: 최초 1회는 canvas를 컨테이너로 교체, 이후 재사용
             let host = document.getElementById('topCompaniesContainer');
             if (!host) {
-            const canvas = document.getElementById('topCompaniesByCostChart');
+                const canvas = document.getElementById('topCompaniesByCostChart');
                 if (!canvas || !canvas.parentElement) return;
                 host = document.createElement('div');
                 host.id = 'topCompaniesContainer';
@@ -2419,7 +2854,6 @@
                 }
             } catch(e) { console.warn(e); }
         }
-
         function renderTopCategoriesTable(items) {
             const tbody = document.getElementById('topCategoriesBody');
             if (!tbody) return;
@@ -2494,7 +2928,7 @@
             if (qBtn && !qBtn.dataset.bound) {
                 qBtn.dataset.bound = '1';
                 qBtn.addEventListener('click', () => renderTopCategoriesTable(items));
-        }
+            }
         }
         async function renderTopSerialsTable(items) {
             const tbody = document.getElementById('topSerialsBody');
@@ -2529,8 +2963,8 @@
             }
             if (!sourceRows.length && Array.isArray(items) && items.length) {
                 // 폴백: 사전 집계 데이터 사용(기간 미적용)
-            items.slice(0, 15).forEach(row => {
-                const tr = document.createElement('tr');
+                items.slice(0, 15).forEach(row => {
+                    const tr = document.createElement('tr');
                     tr.innerHTML = `<td class="p-2 font-medium">${row.serial}</td><td class="p-2">${row.category||'-'}</td><td class="p-2">-</td><td class="p-2">${(row.count||0).toLocaleString()}건</td><td class="p-2">${(row.totalCost||0).toLocaleString()}원</td>`;
                     tbody.appendChild(tr);
                 });
@@ -2575,7 +3009,7 @@
             if (qBtn && !qBtn.dataset.bound) {
                 qBtn.dataset.bound = '1';
                 qBtn.addEventListener('click', () => renderTopSerialsTable(items));
-        }
+            }
         }
         // ===== 수리 로그 로딩/필터/드래그 스크롤 =====
         let __repairLogAllRows = [];
@@ -3385,10 +3819,10 @@
                         }
                     }
                 } catch {}
-                
+
                 const getStatusRaw = (e) => (e && (e.status ?? e.상태)) || '';
                 const getLocationRaw = (e) => (e && (e.currentLocation || e.입고처 || e.현재위치)) || '';
-                
+
                 const totalEquipment = dataset.length;
                 const operatingEquipment = dataset.filter(e => normalizeStatus(getStatusRaw(e)) === '가동 중').length;
                 const uptimeRate = totalEquipment > 0 ? Math.round((operatingEquipment / totalEquipment) * 100) : 0;
@@ -3411,7 +3845,7 @@
                     const el = document.getElementById('equipment-chart-last-sync');
                     if (el) { el.textContent = ''; }
                 } catch {}
-
+                
                 console.log('대시보드 통계 업데이트 완료:', { totalEquipment, uptimeRate, companyRepairCount });
                 
             } catch (error) {
@@ -4185,7 +4619,7 @@
             // 주차 선택 옵션 업데이트
             updateWeekOptions();
         }
-
+        
         // 안전장치: 버튼이 덮이는 경우를 대비해 강제 포인터 허용
         try {
             const btn = document.getElementById('calendar-generate-btn');
@@ -4312,7 +4746,6 @@
             
             return days.sort((a, b) => a - b);
         }
-
         // 주차 정보 생성
         function getWeekInfo(days) {
             if (!days || days.length === 0) return '';
@@ -4662,7 +5095,7 @@
             // 제목을 테이블 앞에 삽입 (테이블이 container의 직계 자식이 아닐 가능성 대비)
             const container = document.getElementById('calendar-container');
             if (table.parentNode === container) {
-                container.insertBefore(calendarTitle, table);
+            container.insertBefore(calendarTitle, table);
             } else {
                 // fallback: 컨테이너 맨 앞에 추가
                 container.prepend(calendarTitle);
@@ -4954,7 +5387,6 @@
                 splitPanel.remove();
             }
         }
-        
         // 선택된 셀들 병합 (좌우 또는 상하)
         function mergeSelectedCells() {
             console.log(`병합 시도: ${selectedCells.length}개 셀 선택됨`);
@@ -5606,7 +6038,6 @@
                 alert('엑셀 파일 생성 중 오류가 발생했습니다.');
             }
         }
-
         // 캘린더 초기화
         function resetCalendar() {
             const table = document.getElementById('calendar-table');

@@ -46,6 +46,32 @@ export class DataClient {
     ]);
     return { monthly, costMonthly, topk };
   }
+
+  // 예측: 장비 가동률 (개선된 4분기 예측 우선)
+  async getUptimePredictions() {
+    try {
+      // 1순위: 새로운 4분기 통합 예측
+      return await this._json(`${this.basePath}/stats_q4_equipment_uptime_predictions.json`);
+    } catch {
+      try {
+        // 2순위: 기존 v2 예측
+        return await this._json(`${this.basePath}/stats_equipment_uptime_predictions_v2.json`);
+      } catch {
+        try {
+          // 3순위: v1 예측
+          return await this._json(`${this.basePath}/stats_equipment_uptime_predictions.json`);
+        } catch {
+          try {
+            // 4순위: 기존 카테고리별 활동률을 예측치로 사용
+            const base = await this._json(`${this.basePath}/stats_uptime_by_category.json`);
+            return { meta: { fallback: true }, data: Array.isArray(base) ? base : (base?.data || []) };
+          } catch {
+            return { meta: { fallback: true }, data: [] };
+          }
+        }
+      }
+    }
+  }
 }
 
 // 전역 접근(스크립트 태그 환경) 지원

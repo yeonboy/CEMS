@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "_schemaVersion": "2.0.0",
+    "generatedAt": "2025-09-30T06:03:07.257Z",
+    "sources": [
+      "db\\business_contracts_q4_2025.json",
+      "db\\equipment_db.json"
+    ],
+    "quarterBusinessDays": 66
+  },
+  "data": [
+    {
+      "category": "CO",
+      "requiredDevices": 114,
+      "requiredSiteDays": 240,
+      "requiredManualSiteDays": 225,
+      "requiredAutomaticSiteDays": 15,
+      "ownedDevices": 30,
+      "predictedUptimePct": 12,
+      "predictionBasis": "item_sites_and_siteDays_vs_inventory"
+    },
+    {
+      "category": "NO2",
+      "requiredDevices": 312,
+      "requiredSiteDays": 694,
+      "requiredManualSiteDays": 667,
+      "requiredAutomaticSiteDays": 27,
+      "ownedDevices": 66,
+      "predictedUptimePct": 16,
+      "predictionBasis": "item_sites_and_siteDays_vs_inventory"
+    },
+    {
+      "category": "O3",
+      "requiredDevices": 102,
+      "requiredSiteDays": 222,
+      "requiredManualSiteDays": 207,
+      "requiredAutomaticSiteDays": 15,
+      "ownedDevices": 30,
+      "predictedUptimePct": 11,
+      "predictionBasis": "item_sites_and_siteDays_vs_inventory"
+    },
+    {
+      "category": "PM-10",
+      "requiredDevices": 321,
+      "requiredSiteDays": 719,
+      "requiredManualSiteDays": 674,
+      "requiredAutomaticSiteDays": 45,
+      "ownedDevices": 69,
+      "predictedUptimePct": 16,
+      "predictionBasis": "item_sites_and_siteDays_vs_inventory"
+    },
+    {
+      "category": "PM-2.5",
+      "requiredDevices": 252,
+      "requiredSiteDays": 588,
+      "requiredManualSiteDays": 543,
+      "requiredAutomaticSiteDays": 45,
+      "ownedDevices": 52,
+      "predictedUptimePct": 17,
+      "predictionBasis": "item_sites_and_siteDays_vs_inventory"
+    },
+    {
+      "category": "Pb",
+      "requiredDevices": 98,
+      "requiredSiteDays": 218,
+      "requiredManualSiteDays": 203,
+      "requiredAutomaticSiteDays": 15,
+      "ownedDevices": 32,
+      "predictedUptimePct": 10,
+      "predictionBasis": "item_sites_and_siteDays_vs_inventory"
+    },
+    {
+      "category": "SO2",
+      "requiredDevices": 114,
+      "requiredSiteDays": 240,
+      "requiredManualSiteDays": 225,
+      "requiredAutomaticSiteDays": 15,
+      "ownedDevices": 56,
+      "predictedUptimePct": 6,
+      "predictionBasis": "item_sites_and_siteDays_vs_inventory"
+    },
+    {
+      "category": "벤젠",
+      "requiredDevices": 87,
+      "requiredSiteDays": 185,
+      "requiredManualSiteDays": 170,
+      "requiredAutomaticSiteDays": 15,
+      "ownedDevices": 7,
+      "predictedUptimePct": 40,
+      "predictionBasis": "item_sites_and_siteDays_vs_inventory"
+    }
+  ]
+}

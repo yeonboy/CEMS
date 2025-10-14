@@ -16,6 +16,40 @@ globs: index.html,dashboard.html
 4) 탭 전환 시 초기화 함수 호출: `initEquipmentStatus()`, `initRepairLogs()`
 5) file:// 금지 → 로컬 서버로 서비스 (예: `npx http-server -c-1 .`)
 
+## 이동로그 최신화 - 표준 매뉴얼 (Logs → DB → Front)
+
+1) 원천 CSV 배치
+- 위치: `청명장비 엑셀/`
+- 파일명: 반드시 `movements` 포함 (예: `8.29~10.14movements_logs.csv`)
+
+2) DB 재생성(중복 제거 포함)
+- 기본: `npm run build:db` (권장)
+- 경로 이슈 시 Node 직접 실행: `node .\scripts\build-db.mjs`
+- 빌더는 다음을 자동 수행:
+  - `serial`/`date` 정규화, 따옴표/구분자 보정
+  - 기존 `db/movements_db.json`과 병합(키: `date|serial|out|in|qty`)
+  - `db/equipment_db.json` 최신화(마지막 inLocation 기준 상태/위치)
+  - 백업: `개발현황자료전달/history/*`
+
+3) 통계 재생성
+- `npm run build:stats` 또는 `node .\scripts\build-stats.mjs`
+- 산출: `db/stats_*.json` (대시보드/알림/차트에 사용)
+
+4) 프론트 검증(캐시 무시 새로고침)
+- 접속: `http://localhost:5173/?mode=local` (또는 API 모드)
+- 새로고침: Ctrl+F5
+- 확인 포인트:
+  - 대시보드 KPI/차트 갱신
+  - 장비 현황 표(총수/상태/위치/최종일)
+  - 알림탭(저활동/장기입고) 기간 반응
+
+5) 문제 해결 체크리스트
+- 파일명에 `movements` 포함되었는지
+- `db/*.json` 권한/경로 OK인지
+- 캐시 무시 새로고침(Ctrl+F5)
+- 필요 시 수동 병합: `node .\scripts\merge_movements_from_csv.mjs`
+
+
 ## 역할 원칙
 - 데이터는 `db/*.json`에서 fetch(읽기 전용), 스키마 파괴 금지
 - 새로운 데이터 필요 시 DB/Backend와 협의하여 신규 파일로 합류
@@ -27,4 +61,4 @@ globs: index.html,dashboard.html
 
 ## 체크리스트
 1) 네트워크 오류 시 사용자 피드백/재시도 제공
-2) 접근성/키보드 탐색 유지, 명도 대비 준수
+2) 접근성/키보드 탐색 유지, 명도 대비 준수![1757920810439](image/11-role-ui/1757920810439.png)![1757920812777](image/11-role-ui/1757920812777.png)![1757920820466](image/11-role-ui/1757920820466.png)![1757920820903](image/11-role-ui/1757920820903.png)![1757920822062](image/11-role-ui/1757920822062.png)

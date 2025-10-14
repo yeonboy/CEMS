@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "_schemaVersion": "1.0.0",
+    "generatedAt": "",
+    "sourceFiles": [
+      "equipment_db.json",
+      "movements_db.json",
+      "repairs_db.json"
+    ],
+    "note": "초기 스켈레톤. build_stats.py/추가 파이프라인 또는 별도 스크립트에서 갱신"
+  },
+  "data": [
+    { "category": "UNKNOWN", "predictedUptimePct": 0, "predictionBasis": "초기값" }
+  ]
+}

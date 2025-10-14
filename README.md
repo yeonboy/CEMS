@@ -108,6 +108,16 @@ CEMS는 (주)청명기연환경의 장비를 통합적으로 관리하는 웹 �
 - **변경 원칙**: 소유 파일만 수정, 파괴적 스키마 변경 금지, 확장은 새 파일(`*_v2.json` 또는 역할 접두사)로 진행합니다.
 - **데이터 계약**: 프론트는 `db/*.json`을 우선 사용하고, 부재 시 원천 파일 파싱으로 폴백합니다.
 
+### 데이터/업데이트 경로 규칙
+
+- 로컬 DB 단일 출처: `db/*.json` (프론트/백엔드 공통 참조)
+- 이동로그 업데이트: 대시보드 하단의 "이동로그 CSV 업로드" 섹션에서 CSV 업로드 → 자동 병합 → (선택) 통계 재생성 → 프론트 즉시 반영
+- 백업/중복 파일: 모든 `movements_db_backup_*.json` 은 `db/history/` 로 자동 이동/백업됨
+- API:
+  - 업로드 병합: `POST /api/movements/upload-csv?rebuild=1|0` (form field: `file`)
+  - 백업 이동: `POST /api/movements/move-backups-to-history`
+  - 데이터 조회: `/api/equipment`, `/api/movements`, `/api/repairs`, `/api/stats/*`
+
 ### 데이터 빌드 규칙 (03-build-db)
 
 - **실행 명령**: `npm run build:db`

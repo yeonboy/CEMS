@@ -24,6 +24,7 @@ STATS_REPAIRS_BY_TYPE = os.path.join(DB_DIR, 'stats_repairs_by_type.json')
 STATS_REPAIRS_BY_SERIAL = os.path.join(DB_DIR, 'stats_repairs_by_serial.json')
 STATS_REPAIRS_MONTHLY = os.path.join(DB_DIR, 'stats_repairs_monthly.json')
 STATS_REPAIRS_TOPK = os.path.join(DB_DIR, 'stats_repairs_topk.json')
+STATS_EQUIPMENT_UPTIME_PREDICTIONS = os.path.join(DB_DIR, 'stats_equipment_uptime_predictions.json')
 
 SCHEMA_VERSION = '1.0.0'
 
@@ -359,6 +360,25 @@ def main():
     uptime_by_category = compute_uptime_by_category(equipment, movements)
     write_json(STATS_UPTIME_BY_CATEGORY, uptime_by_category, sources)
 
+    # 1b) equipment uptime predictions (baseline = uptime_by_category)
+    try:
+        baseline = uptime_by_category or []
+        predictions = []
+        for row in baseline:
+            cat = row.get('category')
+            pct = row.get('uptimeEstimatePct')
+            if cat is None or pct is None:
+                continue
+            predictions.append({
+                'category': cat,
+                'predictedUptimePct': pct,
+                'predictionBasis': 'baseline_from_uptime_by_category'
+            })
+        write_json(STATS_EQUIPMENT_UPTIME_PREDICTIONS, predictions, sources)
+    except Exception:
+        # 예측 산출 실패는 전체 빌드 실패로 취급하지 않음
+        pass
+
     # 2) repair cost monthly (legacy)
     repair_cost_monthly = compute_repair_cost_monthly(repairs)
     write_json(STATS_REPAIR_COST_MONTHLY, repair_cost_monthly, sources)
@@ -382,6 +402,7 @@ def main():
 
     print('Generated:',
           os.path.basename(STATS_UPTIME_BY_CATEGORY),
+          os.path.basename(STATS_EQUIPMENT_UPTIME_PREDICTIONS),
           os.path.basename(STATS_REPAIR_COST_MONTHLY),
           os.path.basename(STATS_REPAIRS_MONTHLY),
           os.path.basename(STATS_QC_NEXT_DUE),

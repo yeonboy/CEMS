@@ -328,22 +328,93 @@ document.addEventListener('DOMContentLoaded', () => {
             const btnA = document.getElementById('alerts-toggle-longstay');
             const btnM = document.getElementById('alerts-toggle-lowutil');
             const btnB = document.getElementById('alerts-toggle-calibration');
+            const btnC = document.getElementById('alerts-toggle-bottleneck');
             const paneA = document.getElementById('alerts-pane-longstay');
             const paneM = document.getElementById('alerts-pane-lowutil');
             const paneB = document.getElementById('alerts-pane-calibration');
+            const paneC = document.getElementById('alerts-pane-bottleneck');
             function setActive(btn, on){ if(!btn) return; btn.classList.toggle('bg-indigo-600', on); btn.classList.toggle('text-white', on); btn.classList.toggle('bg-white', !on); btn.classList.toggle('text-slate-700', !on); btn.setAttribute('aria-pressed', String(on)); }
             function activate(which){
-                const a = which==='A', m=which==='M', b=which==='B';
-                setActive(btnA,a); setActive(btnM,m); setActive(btnB,b);
+                const a = which==='A', m=which==='M', b=which==='B', c=which==='C';
+                setActive(btnA,a); setActive(btnM,m); setActive(btnB,b); setActive(btnC,c);
                 if (paneA) paneA.classList.toggle('hidden', !a);
                 if (paneM) paneM.classList.toggle('hidden', !m);
                 if (paneB) paneB.classList.toggle('hidden', !b);
+                if (paneC) paneC.classList.toggle('hidden', !c);
                 if (m) renderLowUtilAlerts();
+                if (c) loadBottleneckAlerts();
             }
             if (btnA) btnA.addEventListener('click', ()=> activate('A'));
             if (btnM) btnM.addEventListener('click', ()=> activate('M'));
             if (btnB) btnB.addEventListener('click', ()=> activate('B'));
+            if (btnC) btnC.addEventListener('click', ()=> activate('C'));
         } catch {}
+        
+        // 이동로그 CSV 업로드 핸들러 바인딩
+        try {
+            window.__handleMovementsCsvUpload = async function(e){
+                e.preventDefault();
+                const fileInput = document.getElementById('mv-upload-file');
+                const rebuild = document.getElementById('mv-rebuild-stats');
+                const bar = document.getElementById('mv-progress-bar');
+                const text = document.getElementById('mv-progress-text');
+                const log = document.getElementById('mv-upload-log');
+                const btn = document.getElementById('mv-upload-btn');
+                if (!fileInput || !fileInput.files || !fileInput.files[0]) return false;
+                const file = fileInput.files[0];
+                log.innerHTML = '';
+                if (btn) { btn.disabled = true; btn.textContent = '업로드 중...'; }
+                if (bar && text) { bar.style.width = '10%'; text.textContent = '10%'; }
+                try {
+                    const fd = new FormData(); fd.append('file', file);
+                    const url = `/api/movements/upload-csv?rebuild=${rebuild && rebuild.checked ? '1' : '0'}`;
+                    const resp = await fetch(url, { method:'POST', body: fd });
+                    if (bar && text) { bar.style.width = '70%'; text.textContent = '70%'; }
+                    if (!resp.ok) throw new Error('업로드 실패');
+                    const data = await resp.json();
+                    if (bar && text) { bar.style.width = '100%'; text.textContent = '100%'; }
+                    const items = [
+                        `파싱: ${data.parsed}건`,
+                        `기존: ${data.existing}건`,
+                        `추가: ${data.added}건`,
+                        `총계: ${data.written}건`,
+                        `통계: ${data.rebuild}`
+                    ];
+                    if (log) log.innerHTML = items.map(s=>`<div>${s}</div>`).join('');
+                    // 최신 DB 반영 재로딩
+                    try {
+                        const mv = await fetch('./db/movements_db.json?v='+Date.now(), { cache:'no-store' }).then(r=>r.json());
+                        window.movementsData = movementsData = Array.isArray(mv) ? mv : [];
+                        // 최신화 날짜 갱신
+                        const dates = (movementsData||[]).map(m=> String(m?.date||'').slice(0,10)).filter(Boolean).sort();
+                        const last = dates[dates.length-1] || '';
+                        const lastEl = document.getElementById('mv-last-updated');
+                        if (lastEl) lastEl.textContent = `(최신화: ${last||'-'})`;
+                        // 화면 갱신
+                        renderEquipmentTable();
+                        renderCategoryStats();
+                        updateKpis();
+                        try { renderLowUtilAlerts(); renderVendorLongStayAlerts(); renderCalibrationAlerts(); } catch {}
+                    } catch {}
+                } catch (err) {
+                    if (log) log.innerHTML = `<div class="text-red-600">오류: ${err && err.message ? err.message : err}</div>`;
+                } finally {
+                    if (btn) { btn.disabled = false; btn.textContent = '업로드'; }
+                    if (bar && text) setTimeout(()=>{ bar.style.width = '0%'; text.textContent = '0%'; }, 1000);
+                }
+                return false;
+            };
+            window.__moveBackupsToHistory = async function(){
+                const log = document.getElementById('mv-upload-log');
+                try{
+                    const resp = await fetch('/api/movements/move-backups-to-history', { method:'POST' });
+                    const data = await resp.json();
+                    if (log) log.innerHTML = `<div>history 이동: ${data.moved||0}건</div>` + (log.innerHTML||'');
+                }catch(e){
+                    if (log) log.innerHTML = `<div class="text-red-600">이동 실패: ${e && e.message ? e.message : e}</div>` + (log.innerHTML||'');
+                }
+            };
+        } catch (e) { /* no-op */ }
         
         if (document.getElementById('equipment-view')) {
             // switchView 대신 직접 탭 전환 (한 번만 실행)
@@ -396,6 +467,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (periodSel) periodSel.dispatchEvent(new Event('change'));
             } catch (e) { console.warn('초기 수리 차트 렌더 트리거 실패:', e); }
         }, 0);
+
+        // 초기 로딩 시 최신화 날짜 표시
+        try {
+            const mvDates = (window.movementsData||[]).map(m=> String(m?.date||'').slice(0,10)).filter(Boolean).sort();
+            const lastMv = mvDates[mvDates.length-1] || '';
+            const lastEl = document.getElementById('mv-last-updated');
+            if (lastEl) lastEl.textContent = `(최신화: ${lastMv||'-'})`;
+        } catch {}
     })
     .catch(error => {
         console.error('❌ 데이터 로드 실패:', error);
@@ -499,7 +578,6 @@ function cleanCsvCell(s) {
     v = v.replace(/\t+/g,'').trim();
     return v;
 }
-
 function initDashboardCharts() {
     // 장비 상태별 분포 차트
     const statusCtx = document.getElementById('equipmentStatusChart');
@@ -701,45 +779,1828 @@ function mergeById(primary, secondary) {
     return Array.from(map.values());
 }
 
-function switchView(viewId) {
-    // 모든 섹션 숨김 (한 화면에 하나의 섹션만)
-    document.querySelectorAll('.view-section').forEach(section => section.classList.add('hidden'));
-
-    // 장비 뷰 이탈 시 수리/교육 탭 잔상 제거 (inline style/active 클래스 초기화)
-    if (!viewId.startsWith('equipment')) {
+function switchView(viewName, event) {
+    console.log('🔍 switchView 호출됨:', viewName);
+    
+    // 모든 모달 강제로 숨기기
+    forceHidePurchaseRequestModal();
+    
+    // 장비 뷰가 아닐 경우 장비 탭 잔상 제거
+    if (viewName !== 'equipment') {
         document.querySelectorAll('.equipment-tab-content').forEach(el => { el.style.display = 'none'; });
         document.querySelectorAll('.equipment-tab').forEach(btn => btn.classList.remove('active'));
     }
 
-    if (viewId.startsWith('equipment-')) {
-        const tabName = viewId.replace('equipment-', '');
-        const equipmentSection = document.getElementById('equipment-view');
-        if (equipmentSection) equipmentSection.classList.remove('hidden');
-        switchEquipmentTab(tabName);
-    } else {
-        const section = document.getElementById(viewId + '-view');
-        if (section) section.classList.remove('hidden');
-    }
-
-    // 네비게이션 활성 표시 업데이트
-    document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active-nav'));
-    const navItem = document.querySelector(`[onclick="switchView('${viewId}')"]`);
-    if (navItem) navItem.classList.add('active-nav');
+    // 기존 뷰 숨기기
+    document.querySelectorAll('.view-section').forEach(section => {
+        section.classList.add('hidden');
+    });
     
-    if (viewId === 'dashboard') {
-        initDashboardCharts();
-        try { if (typeof updateNextWeekUptimeTable === 'function') updateNextWeekUptimeTable(); } catch(e) {}
-    } else if (viewId === 'accounting-purchase-request') {
-        renderPurchaseRequestTable();
+    // 선택된 뷰 표시
+    const selectedView = document.getElementById(viewName + '-view');
+    if (selectedView) {
+        selectedView.classList.remove('hidden');
+        console.log('✅ 뷰 표시됨:', viewName + '-view');
+        try {
+            if (viewName === 'uptime-predictions') {
+                if (typeof loadUptimePredictions === 'function') loadUptimePredictions();
+            } else if (viewName === 'business') {
+                if (typeof loadBusinessContracts === 'function') loadBusinessContracts();
+            }
+        } catch (e) { console.warn('뷰 초기화 실패:', e); }
+        
+        // 장비 뷰인 경우 기본 탭 설정
+        if (viewName === 'equipment') {
+            console.log('🔍 장비 뷰 활성화, 현황 탭 설정');
+            // 약간의 지연을 두어 DOM이 준비된 후 실행
+            setTimeout(() => {
+                switchEquipmentTab('status');
+            }, 100);
+        }
+    } else {
+        console.error('❌ 뷰를 찾을 수 없음:', viewName + '-view');
     }
+    
+    // 네비게이션 활성화 상태 업데이트
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active-nav');
+    });
+    
+    // 클릭된 아이템 활성화 (event가 있을 때만)
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active-nav');
+        console.log('✅ 네비게이션 아이템 활성화됨');
+    }
+    
+    // 대시보드로 돌아올 때 데이터 새로고침
+    if (viewName === 'dashboard') {
+        try { initDashboardCharts(); } catch(e) { console.warn(e); }
+        try { if (typeof updateNextWeekUptimeTable === 'function') updateNextWeekUptimeTable(); } catch(e) {}
+    }
+}
 
-    // 전환 후 스크롤을 항상 상단으로 이동
+// 예측 근거(한국어) 설명 생성기
+function getPredictionBasisTextKo(row) {
     try {
-        const mainEl = document.getElementById('main');
-        if (mainEl) mainEl.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        const code = (row && row.predictionBasis) || '';
+        
+        // 새로운 통합 예측 방식
+        if (code === 'q4_contracts_and_historical_uptime') {
+            return '📊 4분기 계약 수요 + 과거 실제 가동률 종합 분석';
+        }
+        if (code === 'overridden_timeseries_and_historical_uptime') {
+            return '✏️ 사업관리 수정 데이터 + 과거 가동률 반영';
+        }
+        if (code === 'timeseries_and_historical_uptime') {
+            return '📈 월별 타임시리즈 + 과거 가동률 분석';
+        }
+        
+        // 기존 방식들
+        const hasContractFields = typeof row?.requiredSiteDays === 'number' && typeof row?.ownedDevices === 'number';
+        if (code === 'item_sites_and_siteDays_vs_inventory' || hasContractFields) {
+            return '📋 계약 지점-일 ÷ 보유장비 × 영업일수';
+        }
+        if (code === 'baseline_from_uptime_by_category') {
+            return '📈 과거 이동로그 기반 카테고리별 평균';
+        }
+        
+        return '📊 기본 계약 수요 대비 장비 가용성 계산';
+    } catch (error) {
+        return '📋 계약 기반 계산';
+    }
+}
+
+// 장비 가동률 예측 화면 데이터 로더
+async function loadUptimePredictions() {
+    try {
+        const btn = document.getElementById('btn-refresh-uptime-predictions');
+        if (btn && !btn.__wired) {
+            btn.addEventListener('click', () => loadUptimePredictions());
+            btn.__wired = true;
+        }
+        const viewFilter = document.getElementById('uptime-view-mode');
+        if (viewFilter && !viewFilter.__wired) {
+            viewFilter.addEventListener('change', () => loadUptimePredictions());
+            viewFilter.__wired = true;
+        }
+        const tbody = document.getElementById('uptime-predictions-table');
+        if (!tbody) return;
+        tbody.innerHTML = '<tr><td class="p-2 text-slate-500" colspan="7">불러오는 중...</td></tr>';
+        const client = new DataClient();
+        let allRows = [];
+        let dataSource = 'unknown';
+        
+        // 새로운 통합 예측 데이터 우선 사용
+        try {
+            const q4Prediction = await client._json(`${client.basePath}/stats_q4_equipment_uptime_predictions.json`);
+            allRows = Array.isArray(q4Prediction?.data) ? q4Prediction.data : [];
+            if (allRows.length) dataSource = 'q4_integrated';
+        } catch {}
+        
+        // 폴백 순서 유지
+        if (!allRows || !allRows.length) {
+            try {
+                const v2 = await client._json(`${client.basePath}/stats_equipment_uptime_predictions_v2.json`);
+                allRows = Array.isArray(v2?.data) ? v2.data : [];
+                if (allRows.length) dataSource = 'v2';
+            } catch {}
+        }
+        if (!allRows || !allRows.length) {
+            try {
+                const v1 = await client._json(`${client.basePath}/stats_equipment_uptime_predictions.json`);
+                allRows = Array.isArray(v1?.data) ? v1.data : [];
+                if (allRows.length) dataSource = 'v1';
+            } catch {}
+        }
+        if (!allRows || !allRows.length) {
+            // 폴백: 기존 카테고리별 활동률
+            try {
+                const base = await client._json(`${client.basePath}/stats_uptime_by_category.json`);
+                allRows = Array.isArray(base) ? base : (Array.isArray(base?.data) ? base.data : []);
+                if (allRows.length) dataSource = 'historical_category';
+            } catch {}
+        }
+        
+        // 필터 적용 (새로운 데이터 구조 고려)
+        const viewMode = document.getElementById('uptime-view-mode')?.value || 'all';
+        let rows = allRows;
+        if (viewMode === 'shortage') {
+            if (dataSource === 'q4_integrated') {
+                // 새로운 구조: 높은 활용률(90% 이상) 또는 병목 위험이 있는 항목
+                rows = allRows.filter(r => (r.predictedUptimePct >= 90) || (r.bottleneckRisk === 'high') || (r.utilizationLevel === 'critical'));
+            } else {
+                // 기존 구조: 필요 장비 > 보유 장비
+                rows = allRows.filter(r => (r.requiredDevices||0) > (r.ownedDevices||0));
+            }
+        } else if (viewMode === 'sufficient') {
+            if (dataSource === 'q4_integrated') {
+                // 새로운 구조: 낮은 활용률(70% 미만) 또는 낮은 병목 위험
+                rows = allRows.filter(r => (r.predictedUptimePct < 70) && (r.bottleneckRisk !== 'high') && (r.utilizationLevel !== 'critical'));
+            } else {
+                // 기존 구조: 필요 장비 <= 보유 장비
+                rows = allRows.filter(r => (r.requiredDevices||0) <= (r.ownedDevices||0));
+            }
+        }
+        
+        // 상단 통계 갱신 (데이터 구조별 처리)
+        const total = allRows.length;
+        let shortage, sufficient, shortageList;
+        
+        if (dataSource === 'q4_integrated') {
+            // 새로운 구조: 높은 활용률 또는 병목 위험 기준
+            shortage = allRows.filter(r => (r.predictedUptimePct >= 90) || (r.bottleneckRisk === 'high') || (r.utilizationLevel === 'critical')).length;
+            sufficient = total - shortage;
+            
+            // 높은 활용률 TOP 5 렌더
+            shortageList = allRows.filter(r => (r.predictedUptimePct >= 70))
+                .sort((a,b) => (b.predictedUptimePct||0) - (a.predictedUptimePct||0))
+                .slice(0,5);
+        } else {
+            // 기존 구조: 필요 vs 보유 장비 수 기준
+            shortage = allRows.filter(r => (r.requiredDevices||0) > (r.ownedDevices||0)).length;
+            sufficient = total - shortage;
+            
+            // 부족 장비 TOP 5 렌더
+            shortageList = allRows.filter(r => (r.requiredDevices||0) > (r.ownedDevices||0))
+                .sort((a,b) => ((b.requiredDevices||0) - (b.ownedDevices||0)) - ((a.requiredDevices||0) - (a.ownedDevices||0)))
+                .slice(0,5);
+        }
+        
+        document.getElementById('uptime-total-items').textContent = total;
+        document.getElementById('uptime-shortage-items').textContent = shortage;
+        document.getElementById('uptime-sufficient-items').textContent = sufficient;
+        const shortageEl = document.getElementById('shortage-ranking');
+        if (shortageEl) {
+            shortageEl.innerHTML = shortageList.map((r,i) => {
+                if (dataSource === 'q4_integrated') {
+                    const uptimePct = r.predictedUptimePct || 0;
+                    const riskLevel = r.bottleneckRisk || 'low';
+                    const riskColor = riskLevel === 'high' ? 'red' : riskLevel === 'medium' ? 'yellow' : 'green';
+                    return `<div class="flex items-center justify-between p-3 bg-${riskColor}-50 rounded">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 bg-${riskColor}-600 text-white rounded-full flex items-center justify-center text-xs">${i+1}</span>
+                            <span class="font-medium">${r.category||r.item}</span>
+                        </div>
+                        <span class="text-${riskColor}-600 font-semibold">${uptimePct}% 예상</span>
+                    </div>`;
+                } else {
+                    const shortage = (r.requiredDevices||0) - (r.ownedDevices||0);
+                    return `<div class="flex items-center justify-between p-3 bg-red-50 rounded">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center text-xs">${i+1}</span>
+                            <span class="font-medium">${r.category||r.item}</span>
+                        </div>
+                        <span class="text-red-600 font-semibold">${shortage}대 부족</span>
+                    </div>`;
+                }
+            }).join('') || '<div class="text-slate-500 text-center py-4">주의 항목 없음</div>';
+        }
+        const trHtml = (rows || []).map(r => {
+            const item = r.category || 'UNKNOWN';
+            
+            // 새로운 데이터 구조와 기존 구조 모두 지원
+            let req, reqDays, manDays, autoDays, own, pct, shortage, riskInfo;
+            
+            if (dataSource === 'q4_integrated') {
+                // 새로운 통합 예측 구조
+                req = r.q4Demand?.peakConcurrentSites ?? '';
+                reqDays = r.q4Demand?.totalSiteDays ?? '';
+                manDays = '';  // 새 구조에서는 분리하지 않음
+                autoDays = '';
+                own = r.ownedDevices ?? '';
+                pct = r.predictedUptimePct ?? 0;
+                shortage = Math.max(0, (req||0) - (own||0));
+                riskInfo = `${r.utilizationLevel||'unknown'} (${r.bottleneckRisk||'unknown'} 위험)`;
+            } else {
+                // 기존 구조
+                req = r.requiredDevices ?? '';
+                reqDays = r.requiredSiteDays ?? '';
+                manDays = r.requiredManualSiteDays ?? '';
+                autoDays = r.requiredAutomaticSiteDays ?? '';
+                own = r.ownedDevices ?? '';
+                pct = typeof r.predictedUptimePct === 'number' ? r.predictedUptimePct : (typeof r.uptimeEstimatePct === 'number' ? r.uptimeEstimatePct : 0);
+                shortage = Math.max(0, (req||0) - (own||0));
+                riskInfo = shortage > 0 ? `${shortage}대 부족` : '충분';
+            }
+            
+            const basisKo = getPredictionBasisTextKo(r);
+            
+            // 상태 정보 생성
+            let status, statusColor;
+            if (dataSource === 'q4_integrated') {
+                const level = r.utilizationLevel || 'unknown';
+                const risk = r.bottleneckRisk || 'low';
+                if (risk === 'high' || level === 'critical') {
+                    status = '⚠️ 주의';
+                    statusColor = 'text-red-600';
+                } else if (risk === 'medium' || level === 'high') {
+                    status = '⚡ 높음';
+                    statusColor = 'text-orange-600';
+                } else {
+                    status = '✅ 양호';
+                    statusColor = 'text-green-600';
+                }
+            } else {
+                status = shortage > 0 ? `부족 ${shortage}대` : '충분';
+                statusColor = shortage > 0 ? 'text-red-600' : 'text-green-600';
+            }
+            
+            return `<tr data-item="${item}" class="hover:bg-slate-50 cursor-pointer" onclick="openUptimePredictionDetail('${item}')">
+                <td class="p-2">${item}</td>
+                <td class="p-2">${req}</td>
+                <td class="p-2">${reqDays}</td>
+                <td class="p-2">${manDays}</td>
+                <td class="p-2">${autoDays}</td>
+                <td class="p-2">${own}</td>
+                <td class="p-2">${pct}%</td>
+                <td class="p-2 ${statusColor}">${status}</td>
+                <td class="p-2 text-xs text-slate-600">${basisKo}</td>
+            </tr>`;
+        }).join('');
+        tbody.innerHTML = trHtml || '<tr><td class="p-2 text-slate-500" colspan="7">데이터 없음</td></tr>';
+
+        // 과거 1년 보조 통계 로드 및 렌더
+        try {
+            const histTbody = document.getElementById('uptime-historical-table');
+            if (histTbody) {
+                const client2 = new DataClient();
+                const hist = await client2._json(`${client2.basePath}/stats_uptime_historical.json`);
+                const histRows = Array.isArray(hist?.data) ? hist.data : [];
+
+                // 현재 뷰 필터에 맞춰 필요한 항목만 표시(선택: 부족/충분/전체)
+                let histFiltered = histRows;
+                if (viewMode === 'shortage') {
+                    const needMap = new Map();
+                    for (const r of allRows) needMap.set(r.category, Math.max(0, (r.requiredDevices||0) - (r.ownedDevices||0)));
+                    histFiltered = histRows.filter(r => (needMap.get(r.category)||0) > 0);
+                } else if (viewMode === 'sufficient') {
+                    const needMap = new Map();
+                    for (const r of allRows) needMap.set(r.category, Math.max(0, (r.requiredDevices||0) - (r.ownedDevices||0)));
+                    histFiltered = histRows.filter(r => (needMap.get(r.category)||0) === 0);
+                }
+
+                const histHtml = histFiltered.map(r => {
+                    const item = r.category;
+                    const p1y = r.avgUptimePct1Y ?? 0;
+                    const site = r.siteDaysPct1Y ?? 0;
+                    const vendor = r.vendorDaysPct1Y ?? 0;
+                    const cmes = r.cmesDaysPct1Y ?? 0;
+                    const trips = r.avgTrips1Y ?? 0;
+                    const rtrips = r.avgRepairTrips1Y ?? 0;
+                    const rlogs = r.avgRepairsLogged1Y ?? 0;
+                    const cal = r.avgCalibrationsLogged1Y ?? 0;
+                    return `<tr>
+                        <td class="p-2">${item}</td>
+                        <td class="p-2">${p1y}%</td>
+                        <td class="p-2">${site}%</td>
+                        <td class="p-2">${vendor}%</td>
+                        <td class="p-2">${cmes}%</td>
+                        <td class="p-2">${trips}</td>
+                        <td class="p-2">${rtrips}</td>
+                        <td class="p-2">${rlogs}</td>
+                        <td class="p-2">${cal}</td>
+                    </tr>`;
+                }).join('');
+                histTbody.innerHTML = histHtml || '<tr><td class="p-2 text-slate-500" colspan="9">데이터 없음</td></tr>';
+            }
+        } catch (e) {
+            try {
+                const histTbody = document.getElementById('uptime-historical-table');
+                if (histTbody) histTbody.innerHTML = '<tr><td class="p-2 text-slate-500" colspan="9">히스토리 데이터 없음</td></tr>';
+            } catch {}
+        }
+        // 경향(트렌드) 표 로드/필터 바인딩
+        try {
+            const trendBody = document.getElementById('uptime-trend-table');
+            const itemSel = document.getElementById('trend-item-filter');
+            const thrSel = document.getElementById('trend-overcap-threshold');
+            const thrInput = document.getElementById('trend-overcap-input');
+            const bufferMode = document.getElementById('trend-buffer-mode');
+            if (trendBody && itemSel && thrSel) {
+                const client3 = new DataClient();
+                let rowsTs = [];
+                // 피크(최대 동시 가동 수) 로드
+                try {
+                    const peaks = await client3._json(`${client3.basePath}/stats_uptime_historical_peaks.json`);
+                    const map = new Map();
+                    const arr = Array.isArray(peaks?.data) ? peaks.data : [];
+                    for (const p of arr) map.set(p.category, { peak: Number(p.peakActiveDevices||0), date: p.peakDate||'' });
+                    window.__histPeaks = map;
+                } catch { window.__histPeaks = new Map(); }
+                try {
+                    const ts = await client3._json(`${client3.basePath}/stats_uptime_historical_timeseries.json`);
+                    rowsTs = Array.isArray(ts?.data) ? ts.data : [];
+                } catch {}
+                // 폴백: 파일이 없으면 클라이언트에서 계산 (최근 12개월)
+                if (!rowsTs.length && Array.isArray(equipmentData) && Array.isArray(movementsData)) {
+                    try {
+                        const normalizeItemName = (raw)=>{
+                            const s = String(raw || '').trim().toUpperCase().replace(/\s+/g, '');
+                            if (!s) return '';
+                            if (s.startsWith('PM10') || s === 'PM-10') return 'PM-10';
+                            if (s.startsWith('PM2.5') || s === 'PM-2.5' || s === 'PM2_5') return 'PM-2.5';
+                            if (s === 'NOX') return 'NO2';
+                            if (s === 'NO2') return 'NO2';
+                            if (s === 'SOX' || s === 'SO2') return 'SO2';
+                            if (s === 'CO') return 'CO';
+                            if (s === 'O3') return 'O3';
+                            if (s === 'PB' || s === 'PB(LEAD)') return 'Pb';
+                            if (raw && String(raw).includes('벤젠')) return '벤젠';
+                            return raw;
+                        };
+                        const serialToItems = new Map();
+                        const inventoryByItem = {};
+                        for (const e of equipmentData) {
+                            const serial = (e?.serial || '').toString().trim();
+                            if (!serial) continue;
+                            const cat = (e?.category || '').toString();
+                            const m = cat.match(/^\(([^)]+)\)/);
+                            let items = [];
+                            if (m) items = m[1].split(',').map(t => normalizeItemName(t)).filter(Boolean);
+                            if (!items.length) items = ['UNKNOWN'];
+                            serialToItems.set(serial, items);
+                            for (const it of items) inventoryByItem[it] = (inventoryByItem[it] || 0) + 1;
+                        }
+                        const serialToMoves = new Map();
+                        for (const mv of movementsData) {
+                            const serial = (mv?.serial || '').toString().trim();
+                            if (!serial) continue;
+                            if (!serialToMoves.has(serial)) serialToMoves.set(serial, []);
+                            const date = (mv?.date || '').toString();
+                            serialToMoves.get(serial).push({ date, outLocation: mv.outLocation, inLocation: mv.inLocation });
+                        }
+                        for (const [, list] of serialToMoves) list.sort((a,b)=> (a.date>b.date?1:a.date<b.date?-1:0));
+                        const to = new Date();
+                        const from = new Date(to.getFullYear(), to.getMonth()-11, 1);
+                        const months = [];
+                        for (let d = new Date(from.getFullYear(), from.getMonth(), 1); d <= to; d.setMonth(d.getMonth()+1)) months.push(new Date(d));
+                        const bizDaysByMonth = {};
+                        const monthKey = (d)=> `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}`;
+                        for (const m of months) {
+                            const s = new Date(m.getFullYear(), m.getMonth(), 1);
+                            const e = new Date(m.getFullYear(), m.getMonth()+1, 0);
+                            bizDaysByMonth[monthKey(m)] = countBusinessDays(s, e);
+                        }
+                        const agg = new Map(); // item -> month -> { siteDays, vendorDays, cmesDays }
+                        const getEntry = (it, mk)=>{
+                            if (!agg.has(it)) agg.set(it, new Map());
+                            const mp = agg.get(it);
+                            if (!mp.has(mk)) mp.set(mk, { siteDays: 0, vendorDays: 0, cmesDays: 0 });
+                            return mp.get(mk);
+                        };
+                        for (const [serial, list] of serialToMoves) {
+                            const itemsOf = serialToItems.get(serial) || ['UNKNOWN'];
+                            // intervals from earliest month start to now
+                            const start = new Date(from);
+                            const end = new Date(to);
+                            const intervals = buildLocationIntervals(serial, list, start, end);
+                            for (const iv of intervals) {
+                                for (const m of months) {
+                                    const s = new Date(m.getFullYear(), m.getMonth(), 1);
+                                    const e = new Date(m.getFullYear(), m.getMonth()+1, 0);
+                                    const days = countBusinessDays(new Date(Math.max(+s, +iv.start)), new Date(Math.min(+e, +iv.end)));
+                                    if (days <= 0) continue;
+                                    const mk = monthKey(m);
+                                    for (const it of itemsOf) {
+                                        const entry = getEntry(it, mk);
+                                        if (iv.type === 'site') entry.siteDays += days; else if (iv.type === 'vendor') entry.vendorDays += days; else entry.cmesDays += days;
+                                    }
+                                }
+                            }
+                        }
+                        const out = [];
+                        for (const [it, mp] of agg) {
+                            for (const m of months) {
+                                const mk = monthKey(m);
+                                const entry = mp.get(mk) || { siteDays: 0, vendorDays: 0, cmesDays: 0 };
+                                const biz = bizDaysByMonth[mk] || 0;
+                                const siteAvg = biz > 0 ? Math.round((entry.siteDays / biz) * 10) / 10 : 0;
+                                const owned = inventoryByItem[it] || 0;
+                                const util = owned > 0 ? Math.min(100, Math.round((siteAvg / owned) * 100)) : 0;
+                                out.push({ month: mk, category: it, businessDays: biz, siteDaysTotal: entry.siteDays, vendorDaysTotal: entry.vendorDays, cmesDaysTotal: entry.cmesDays, siteDeviceAvg: siteAvg, ownedDevices: owned, utilizationPct: util });
+                            }
+                        }
+                        rowsTs = out.sort((a,b)=> a.category===b.category ? (a.month>b.month?1:-1) : (a.category>b.category?1:-1));
+                    } catch (e) { console.warn('트렌드 폴백 계산 실패:', e); }
+                }
+                const items = Array.from(new Set(rowsTs.map(r => r.category))).sort();
+                if (!itemSel.dataset.__loaded) {
+                    itemSel.innerHTML = items.map(it=>`<option value="${it}">${it}</option>`).join('');
+                    itemSel.dataset.__loaded = '1';
+                }
+                const threshold = Number((thrInput && thrInput.value) || thrSel.value || 80);
+                const selected = Array.from(itemSel.selectedOptions).map(o=>o.value);
+                const filterItems = selected.length ? new Set(selected) : null;
+                const filtered = rowsTs.filter(r => (!filterItems || filterItems.has(r.category)));
+                const view = filtered.map(r => {
+                    const util = Number(r.utilizationPct||0);
+                    const status = util >= threshold ? `<span class=\"text-red-600\">과부하</span>` : `<span class=\"text-green-600\">여유</span>`;
+                    const displayMetric = (bufferMode && bufferMode.checked) ? `${Math.max(0, 100 - util)}%` : `${util}%`;
+                    const peakInfo = (window.__histPeaks && window.__histPeaks.get(r.category)) || null;
+                    const peakStr = peakInfo ? `${peakInfo.peak}(${peakInfo.date})` : '-';
+                    return `<tr>
+                        <td class=\"p-2\">${r.month}</td>
+                        <td class=\"p-2\">${r.category}</td>
+                        <td class=\"p-2\">${r.siteDaysTotal}</td>
+                        <td class=\"p-2\">${r.ownedDevices}</td>
+                        <td class=\"p-2\">${r.siteDeviceAvg}</td>
+                        <td class=\"p-2\">${displayMetric}</td>
+                        <td class=\"p-2\">${peakStr}</td>
+                        <td class=\"p-2\">${status}</td>
+                    </tr>`;
+                }).join('');
+                trendBody.innerHTML = view || '<tr><td class="p-2 text-slate-500" colspan="8">데이터 없음</td></tr>';
+                if (thrSel && !thrSel.__bound) { thrSel.addEventListener('change', () => loadUptimePredictions()); thrSel.__bound = true; }
+                if (thrInput && !thrInput.__bound) { thrInput.addEventListener('change', () => loadUptimePredictions()); thrInput.__bound = true; }
+                if (!itemSel.__bound) {
+                    itemSel.addEventListener('change', () => loadUptimePredictions());
+                    itemSel.__bound = true;
+                }
+                if (bufferMode && !bufferMode.__bound) { bufferMode.addEventListener('change', () => loadUptimePredictions()); bufferMode.__bound = true; }
+
+                // 차트: 스파크라인(막대 제거)
+                try {
+                    const sparkCtx = document.getElementById('trend-sparkline')?.getContext('2d');
+                    if (sparkCtx && window.Chart) {
+                        // 최대 가동 장비 수 계산 (predictions v2 우선, 폴백 equipment)
+                        let maxOperating = 0;
+                        try {
+                            const clientMax = new DataClient();
+                            const v2 = await clientMax._json(`${clientMax.basePath}/stats_equipment_uptime_predictions_v2.json`);
+                            const arr = Array.isArray(v2?.data) ? v2.data : [];
+                            if (arr.length) maxOperating = arr.reduce((acc, x)=> acc + Number(x.ownedDevices||0), 0);
+                            if (!maxOperating) {
+                                const eq = await clientMax.getEquipment();
+                                maxOperating = Array.isArray(eq) ? eq.length : 0;
+                            }
+                        } catch {}
+                        try { const el = document.getElementById('trend-max-operating'); if (el) el.textContent = maxOperating ? `최대 가동 장비 수: ${maxOperating}` : ''; } catch {}
+
+                        const months = Array.from(new Set(filtered.map(r => r.month))).sort();
+                        const seriesByItem = {};
+                        (filterItems ? Array.from(filterItems) : items.slice(0, 6)).forEach(it => { seriesByItem[it] = months.map(m => {
+                            const arr = filtered.filter(r => r.month===m && r.category === it);
+                            const avg = arr.length ? Math.round(arr.reduce((a,b)=> a + Number(b.utilizationPct||0), 0) / arr.length) : 0;
+                            return (bufferMode && bufferMode.checked) ? Math.max(0, 100 - avg) : avg;
+                        }); });
+
+                        window._trendCharts = window._trendCharts || {};
+                        const borderColor = (bufferMode && bufferMode.checked) ? '#0ea5e9' : '#3b82f6';
+                        const bgColor = (bufferMode && bufferMode.checked) ? 'rgba(14,165,233,0.25)' : 'rgba(59,130,246,0.25)';
+
+                        // destroy prev
+                        try { window._trendCharts.spark && window._trendCharts.spark.destroy(); } catch {}
+
+                        const palette = ['#3b82f6','#ef4444','#10b981','#f59e0b','#8b5cf6','#06b6d4','#84cc16'];
+                        const datasetsLine = Object.keys(seriesByItem).map((it, idx)=> ({
+                            label: it,
+                            data: seriesByItem[it],
+                            borderColor: palette[idx % palette.length],
+                            backgroundColor: (bufferMode && bufferMode.checked) ? 'rgba(14,165,233,0.15)' : 'rgba(59,130,246,0.15)',
+                            fill: true,
+                            tension: 0.35,
+                            pointRadius: 0,
+                            pointHoverRadius: 2
+                        }));
+                        window._trendCharts.spark = new Chart(sparkCtx, {
+                            type: 'line',
+                            data: { labels: months, datasets: datasetsLine },
+                            options: {
+                                responsive: false,
+                                plugins: {
+                                    legend: { display: true, position: 'bottom' },
+                                    tooltip: { enabled: true, callbacks: { label: (ctx)=> `${ctx.dataset.label}: ${ctx.parsed.y}%` } }
+                                },
+                                elements: { line: { borderWidth: 1.5 } },
+                                scales: { y: { display: false }, x: { display: false } }
+                            }
+                        });
+                    }
+                } catch {}
+            }
+        } catch (e) {
+            // 무시
+        }
+
+        // Q4 계약 기반 월간 요구량 vs 용량 테이블 + 차트
+        try {
+            const bizBody = document.getElementById('biz-month-table');
+            const itemSel2 = document.getElementById('biz-item-filter');
+            const thrSel2 = document.getElementById('biz-overcap-threshold');
+            const thrInput2 = document.getElementById('biz-overcap-input');
+            const bufferMode2 = document.getElementById('biz-buffer-mode');
+            if (bizBody && itemSel2 && thrSel2) {
+                const client4 = new DataClient();
+                let rowsBiz = [];
+                try {
+                    const tsBiz = await client4._json(`${client4.basePath}/stats_business_item_timeseries_q4_2025.json`);
+                    rowsBiz = Array.isArray(tsBiz?.data) ? tsBiz.data : [];
+                } catch {}
+                const predV2 = await client4._json(`${client4.basePath}/stats_equipment_uptime_predictions_v2.json`);
+                const predRows = Array.isArray(predV2?.data) ? predV2.data : [];
+                // inventory by item from predictions v2 (ownedDevices)
+                const inv = new Map();
+                for (const p of predRows) inv.set(p.category, Number(p.ownedDevices||0));
+
+                // 캘린더 동기화 오버레이로 완료된 사업 제외(남은 물량 추정)
+                let completionByProject = new Map();
+                try {
+                    const ov = await client4._json(`${client4.basePath}/backend_business_calendar_sync.json`);
+                    const items = Array.isArray(ov?.items) ? ov.items : [];
+                    const norm = (s)=> String(s||'').toLowerCase().replace(/[\s\t\n\r]+/g,'').replace(/[\-_/.,()\[\]{}<>~!@#$%^&*`'"|\\:;]+/g,'').trim();
+                    for (const it of items){
+                        const key = it.businessId || norm(it.projectTitle);
+                        if (!key) continue;
+                        const prev = completionByProject.get(key);
+                        if (!prev || String(it.completedAt||'') > String(prev.completedAt||'')) completionByProject.set(key, { completedAt: it.completedAt });
+                    }
+                } catch {}
+
+                const items = rowsBiz.length ? Array.from(new Set(rowsBiz.map(r => r.category))).sort() : Array.from(inv.keys()).sort();
+                if (!itemSel2.dataset.__loaded) {
+                    itemSel2.innerHTML = items.map(it=>`<option value="${it}">${it}</option>`).join('');
+                    itemSel2.dataset.__loaded = '1';
+                }
+
+                const selected2 = Array.from(itemSel2.selectedOptions).map(o=>o.value);
+                const filterItems2 = selected2.length ? new Set(selected2) : null;
+                const threshold2 = Number((thrInput2 && thrInput2.value) || thrSel2.value || 80);
+                const filtered2 = rowsBiz.filter(r => (!filterItems2 || filterItems2.has(r.category)));
+
+                // 월 영업일 계산(예측 v2 메타에 없으므로 간단 계산)
+                function countBizMonth(ym) {
+                    const [y,m] = ym.split('-').map(Number);
+                    const s = new Date(y, m-1, 1), e = new Date(y, m, 0);
+                    let cnt=0; for (let d=new Date(s); d<=e; d.setDate(d.getDate()+1)) { const wd=d.getDay(); if (wd!==0 && wd!==6) cnt++; }
+                    return cnt;
+                }
+
+                const grouped = new Map(); // key: month|category -> { required, requiredManual, requiredAuto, capacity, utilizationPct, _projects, remaining }
+                if (filtered2.length) {
+                    for (const r of filtered2) {
+                        const key = r.month + '|' + r.category;
+                        const own = inv.get(r.category) || 0;
+                        const bizDays = countBizMonth(r.month);
+                        const capacity = own * bizDays;
+                        const utilization = capacity>0 ? Math.min(100, Math.round((Number(r.requiredSiteDays||0)/capacity)*100)) : 0;
+                        const entry = grouped.get(key) || { month: r.month, category: r.category, required: 0, requiredManual: 0, requiredAuto: 0, capacity, utilizationPct: utilization, _projects: [], remaining: 0 };
+                        const thisReq = Number(r.requiredSiteDays||0);
+                        const thisReqMan = Number(r.requiredManualSiteDays||0);
+                        const thisReqAuto = Number(r.requiredAutomaticSiteDays||0);
+                        entry.required += thisReq;
+                        entry.requiredManual += thisReqMan;
+                        entry.requiredAuto += thisReqAuto;
+                        // 남은 물량 계산: 완료된 사업 제외
+                        let remainThis = thisReq;
+                        try {
+                            const norm = (s)=> String(s||'').toLowerCase().replace(/[\s\t\n\r]+/g,'').replace(/[\-_/.,()\[\]{}<>~!@#$%^&*`'"|\\:;]+/g,'').trim();
+                            const key1 = r.projectId || norm(r.projectName);
+                            const comp = completionByProject.get(key1);
+                            if (comp && comp.completedAt){
+                                // 완료 월 포함 이후의 물량은 0으로 간주(보수적)
+                                const [yy,mm] = r.month.split('-').map(Number);
+                                const endMonth = new Date(yy, mm, 0);
+                                const compDate = new Date(comp.completedAt + 'T23:59:59');
+                                if (compDate <= endMonth) remainThis = 0;
+                            }
+                        } catch {}
+                        entry.remaining += Math.max(0, remainThis);
+                        entry._projects.push({ projectName: r.projectName, client: r.client, requiredSiteDays: thisReq });
+                        grouped.set(key, entry);
+                    }
+                } else {
+                    // 데이터 파일이 없을 때 기본 months(10~12)로 빈 구조라도 표시
+                    const months = ['2025-10','2025-11','2025-12'];
+                    const items2 = filterItems2 ? Array.from(filterItems2) : items.slice(0,6);
+                    for (const m of months) {
+                        for (const it of items2) {
+                            const own = inv.get(it) || 0;
+                            const bizDays = countBizMonth(m);
+                            const capacity = own * bizDays;
+                            const key = m + '|' + it;
+                            grouped.set(key, { month: m, category: it, required: 0, capacity, utilizationPct: 0, _projects: [] });
+                        }
+                    }
+                }
+                const view = Array.from(grouped.values()).map(v => {
+                    const util = v.capacity>0 ? Math.min(100, Math.round((Number(v.remaining||0)/v.capacity)*100)) : 0;
+                    const status = util >= threshold2 ? `<span class=\"text-red-600\">과부하</span>` : `<span class=\"text-green-600\">여유</span>`;
+                    const metric = (bufferMode2 && bufferMode2.checked) ? `${Math.max(0, 100 - util)}%` : `${util}%`;
+                    const top3 = v._projects.sort((a,b)=> b.requiredSiteDays - a.requiredSiteDays).slice(0,3).map(x=> `${x.projectName||''}(${x.requiredSiteDays})`).join(', ');
+                    return `<tr>
+                        <td class=\"p-2\">${v.month}</td>
+                        <td class=\"p-2\">${v.category}</td>
+                        <td class=\"p-2\">${v.remaining||0}</td>
+                        <td class=\"p-2\">${v.capacity}</td>
+                        <td class=\"p-2\">${metric}</td>
+                        <td class=\"p-2\">${status}</td>
+                        <td class=\"p-2\">${top3 || '-'}</td>
+                    </tr>`;
+                }).join('');
+                bizBody.innerHTML = view || '<tr><td class="p-2 text-slate-500" colspan="7">데이터 없음</td></tr>';
+                if (!thrSel2.__bound) { thrSel2.addEventListener('change', () => loadUptimePredictions()); thrSel2.__bound = true; }
+                if (thrInput2 && !thrInput2.__bound) { thrInput2.addEventListener('change', () => loadUptimePredictions()); thrInput2.__bound = true; }
+                if (!itemSel2.__bound) { itemSel2.addEventListener('change', () => loadUptimePredictions()); itemSel2.__bound = true; }
+                if (bufferMode2 && !bufferMode2.__bound) { bufferMode2.addEventListener('change', () => loadUptimePredictions()); bufferMode2.__bound = true; }
+
+                // 차트(스파크라인만 표시, 막대 제거)
+                try {
+                    const sparkBiz = document.getElementById('biz-sparkline')?.getContext('2d');
+                    if (sparkBiz && window.Chart) {
+                        const months = Array.from(new Set(filtered2.map(r => r.month))).sort();
+                        const items2 = filterItems2 ? Array.from(filterItems2) : items.slice(0,6);
+                        const seriesByItem = Object.fromEntries(items2.map(it => [it, months.map(m => {
+                            const rows = Array.from(grouped.values()).filter(v => v.month===m && v.category===it);
+                            const avg = rows.length ? Math.round(rows.reduce((a,b)=> a + (b.capacity>0? Math.min(100, Math.round((Number(b.remaining||0)/b.capacity)*100)) : 0), 0) / rows.length) : 0;
+                            return (bufferMode2 && bufferMode2.checked) ? Math.max(0, 100 - avg) : avg;
+                        })]));
+                        const palette = ['#3b82f6','#ef4444','#10b981','#f59e0b','#8b5cf6','#06b6d4','#84cc16'];
+                        const datasetsLine = Object.keys(seriesByItem).map((it, idx)=> ({ label: it, data: seriesByItem[it], borderColor: palette[idx%palette.length], backgroundColor: 'rgba(59,130,246,0.15)', fill: true, tension: 0.35, pointRadius: 0, pointHoverRadius: 2 }));
+                        window._trendCharts = window._trendCharts || {};
+                        try { window._trendCharts.bizSpark && window._trendCharts.bizSpark.destroy(); } catch {}
+                        window._trendCharts.bizSpark = new Chart(
+                            sparkBiz,
+                            {
+                                type: 'line',
+                                data: { labels: months, datasets: datasetsLine },
+                                options: {
+                                    responsive: false,
+                                    plugins: { legend: { display: true, position: 'bottom' } },
+                                    scales: { y: { display: false }, x: { display: false } }
+                                }
+                            }
+                        );
+
+                        // 헤더에 '예상 최대 동시 필요 장비 수' 표시 (월별 남은 site-days 합 기준)
+                        try {
+                            // 월별 총 남은 site-days → 월 영업일로 나눠 장비 수 근사, 최댓값
+                            const peakByMonth = months.map(m => {
+                                const rows = Array.from(grouped.values()).filter(v => v.month===m);
+                                const remainDays = rows.reduce((a,b)=> a + Number(b.remaining||0), 0);
+                                return Math.ceil(remainDays / (countBizMonth(m)||1));
+                            });
+                            const peakNeed = Math.max(0, ...peakByMonth);
+                            const totalOwned = Array.from(inv.values()).reduce((a,b)=> a + Number(b||0), 0);
+                            const lack = Math.max(0, peakNeed - totalOwned);
+                            const el = document.getElementById('trend-max-operating');
+                            if (el) el.textContent = `최대 동시 필요 수: ${peakNeed} / 보유: ${totalOwned}${lack?` (부족 ${lack})`:''}`;
+                        } catch {}
+                    }
+                } catch {}
+            }
+        } catch (e) {
+            // 무시
+        }
+    } catch (e) {
+        console.warn('가동률 예측 로드 실패:', e);
+    }
+}
+
+// 예측 상세 모달: 항목별 예측 근거 + 사업별 기여도 + 과거 통계
+async function openUptimePredictionDetail(item) {
+    try {
+        const modal = document.getElementById('uptime-prediction-detail-modal');
+        const content = document.getElementById('uptime-prediction-detail-content');
+        if (!modal || !content) return;
+
+        const client = new DataClient();
+        // 예측 v2
+        let pred = null;
+        try {
+            const v2 = await client._json(`${client.basePath}/stats_equipment_uptime_predictions_v2.json`);
+            const arr = Array.isArray(v2?.data) ? v2.data : [];
+            pred = arr.find(x => (x.category||x.item) === item) || null;
+        } catch {}
+        // 과거 통계
+        let hist = null;
+        try {
+            const h = await client._json(`${client.basePath}/stats_uptime_historical.json`);
+            const arr = Array.isArray(h?.data) ? h.data : [];
+            hist = arr.find(x => x.category === item) || null;
+        } catch {}
+        // 계약 데이터(사업별 기여도 역산)
+        let biz = null;
+        try {
+            const c = await client._json(`${client.basePath}/business_contracts_q4_2025.json`);
+            const rows = Array.isArray(c?.data) ? c.data : [];
+            // 각 사업(row)의 measurementPlans에서 해당 item이 포함된 siteDays 기여도 추정
+            const normalize = (s)=> String(s||'').trim().toUpperCase().replace(/\s+/g,'');
+            const normKey = normalize(item).replace('PM2.5','PM-2.5').replace('PM10','PM-10');
+            const derive = (r)=>{
+                const overlap = Number(r.overlapQ4Days||0);
+                const totalSites = Number((r.siteCounts?.manual||0) + (r.siteCounts?.automatic||0));
+                if (!(totalSites>0)) return 0;
+                let sum = 0;
+                (r.measurementPlans||[]).forEach(p=>{
+                    const days = Number(p.days||0);
+                    if (!(days>0)) return;
+                    const active = overlap>0 ? Math.min(days, overlap) : days;
+                    const items = (p.items||[]).map(x=>normalize(x).replace('PM2.5','PM-2.5').replace('PM10','PM-10'));
+                    if (items.includes(normKey)) sum += totalSites * active;
+                });
+                return sum;
+            };
+            const contrib = rows.map(r=> ({ projectId: r.projectId, projectName: r.projectName, client: r.client, siteDays: derive(r) }))
+                .filter(x=> x.siteDays>0)
+                .sort((a,b)=> b.siteDays - a.siteDays)
+                .slice(0, 15);
+            const total = contrib.reduce((a,b)=> a+b.siteDays, 0) || 1;
+            biz = { contrib, total };
+        } catch {}
+
+        // 렌더
+        const basisKo = getPredictionBasisTextKo(pred || {});
+        const req = pred?.requiredDevices ?? 0;
+        const reqDays = pred?.requiredSiteDays ?? 0;
+        const manDays = pred?.requiredManualSiteDays ?? 0;
+        const autoDays = pred?.requiredAutomaticSiteDays ?? 0;
+        const own = pred?.ownedDevices ?? 0;
+        const pct = pred?.predictedUptimePct ?? (pred?.uptimeEstimatePct ?? 0);
+        const hUptime = hist?.avgUptimePct1Y ?? '-';
+        const sitePct = hist?.siteDaysPct1Y ?? '-';
+        const vendorPct = hist?.vendorDaysPct1Y ?? '-';
+        const cmesPct = hist?.cmesDaysPct1Y ?? '-';
+        const trips = hist?.avgTrips1Y ?? '-';
+        const rTrips = hist?.avgRepairTrips1Y ?? '-';
+        const rLogs = hist?.avgRepairsLogged1Y ?? '-';
+        const calib = hist?.avgCalibrationsLogged1Y ?? '-';
+
+        const bizRows = (biz?.contrib||[]).map(x=>{
+            const share = Math.round((x.siteDays / (biz.total||1)) * 100);
+            return `<tr><td class="p-2">${x.projectName||''}</td><td class="p-2">${x.client||''}</td><td class="p-2">${x.siteDays}</td><td class="p-2">${share}%</td></tr>`;
+        }).join('');
+
+        content.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <h4 class="font-semibold text-slate-800 mb-2">예측 요약</h4>
+                <div class="text-sm text-slate-700 space-y-1">
+                    <div><span class="text-slate-500">항목:</span> <span class="font-medium">${item}</span></div>
+                    <div><span class="text-slate-500">필요 대수:</span> ${req}</div>
+                    <div><span class="text-slate-500">필요 일수(지점-일):</span> ${reqDays}</div>
+                    <div class="text-xs text-slate-500">- 수동 지점-일: ${manDays} / 자동 지점-일: ${autoDays}</div>
+                    <div><span class="text-slate-500">보유 대수:</span> ${own}</div>
+                    <div><span class="text-slate-500">예상 가동률:</span> <span class="font-semibold">${pct}%</span></div>
+                    <div class="text-xs text-slate-500">근거: ${basisKo}</div>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-semibold text-slate-800 mb-2">과거 1년 통계(참고)</h4>
+                <div class="text-sm text-slate-700 grid grid-cols-2 gap-x-6 gap-y-1">
+                    <div>평균 가동률: <span class="font-semibold">${hUptime}%</span></div>
+                    <div>현장일 비율: ${sitePct}%</div>
+                    <div>업체일 비율: ${vendorPct}%</div>
+                    <div>청명일 비율: ${cmesPct}%</div>
+                    <div>평균 출장: ${trips}</div>
+                    <div>평균 수리회수: ${rTrips}</div>
+                    <div>평균 수리로그: ${rLogs}</div>
+                    <div>평균 정도검사: ${calib}</div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-6">
+            <h4 class="font-semibold text-slate-800 mb-2">사업별 기여도(지점-일)</h4>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                    <thead class="bg-slate-100"><tr><th class="text-left p-2">사업명</th><th class="text-left p-2">의뢰사</th><th class="text-left p-2">지점-일</th><th class="text-left p-2">기여%</th></tr></thead>
+                    <tbody>${bizRows || '<tr><td class="p-2 text-slate-500" colspan="4">데이터 없음</td></tr>'}</tbody>
+                </table>
+            </div>
+        </div>`;
+
+        modal.classList.remove('hidden');
+    } catch (e) {
+        console.warn('예측 상세 모달 실패:', e);
+    }
+}
+// 사업관리: 4분기 계약 표 렌더
+async function loadBusinessContracts() {
+    try {
+        const btn = document.getElementById('btn-refresh-business');
+        if (btn && !btn.__wired) {
+            btn.addEventListener('click', () => loadBusinessContracts());
+            btn.__wired = true;
+        }
+        const search = document.getElementById('business-search-input');
+        if (search && !search.__wired) {
+            search.addEventListener('input', () => loadBusinessContracts());
+            search.__wired = true;
+        }
+        const typeFilter = document.getElementById('business-type-filter');
+        if (typeFilter && !typeFilter.__wired) {
+            typeFilter.addEventListener('change', () => loadBusinessContracts());
+            typeFilter.__wired = true;
+        }
+        const exportBtn = document.getElementById('btn-export-business');
+        if (exportBtn && !exportBtn.__wired) {
+            exportBtn.addEventListener('click', () => exportBusinessToExcel());
+            exportBtn.__wired = true;
+        }
+        const tCons = document.getElementById('biz-construction');
+        const tOper = document.getElementById('biz-operation');
+        const tPost = document.getElementById('biz-post');
+        const tStr = document.getElementById('biz-strategy');
+        if (!(tCons && tOper && tPost && tStr)) return;
+        tCons.innerHTML = '<tr><td class=\"p-2 text-slate-500\" colspan=\"5\">불러오는 중...</td></tr>';
+        tOper.innerHTML = '<tr><td class=\"p-2 text-slate-500\" colspan=\"5\">불러오는 중...</td></tr>';
+        tPost.innerHTML = '<tr><td class=\"p-2 text-slate-500\" colspan=\"5\">불러오는 중...</td></tr>';
+        tStr.innerHTML = '<tr><td class=\"p-2 text-slate-500\" colspan=\"5\">불러오는 중...</td></tr>';
+        const client = new DataClient();
+        let payload = null;
+        try {
+            payload = await client._json(`${client.basePath}/business_contracts_q4_2025.json`);
+        } catch {}
+        let rows = Array.isArray(payload?.data) ? payload.data : [];
+        console.log('🔍 business rows:', rows.length);
+        // 검색 필터
+        const q = (document.getElementById('business-search-input')?.value || '').trim();
+        if (q) {
+            const qs = q.toLowerCase();
+            rows = rows.filter(r => (r.projectName||'').toLowerCase().includes(qs) || (r.client||'').toLowerCase().includes(qs));
+        }
+        // v2 단계 배정(배타성) 로드
+        let __v2ById = new Map();
+        try {
+            const v2 = await client._json(`${client.basePath}/backend_business_contracts_v2.json?v=${Date.now()}`);
+            const arr = Array.isArray(v2?.data) ? v2.data : [];
+            __v2ById = new Map(arr.map(x => [x.projectId, x]));
+        } catch {}
+        function __renderMiniTimeline(v2){
+            try {
+                const map = v2?.phaseByMonth || {};
+                const months = ['2025-10','2025-11','2025-12'];
+                const color = (ph)=> ph==='construction' ? '#3B82F6' : ph==='operation' ? '#10B981' : '#94A3B8';
+                return `<span class="inline-flex items-center gap-1 ml-1">` +
+                    months.map(m => `<span title="${m}: ${map[m]||'-'}" style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${color(map[m])};"></span>`).join('') +
+                `</span>`;
+            } catch { return ''; }
+        }
+        function __renderPhaseChips(v2){
+            try {
+                const chips = (v2?.phases||[]).map(ph=>{
+                    if (ph.type==='period') return `<span class=\"inline-block px-1 py-0.5 rounded bg-slate-100 mr-1\">${ph.name}: ${(ph.period?.from||'').slice(0,10)}~${(ph.period?.to||'').slice(0,10)}</span>`;
+                    if (ph.type==='event') return `<span class=\"inline-block px-1 py-0.5 rounded bg-amber-100 mr-1\">${ph.name}: ${ph.date?(ph.date.slice(0,10)):(ph.count? (ph.count+'회') : '')}</span>`;
+                    return '';
+                }).join('');
+                return chips;
+            } catch { return ''; }
+        }
+
+        // 분류별 필터링
+        const typeFilterValue = document.getElementById('business-type-filter')?.value || 'all';
+        let filteredRows = rows;
+        if (typeFilterValue !== 'all') {
+            filteredRows = rows.filter(r => {
+                const cls = r.classification || {};
+                if (typeFilterValue === 'construction') return cls.construction?.raw;
+                if (typeFilterValue === 'operation') return cls.operation?.raw || cls.operation?.totalSurveys || cls.operation?.requestedSurveys;
+                if (typeFilterValue === 'post') return cls.post?.raw;
+                if (typeFilterValue === 'strategy') return cls.strategy?.raw || cls.strategy?.remainingExecutions;
+                return true;
+            });
+        }
+        // ===== 캘린더 동기화 오버레이 병합 (백엔드 산출물: backend_business_calendar_sync.json) =====
+        try {
+            const ov = await fetch('./db/backend_business_calendar_sync.json?v=' + Date.now(), { cache:'no-store' }).then(r=> r.ok ? r.json() : { items: [] });
+            const items = Array.isArray(ov?.items) ? ov.items : [];
+            const dict = {};
+            items.forEach(it => {
+                if (!it) return;
+                const key = it.businessId || (it.projectTitle || '').trim();
+                if (!key) return;
+                const cur = dict[key];
+                if (!cur || String(it.completedAt||'') > String(cur.completedAt||'')) {
+                    dict[key] = { completed: !!it.complete, completedAt: it.completedAt || null, updatedAt: new Date().toISOString() };
+                }
+            });
+            const local = JSON.parse(localStorage.getItem('businessCompletion')||'{}');
+            const byId = {};
+            rows.forEach(r => {
+                const idKey = r.projectId;
+                const nameKey = (r.projectName||'').trim();
+                if (dict[idKey]) {
+                    byId[idKey] = dict[idKey];
+                } else if (dict[nameKey]) {
+                    byId[idKey] = dict[nameKey];
+                }
+            });
+            const merged = { ...local, ...byId };
+            window.__businessCompletion = merged;
+            localStorage.setItem('businessCompletion', JSON.stringify(merged));
+            console.log('✅ 캘린더 동기화 오버레이 반영:', Object.keys(byId).length);
+        } catch (e) { console.warn('오버레이 로드 실패:', e); }
+        // ===== 오버레이 병합 끝 =====
+        const fmtPeriod = (p) => {
+            const f = (p?.from || '').slice(0,10);
+            const t = (p?.to || '').slice(0,10);
+            if (f && t) return `${f} ~ ${t}`;
+            if (f && !t) return `${f} ~ 과업 완료시`;
+            if (!f && t) return `~ ${t}`;
+            return '';
+        };
+        const mkRow = (r, cells, priority) => {
+            const rowClass = priority === 'high' ? 'bg-red-50' : priority === 'medium' ? 'bg-yellow-50' : '';
+            // 완료 상태 확인 (오버라이드에서 가져오기)
+            const completionOverride = (window.__businessCompletion && window.__businessCompletion[r.projectId]) || {};
+            const isCompleted = completionOverride.completed || false;
+            const completedClass = isCompleted ? 'opacity-60' : '';
+            
+            // 완료 토글 체크박스
+            const toggleCell = `<input type="checkbox" class="completion-toggle" data-project-id="${r.projectId}" ${isCompleted ? 'checked' : ''} onchange="toggleBusinessCompletion('${r.projectId}', this.checked)">`;
+            
+            // v2 배지/미니타임라인: 첫번째 셀(사업명)에 부착
+            try {
+                const v2 = __v2ById.get(r.projectId);
+                if (v2) {
+                    const chips = __renderPhaseChips(v2);
+                    const mini = __renderMiniTimeline(v2);
+                    const nameHtml = `${cells[0]}<div class=\"mt-1 text-xs text-slate-600\">${chips}${mini}</div>`;
+                    const newCells = [nameHtml, ...cells.slice(1)];
+                    return `<tr class=\"${rowClass} ${completedClass}\" data-project-id=\"${r.projectId}\" data-completed=\"${isCompleted}\">${[toggleCell, ...newCells].map(c=>`<td class=\"p-2\">${c}</td>`).join('')}</tr>`;
+                }
+            } catch {}
+            return `<tr class=\"${rowClass} ${completedClass}\" data-project-id=\"${r.projectId}\" data-completed=\"${isCompleted}\">${[toggleCell, ...cells].map(c=>`<td class=\"p-2\">${c}</td>`).join('')}</tr>`;
+        };
+        const esc = s => (s||'').replace(/</g,'&lt;');
+        const consRows = [];
+        const operRows = [];
+        const postRows = [];
+        const stratRows = [];
+        for (const r of filteredRows) {
+            // 오버라이드 적용
+            const override = (window.__bizOverrides && window.__bizOverrides[r.projectId]) || {};
+            const cls = r.classification || {};
+            const op = cls.operation || {}; 
+            const cons = cls.construction || {};
+            const post = cls.post || {};
+            const strat = cls.strategy || {};
+            
+            // 계약기간 오버라이드 적용
+            const period = {
+                from: override.periodFrom || r.period?.from,
+                to: override.periodTo || r.period?.to
+            };
+            
+            // 집행 정보 오버라이드 적용 및 4분기 총 횟수 계산
+            const calculateQ4Executions = (period, count) => {
+                if (!count || count <= 0) return 0;
+                const Q4_MONTHS = 3; // 10,11,12월
+                switch(period) {
+                    case 'month': return count * Q4_MONTHS; // 월별 × 3개월
+                    case 'quarter': return count; // 분기별 그대로
+                    case 'half': return Math.ceil(count * 0.5); // 반기별 × 0.5 (4분기는 반기의 절반)
+                    case 'total': return count; // 총 횟수 그대로
+                    default: return count;
+                }
+            };
+            
+            const execConstruction = override.execConstructionCount ? 
+                calculateQ4Executions(override.execConstructionPeriod || 'total', override.execConstructionCount) :
+                (r.executionsQ4?.construction || 0);
+            const execOperation = override.execOperationCount ? 
+                calculateQ4Executions(override.execOperationPeriod || 'quarter', override.execOperationCount) :
+                (r.executionsQ4?.operation || 0);
+            const execPost = override.execPostCount ? 
+                calculateQ4Executions(override.execPostPeriod || 'month', override.execPostCount) :
+                (r.executionsQ4?.post || 0);
+            const execStrategy = override.execStrategyCount ? 
+                calculateQ4Executions(override.execStrategyPeriod || 'total', override.execStrategyCount) :
+                (r.executionsQ4?.strategy || 0);
+            
+            // 우선순위: 종료일 임박/지점수 많음 = high, 보통 = medium
+            const now = new Date();
+            const end = period?.to ? new Date(period.to) : null;
+            const daysLeft = end ? Math.ceil((end - now) / (24*60*60*1000)) : 999;
+            const sites = override.totalSites ?? ((override.manual ?? (r.siteCounts?.manual||0)) + (override.automatic ?? (r.siteCounts?.automatic||0)));
+            const priority = (daysLeft < 30 && sites > 5) ? 'high' : (daysLeft < 90 || sites > 3) ? 'medium' : '';
+            
+            // 집행 정보 표시 함수
+            const formatExecInfo = (period, count, originalCount) => {
+                if (count > 0) {
+                    const periodText = period === 'total' ? '총' : period === 'half' ? '반기' : period === 'quarter' ? '분기' : '월';
+                    return `${periodText} ${originalCount}회 (4분기: ${count}회)`;
+                }
+                return '';
+            };
+            
+            const consExecText = override.execConstructionCount ? 
+                formatExecInfo(override.execConstructionPeriod || 'total', execConstruction, override.execConstructionCount) :
+                (execConstruction > 0 ? `${execConstruction}회` : '');
+            const operExecText = override.execOperationCount ? 
+                formatExecInfo(override.execOperationPeriod || 'quarter', execOperation, override.execOperationCount) :
+                (execOperation > 0 ? `${execOperation}회` : '');
+            const postExecText = override.execPostCount ? 
+                formatExecInfo(override.execPostPeriod || 'month', execPost, override.execPostCount) :
+                (execPost > 0 ? `${execPost}회` : '');
+            const stratExecText = override.execStrategyCount ? 
+                formatExecInfo(override.execStrategyPeriod || 'total', execStrategy, override.execStrategyCount) :
+                (execStrategy > 0 ? `${execStrategy}회` : '');
+            
+            if (cons.raw || consExecText) consRows.push(mkRow(r, [esc(r.projectName), esc(r.client), fmtPeriod(period), consExecText || esc(cons.raw), `<button class="px-2 py-1 text-xs border rounded" onclick="openBusinessDetail('${r.projectId}')">상세</button>`], priority));
+            const opCell = operExecText || ((op.totalSurveys || op.requestedSurveys) ? `${op.totalSurveys||0}/${op.requestedSurveys||0}` : (op.raw ? esc(op.raw) : ''));
+            if (opCell) operRows.push(mkRow(r, [esc(r.projectName), esc(r.client), fmtPeriod(period), opCell, `<button class="px-2 py-1 text-xs border rounded" onclick="openBusinessDetail('${r.projectId}')">상세</button>`], priority));
+            if (post.raw || postExecText) postRows.push(mkRow(r, [esc(r.projectName), esc(r.client), fmtPeriod(period), postExecText || esc(post.raw), `<button class="px-2 py-1 text-xs border rounded" onclick="openBusinessDetail('${r.projectId}')">상세</button>`], priority));
+            if (strat.raw || stratExecText || (typeof strat.remainingExecutions === 'number' && strat.remainingExecutions > 0)) {
+                stratRows.push(mkRow(r, [esc(r.projectName), esc(r.client), fmtPeriod(period), stratExecText || '', `<button class="px-2 py-1 text-xs border rounded" onclick="openBusinessDetail('${r.projectId}')">상세</button>`], priority));
+            }
+        }
+        // 완료/미완료로 분리
+        const separateByCompletion = (rows) => {
+            const active = [];
+            const completed = [];
+            rows.forEach(row => {
+                if (row.includes('data-completed="true"')) {
+                    completed.push(row);
+                } else {
+                    active.push(row);
+                }
+            });
+            return { active, completed };
+        };
+
+        const consSeparated = separateByCompletion(consRows);
+        const operSeparated = separateByCompletion(operRows);
+        const postSeparated = separateByCompletion(postRows);
+        const stratSeparated = separateByCompletion(stratRows);
+
+        tCons.innerHTML = consSeparated.active.join('') || '<tr><td class=\"p-2 text-slate-500\" colspan=\"6\">데이터 없음</td></tr>';
+        tOper.innerHTML = operSeparated.active.join('') || '<tr><td class=\"p-2 text-slate-500\" colspan=\"6\">데이터 없음</td></tr>';
+        tPost.innerHTML = postSeparated.active.join('') || '<tr><td class=\"p-2 text-slate-500\" colspan=\"6\">데이터 없음</td></tr>';
+        tStr.innerHTML = stratSeparated.active.join('') || '<tr><td class=\"p-2 text-slate-500\" colspan=\"6\">데이터 없음</td></tr>';
+
+        // 완료된 사업 섹션 업데이트
+        const tConsCompleted = document.getElementById('biz-construction-completed');
+        const tOperCompleted = document.getElementById('biz-operation-completed');
+        const tPostCompleted = document.getElementById('biz-post-completed');
+        const tStrCompleted = document.getElementById('biz-strategy-completed');
+
+        if (tConsCompleted) tConsCompleted.innerHTML = consSeparated.completed.join('') || '<tr><td class=\"p-2 text-slate-500\" colspan=\"6\">완료된 사업 없음</td></tr>';
+        if (tOperCompleted) tOperCompleted.innerHTML = operSeparated.completed.join('') || '<tr><td class=\"p-2 text-slate-500\" colspan=\"6\">완료된 사업 없음</td></tr>';
+        if (tPostCompleted) tPostCompleted.innerHTML = postSeparated.completed.join('') || '<tr><td class=\"p-2 text-slate-500\" colspan=\"6\">완료된 사업 없음</td></tr>';
+        if (tStrCompleted) tStrCompleted.innerHTML = stratSeparated.completed.join('') || '<tr><td class=\"p-2 text-slate-500\" colspan=\"6\">완료된 사업 없음</td></tr>';
+
+        // 상단 카드 개수 업데이트 (v2 단계 배정 기반)
+        try {
+            const totalCount = rows.length;
+            const completedCount = Object.values(window.__businessCompletion || {}).filter(c => c.completed).length;
+
+            function hasPhase(v2, phase){
+                try {
+                    if (!v2) return false;
+                    if (phase === 'construction' || phase === 'operation') {
+                        const by = v2.phaseByMonth || {};
+                        return Object.values(by).some(ph => ph === phase);
+                    }
+                    if (phase === 'post') {
+                        return Array.isArray(v2.phases) && v2.phases.some(ph => ph.name==='post');
+                    }
+                    if (phase === 'strategy') {
+                        return Array.isArray(v2.phases) && v2.phases.some(ph => ph.name==='strategy' && (Number(ph.count||0) > 0 || ph.date));
+                    }
+                    return false;
+                } catch { return false; }
+            }
+            function fallbackHas(row, phase){
+                const cls = row.classification || {};
+                const exq = row.executionsQ4 || {};
+                if (phase==='construction') return Number(exq.construction||0) > 0 || !!cls.construction?.raw;
+                if (phase==='operation') return Number(exq.operation||0) > 0 || !!cls.operation?.raw;
+                if (phase==='post') return Number(exq.post||0) > 0 || !!cls.post?.raw;
+                if (phase==='strategy') return Number(exq.strategy||0) > 0 || (Number(cls.strategy?.remainingExecutions||0) > 0) || !!cls.strategy?.raw;
+                return false;
+            }
+            let consCount=0, operCount=0, postCount=0, stratCount=0;
+            rows.forEach(r => {
+                const v2 = __v2ById.get(r.projectId);
+                if (hasPhase(v2,'construction') || (!v2 && fallbackHas(r,'construction'))) consCount++;
+                if (hasPhase(v2,'operation') || (!v2 && fallbackHas(r,'operation'))) operCount++;
+                if (hasPhase(v2,'post') || (!v2 && fallbackHas(r,'post'))) postCount++;
+                if (hasPhase(v2,'strategy') || (!v2 && fallbackHas(r,'strategy'))) stratCount++;
+            });
+
+            document.getElementById('biz-total-count').textContent = totalCount;
+            document.getElementById('biz-completed-count').textContent = completedCount;
+            const elC = document.getElementById('biz-construction-count'); if (elC) elC.textContent = consCount;
+            const elO = document.getElementById('biz-operation-count'); if (elO) elO.textContent = operCount;
+            const elP = document.getElementById('biz-post-count'); if (elP) elP.textContent = postCount;
+            const elS = document.getElementById('biz-strategy-count'); if (elS) elS.textContent = stratCount;
+        } catch (e) {
+            console.warn('카드 개수 업데이트 실패:', e);
+        }
+
+        // 품목계열 요약: 예측 산출 v2 사용
+        try {
+            const pred = await client._json(`${client.basePath}/stats_equipment_uptime_predictions_v2.json`);
+            const items = Array.isArray(pred?.data) ? pred.data : [];
+            const sumTbody = document.getElementById('biz-item-summary');
+            if (sumTbody) {
+                const rows2 = items.map(it => {
+                    const item = it.category || it.item || '';
+                    const need = it.requiredDevices ?? it.requiredSites ?? 0;
+                    const own = it.ownedDevices ?? 0;
+                    const pct = it.predictedUptimePct ?? it.coveragePct ?? 0;
+                    return `<tr><td class="p-2">${item}</td><td class="p-2">${need}</td><td class="p-2">${own}</td><td class="p-2">${pct}%</td></tr>`;
+                }).join('');
+                sumTbody.innerHTML = rows2 || '<tr><td class="p-2 text-slate-500" colspan="4">데이터 없음</td></tr>';
+            }
+        } catch {}
+
+        window.__businessContracts = rows;
+        
+        // 오버라이드 데이터 로드
+        try {
+            const overrideRes = await fetch('/api/business-overrides');
+            const overrideData = await overrideRes.json();
+            if (overrideData.ok && Array.isArray(overrideData.items)) {
+                window.__bizOverrides = {};
+                overrideData.items.forEach(item => {
+                    if (item.projectId && item.overrides) {
+                        window.__bizOverrides[item.projectId] = item.overrides;
+                    }
+                });
+                console.log('✅ 사업 오버라이드 로드됨:', Object.keys(window.__bizOverrides).length);
+            }
+        } catch (e) {
+            console.warn('오버라이드 로드 실패:', e);
+            window.__bizOverrides = {};
+        }
+        
+        // 완료 상태 데이터 로드 (로컬 스토리지 우선)
+        try {
+            // 로컬 스토리지에서 먼저 로드
+            const localData = JSON.parse(localStorage.getItem('businessCompletion') || '{}');
+            window.__businessCompletion = localData;
+            console.log('✅ 로컬 스토리지에서 완료 상태 로드됨:', Object.keys(window.__businessCompletion).length);
+            
+            // 백엔드 서버에서 동기화 시도
+            try {
+                const completionRes = await fetch('/api/business-completion');
+                
+                // HTML 응답 체크 (서버가 꺼진 경우)
+                const contentType = completionRes.headers.get('content-type');
+                if (contentType && contentType.includes('text/html')) {
+                    console.warn('백엔드 서버가 실행되지 않았습니다. 로컬 스토리지만 사용합니다.');
+                } else {
+                    const completionData = await completionRes.json();
+                    if (completionData.ok && Array.isArray(completionData.items)) {
+                        // 백엔드 데이터로 업데이트
+                        const serverData = {};
+                        completionData.items.forEach(item => {
+                            if (item.projectId && typeof item.completed === 'boolean') {
+                                serverData[item.projectId] = { completed: item.completed, updatedAt: item.updatedAt };
+                            }
+                        });
+                        
+                        // 로컬과 서버 데이터 병합 (최신 updatedAt 우선)
+                        Object.keys(localData).forEach(pid => {
+                            const local = localData[pid];
+                            const server = serverData[pid];
+                            if (!server || (local.updatedAt > server.updatedAt)) {
+                                serverData[pid] = local;
+                            }
+                        });
+                        
+                        window.__businessCompletion = serverData;
+                        localStorage.setItem('businessCompletion', JSON.stringify(serverData));
+                        console.log('✅ 백엔드와 동기화 완료');
+                    }
+                }
+            } catch (serverError) {
+                console.warn('백엔드 동기화 실패, 로컬 스토리지만 사용:', serverError.message);
+            }
+        } catch (e) {
+            console.warn('완료 상태 로드 실패:', e);
+            window.__businessCompletion = {};
+        }
+    } catch (e) {
+        console.warn('사업 계약 로드 실패:', e);
+    }
+}
+
+function exportBusinessToExcel() {
+    try {
+        const rows = Array.isArray(window.__businessContracts) ? window.__businessContracts : [];
+        if (!rows.length) return alert('내보낼 데이터가 없습니다.');
+        let csv = '사업명,의뢰사,계약기간(시작),계약기간(종료),공사시,운영시,사후,전략,수동지점,자동지점\n';
+        rows.forEach(r => {
+            const cls = r.classification || {};
+            csv += [
+                `"${(r.projectName||'').replace(/"/g,'""')}"`,
+                `"${(r.client||'').replace(/"/g,'""')}"`,
+                r.period?.from || '',
+                r.period?.to || '',
+                `"${(cls.construction?.raw||'').replace(/"/g,'""')}"`,
+                `"${(cls.operation?.raw||'').replace(/"/g,'""')}"`,
+                `"${(cls.post?.raw||'').replace(/"/g,'""')}"`,
+                `"${(cls.strategy?.raw||'').replace(/"/g,'""')}"`,
+                r.siteCounts?.manual || 0,
+                r.siteCounts?.automatic || 0
+            ].join(',') + '\n';
+        });
+        const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `사업관리_4분기_${new Date().toISOString().slice(0,10)}.csv`;
+        a.click();
+        URL.revokeObjectURL(url);
+    } catch (e) {
+        alert('내보내기 실패: ' + (e.message || e));
+    }
+}
+async function openBusinessDetail(projectId) {
+    try {
+        const rows = Array.isArray(window.__businessContracts) ? window.__businessContracts : [];
+        const row = rows.find(r => r.projectId === projectId);
+        if (!row) return;
+        const el = document.getElementById('business-detail-content');
+        const bd = document.getElementById('business-detail-backdrop');
+        const modal = document.getElementById('business-detail-modal');
+        if (!el || !bd || !modal) return;
+        const fmt = s => (s||'').slice(0,10);
+        // v2 phases 로드(있으면 근거 표시)
+        let v2 = null;
+        try {
+            const clientV2 = new DataClient();
+            const v2p = await clientV2._json(`${clientV2.basePath}/backend_business_contracts_v2.json`);
+            const arr = Array.isArray(v2p?.data) ? v2p.data : [];
+            v2 = arr.find(x => x.projectId === projectId) || null;
+        } catch {}
+        const ex = row.executionsQ4||{};
+        const op = row.classification?.operation||{};
+        
+        // 장비 DB 로드
+        const client = new DataClient();
+        let equipment = [];
+        try { equipment = await client.getEquipment(); } catch {}
+        const itemToCats = {};
+        const catToEquipment = {};
+        equipment.forEach(e => {
+            const cat = String(e?.category || '');
+            const m = cat.match(/^\(([^)]+)\)/);
+            if (!m) return;
+            (catToEquipment[cat] = catToEquipment[cat] || []).push(e);
+            const insideParens = m[1]; // 괄호 안 전체 텍스트
+            const tok = insideParens.split(',').map(t=>t.trim()).filter(Boolean);
+            tok.forEach(t => {
+                const norm = t.replace(/\s+/g,'').toUpperCase();
+                let item = '';
+                if (norm.includes('PM-10') || norm.includes('PM10')) item = 'PM-10';
+                else if (norm.includes('PM-2.5') || norm.includes('PM2.5')) item = 'PM-2.5';
+                else if (norm.includes('NO2') || norm.includes('NOX')) item = 'NO2';
+                else if (norm.includes('SO2') || norm.includes('SOX')) item = 'SO2';
+                else if (norm.includes('CO')) item = 'CO';
+                else if (norm.includes('O3')) item = 'O3';
+                else if (norm.includes('PB')) item = 'Pb';
+                else if (norm.includes('벤젠')) item = '벤젠';
+                else item = t; // 괄호 안 원문을 그대로 항목으로 사용
+                if (item) (itemToCats[item] = itemToCats[item] || []).push(cat);
+            });
+        });
+        // 항목별 필요 장비/일수 계산
+        const __normItem = (raw) => {
+            const s = String(raw||'').trim().toUpperCase().replace(/\s+/g,'');
+            if (!s) return '';
+            if (s.startsWith('PM10') || s === 'PM-10') return 'PM-10';
+            if (s.startsWith('PM2.5') || s === 'PM-2.5' || s === 'PM2_5') return 'PM-2.5';
+            if (s === 'NOX' || s === 'NO2') return 'NO2';
+            if (s === 'SOX' || s === 'SO2') return 'SO2';
+            if (s === 'CO') return 'CO';
+            if (s === 'O3') return 'O3';
+            if (String(raw).includes('벤젠')) return '벤젠';
+            if (s === 'PB' || s === 'PB(LEAD)') return 'Pb';
+            return raw;
+        };
+        const __computeStats = (r, selectedItems, overrideData = {}) => {
+            // 오버라이드된 지점 수 적용 (통합 지점수 우선 사용)
+            const totalSites = overrideData.totalSites ?? 
+                ((overrideData.manual ?? (r.siteCounts?.manual||0)) + (overrideData.automatic ?? (r.siteCounts?.automatic||0)));
+            
+            // 오버라이드된 측정 일수 적용 (기본값은 measurementPlans에서 추출)
+            const defaultDays = (r.measurementPlans||[]).length > 0 ? Math.max(...(r.measurementPlans||[]).map(p => Number(p.days||0))) : 7;
+            const measurementDays = Number(overrideData.measurementDays ?? defaultDays);
+            
+            // 오버라이드된 계약기간으로 4분기 중복 일수 재계산
+            let overlap = Number(r.overlapQ4Days||0);
+            if (overrideData.periodFrom || overrideData.periodTo) {
+                const Q4_FROM = new Date('2025-10-01T00:00:00');
+                const Q4_TO = new Date('2025-12-31T23:59:59');
+                const periodFrom = overrideData.periodFrom ? new Date(overrideData.periodFrom + 'T00:00:00') : (r.period?.from ? new Date(r.period.from + 'T00:00:00') : null);
+                const periodTo = overrideData.periodTo ? new Date(overrideData.periodTo + 'T23:59:59') : (r.period?.to ? new Date(r.period.to + 'T23:59:59') : null);
+                if (periodFrom && periodTo) {
+                    const start = periodFrom > Q4_FROM ? periodFrom : Q4_FROM;
+                    const end = periodTo < Q4_TO ? periodTo : Q4_TO;
+                    const ms = end - start;
+                    overlap = ms > 0 ? Math.floor(ms / (24 * 60 * 60 * 1000)) + 1 : 0;
+                }
+            }
+            // 집행 횟수 계산 (오버라이드 적용)
+            const calculateQ4Executions = (period, count) => {
+                if (!count || count <= 0) return 0;
+                const Q4_MONTHS = 3; // 10,11,12월
+                switch(period) {
+                    case 'month': return count * Q4_MONTHS; // 월별 × 3개월
+                    case 'quarter': return count; // 분기별 그대로
+                    case 'half': return Math.ceil(count * 0.5); // 반기별 × 0.5
+                    case 'total': return count; // 총 횟수 그대로
+                    default: return count;
+                }
+            };
+            
+            // 각 측정 계획 타입별 총 집행 횟수 계산
+            let totalExecutions = 0;
+            
+            // 공사 집행 (ALL_8 항목에 주로 해당)
+            if (overrideData.execConstructionCount) {
+                totalExecutions += calculateQ4Executions(overrideData.execConstructionPeriod || 'total', overrideData.execConstructionCount);
+            } else {
+                totalExecutions += (r.executionsQ4?.construction || 0);
+            }
+            
+            // 운영 집행 (PM_NOX 항목에 주로 해당)  
+            if (overrideData.execOperationCount) {
+                totalExecutions += calculateQ4Executions(overrideData.execOperationPeriod || 'quarter', overrideData.execOperationCount);
+            } else {
+                totalExecutions += (r.executionsQ4?.operation || 0);
+            }
+            
+            // 사후 집행 (CUSTOM 항목에 주로 해당)
+            if (overrideData.execPostCount) {
+                totalExecutions += calculateQ4Executions(overrideData.execPostPeriod || 'month', overrideData.execPostCount);
+            } else {
+                totalExecutions += (r.executionsQ4?.post || 0);
+            }
+            
+            // 전략 집행
+            if (overrideData.execStrategyCount) {
+                totalExecutions += calculateQ4Executions(overrideData.execStrategyPeriod || 'total', overrideData.execStrategyCount);
+            } else {
+                totalExecutions += (r.executionsQ4?.strategy || 0);
+            }
+            
+            // 최소 1회는 보장 (집행 정보가 없어도 기본 1회로 계산)
+            totalExecutions = Math.max(totalExecutions, 1);
+            
+            const stats = {}; // item -> { sites, siteDays }
+            
+            // measurementPlans 기반으로 계산하되, 선택된 품목만 포함
+            (Array.isArray(r.measurementPlans)? r.measurementPlans: []).forEach(p => {
+                // 오버라이드된 측정 일수 사용 (원본 측정 계획의 일수 대신)
+                const days = measurementDays;
+                if (!(days > 0 && totalSites > 0)) return;
+                const active = overlap > 0 ? Math.min(days, overlap) : days;
+                
+                let its = (Array.isArray(p.items)? p.items: []).map(__normItem);
+                // 사용자가 선택한 품목만 필터링
+                if (Array.isArray(selectedItems) && selectedItems.length) {
+                    its = its.filter(it => selectedItems.includes(it));
+                }
+                
+                its.forEach(it => {
+                    if (!it) return;
+                    const cur = stats[it] || { sites: 0, siteDays: 0 };
+                    cur.sites += totalSites;
+                    // 집행 횟수를 반영한 지점-일 계산: 지점 수 × 측정 일수 × 총 집행 횟수
+                    cur.siteDays += totalSites * active * totalExecutions;
+                    stats[it] = cur;
+                });
+            });
+            
+            // measurementPlans에 없지만 사용자가 추가로 선택한 품목들도 포함
+            if (Array.isArray(selectedItems)) {
+                const planItems = new Set((r.measurementPlans||[]).flatMap(p=> (p.items||[]).map(__normItem)));
+                const additionalItems = selectedItems.filter(it => !planItems.has(it));
+                
+                if (additionalItems.length > 0 && measurementDays > 0 && totalSites > 0) {
+                    const active = overlap > 0 ? Math.min(measurementDays, overlap) : measurementDays;
+                    additionalItems.forEach(it => {
+                        if (!it) return;
+                        const cur = stats[it] || { sites: 0, siteDays: 0 };
+                        cur.sites += totalSites;
+                        cur.siteDays += totalSites * active * totalExecutions;
+                        stats[it] = cur;
+                    });
+                }
+            }
+            return stats;
+        };
+        // 전체 품목계열 목록
+        const allItems = ['PM-10','PM-2.5','NO2','SO2','CO','O3','Pb','벤젠'];
+        
+        // 사업별 기초 데이터에서 기본 품목 및 측정 일수 추출
+        const defaultItems = Array.from(new Set((row.measurementPlans||[]).flatMap(p=> (p.items||[]).map(__normItem)).filter(Boolean)));
+        const defaultMeasurementDays = (row.measurementPlans||[]).length > 0 ? Math.max(...(row.measurementPlans||[]).map(p => Number(p.days||0))) : 7;
+        
+        const overrides = (window.__bizOverrides && window.__bizOverrides[projectId]) || {};
+        const selectedItems = Array.isArray(overrides.selectedItems) && overrides.selectedItems.length ? overrides.selectedItems : defaultItems;
+        const buildStatsTable = (stats, overridesItems) => {
+            const keys = Object.keys(stats).sort();
+            if (!keys.length) return '<tr><td class="p-2 text-slate-500" colspan="6">선택된 품목계열이 없습니다. 위에서 품목계열을 선택해주세요.</td></tr>';
+            return keys.map(it => {
+                const key = it.replace(/[^\w]/g,'_');
+                const defDevices = stats[it]?.sites || 0;
+                const defDays = stats[it]?.siteDays || 0;
+                const ovr = overridesItems && overridesItems[it] ? overridesItems[it] : {};
+                const devices = ovr.requiredDevices ?? defDevices;
+                const days = ovr.requiredSiteDays ?? defDays;
+                const cats = [...new Set(itemToCats[it] || [])].sort(); // 중복 제거 및 정렬
+                const selectedCats = Array.isArray(ovr.selectedCategories) ? ovr.selectedCategories : (ovr.selectedCategory ? [ovr.selectedCategory] : []);
+                const catCheckboxes = cats.map((c, idx) => {
+                    const count = (catToEquipment[c] || []).length;
+                    const checked = selectedCats.includes(c) ? 'checked' : '';
+                    const checkboxId = `ovr-cat-${key}-${idx}`;
+                    return `<label class="flex items-center gap-1 mb-1 text-xs">
+                        <input type="checkbox" id="${checkboxId}" value="${c}" ${checked} class="ovr-cat-checkbox" data-item="${it}">
+                        <span class="truncate" title="${c}">${c} (${count}대)</span>
+                    </label>`;
+                }).join('');
+                
+                // 품목계열 장비별 가동률 예측 계산
+                // 1. 선택된 품목계열들의 총 보유 장비 수 (중복 선택 가능)
+                const ownedCount = selectedCats.reduce((total, cat) => {
+                    return total + (catToEquipment[cat] || []).length;
+                }, 0);
+                
+                // 2. 4분기 영업일수 계산 (2025-10-01 ~ 2025-12-31, 주말 제외)
+                const Q4_FROM = new Date('2025-10-01');
+                const Q4_TO = new Date('2025-12-31');
+                const Q4_BUSINESS_DAYS = countBusinessDays(Q4_FROM, Q4_TO);
+                
+                // 3. 총 가용 장비-일 계산 = 보유 장비 수 × 4분기 영업일수
+                const capacityDays = ownedCount * Q4_BUSINESS_DAYS;
+                
+                // 4. 가동률 계산 = (필요 지점-일 ÷ 총 가용 장비-일) × 100%
+                const utilizationPct = capacityDays > 0 ? Math.min(100, Math.round((days / capacityDays) * 100)) : 0;
+                const utilizationClass = utilizationPct >= 80 ? 'text-red-600 font-semibold' : utilizationPct >= 60 ? 'text-orange-600' : 'text-green-600';
+                
+                return `<tr>
+                    <td class="p-2">${it}</td>
+                    <td class="p-2"><input type="number" min="0" id="ovr-dev-${key}" class="px-2 py-1 border rounded w-24" value="${devices}"></td>
+                    <td class="p-2"><input type="number" min="0" id="ovr-days-${key}" class="px-2 py-1 border rounded w-28" value="${days}"></td>
+                    <td class="p-2">
+                        <div class="max-h-20 overflow-y-auto text-xs">
+                            ${catCheckboxes || '<span class="text-slate-400">사용 가능한 품목계열 없음</span>'}
+                        </div>
+                    </td>
+                    <td class="p-2 text-xs ${utilizationClass}">${utilizationPct}% (${ownedCount}대)</td>
+                    <td class="p-2 text-xs text-slate-600">${cats.length}종류</td>
+                </tr>`;
+            }).join('');
+        };
+        const ITEM_CHOICES = ['PM-10','PM-2.5','NO2','SO2','CO','O3','Pb','벤젠'];
+        const itemsPicker = ITEM_CHOICES.map(it => {
+            const checked = selectedItems.includes(it) ? 'checked' : '';
+            const id = `ovr-item-${it.replace(/[^\w]/g,'_')}`;
+            return `<label class=\"inline-flex items-center gap-2 mr-3 mb-2\"><input type=\"checkbox\" class=\"ovr-item\" id=\"${id}\" value=\"${it}\" ${checked}> <span>${it}</span></label>`;
+        }).join('');
+        // 렌더
+        el.innerHTML = `
+            <div><span class=\"text-slate-500\">사업명</span><div class=\"mt-1 font-medium\">${(row.projectName||'').replace(/</g,'&lt;')}</div></div>
+            <div><span class=\"text-slate-500\">의뢰사</span><div class=\"mt-1\">${(row.client||'').replace(/</g,'&lt;')}</div></div>
+            <div class=\"grid grid-cols-1 md:grid-cols-2 gap-3\">
+                <div><span class=\"text-slate-500\">계약기간 시작</span><div class=\"mt-1\"><input id=\"ovr-period-from\" type=\"date\" class=\"px-2 py-1 border rounded\" value=\"${overrides.periodFrom ?? (row.period?.from||'')}\"></div></div>
+                <div><span class=\"text-slate-500\">계약기간 종료</span><div class=\"mt-1\"><input id=\"ovr-period-to\" type=\"date\" class=\"px-2 py-1 border rounded\" value=\"${overrides.periodTo ?? (row.period?.to||'')}\"></div></div>
+            </div>
+            <div class=\"grid grid-cols-1 gap-3\">
+                <div><span class=\"text-slate-500\">집행 정보</span></div>
+                <div class=\"grid grid-cols-1 md:grid-cols-4 gap-4\">
+                    <div>
+                        <span class=\"text-xs text-slate-600\">공사 집행</span>
+                        <div class=\"flex gap-1 mt-1\">
+                            <select id=\"ovr-exec-construction-period\" class=\"px-2 py-1 border rounded text-xs flex-1\">
+                                <option value=\"total\" ${(overrides.execConstructionPeriod ?? 'total') === 'total' ? 'selected' : ''}>총</option>
+                                <option value=\"half\" ${(overrides.execConstructionPeriod ?? 'total') === 'half' ? 'selected' : ''}>반기</option>
+                                <option value=\"quarter\" ${(overrides.execConstructionPeriod ?? 'total') === 'quarter' ? 'selected' : ''}>분기</option>
+                                <option value=\"month\" ${(overrides.execConstructionPeriod ?? 'total') === 'month' ? 'selected' : ''}>월</option>
+                            </select>
+                            <input id=\"ovr-exec-construction-count\" type=\"number\" min=\"0\" class=\"px-2 py-1 border rounded w-12 text-xs\" value=\"${overrides.execConstructionCount ?? (ex.construction||0)}\">
+                            <span class=\"text-xs self-center\">회</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class=\"text-xs text-slate-600\">운영 집행</span>
+                        <div class=\"flex gap-1 mt-1\">
+                            <select id=\"ovr-exec-operation-period\" class=\"px-2 py-1 border rounded text-xs flex-1\">
+                                <option value=\"total\" ${(overrides.execOperationPeriod ?? 'quarter') === 'total' ? 'selected' : ''}>총</option>
+                                <option value=\"half\" ${(overrides.execOperationPeriod ?? 'quarter') === 'half' ? 'selected' : ''}>반기</option>
+                                <option value=\"quarter\" ${(overrides.execOperationPeriod ?? 'quarter') === 'quarter' ? 'selected' : ''}>분기</option>
+                                <option value=\"month\" ${(overrides.execOperationPeriod ?? 'quarter') === 'month' ? 'selected' : ''}>월</option>
+                            </select>
+                            <input id=\"ovr-exec-operation-count\" type=\"number\" min=\"0\" class=\"px-2 py-1 border rounded w-12 text-xs\" value=\"${overrides.execOperationCount ?? (ex.operation||0)}\">
+                            <span class=\"text-xs self-center\">회</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class=\"text-xs text-slate-600\">사후 집행</span>
+                        <div class=\"flex gap-1 mt-1\">
+                            <select id=\"ovr-exec-post-period\" class=\"px-2 py-1 border rounded text-xs flex-1\">
+                                <option value=\"total\" ${(overrides.execPostPeriod ?? 'month') === 'total' ? 'selected' : ''}>총</option>
+                                <option value=\"half\" ${(overrides.execPostPeriod ?? 'month') === 'half' ? 'selected' : ''}>반기</option>
+                                <option value=\"quarter\" ${(overrides.execPostPeriod ?? 'month') === 'quarter' ? 'selected' : ''}>분기</option>
+                                <option value=\"month\" ${(overrides.execPostPeriod ?? 'month') === 'month' ? 'selected' : ''}>월</option>
+                            </select>
+                            <input id=\"ovr-exec-post-count\" type=\"number\" min=\"0\" class=\"px-2 py-1 border rounded w-12 text-xs\" value=\"${overrides.execPostCount ?? (ex.post||0)}\">
+                            <span class=\"text-xs self-center\">회</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class=\"text-xs text-slate-600\">전략 집행</span>
+                        <div class=\"flex gap-1 mt-1\">
+                            <select id=\"ovr-exec-strategy-period\" class=\"px-2 py-1 border rounded text-xs flex-1\">
+                                <option value=\"total\" ${(overrides.execStrategyPeriod ?? 'total') === 'total' ? 'selected' : ''}>총</option>
+                                <option value=\"half\" ${(overrides.execStrategyPeriod ?? 'total') === 'half' ? 'selected' : ''}>반기</option>
+                                <option value=\"quarter\" ${(overrides.execStrategyPeriod ?? 'total') === 'quarter' ? 'selected' : ''}>분기</option>
+                                <option value=\"month\" ${(overrides.execStrategyPeriod ?? 'total') === 'month' ? 'selected' : ''}>월</option>
+                            </select>
+                            <input id=\"ovr-exec-strategy-count\" type=\"number\" min=\"0\" class=\"px-2 py-1 border rounded w-12 text-xs\" value=\"${overrides.execStrategyCount ?? (ex.strategy||0)}\">
+                            <span class=\"text-xs self-center\">회</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class=\"grid grid-cols-1 md:grid-cols-2 gap-3\">
+                <div><span class=\"text-slate-500\">총 지점수</span><div class=\"mt-1\"><input id=\"ovr-total-sites\" type=\"number\" min=\"0\" class=\"px-2 py-1 border rounded w-24\" value=\"${overrides.totalSites ?? ((row.siteCounts?.manual||0) + (row.siteCounts?.automatic||0))}\"></div></div>
+                <div><span class=\"text-slate-500\">연속 측정 일수</span><div class=\"mt-1\"><input id=\"ovr-measurement-days\" type=\"number\" min=\"0\" max=\"14\" class=\"px-2 py-1 border rounded w-24\" value=\"${overrides.measurementDays ?? defaultMeasurementDays}\" placeholder=\"일\"></div></div>
+            </div>
+            <div class=\"mt-3\">
+                <span class=\"text-slate-500\">사용 품목계열(복수 선택)</span>
+                <div class=\"mt-2\">${itemsPicker}</div>
+            </div>
+            <div class=\"mt-3\">
+                <span class=\"text-slate-500\">필요 장비/일수(항목별)</span>
+                <div class=\"overflow-x-auto mt-1\">
+                    <table class=\"w-full text-sm\">
+                        <thead class=\"bg-slate-100\"><tr><th class=\"text-left p-2\">항목</th><th class=\"text-left p-2\">필요 대수</th><th class=\"text-left p-2\">필요 일수</th><th class=\"text-left p-2\">품목계열 선택</th><th class=\"text-left p-2\">예상 가동률</th><th class=\"text-left p-2\">비고</th></tr></thead>
+                        <tbody id=\"ovr-stats-body\"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class=\"mt-3\">
+                <div class=\"flex items-center gap-2 justify-end\">
+                    <button class=\"px-3 py-1.5 bg-indigo-600 text-white rounded\" onclick=\"saveBusinessOverrides('${row.projectId}')\">저장</button>
+                </div>
+            </div>
+        `;
+        // 초기 통계 렌더
+        document.getElementById('ovr-stats-body').innerHTML = buildStatsTable(__computeStats(row, selectedItems, overrides), overrides.items);
+        // 품목계열 체크박스 변경 시 동적으로 테이블 행 추가/제거
+        const updateStatsTable = () => {
+            const picked = Array.from(el.querySelectorAll('.ovr-item')).filter(x=>x.checked).map(x=>x.value);
+            // 현재 오버라이드 데이터에 선택된 품목계열 정보 업데이트
+            overrides.selectedItems = picked;
+            // 선택된 항목만으로 통계 계산 및 테이블 업데이트
+            const stats = __computeStats(row, picked, overrides);
+            document.getElementById('ovr-stats-body').innerHTML = buildStatsTable(stats, overrides.items);
+            // 새로 추가된 체크박스에도 이벤트 리스너 재연결
+            attachCategoryListeners();
+        };
+        
+        el.querySelectorAll('.ovr-item').forEach(cb => {
+            cb.addEventListener('change', updateStatsTable);
+        });
+        
+        // 지점수와 측정 일수 변경 시에도 실시간 업데이트
+        const totalSitesInput = document.getElementById('ovr-total-sites');
+        const measurementDaysInput = document.getElementById('ovr-measurement-days');
+        
+        if (totalSitesInput) {
+            totalSitesInput.addEventListener('input', () => {
+                overrides.totalSites = Number(totalSitesInput.value || 0);
+                updateStatsTable();
+            });
+        }
+        
+        if (measurementDaysInput) {
+            measurementDaysInput.addEventListener('input', () => {
+                overrides.measurementDays = Number(measurementDaysInput.value || 7);
+                updateStatsTable();
+            });
+        }
+        
+        // 품목계열 체크박스 변경 시 가동률 재계산
+        const attachCategoryListeners = () => {
+            el.querySelectorAll('.ovr-cat-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    // 품목계열 선택 정보를 오버라이드에 저장
+                    updateCategoryOverrides();
+                    // 테이블 업데이트 (가동률 재계산)
+                    updateStatsTable();
+                });
+            });
+        };
+        
+        // 품목계열 선택 정보를 오버라이드에 저장
+        const updateCategoryOverrides = () => {
+            const items = ['PM-10','PM-2.5','NO2','SO2','CO','O3','Pb','벤젠'];
+            items.forEach(item => {
+                const checkedBoxes = Array.from(el.querySelectorAll(`.ovr-cat-checkbox[data-item="${item}"]:checked`));
+                const selectedCategories = checkedBoxes.map(cb => cb.value);
+                if (!overrides.items) overrides.items = {};
+                if (!overrides.items[item]) overrides.items[item] = {};
+                overrides.items[item].selectedCategories = selectedCategories;
+            });
+        };
+        
+        attachCategoryListeners();
+        bd.classList.remove('hidden');
+        modal.classList.remove('hidden');
     } catch {}
 }
+
+async function saveBusinessOverrides(projectId){
+    try {
+        const itemIds = ['PM-10','PM-2.5','NO2','SO2','CO','O3','Pb','벤젠'].map(it => ({ it, id: `ovr-item-${it.replace(/[^\w]/g,'_')}` }));
+        const selectedItems = itemIds.filter(x => document.getElementById(x.id)?.checked).map(x => x.it);
+        const body = {
+            projectId,
+            overrides: {
+                // 계약기간
+                periodFrom: document.getElementById('ovr-period-from')?.value || '',
+                periodTo: document.getElementById('ovr-period-to')?.value || '',
+                // 집행 정보 (주기 + 횟수)
+                execConstructionPeriod: document.getElementById('ovr-exec-construction-period')?.value || 'total',
+                execConstructionCount: Number(document.getElementById('ovr-exec-construction-count')?.value||0),
+                execOperationPeriod: document.getElementById('ovr-exec-operation-period')?.value || 'quarter',
+                execOperationCount: Number(document.getElementById('ovr-exec-operation-count')?.value||0),
+                execPostPeriod: document.getElementById('ovr-exec-post-period')?.value || 'month',
+                execPostCount: Number(document.getElementById('ovr-exec-post-count')?.value||0),
+                execStrategyPeriod: document.getElementById('ovr-exec-strategy-period')?.value || 'total',
+                execStrategyCount: Number(document.getElementById('ovr-exec-strategy-count')?.value||0),
+                // 지점 수 및 측정 일수
+                totalSites: Number(document.getElementById('ovr-total-sites')?.value||0),
+                measurementDays: Number(document.getElementById('ovr-measurement-days')?.value||7),
+                // 하위 호환성을 위해 manual/automatic도 저장 (totalSites를 반반 분할)
+                manual: Math.floor(Number(document.getElementById('ovr-total-sites')?.value||0) / 2),
+                automatic: Math.ceil(Number(document.getElementById('ovr-total-sites')?.value||0) / 2),
+                selectedItems,
+                items: (()=>{
+                    const out = {};
+                    selectedItems.forEach(it => {
+                        const key = it.replace(/[^\w]/g,'_');
+                        // 선택된 품목계열들 수집
+                        const selectedCategories = Array.from(document.querySelectorAll(`.ovr-cat-checkbox[data-item="${it}"]:checked`))
+                            .map(cb => cb.value);
+                        
+                        out[it] = {
+                            requiredDevices: Number(document.getElementById(`ovr-dev-${key}`)?.value||0),
+                            requiredSiteDays: Number(document.getElementById(`ovr-days-${key}`)?.value||0),
+                            selectedCategories: selectedCategories,
+                            // 하위 호환성을 위해 첫 번째 선택된 항목을 selectedCategory로도 저장
+                            selectedCategory: selectedCategories.length > 0 ? selectedCategories[0] : ''
+                        };
+                    });
+                    return out;
+                })()
+            }
+        };
+        const res = await fetch('/api/business-overrides/save', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+        const j = await res.json();
+        if (!j.ok) throw new Error(j.message||'save failed');
+        
+        // 오버라이드 데이터 업데이트
+        if (!window.__bizOverrides) window.__bizOverrides = {};
+        window.__bizOverrides[projectId] = body.overrides;
+        
+        // 모달 닫기
+        hideBusinessDetail();
+        
+        // 테이블 새로고침
+        loadBusinessContracts();
+        
+        alert('저장되었습니다.');
+    } catch(e){ alert('저장 실패: '+ (e.message||e)); }
+}
+
+function hideBusinessDetail(){
+    try {
+        document.getElementById('business-detail-backdrop')?.classList.add('hidden');
+        document.getElementById('business-detail-modal')?.classList.add('hidden');
+    } catch {}
+}
+
+// 사업 섹션으로 스크롤
+function scrollToBusinessSection(sectionType) {
+    try {
+        const element = document.getElementById(`business-section-${sectionType}`);
+        if (element) {
+            element.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start',
+                inline: 'nearest'
+            });
+            // 섹션 하이라이트 효과
+            element.classList.add('ring-2', 'ring-blue-200', 'ring-opacity-50');
+            setTimeout(() => {
+                element.classList.remove('ring-2', 'ring-blue-200', 'ring-opacity-50');
+            }, 2000);
+        }
+    } catch (e) {
+        console.warn('스크롤 실패:', e);
+    }
+}
+
+// 사업 완료 상태 토글 (로컬 스토리지 백업)
+async function toggleBusinessCompletion(projectId, completed) {
+    try {
+        const body = {
+            projectId,
+            completed: Boolean(completed),
+            updatedAt: new Date().toISOString()
+        };
+        
+        // 먼저 로컬 스토리지에 저장 (백업)
+        const localData = JSON.parse(localStorage.getItem('businessCompletion') || '{}');
+        localData[projectId] = { completed: Boolean(completed), updatedAt: body.updatedAt };
+        localStorage.setItem('businessCompletion', JSON.stringify(localData));
+        
+        // 백엔드 서버 저장 시도
+        try {
+            const res = await fetch('/api/business-completion/save', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            
+            // HTML 응답 체크 (서버가 꺼진 경우)
+            const contentType = res.headers.get('content-type');
+            if (contentType && contentType.includes('text/html')) {
+                console.warn('백엔드 서버가 실행되지 않았습니다. 로컬 스토리지만 사용합니다.');
+            } else {
+                const result = await res.json();
+                if (result.ok) {
+                    console.log('✅ 백엔드 서버에도 저장됨');
+                }
+            }
+        } catch (serverError) {
+            console.warn('백엔드 저장 실패, 로컬 스토리지만 사용:', serverError.message);
+        }
+        
+        // 로컬 상태 업데이트
+        if (!window.__businessCompletion) window.__businessCompletion = {};
+        window.__businessCompletion[projectId] = { completed: Boolean(completed), updatedAt: body.updatedAt };
+        
+        // 테이블 새로고침
+        loadBusinessContracts();
+        
+        console.log(`✅ 사업 완료 상태 업데이트: ${projectId} = ${completed}`);
+    } catch (e) {
+        console.error('완료 상태 저장 실패:', e);
+        alert('완료 상태 저장에 실패했습니다: ' + (e.message || e));
+        // 체크박스 상태 되돌리기
+        const checkbox = document.querySelector(`input[data-project-id="${projectId}"]`);
+        if (checkbox) checkbox.checked = !completed;
+    }
+}
+
+// 전역 바인딩 (인라인 onclick 사용 대비)
+try {
+    if (typeof window !== 'undefined') {
+        window.openBusinessDetail = openBusinessDetail;
+        window.saveBusinessOverrides = saveBusinessOverrides;
+        window.toggleBusinessCompletion = toggleBusinessCompletion;
+        window.scrollToBusinessSection = scrollToBusinessSection;
+    }
+} catch {}
 // 장비 탭 전환
 function switchEquipmentTab(tabName) {
     console.log('🔍 switchEquipmentTab 호출됨:', tabName);
@@ -796,7 +2657,6 @@ function switchEquipmentTab(tabName) {
             }
         });
     }
-    
     // 탭별 초기화 함수 호출 (중복 호출 방지)
     if (tabName === 'status') {
         console.log('🔍 현황 탭 렌더링 시작');
@@ -839,6 +2699,13 @@ function switchView(viewName, event) {
     if (selectedView) {
         selectedView.classList.remove('hidden');
         console.log('✅ 뷰 표시됨:', viewName + '-view');
+        try {
+            if (viewName === 'uptime-predictions') {
+                if (typeof loadUptimePredictions === 'function') loadUptimePredictions();
+            } else if (viewName === 'business') {
+                if (typeof loadBusinessContracts === 'function') loadBusinessContracts();
+            }
+        } catch (e) { console.warn('뷰 초기화 실패:', e); }
         
         // 장비 뷰인 경우 기본 탭 설정
         if (viewName === 'equipment') {
@@ -865,50 +2732,9 @@ function switchView(viewName, event) {
     
     // 대시보드로 돌아올 때 데이터 새로고침
     if (viewName === 'dashboard') {
-        console.log('🔍 대시보드 데이터 새로고침');
-        if (typeof loadDashboardData === 'function') {
-            loadDashboardData();
-        }
+        try { initDashboardCharts(); } catch(e) { console.warn(e); }
+        try { if (typeof updateNextWeekUptimeTable === 'function') updateNextWeekUptimeTable(); } catch(e) {}
     }
-    
-    // 견적서 뷰 초기화
-    if (viewName === 'accounting-quote') {
-        console.log('🔍 견적서 뷰 초기화');
-        if (typeof initQuote === 'function') {
-            initQuote();
-        }
-    }
-    
-    // 구매요구서 뷰 초기화
-    if (viewName === 'accounting-purchase-request') {
-        console.log('🔍 구매요구서 뷰 초기화');
-        if (typeof initPurchaseRequest === 'function') {
-            initPurchaseRequest();
-        }
-    }
-    
-    // 거래명세서 뷰 초기화
-    if (viewName === 'accounting-transaction') {
-        console.log('🔍 거래명세서 뷰 초기화');
-        if (typeof renderTransactionTable === 'function') {
-            renderTransactionTable();
-        }
-    }
-    
-    // 물품 주문 내역서 뷰 초기화
-    if (viewName === 'order-history') {
-        console.log('🔍 물품 주문 내역서 뷰 초기화');
-        if (typeof initOrderHistory === 'function') {
-            initOrderHistory();
-        }
-    }
-
-    // 전환 후 스크롤을 항상 상단으로 이동
-    try {
-        const mainEl = document.getElementById('main');
-        if (mainEl) mainEl.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    } catch {}
 }
 
 // 전역 함수로 할당
@@ -1099,7 +2925,6 @@ function enableDragScroll(container) {
         container.scrollTop = startScroll - dy;
     });
 }
-
 // 교육 테이블 렌더링
 function renderEducationTable() {
     const tableBody = document.getElementById('education-table');
@@ -1171,7 +2996,6 @@ function renderEducationTable() {
     let list = items.slice();
     if (window.__eduCat1 && window.__eduCat1 !== '전체') list = list.filter(it => String(it.cat1||'') === window.__eduCat1);
     if (showLevel2 && window.__eduCat2 && window.__eduCat2 !== '전체') list = list.filter(it => String(it.cat2||'') === window.__eduCat2);
-
     const frag = document.createDocumentFragment();
     list.forEach(it => {
         const tr = document.createElement('tr');
@@ -1299,7 +3123,6 @@ function exportRepairData() {
 function exportEducationData() {
     alert('교육 데이터를 내보냅니다.');
 }
-
 // 구매요구서 폼 표시
 function showPurchaseRequestModal() {
     // 현재 활성화된 뷰가 회계-물품구매요구서인지 한 번 더 확인
@@ -1500,7 +3323,6 @@ function removeItemRow(button) {
         calculateTotals();
     }
 }
-
 // 합계 계산
 function calculateTotals() {
     const rows = document.querySelectorAll('.item-row');
@@ -1734,7 +3556,6 @@ function showPurchaseRequestModalForEdit(request) {
         }
     }
 }
-
 // 구매요구서 폼에 데이터 채우기
 function fillPurchaseRequestForm(request) {
     // 기본 정보 채우기
@@ -1779,7 +3600,6 @@ function fillPurchaseRequestForm(request) {
     // 합계 계산 및 표시
     calculateTotals();
 }
-
 // 인쇄용 구매요구서 생성
 function printPurchaseRequest() {
     // 현재 폼 데이터 수집
@@ -2128,7 +3948,6 @@ async function renderQuoteTable() {
     
     console.log('견적서 테이블 렌더링 완료:', quotes.length, '건');
 }
-
 // 견적서 상세 보기
 async function viewQuote(id) {
     let quote = null;
@@ -2161,7 +3980,6 @@ async function viewQuote(id) {
         alert('견적서 조회 중 오류가 발생했습니다.');
     }
 }
-
 // 견적서 폼에 데이터 채우기
 function fillQuoteForm(quote) {
     // 기본 정보 채우기
@@ -2256,7 +4074,6 @@ async function deleteQuote(id) {
         }
     }
 }
-
 // ID로 견적서 인쇄
 async function printQuoteById(id) {
     let quote = null;
@@ -2356,7 +4173,6 @@ function showQuoteForm() {
         console.log('견적서 모달은 회계 탭에서만 표시됩니다.');
     }
 }
-
 // 견적서 모달 표시
 function showQuoteModal() {
     // 현재 활성화된 뷰가 회계-견적서인지 한 번 더 확인
@@ -2507,7 +4323,6 @@ function setupQuoteRowListeners(row) {
         }
     });
 }
-
 // 견적서 품목 행 추가
 function addQuoteItemRow() {
     const itemsTableBody = document.getElementById('quote-items-table-body');
@@ -2697,7 +4512,6 @@ function togglePurchaseRequestImport() {
         renderPurchaseImportButton();
     }
 }
-
 // 물품구매요구서 선택 모달 표시
 async function showPurchaseRequestSelector() {
     try {
@@ -2830,8 +4644,6 @@ async function importPurchaseRequestData() {
         alert('데이터 가져오기 중 오류가 발생했습니다.');
     }
 }
-// 미리보기 관련 로직 제거 (규칙은 코드로만 반영하여 바로 적용)
-
 // 물품구매요구서 데이터로 견적서 채우기
 function fillQuoteWithPurchaseRequest(purchaseRequest) {
     // 기존 품목 테이블 초기화
@@ -3291,231 +5103,6 @@ function generateQuotePrintHTML(data) {
         </html>
     `;
 }
-
-// 거래명세서 폼 표시
-function showTransactionForm() {
-    alert('거래명세서 발행 폼을 표시합니다.');
-}
-// 구매요구서 테이블 렌더링
-async function renderPurchaseRequestTable() {
-    const tbody = document.getElementById('purchase-request-table');
-    if (!tbody) return;
-    
-    // DB 파일 → 로컬 DB 캐시 → 로컬 임시 순으로 병합 로드
-    let purchaseRequests = [];
-    try {
-        // 1) db/purchase_requests.json 시도
-        try {
-            const res = await fetch('./db/purchase_requests.json', { cache: 'no-store' });
-            if (res.ok) {
-                const fileRows = await res.json();
-                if (Array.isArray(fileRows)) purchaseRequests = fileRows;
-                console.log('파일에서 구매요구서 로드:', purchaseRequests.length, '건');
-            }
-        } catch { /* 파일 없으면 무시 */ }
-
-        // 2) 로컬 스토리지 DB 버전 병합
-        const dbData = localStorage.getItem('purchaseRequestsDB');
-        if (dbData) {
-            const cached = JSON.parse(dbData);
-            purchaseRequests = mergeById(purchaseRequests, cached);
-        }
-
-        // 3) 로컬 임시 버전 병합
-        const local = JSON.parse(localStorage.getItem('purchaseRequests') || '[]');
-        purchaseRequests = mergeById(purchaseRequests, local);
-
-        // 최신 병합본을 DB 캐시에 반영
-        localStorage.setItem('purchaseRequestsDB', JSON.stringify(purchaseRequests));
-    } catch (error) {
-        console.error('데이터 로드 오류:', error);
-        purchaseRequests = [];
-    }
-    
-    tbody.innerHTML = '';
-    
-    if (purchaseRequests.length === 0) {
-        tbody.innerHTML = `
-            <tr>
-                <td colspan="5" class="text-center py-8 text-gray-500">
-                    <div class="py-8">
-                        <div class="text-gray-500 mb-2">등록된 구매요구서가 없습니다.</div>
-                        <div class="text-xs text-gray-400">"구매요구서 작성" 버튼을 클릭하여 첫 번째 구매요구서를 작성해보세요.</div>
-                    </div>
-                </td>
-            </tr>
-        `;
-        return;
-    }
-    // 최신 순으로 정렬
-    purchaseRequests.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-    
-    purchaseRequests.forEach(request => {
-        const row = tbody.insertRow();
-        const totalItems = request.items.length;
-        const totalQuantity = request.items.reduce((sum, item) => sum + (parseFloat(item.quantity) || 0), 0);
-        const totalAmount = request.totalAmount || 0;
-        
-        row.innerHTML = `
-            <td class="p-2">
-                <div class="text-sm font-medium text-gray-900">${request.id}</div>
-                <div class="text-xs text-gray-500">${new Date(request.createdAt).toLocaleDateString()}</div>
-            </td>
-            <td class="p-2">
-                <div class="text-sm text-gray-900">${totalItems}개 품목</div>
-                <div class="text-xs text-gray-500">총 ${totalQuantity}개</div>
-            </td>
-            <td class="p-2">
-                <div class="text-sm text-gray-900">${request.purchasingDepartment}</div>
-                <div class="text-xs text-gray-500">${request.purchaseReason}</div>
-            </td>
-            <td class="p-2">
-                <div class="text-sm text-gray-900">${totalAmount.toLocaleString()}원</div>
-                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                    작성완료
-                </span>
-            </td>
-            <td class="p-2">
-                <div class="flex space-x-2">
-                    <button onclick="viewPurchaseRequest('${request.id}')" class="text-indigo-600 hover:text-indigo-900 text-sm">
-                        보기
-                    </button>
-                    <button onclick="deletePurchaseRequest('${request.id}')" class="text-red-600 hover:text-red-900 text-sm">
-                        삭제
-                    </button>
-                </div>
-            </td>
-        `;
-    });
-    
-    console.log('구매요구서 테이블 렌더링 완료:', purchaseRequests.length, '건');
-}
-
-// 구매요구서 상세 보기 및 수정
-async function viewPurchaseRequest(id) {
-    let request = null;
-    
-    try {
-        // DB 버전에서 먼저 찾기
-        const dbData = localStorage.getItem('purchaseRequestsDB');
-        if (dbData) {
-            const dbRequests = JSON.parse(dbData);
-            request = dbRequests.find(req => req.id === id);
-        }
-        
-        // DB 버전에서 찾지 못했으면 일반 로컬 스토리지에서 찾기
-        if (!request) {
-            const purchaseRequests = JSON.parse(localStorage.getItem('purchaseRequests') || '[]');
-            request = purchaseRequests.find(req => req.id === id);
-        }
-        
-        if (!request) {
-            alert('구매요구서를 찾을 수 없습니다.');
-            return;
-        }
-        
-        // 수정 모드로 모달 표시
-        showPurchaseRequestModalForEdit(request);
-        
-    } catch (error) {
-        console.error('구매요구서 조회 오류:', error);
-        alert('구매요구서 조회 중 오류가 발생했습니다.');
-    }
-}
-
-// 구매요구서 삭제
-async function deletePurchaseRequest(id) {
-    if (confirm('정말로 이 구매요구서를 삭제하시겠습니까?')) {
-        try {
-            // DB 버전에서 삭제
-            let dbData = JSON.parse(localStorage.getItem('purchaseRequestsDB') || '[]');
-            dbData = dbData.filter(req => req.id !== id);
-            localStorage.setItem('purchaseRequestsDB', JSON.stringify(dbData));
-            
-            // 일반 로컬 스토리지에서도 삭제
-            const purchaseRequests = JSON.parse(localStorage.getItem('purchaseRequests') || '[]');
-            const filteredRequests = purchaseRequests.filter(req => req.id !== id);
-            localStorage.setItem('purchaseRequests', JSON.stringify(filteredRequests));
-            
-            console.log('구매요구서 삭제 완료:', id);
-            console.log('남은 구매요구서 수:', dbData.length);
-            
-            renderPurchaseRequestTable();
-            alert('구매요구서가 삭제되었습니다.');
-            
-        } catch (error) {
-            console.error('구매요구서 삭제 오류:', error);
-            alert('삭제 중 오류가 발생했습니다.');
-        }
-    }
-}
-
-// 견적 테이블 렌더링
-function renderQuoteTable() {
-    const tbody = document.getElementById('quote-table');
-    if (!tbody) return;
-    let quotes = [];
-    (async () => {
-        try {
-            // 1) db/quotes.json
-            try {
-                const res = await fetch('./db/quotes.json', { cache: 'no-store' });
-                if (res.ok) {
-                    const fileRows = await res.json();
-                    if (Array.isArray(fileRows)) quotes = fileRows;
-                    console.log('파일에서 견적서 로드:', quotes.length, '건');
-                }
-            } catch {}
-            // 2) 로컬 DB 캐시
-            const dbData = JSON.parse(localStorage.getItem('quotesDB') || '[]');
-            quotes = mergeById(quotes, dbData);
-            // 3) 로컬 임시
-            const local = JSON.parse(localStorage.getItem('quotes') || '[]');
-            quotes = mergeById(quotes, local);
-            localStorage.setItem('quotesDB', JSON.stringify(quotes));
-        } catch (e) {
-            console.warn('견적 로드 실패:', e);
-        }
-
-        tbody.innerHTML = '';
-        if (!quotes.length) {
-            tbody.innerHTML = '<tr><td colspan="5" class="text-center py-8 text-gray-500">등록된 견적이 없습니다.</td></tr>';
-            return;
-        }
-        quotes.sort((a,b)=> new Date(b.createdAt)-new Date(a.createdAt));
-        quotes.forEach(q => {
-            const tr = document.createElement('tr');
-            const totalQty = (q.items||[]).reduce((s,i)=> s + (parseFloat(i.quantity)||0), 0);
-            tr.innerHTML = `
-                <td class="p-2">
-                    <div class="text-sm font-medium text-gray-900">${q.quoteNumber||q.id}</div>
-                    <div class="text-xs text-gray-500">${new Date(q.createdAt||q.quoteDate||Date.now()).toLocaleDateString()}</div>
-                </td>
-                <td class="p-2">
-                    <div class="text-sm text-gray-900">${(q.items||[]).length}개 품목</div>
-                    <div class="text-xs text-gray-500">총 ${totalQty}개</div>
-                </td>
-                <td class="p-2">
-                    <div class="text-sm text-gray-900">${q.recipient||'-'}</div>
-                    <div class="text-xs text-gray-500">${q.remarks||''}</div>
-                </td>
-                <td class="p-2">
-                    <div class="text-sm text-gray-900">${(q.totalAmount||0).toLocaleString()}원</div>
-                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">작성완료</span>
-                </td>
-                <td class="p-2">
-                    <div class="flex space-x-2">
-                        <button onclick="viewQuote('${q.id}')" class="text-indigo-600 hover:text-indigo-900 text-sm">보기</button>
-                        <button onclick="deleteQuote('${q.id}')" class="text-red-600 hover:text-red-900 text-sm">삭제</button>
-                        <button onclick="printQuoteById('${q.id}')" class="text-green-600 hover:text-green-900 text-sm">인쇄</button>
-                    </div>
-                </td>`;
-            tbody.appendChild(tr);
-        });
-        console.log('견적서 테이블 렌더링 완료:', quotes.length, '건');
-    })();
-}
-
 // 거래명세서 테이블 렌더링
 function renderTransactionTable() {
     const tbody = document.getElementById('transaction-table');
@@ -3571,7 +5158,6 @@ function initPurchaseRequest() {
     forceHidePurchaseRequestModal();
     renderPurchaseRequestTable();
 }
-
 // 모달 강제 숨김 함수
 function forceHidePurchaseRequestModal() {
     const modal = document.getElementById('purchase-request-modal');
@@ -3727,7 +5313,6 @@ function saveOrderItemToDB(data) {
         console.error('주문 품목 DB 저장 오류:', error);
     }
 }
-
 // 3. 공급업체 정보 관리
 // ==========================================
 function createSupplier(supplierData) {
@@ -4048,7 +5633,6 @@ function renderSuppliersTable() {
         `;
         return;
     }
-    
     // 평점 순으로 정렬
     suppliers.sort((a, b) => b.rating - a.rating);
     
@@ -4225,7 +5809,6 @@ function loadKPIData() {
 function loadChartData() {
     initDashboardCharts();
 }
-
 // 장비 데이터 로드
 function loadEquipmentData() {
     renderEquipmentTable();
@@ -5013,7 +6596,6 @@ function renderCalibrationAlerts() {
             return d >= from && d <= to;
         })
         .sort((a,b)=> new Date(a.next_calibration_date) - new Date(b.next_calibration_date));
-
     const count = monthItems.length;
     const btnId = 'qc-month-toggle';
     const panelId = 'qc-month-details';
@@ -5122,7 +6704,6 @@ function renderCalibrationAlerts() {
         });
     }
 }
-
 // QC 정보 조회
 function getQCInfo(serial) {
     if (!qcLogsData || qcLogsData.length === 0) {
@@ -5453,7 +7034,6 @@ function showEquipmentDetailModal(serial) {
         </div>
       </div>
     `;
-
     const modal = document.getElementById('equipment-detail-modal');
     if (modal) {
         modal.innerHTML = content;
@@ -5843,7 +7423,6 @@ function renderMovementTimeline(serial, movementsAsc, repairsAsc) {
     const from = new Date(to.getFullYear() - 1, to.getMonth(), to.getDate());
     return renderMovementTimelineRange(serial, movementsAsc, repairsAsc, from, to);
 }
-
 // 임의 기간 타임라인 렌더링(from~to)
 function renderMovementTimelineRange(serial, movementsAsc, repairsAsc, from, to) {
     const rangeMs = to - from;
@@ -6306,4 +7885,140 @@ function getMovementStaffName(serial, lastDateLike) {
         }
         return staff || null;
     } catch { return null; }
+}
+
+// 장비 병목 위험 알림 로드 및 렌더링
+async function loadBottleneckAlerts() {
+    try {
+        const client = new DataClient();
+        const alertsData = await client._json(`${client.basePath}/equipment_bottleneck_alerts.json`);
+        
+        if (!alertsData || !alertsData.alerts) {
+            console.warn('병목 위험 알림 데이터 없음');
+            return;
+        }
+        
+        const alerts = alertsData.alerts;
+        const summary = alertsData.meta?.summary || {};
+        
+        // 요약 카운트 업데이트
+        document.getElementById('bottleneck-critical-count').textContent = summary.critical || 0;
+        document.getElementById('bottleneck-high-count').textContent = summary.high || 0;
+        document.getElementById('bottleneck-medium-count').textContent = summary.medium || 0;
+        
+        // 측정기 필터 옵션 업데이트
+        const itemFilter = document.getElementById('bottleneck-item-filter');
+        if (itemFilter) {
+            const items = [...new Set(alerts.map(a => a.item))].sort();
+            itemFilter.innerHTML = '<option value="all">전체 측정기</option>' +
+                items.map(item => `<option value="${item}">${item}</option>`).join('');
+        }
+        
+        // 필터 이벤트 바인딩
+        const monthFilter = document.getElementById('bottleneck-month-filter');
+        if (monthFilter && !monthFilter._bound) {
+            monthFilter.addEventListener('change', () => renderBottleneckAlerts(alerts));
+            monthFilter._bound = true;
+        }
+        if (itemFilter && !itemFilter._bound) {
+            itemFilter.addEventListener('change', () => renderBottleneckAlerts(alerts));
+            itemFilter._bound = true;
+        }
+        
+        // 알림 렌더링
+        renderBottleneckAlerts(alerts);
+        
+    } catch (error) {
+        console.warn('병목 위험 알림 로드 실패:', error);
+        document.getElementById('bottleneck-alerts').innerHTML = 
+            '<div class="text-slate-500 text-center py-4">알림 데이터를 불러올 수 없습니다.</div>';
+    }
+}
+
+// 병목 위험 알림 렌더링
+function renderBottleneckAlerts(alerts) {
+    const container = document.getElementById('bottleneck-alerts');
+    if (!container) return;
+    
+    const monthFilter = document.getElementById('bottleneck-month-filter')?.value || 'all';
+    const itemFilter = document.getElementById('bottleneck-item-filter')?.value || 'all';
+    
+    // 필터 적용
+    let filteredAlerts = alerts;
+    if (monthFilter !== 'all') {
+        filteredAlerts = filteredAlerts.filter(a => a.month === monthFilter);
+    }
+    if (itemFilter !== 'all') {
+        filteredAlerts = filteredAlerts.filter(a => a.item === itemFilter);
+    }
+    
+    if (!filteredAlerts.length) {
+        container.innerHTML = '<div class="text-slate-500 text-center py-4">조건에 맞는 알림이 없습니다.</div>';
+        return;
+    }
+    
+    // 알림 카드 렌더링
+    container.innerHTML = filteredAlerts.map(alert => {
+        const riskColor = alert.riskLevel === 'critical' ? 'red' : 
+                         alert.riskLevel === 'high' ? 'yellow' : 'blue';
+        const riskIcon = alert.riskLevel === 'critical' ? '🚨' : 
+                        alert.riskLevel === 'high' ? '⚠️' : 'ℹ️';
+        
+        return `
+            <div class="border-l-4 border-${riskColor}-500 bg-${riskColor}-50 p-4 rounded-r-lg">
+                <div class="flex items-start justify-between">
+                    <div class="flex-1">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-lg">${riskIcon}</span>
+                            <span class="font-semibold text-${riskColor}-800">${alert.month} ${alert.item}</span>
+                            <span class="text-xs px-2 py-1 bg-${riskColor}-200 text-${riskColor}-800 rounded-full">
+                                ${alert.riskLevel === 'critical' ? '위험' : alert.riskLevel === 'high' ? '주의' : '모니터링'}
+                            </span>
+                        </div>
+                        <p class="text-sm text-${riskColor}-700 mb-3">${alert.message}</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-3 text-xs">
+                            <div>
+                                <span class="text-slate-600">보유:</span> 
+                                <span class="font-semibold">${alert.details.available}대</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-600">필요:</span> 
+                                <span class="font-semibold">${alert.details.needed}대</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-600">부족:</span> 
+                                <span class="font-semibold text-red-600">${alert.details.shortage}대</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-600">활용률:</span> 
+                                <span class="font-semibold">${alert.details.utilizationPct}%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="text-xs text-slate-600 mb-1">주요 영향 사업 (상위 3개):</div>
+                            ${alert.details.topProjects.map(project => `
+                                <div class="text-xs bg-white p-2 rounded border mb-1">
+                                    <div class="font-medium text-slate-800">${project.projectName}</div>
+                                    <div class="text-slate-600">
+                                        필요 장비: ${project.devicesNeeded}대, 
+                                        사이트데이: ${project.siteDays}일
+                                        ${project.hasOverride ? ' <span class="text-blue-600">(수정됨)</span>' : ''}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="text-xs">
+                            <div class="text-slate-600 mb-1">권장사항:</div>
+                            <ul class="list-disc list-inside text-slate-700 space-y-1">
+                                ${alert.recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
 }

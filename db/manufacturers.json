@@ -1,8 +1,8 @@
 {
-  "(O3) Serinus10": "Ecotech",
+  "(O3) Serinus10i": "Ecotech",
   "(CO) Serinus30i": "Ecotech",
   "(NO2) Serinus40": "Ecotech",
-  "(SO2) Serinus50": "Ecotech",
+  "(SO2) Serinus50i": "Ecotech",
   "(NO2) MEZUS-210": "㈜켄텍",
   "(CO) MEZUS-310": "㈜켄텍",
   "(PM-10) E-BAM": "Met One Instrument",
@@ -15,6 +15,7 @@
   "(PM-2.5) PMS-204": "(주)에이피엠엔지니어링",
   "(NOx, SOx) BMW-5000": "토탈엔지니어링㈜",
   "(Pb) T8400ME": "F&J SPECIALTY PRODUCTS",
+  "(벤젠) MP-Σ30KNⅡ": "SIVATA",
   "SC-260": "CESVA"
 }
 

@@ -1,0 +1,1124 @@
+{
+  "meta": {
+    "_schemaVersion": "1.0.0",
+    "generatedAt": "2025-09-30T08:57:51.928Z",
+    "quarter": "2025-Q4",
+    "sources": [
+      "db/business_contracts_overrides.json",
+      "db/stats_business_item_timeseries_q4_2025.json",
+      "db/equipment_db.json"
+    ],
+    "methodology": "monthly_demand_vs_inventory_with_overrides",
+    "summary": {
+      "total": 24,
+      "critical": 24,
+      "high": 0,
+      "medium": 0,
+      "byMonth": {
+        "2025-10": {
+          "total": 8,
+          "critical": 8,
+          "items": [
+            "PM-10",
+            "NO2",
+            "SO2",
+            "CO",
+            "O3",
+            "Pb",
+            "PM-2.5",
+            "벤젠"
+          ]
+        },
+        "2025-11": {
+          "total": 8,
+          "critical": 8,
+          "items": [
+            "PM-10",
+            "NO2",
+            "SO2",
+            "CO",
+            "O3",
+            "Pb",
+            "PM-2.5",
+            "벤젠"
+          ]
+        },
+        "2025-12": {
+          "total": 8,
+          "critical": 8,
+          "items": [
+            "PM-10",
+            "NO2",
+            "SO2",
+            "CO",
+            "O3",
+            "Pb",
+            "PM-2.5",
+            "벤젠"
+          ]
+        }
+      }
+    }
+  },
+  "alerts": [
+    {
+      "id": "2025-10-PM-10-1759222671924",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-10",
+      "item": "PM-10",
+      "riskLevel": "critical",
+      "message": "2025-10에 PM-10 측정기가 162대 부족할 예정입니다.",
+      "details": {
+        "available": 69,
+        "needed": 231,
+        "shortage": 162,
+        "utilizationPct": 335,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 42,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "162대의 PM-10 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.924Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-10-NO2-1759222671926",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-10",
+      "item": "NO2",
+      "riskLevel": "critical",
+      "message": "2025-10에 NO2 측정기가 165대 부족할 예정입니다.",
+      "details": {
+        "available": 66,
+        "needed": 231,
+        "shortage": 165,
+        "utilizationPct": 350,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 42,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "165대의 NO2 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.926Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-10-SO2-1759222671926",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-10",
+      "item": "SO2",
+      "riskLevel": "critical",
+      "message": "2025-10에 SO2 측정기가 94대 부족할 예정입니다.",
+      "details": {
+        "available": 56,
+        "needed": 150,
+        "shortage": 94,
+        "utilizationPct": 268,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 27,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "94대의 SO2 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.926Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-10-CO-1759222671926",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-10",
+      "item": "CO",
+      "riskLevel": "critical",
+      "message": "2025-10에 CO 측정기가 120대 부족할 예정입니다.",
+      "details": {
+        "available": 30,
+        "needed": 150,
+        "shortage": 120,
+        "utilizationPct": 500,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 27,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "120대의 CO 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-10-O3-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-10",
+      "item": "O3",
+      "riskLevel": "critical",
+      "message": "2025-10에 O3 측정기가 120대 부족할 예정입니다.",
+      "details": {
+        "available": 30,
+        "needed": 150,
+        "shortage": 120,
+        "utilizationPct": 500,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 27,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "120대의 O3 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-10-Pb-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-10",
+      "item": "Pb",
+      "riskLevel": "critical",
+      "message": "2025-10에 Pb 측정기가 98대 부족할 예정입니다.",
+      "details": {
+        "available": 32,
+        "needed": 130,
+        "shortage": 98,
+        "utilizationPct": 406,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 22,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "98대의 Pb 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-10-PM-2.5-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-10",
+      "item": "PM-2.5",
+      "riskLevel": "critical",
+      "message": "2025-10에 PM-2.5 측정기가 93대 부족할 예정입니다.",
+      "details": {
+        "available": 52,
+        "needed": 145,
+        "shortage": 93,
+        "utilizationPct": 279,
+        "peakDaily": 4,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 31,
+        "topProjects": [
+          {
+            "projectName": "화성태안(3) 택지개발사업지구 사후환경영향조사 용역",
+            "devicesNeeded": 8,
+            "siteDays": 24,
+            "hasOverride": true
+          },
+          {
+            "projectName": "화성태안(3) 택지개발사업지구 사후환경영향조사 용역",
+            "devicesNeeded": 8,
+            "siteDays": 24,
+            "hasOverride": true
+          },
+          {
+            "projectName": "화성태안(3) 택지개발사업지구 사후환경영향조사 용역",
+            "devicesNeeded": 8,
+            "siteDays": 24,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "93대의 PM-2.5 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-10-벤젠-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-10",
+      "item": "벤젠",
+      "riskLevel": "critical",
+      "message": "2025-10에 벤젠 측정기가 46대 부족할 예정입니다.",
+      "details": {
+        "available": 7,
+        "needed": 53,
+        "shortage": 46,
+        "utilizationPct": 757,
+        "peakDaily": 2,
+        "operationMode": "사업당 1개만 사용 (지점 수 무관)",
+        "affectedProjects": 53,
+        "topProjects": [
+          {
+            "projectName": "산청 송림골프장 조성사업 전략 및 환경영향평가 용역",
+            "devicesNeeded": 1,
+            "siteDays": 15,
+            "hasOverride": true
+          },
+          {
+            "projectName": "화진포 관광지에 조성계획 변경에 따른 환경영향평가 변경협의 등 용역",
+            "devicesNeeded": 1,
+            "siteDays": 3,
+            "hasOverride": true
+          },
+          {
+            "projectName": "미호강 인산지구 등 3개소 사후환경영향조사 용역",
+            "devicesNeeded": 1,
+            "siteDays": 42,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "46대의 벤젠 측정기 추가 확보가 필요합니다.",
+        "벤젠은 사업당 1대만 필요하므로 일정 조정으로 해결 가능합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-11-PM-10-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-11",
+      "item": "PM-10",
+      "riskLevel": "critical",
+      "message": "2025-11에 PM-10 측정기가 162대 부족할 예정입니다.",
+      "details": {
+        "available": 69,
+        "needed": 231,
+        "shortage": 162,
+        "utilizationPct": 335,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 42,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "162대의 PM-10 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-11-NO2-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-11",
+      "item": "NO2",
+      "riskLevel": "critical",
+      "message": "2025-11에 NO2 측정기가 165대 부족할 예정입니다.",
+      "details": {
+        "available": 66,
+        "needed": 231,
+        "shortage": 165,
+        "utilizationPct": 350,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 42,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "165대의 NO2 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-11-SO2-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-11",
+      "item": "SO2",
+      "riskLevel": "critical",
+      "message": "2025-11에 SO2 측정기가 94대 부족할 예정입니다.",
+      "details": {
+        "available": 56,
+        "needed": 150,
+        "shortage": 94,
+        "utilizationPct": 268,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 27,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "94대의 SO2 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-11-CO-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-11",
+      "item": "CO",
+      "riskLevel": "critical",
+      "message": "2025-11에 CO 측정기가 120대 부족할 예정입니다.",
+      "details": {
+        "available": 30,
+        "needed": 150,
+        "shortage": 120,
+        "utilizationPct": 500,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 27,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "120대의 CO 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-11-O3-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-11",
+      "item": "O3",
+      "riskLevel": "critical",
+      "message": "2025-11에 O3 측정기가 120대 부족할 예정입니다.",
+      "details": {
+        "available": 30,
+        "needed": 150,
+        "shortage": 120,
+        "utilizationPct": 500,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 27,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "120대의 O3 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-11-Pb-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-11",
+      "item": "Pb",
+      "riskLevel": "critical",
+      "message": "2025-11에 Pb 측정기가 98대 부족할 예정입니다.",
+      "details": {
+        "available": 32,
+        "needed": 130,
+        "shortage": 98,
+        "utilizationPct": 406,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 22,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "98대의 Pb 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-11-PM-2.5-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-11",
+      "item": "PM-2.5",
+      "riskLevel": "critical",
+      "message": "2025-11에 PM-2.5 측정기가 93대 부족할 예정입니다.",
+      "details": {
+        "available": 52,
+        "needed": 145,
+        "shortage": 93,
+        "utilizationPct": 279,
+        "peakDaily": 4,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 31,
+        "topProjects": [
+          {
+            "projectName": "화성태안(3) 택지개발사업지구 사후환경영향조사 용역",
+            "devicesNeeded": 8,
+            "siteDays": 24,
+            "hasOverride": true
+          },
+          {
+            "projectName": "화성태안(3) 택지개발사업지구 사후환경영향조사 용역",
+            "devicesNeeded": 8,
+            "siteDays": 24,
+            "hasOverride": true
+          },
+          {
+            "projectName": "화성태안(3) 택지개발사업지구 사후환경영향조사 용역",
+            "devicesNeeded": 8,
+            "siteDays": 24,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "93대의 PM-2.5 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-11-벤젠-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-11",
+      "item": "벤젠",
+      "riskLevel": "critical",
+      "message": "2025-11에 벤젠 측정기가 46대 부족할 예정입니다.",
+      "details": {
+        "available": 7,
+        "needed": 53,
+        "shortage": 46,
+        "utilizationPct": 757,
+        "peakDaily": 2,
+        "operationMode": "사업당 1개만 사용 (지점 수 무관)",
+        "affectedProjects": 53,
+        "topProjects": [
+          {
+            "projectName": "산청 송림골프장 조성사업 전략 및 환경영향평가 용역",
+            "devicesNeeded": 1,
+            "siteDays": 15,
+            "hasOverride": true
+          },
+          {
+            "projectName": "화진포 관광지에 조성계획 변경에 따른 환경영향평가 변경협의 등 용역",
+            "devicesNeeded": 1,
+            "siteDays": 3,
+            "hasOverride": true
+          },
+          {
+            "projectName": "미호강 인산지구 등 3개소 사후환경영향조사 용역",
+            "devicesNeeded": 1,
+            "siteDays": 42,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "46대의 벤젠 측정기 추가 확보가 필요합니다.",
+        "벤젠은 사업당 1대만 필요하므로 일정 조정으로 해결 가능합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-12-PM-10-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-12",
+      "item": "PM-10",
+      "riskLevel": "critical",
+      "message": "2025-12에 PM-10 측정기가 162대 부족할 예정입니다.",
+      "details": {
+        "available": 69,
+        "needed": 231,
+        "shortage": 162,
+        "utilizationPct": 335,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 42,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "162대의 PM-10 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-12-NO2-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-12",
+      "item": "NO2",
+      "riskLevel": "critical",
+      "message": "2025-12에 NO2 측정기가 165대 부족할 예정입니다.",
+      "details": {
+        "available": 66,
+        "needed": 231,
+        "shortage": 165,
+        "utilizationPct": 350,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 42,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "165대의 NO2 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-12-SO2-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-12",
+      "item": "SO2",
+      "riskLevel": "critical",
+      "message": "2025-12에 SO2 측정기가 94대 부족할 예정입니다.",
+      "details": {
+        "available": 56,
+        "needed": 150,
+        "shortage": 94,
+        "utilizationPct": 268,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 27,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "94대의 SO2 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-12-CO-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-12",
+      "item": "CO",
+      "riskLevel": "critical",
+      "message": "2025-12에 CO 측정기가 120대 부족할 예정입니다.",
+      "details": {
+        "available": 30,
+        "needed": 150,
+        "shortage": 120,
+        "utilizationPct": 500,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 27,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "120대의 CO 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-12-O3-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-12",
+      "item": "O3",
+      "riskLevel": "critical",
+      "message": "2025-12에 O3 측정기가 120대 부족할 예정입니다.",
+      "details": {
+        "available": 30,
+        "needed": 150,
+        "shortage": 120,
+        "utilizationPct": 500,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 27,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "120대의 O3 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-12-Pb-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-12",
+      "item": "Pb",
+      "riskLevel": "critical",
+      "message": "2025-12에 Pb 측정기가 98대 부족할 예정입니다.",
+      "details": {
+        "available": 32,
+        "needed": 130,
+        "shortage": 98,
+        "utilizationPct": 406,
+        "peakDaily": 8,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 22,
+        "topProjects": [
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          },
+          {
+            "projectName": "[당진] 9,10호기 2025년 접속설비 증설사업 사후환경영향조사 용역",
+            "devicesNeeded": 11,
+            "siteDays": 165,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "98대의 Pb 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-12-PM-2.5-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-12",
+      "item": "PM-2.5",
+      "riskLevel": "critical",
+      "message": "2025-12에 PM-2.5 측정기가 93대 부족할 예정입니다.",
+      "details": {
+        "available": 52,
+        "needed": 145,
+        "shortage": 93,
+        "utilizationPct": 279,
+        "peakDaily": 4,
+        "operationMode": "지점 수만큼 장비 필요",
+        "affectedProjects": 31,
+        "topProjects": [
+          {
+            "projectName": "화성태안(3) 택지개발사업지구 사후환경영향조사 용역",
+            "devicesNeeded": 8,
+            "siteDays": 24,
+            "hasOverride": true
+          },
+          {
+            "projectName": "화성태안(3) 택지개발사업지구 사후환경영향조사 용역",
+            "devicesNeeded": 8,
+            "siteDays": 24,
+            "hasOverride": true
+          },
+          {
+            "projectName": "화성태안(3) 택지개발사업지구 사후환경영향조사 용역",
+            "devicesNeeded": 8,
+            "siteDays": 24,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "93대의 PM-2.5 측정기 추가 확보가 필요합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    },
+    {
+      "id": "2025-12-벤젠-1759222671927",
+      "type": "error",
+      "category": "equipment_bottleneck",
+      "month": "2025-12",
+      "item": "벤젠",
+      "riskLevel": "critical",
+      "message": "2025-12에 벤젠 측정기가 46대 부족할 예정입니다.",
+      "details": {
+        "available": 7,
+        "needed": 53,
+        "shortage": 46,
+        "utilizationPct": 757,
+        "peakDaily": 2,
+        "operationMode": "사업당 1개만 사용 (지점 수 무관)",
+        "affectedProjects": 53,
+        "topProjects": [
+          {
+            "projectName": "산청 송림골프장 조성사업 전략 및 환경영향평가 용역",
+            "devicesNeeded": 1,
+            "siteDays": 15,
+            "hasOverride": true
+          },
+          {
+            "projectName": "화진포 관광지에 조성계획 변경에 따른 환경영향평가 변경협의 등 용역",
+            "devicesNeeded": 1,
+            "siteDays": 3,
+            "hasOverride": true
+          },
+          {
+            "projectName": "미호강 인산지구 등 3개소 사후환경영향조사 용역",
+            "devicesNeeded": 1,
+            "siteDays": 42,
+            "hasOverride": true
+          }
+        ]
+      },
+      "recommendations": [
+        "46대의 벤젠 측정기 추가 확보가 필요합니다.",
+        "벤젠은 사업당 1대만 필요하므로 일정 조정으로 해결 가능합니다.",
+        "주요 사업들의 일정을 분산시키는 것을 고려해보세요."
+      ],
+      "createdAt": "2025-09-30T08:57:51.927Z",
+      "priority": 1
+    }
+  ]
+}
