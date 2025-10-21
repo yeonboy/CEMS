@@ -13,6 +13,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Multer uploader must be initialized before any routes use it
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 25 * 1024 * 1024 } });
+
 const PROJECT_ROOT = process.cwd();
 const DB_DIR = path.join(PROJECT_ROOT, 'db');
 const HISTORY_DIR = path.join(DB_DIR, 'history');
@@ -337,13 +340,12 @@ function bind(startPort, attempts = 10) {
   });
 }
 
-bind(process.env.PORT || 5173);
+bind(process.env.PORT || 8080);
 
 // ===== Education Uploader routes (integrated) =====
 const assetsRoot = path.join(PROJECT_ROOT, 'assets');
 const educationRoot = path.join(assetsRoot, 'education');
 try { if (!fs.existsSync(educationRoot)) fs.mkdirSync(educationRoot, { recursive: true }); } catch {}
-const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 25 * 1024 * 1024 } });
 function sanitizeName(name) {
   return String(name || '')
     .replace(/\\/g, '/')
