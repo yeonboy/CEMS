@@ -13,6 +13,18 @@
       <a href="./index.html" class="text-indigo-600 hover:underline">대시보드로 돌아가기</a>
     </div>
 
+    <div class="bg-white rounded-lg shadow p-4 mb-6">
+      <div class="font-semibold mb-2">지표 설명</div>
+      <ul class="list-disc pl-5 space-y-1 text-sm text-slate-700">
+        <li><b>출장주기(일)</b>: 현장 투입 시작 간 평균 간격</li>
+        <li><b>1회 출장일수(일)</b>: 현장 → 본사 복귀까지 평균 체류 일수</li>
+        <li><b>고장횟수/주요 고장내용</b>: repairs의 <code>repair_type</code> 기준(정도검사 제외 우선)</li>
+        <li><b>사용횟수</b>: 현장 유입 이동 횟수</li>
+        <li><b>수리횟수/수리비용</b>: 수리/교체/보수 키워드 기준 횟수 및 비용 합계</li>
+        <li><b>보유댓수</b>: 해당 품목계열의 장비 보유 수량</li>
+      </ul>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
       <div class="bg-white rounded-lg shadow p-4">
         <label class="block text-sm font-medium mb-1">집계 단위</label>
@@ -41,6 +53,7 @@
     import { DataClient } from './scripts/data_client.js';
 
     const dc = new DataClient({ basePath: './db' });
+    let currentRows = [];
     const CATS = [
       { key: '(CO) Serinus30i', label: 'Serinus 30i' },
       { key: '(O3) Serinus10i', label: 'Serinus 10i' },
@@ -163,14 +176,21 @@
         const repairCount = repArr.filter(r=> /수리|교체|보수/i.test(String(r.repair_type||'')) ).length || failureCount;
         const faultTop = top1(failureRepairs.map(r=> r.repair_type || r.equipment_status || '')) || top1(repArr.map(r=> r.repair_type||''));
         const costSum = sum(repArr.map(r=> Number(r.cost)||0));
+        const faultLogs = failureRepairs.map(r=> ({
+          date: r.repair_date || r.date || '',
+          type: r.repair_type || '',
+          cost: Number(r.cost)||0
+        }));
 
         rows.push({
           period: periodKey,
           category: label,
+          inventoryCount: serialSet.size || 0,
           tripCycleDays: avg(allTripIntervals) || 0,
           tripDaysPerVisit: avg(allTripDurations) || 0,
           failureCount,
           faultTop,
+          faultLogs,
           usageCount,
           repairCount,
           repairCost: costSum
@@ -191,10 +211,11 @@
                 <tr>
                   <th class="px-3 py-2 text-left">기간</th>
                   <th class="px-3 py-2 text-left">품목계열</th>
+                  <th class="px-3 py-2 text-right">보유댓수</th>
                   <th class="px-3 py-2 text-right">출장주기(일)</th>
                   <th class="px-3 py-2 text-right">1회 출장일수(일)</th>
                   <th class="px-3 py-2 text-right">고장횟수</th>
-                  <th class="px-3 py-2 text-left">주요 고장내용 Top1</th>
+                  <th class="px-3 py-2 text-left">주요 고장내용 Top1 / 상세</th>
                   <th class="px-3 py-2 text-right">사용횟수</th>
                   <th class="px-3 py-2 text-right">수리횟수</th>
                   <th class="px-3 py-2 text-right">수리비용(원)</th>
@@ -211,24 +232,55 @@
         tr.innerHTML = `<td class="px-3 py-3 text-slate-500" colspan="9">데이터가 없습니다</td>`;
         tbody.appendChild(tr);
       } else {
-        for(const r of rows){
+        rows.forEach((r, idx)=>{
           const tr = document.createElement('tr');
           tr.className = 'odd:bg-white even:bg-slate-50';
           tr.innerHTML = `
             <td class="px-3 py-2">${r.period}</td>
             <td class="px-3 py-2">${r.category}</td>
+            <td class="px-3 py-2 text-right">${formatNumber(r.inventoryCount||0)}</td>
             <td class="px-3 py-2 text-right">${formatNumber(r.tripCycleDays)}</td>
             <td class="px-3 py-2 text-right">${formatNumber(r.tripDaysPerVisit)}</td>
             <td class="px-3 py-2 text-right">${formatNumber(r.failureCount)}</td>
-            <td class="px-3 py-2">${r.faultTop||''}</td>
+            <td class="px-3 py-2">
+              <div class="flex items-center gap-2">
+                <span>${r.faultTop||''}</span>
+                <button class="btn-faults px-2 py-1 text-xs border rounded hover:bg-slate-100 disabled:opacity-50" data-idx="${idx}" ${!(r.faultLogs&&r.faultLogs.length)?'disabled':''}>상세</button>
+              </div>
+            </td>
             <td class="px-3 py-2 text-right">${formatNumber(r.usageCount)}</td>
             <td class="px-3 py-2 text-right">${formatNumber(r.repairCount)}</td>
             <td class="px-3 py-2 text-right">${formatNumber(r.repairCost)}</td>
           `;
           tbody.appendChild(tr);
-        }
+        });
       }
       return wrap;
+    }
+
+    function openFaultModal(title, logs){
+      const overlay = document.getElementById('faultModal');
+      const titleEl = document.getElementById('faultModalTitle');
+      const listEl = document.getElementById('faultModalList');
+      const totalEl = document.getElementById('faultModalTotal');
+      titleEl.textContent = title;
+      listEl.innerHTML = '';
+      let total = 0;
+      for(const it of logs||[]){
+        total += Number(it.cost)||0;
+        const li = document.createElement('li');
+        li.className = 'flex items-center justify-between py-1 border-b last:border-b-0';
+        li.innerHTML = `
+          <div class="text-sm">
+            <div class="font-medium">${it.type||''}</div>
+            <div class="text-slate-500">${String(it.date||'').slice(0,10)}</div>
+          </div>
+          <div class="text-sm tabular-nums">${formatNumber(Number(it.cost)||0)} 원</div>
+        `;
+        listEl.appendChild(li);
+      }
+      totalEl.textContent = `${formatNumber(total)} 원`;
+      overlay.classList.remove('hidden');
     }
 
     (async function init(){
@@ -255,7 +307,18 @@
           const title = gran==='year' ? `연도별${yf? ' ('+yf+')':''}` : gran==='quarter' ? `분기별${yf? ' ('+yf+')':''}` : '전체 기간';
           const cont = document.getElementById('reportContainer');
           cont.innerHTML = '';
+          currentRows = allRows;
           cont.appendChild(renderTable(title, allRows));
+          // 상세 버튼 핸들러
+          cont.querySelectorAll('.btn-faults').forEach(btn=>{
+            btn.addEventListener('click', ()=>{
+              const idx = Number(btn.getAttribute('data-idx'))||0;
+              const row = currentRows[idx]||{};
+              if(row && row.faultLogs && row.faultLogs.length){
+                openFaultModal(`${row.period} · ${row.category} · 고장내용`, row.faultLogs);
+              }
+            });
+          });
         }
 
         document.getElementById('runBtn').addEventListener('click', run);
@@ -266,6 +329,21 @@
       }
     })();
   </script>
+
+  <!-- 고장내용 상세 모달 -->
+  <div id="faultModal" class="hidden fixed inset-0 z-50">
+    <div class="absolute inset-0 bg-black/40" onclick="this.parentElement.classList.add('hidden')"></div>
+    <div class="relative max-w-2xl mx-auto mt-20 bg-white rounded-lg shadow-lg overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-3 border-b">
+        <div id="faultModalTitle" class="font-semibold">고장내용</div>
+        <button class="px-2 py-1 text-sm" onclick="document.getElementById('faultModal').classList.add('hidden')">닫기</button>
+      </div>
+      <div class="p-4">
+        <ul id="faultModalList" class="divide-y"></ul>
+        <div class="mt-3 text-right text-sm">합계: <span id="faultModalTotal" class="font-semibold tabular-nums">0 원</span></div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
 
