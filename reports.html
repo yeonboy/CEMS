@@ -258,6 +258,20 @@
       return wrap;
     }
 
+    function enableDragScroll(el){
+      let isDown = false; let startY = 0; let startTop = 0;
+      const getY = (e)=> (e.touches && e.touches[0] ? e.touches[0].pageY : e.pageY || 0);
+      const onDown = (e)=>{ isDown = true; startY = getY(e); startTop = el.scrollTop; el.style.cursor='grabbing'; e.preventDefault(); };
+      const onMove = (e)=>{ if(!isDown) return; const y = getY(e); const dy = y - startY; el.scrollTop = startTop - dy; };
+      const onUp = ()=>{ isDown = false; el.style.cursor=''; };
+      el.addEventListener('mousedown', onDown);
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup', onUp);
+      el.addEventListener('touchstart', onDown, { passive:false });
+      window.addEventListener('touchmove', onMove, { passive:false });
+      window.addEventListener('touchend', onUp);
+    }
+
     function openFaultModal(title, logs){
       const overlay = document.getElementById('faultModal');
       const titleEl = document.getElementById('faultModalTitle');
@@ -280,6 +294,7 @@
         listEl.appendChild(li);
       }
       totalEl.textContent = `${formatNumber(total)} 원`;
+      if (!listEl.dataset.dragReady){ enableDragScroll(listEl); listEl.dataset.dragReady = '1'; }
       overlay.classList.remove('hidden');
     }
 
@@ -339,7 +354,7 @@
         <button class="px-2 py-1 text-sm" onclick="document.getElementById('faultModal').classList.add('hidden')">닫기</button>
       </div>
       <div class="p-4">
-        <ul id="faultModalList" class="divide-y"></ul>
+        <ul id="faultModalList" class="divide-y max-h-[60vh] overflow-y-auto select-none cursor-grab active:cursor-grabbing"></ul>
         <div class="mt-3 text-right text-sm">합계: <span id="faultModalTotal" class="font-semibold tabular-nums">0 원</span></div>
       </div>
     </div>
