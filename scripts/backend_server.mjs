@@ -6,6 +6,7 @@ import path from 'path';
 import http from 'http';
 import multer from 'multer';
 import iconv from 'iconv-lite';
+
 import { parse as csvParse } from 'csv-parse';
 import { spawn } from 'child_process';
 
@@ -340,7 +341,8 @@ function bind(startPort, attempts = 10) {
   });
 }
 
-bind(process.env.PORT || 8080);
+// 서버 시작
+bind(process.env.PORT || 3333);
 
 // ===== Education Uploader routes (integrated) =====
 const assetsRoot = path.join(PROJECT_ROOT, 'assets');

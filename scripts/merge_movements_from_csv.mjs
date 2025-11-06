@@ -4,7 +4,7 @@ import iconv from 'iconv-lite';
 import { parse } from 'csv-parse';
 
 const PROJECT_ROOT = process.cwd();
-const INPUT_CSV = path.join(PROJECT_ROOT, '청명장비 엑셀', '8.29~10.14movements_logs.csv');
+const INPUT_CSV_DEFAULT = path.join(PROJECT_ROOT, '청명장비 엑셀', '8.29~10.14movements_logs.csv');
 const DB_MOVES = path.join(PROJECT_ROOT, 'db', 'movements_db.json');
 
 function chooseBestKoreanDecoding(buf){
@@ -99,9 +99,11 @@ function readJsonIfExists(file){ try{ const t=fs.readFileSync(file,'utf8'); cons
 function uniqKey(m){ return [parseYmd(m.date||''),(m.serial||'').trim(),(m.outLocation||'').trim(),(m.inLocation||'').trim(),String(m.quantity||1)].join('|'); }
 
 async function main(){
+  const inputCsvPath = process.argv[2] ? path.resolve(process.argv[2]) : INPUT_CSV_DEFAULT;
   console.log('=== Merge movements from CSV: START ===');
-  if (!fs.existsSync(INPUT_CSV)) throw new Error('INPUT CSV not found: '+INPUT_CSV);
-  const buf = fs.readFileSync(INPUT_CSV);
+  console.log('input:', path.relative(PROJECT_ROOT, inputCsvPath));
+  if (!fs.existsSync(inputCsvPath)) throw new Error('INPUT CSV not found: '+inputCsvPath);
+  const buf = fs.readFileSync(inputCsvPath);
   const textRaw = chooseBestKoreanDecoding(buf);
   const text = normalizeCsvText(textRaw);
   const delimiter = detectDelimiter(text);
