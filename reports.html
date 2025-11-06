@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>장비 리포트(Serinus & E-BAM)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <div class="max-w-7xl mx-auto px-4 py-6">
+    <div class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-bold">장비 리포트: Serinus 30i/10i/40/50i, (PM-2.5) E-BAM, (PM-10) E-BAM</h1>
+      <a href="./index.html" class="text-indigo-600 hover:underline">대시보드로 돌아가기</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+      <div class="bg-white rounded-lg shadow p-4">
+        <label class="block text-sm font-medium mb-1">집계 단위</label>
+        <select id="granularity" class="w-full border rounded px-3 py-2">
+          <option value="year">연도별</option>
+          <option value="quarter">분기별</option>
+          <option value="all">전체</option>
+        </select>
+      </div>
+      <div class="bg-white rounded-lg shadow p-4">
+        <label class="block text-sm font-medium mb-1">연도 필터(선택)</label>
+        <select id="yearFilter" class="w-full border rounded px-3 py-2">
+          <option value="">전체</option>
+        </select>
+      </div>
+      <div class="bg-white rounded-lg shadow p-4 flex items-end">
+        <button id="runBtn" class="w-full bg-indigo-600 text-white rounded px-4 py-2 hover:bg-indigo-700">리포트 생성</button>
+      </div>
+    </div>
+
+    <div id="meta" class="text-sm text-slate-600 mb-2">데이터 로딩 중...</div>
+    <div id="reportContainer" class="space-y-8"></div>
+  </div>
+
+  <script type="module">
+    import { DataClient } from './scripts/data_client.js';
+
+    const dc = new DataClient({ basePath: './db' });
+    const CATS = [
+      { key: '(CO) Serinus30i', label: 'Serinus 30i' },
+      { key: '(O3) Serinus10i', label: 'Serinus 10i' },
+      { key: '(NO2) Serinus40', label: 'Serinus 40' },
+      { key: '(SO2) Serinus50i', label: 'Serinus 50i' },
+      { key: '(PM-2.5) E-BAM', label: '(PM-2.5) E-BAM' },
+      { key: '(PM-10) E-BAM', label: '(PM-10) E-BAM' }
+    ];
+
+    const isBase = (s)=> /청명|본사|창고/i.test(String(s||''));
+    const isField = (s)=> /현장|Site|출장/i.test(String(s||''));
+    const parseDate = (s)=>{ const d = new Date(String(s||'').slice(0,10)); return isNaN(d.getTime())? null : d; };
+    const ymd = (d)=> `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    const diffDays = (a,b)=> Math.round((b - a) / 86400000);
+    const getYear = (s)=> (String(s||'').slice(0,4));
+    const getQuarterKey = (s)=>{
+      const d = parseDate(s); if(!d) return '';
+      const q = Math.floor(d.getMonth()/3)+1; return `${d.getFullYear()}-Q${q}`;
+    };
+
+    function groupBy(arr, fn){ const m=new Map(); for(const x of arr){ const k=fn(x); if(!m.has(k)) m.set(k,[]); m.get(k).push(x);} return m; }
+    function sum(arr){ return arr.reduce((a,b)=> a+(Number(b)||0),0); }
+    function avg(nums){ if(!nums.length) return 0; return sum(nums)/nums.length; }
+    function top1(arr){ if(!arr.length) return ''; const m=new Map(); for(const v of arr){ const k=String(v||'').trim(); if(!k) continue; m.set(k,(m.get(k)||0)+1);} let best='',bc=0; for(const [k,c] of m){ if(c>bc){best=k;bc=c;} } return best; }
+
+    function buildCategorySerials(equipment){
+      const map = new Map();
+      for(const { serial, category } of equipment||[]){
+        if(!serial || !category) continue;
+        if(!map.has(category)) map.set(category, new Set());
+        map.get(category).add(String(serial));
+      }
+      return map;
+    }
+
+    function computeTripDurationsForSerial(moves){
+      // moves: sorted asc by date for one serial
+      const durs=[]; let activeStart=null;
+      for(const m of moves){
+        if(!activeStart){
+          if(isField(m.inLocation) || (!isBase(m.outLocation) && !isBase(m.inLocation) && m.inLocation!==m.outLocation)){
+            const dt = parseDate(m.date); if(dt) activeStart=dt;
+          }
+        } else {
+          if(isBase(m.inLocation) || isBase(m.outLocation)){
+            const dt = parseDate(m.date); if(dt){ durs.push(Math.max(0,diffDays(activeStart, dt))); activeStart=null; }
+          }
+        }
+      }
+      return durs;
+    }
+
+    function computeTripIntervalsForSerial(moves){
+      const starts=[];
+      for(const m of moves){ if(isField(m.inLocation)){ const dt=parseDate(m.date); if(dt) starts.push(dt); } }
+      starts.sort((a,b)=>a-b);
+      const gaps=[]; for(let i=1;i<starts.length;i++){ gaps.push(Math.max(0,diffDays(starts[i-1], starts[i]))); }
+      return gaps;
+    }
+
+    function buildPeriodKey(granularity, dateStr){
+      if(granularity==='year') return getYear(dateStr);
+      if(granularity==='quarter') return getQuarterKey(dateStr);
+      return 'ALL';
+    }
+
+    function formatNumber(n){ return new Intl.NumberFormat('ko-KR').format(Math.round(n)); }
+
+    async function loadAll(){
+      const [equipment, movements, repairs] = await Promise.all([
+        dc.getEquipment(), dc.getMovements(), dc.getRepairs()
+      ]);
+      return { equipment, movements, repairs };
+    }
+
+    function prepareYears(movements, repairs){
+      const ys = new Set();
+      for(const m of movements||[]) { const y=getYear(m.date); if(y) ys.add(y); }
+      for(const r of repairs||[]) { const y=getYear(r.repair_date||r.date); if(y) ys.add(y); }
+      return Array.from(ys).filter(Boolean).sort();
+    }
+
+    function computeMetricsForCategory(catKey, label, serialSet, movements, repairs, granularity, yearFilter){
+      // Filter by serials first
+      const moves = (movements||[]).filter(m=> serialSet.has(String(m.serial||'')));
+      const reps  = (repairs||[]).filter(r=> serialSet.has(String(r.serial||'')));
+
+      // Optional year filter
+      const byPeriod = new Map();
+      for(const m of moves){
+        const y = getYear(m.date); if(yearFilter && y !== yearFilter) continue;
+        const k = buildPeriodKey(granularity, m.date);
+        if(!byPeriod.has(k)) byPeriod.set(k, { moves: [], reps: []});
+        byPeriod.get(k).moves.push(m);
+      }
+      for(const r of reps){
+        const y = getYear(r.repair_date||r.date); if(yearFilter && y !== yearFilter) continue;
+        const k = buildPeriodKey(granularity, r.repair_date||r.date);
+        if(!byPeriod.has(k)) byPeriod.set(k, { moves: [], reps: []});
+        byPeriod.get(k).reps.push(r);
+      }
+
+      const rows=[];
+      for(const [periodKey, bucket] of Array.from(byPeriod.entries()).sort((a,b)=> String(a[0])<String(b[0])? -1:1)){
+        // group moves by serial for trip metrics
+        const bySerial = groupBy(bucket.moves, m=> String(m.serial||''));
+        const allTripDurations=[]; const allTripIntervals=[]; let usageCount=0;
+        for(const [serial, arr] of bySerial){
+          arr.sort((a,b)=> String(a.date).localeCompare(String(b.date)) );
+          usageCount += arr.filter(x=> isField(x.inLocation)).length;
+          allTripDurations.push(...computeTripDurationsForSerial(arr));
+          allTripIntervals.push(...computeTripIntervalsForSerial(arr));
+        }
+
+        // repairs
+        const repArr = bucket.reps;
+        const totalRepairs = repArr.length;
+        const failureRepairs = repArr.filter(r=> !/정도검사/i.test(String(r.repair_type||'')) );
+        const failureCount = failureRepairs.length;
+        const repairCount = repArr.filter(r=> /수리|교체|보수/i.test(String(r.repair_type||'')) ).length || failureCount;
+        const faultTop = top1(failureRepairs.map(r=> r.repair_type || r.equipment_status || '')) || top1(repArr.map(r=> r.repair_type||''));
+        const costSum = sum(repArr.map(r=> Number(r.cost)||0));
+
+        rows.push({
+          period: periodKey,
+          category: label,
+          tripCycleDays: avg(allTripIntervals) || 0,
+          tripDaysPerVisit: avg(allTripDurations) || 0,
+          failureCount,
+          faultTop,
+          usageCount,
+          repairCount,
+          repairCost: costSum
+        });
+      }
+      // If no data in period, still return empty rows to keep table consistent
+      return rows;
+    }
+
+    function renderTable(title, rows){
+      const wrap = document.createElement('div');
+      wrap.innerHTML = `
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="px-4 py-3 border-b font-semibold">${title}</div>
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-sm">
+              <thead class="bg-slate-100">
+                <tr>
+                  <th class="px-3 py-2 text-left">기간</th>
+                  <th class="px-3 py-2 text-left">품목계열</th>
+                  <th class="px-3 py-2 text-right">출장주기(일)</th>
+                  <th class="px-3 py-2 text-right">1회 출장일수(일)</th>
+                  <th class="px-3 py-2 text-right">고장횟수</th>
+                  <th class="px-3 py-2 text-left">주요 고장내용 Top1</th>
+                  <th class="px-3 py-2 text-right">사용횟수</th>
+                  <th class="px-3 py-2 text-right">수리횟수</th>
+                  <th class="px-3 py-2 text-right">수리비용(원)</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      `;
+      const tbody = wrap.querySelector('tbody');
+      if(!rows.length){
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td class="px-3 py-3 text-slate-500" colspan="9">데이터가 없습니다</td>`;
+        tbody.appendChild(tr);
+      } else {
+        for(const r of rows){
+          const tr = document.createElement('tr');
+          tr.className = 'odd:bg-white even:bg-slate-50';
+          tr.innerHTML = `
+            <td class="px-3 py-2">${r.period}</td>
+            <td class="px-3 py-2">${r.category}</td>
+            <td class="px-3 py-2 text-right">${formatNumber(r.tripCycleDays)}</td>
+            <td class="px-3 py-2 text-right">${formatNumber(r.tripDaysPerVisit)}</td>
+            <td class="px-3 py-2 text-right">${formatNumber(r.failureCount)}</td>
+            <td class="px-3 py-2">${r.faultTop||''}</td>
+            <td class="px-3 py-2 text-right">${formatNumber(r.usageCount)}</td>
+            <td class="px-3 py-2 text-right">${formatNumber(r.repairCount)}</td>
+            <td class="px-3 py-2 text-right">${formatNumber(r.repairCost)}</td>
+          `;
+          tbody.appendChild(tr);
+        }
+      }
+      return wrap;
+    }
+
+    (async function init(){
+      try{
+        const { equipment, movements, repairs } = await loadAll();
+        const years = prepareYears(movements, repairs);
+        const ySel = document.getElementById('yearFilter');
+        for(const y of years){ const opt=document.createElement('option'); opt.value=y; opt.textContent=y; ySel.appendChild(opt); }
+
+        const catSerialsMap = buildCategorySerials(equipment);
+        const serialsByCat = new Map();
+        for(const c of CATS){ serialsByCat.set(c.key, catSerialsMap.get(c.key) || new Set()); }
+
+        document.getElementById('meta').textContent = `장비 ${equipment.length}건, 이동 ${movements.length}건, 수리 ${repairs.length}건 로드됨`;
+
+        async function run(){
+          const gran = document.getElementById('granularity').value;
+          const yf = document.getElementById('yearFilter').value;
+          const allRows=[];
+          for(const {key,label} of CATS){
+            const rows = computeMetricsForCategory(key, label, serialsByCat.get(key)||new Set(), movements, repairs, gran, yf);
+            allRows.push(...rows);
+          }
+          const title = gran==='year' ? `연도별${yf? ' ('+yf+')':''}` : gran==='quarter' ? `분기별${yf? ' ('+yf+')':''}` : '전체 기간';
+          const cont = document.getElementById('reportContainer');
+          cont.innerHTML = '';
+          cont.appendChild(renderTable(title, allRows));
+        }
+
+        document.getElementById('runBtn').addEventListener('click', run);
+        // 최초 1회 실행
+        run();
+      }catch(e){
+        document.getElementById('meta').textContent = `로딩 실패: ${e && e.message ? e.message : e}`;
+      }
+    })();
+  </script>
+</body>
+</html>
+
+
