@@ -279,21 +279,75 @@
       const totalEl = document.getElementById('faultModalTotal');
       titleEl.textContent = title;
       listEl.innerHTML = '';
-      let total = 0;
+
+      // 1) 같은 날짜 + 같은 내용 + 같은 일련번호 중복 제거
+      const uniqMap = new Map();
       for(const it of logs||[]){
-        total += Number(it.cost)||0;
-        const li = document.createElement('li');
-        li.className = 'flex items-center justify-between py-1 border-b last:border-b-0';
-        li.innerHTML = `
-          <div class="text-sm">
-            <div class="font-medium">${it.type||''}</div>
-            <div class="text-slate-500">${String(it.date||'').slice(0,10)}</div>
-          </div>
-          <div class="text-sm tabular-nums">${formatNumber(Number(it.cost)||0)} 원</div>
-        `;
-        listEl.appendChild(li);
+        const date = String(it.date||'').slice(0,10);
+        const type = String(it.type||'').trim();
+        const serial = String(it.serial||'').trim();
+        const key = `${date}|${type}|${serial}`;
+        const cost = Number(it.cost)||0;
+        if(!uniqMap.has(key)) uniqMap.set(key, { date, type, serial, cost });
+        else uniqMap.get(key).cost += cost; // 같은 항목 비용 합산
       }
-      totalEl.textContent = `${formatNumber(total)} 원`;
+      const uniqLogs = Array.from(uniqMap.values());
+
+      // 2) 고장내용별 그룹핑
+      const byType = new Map();
+      for(const it of uniqLogs){
+        const t = it.type || '미분류';
+        if(!byType.has(t)) byType.set(t, []);
+        byType.get(t).push(it);
+      }
+
+      // 3) 카드 렌더링 (타입별 합계/건수 + 상세 토글)
+      let grandTotal = 0;
+      const entries = Array.from(byType.entries()).sort((a,b)=> String(a[0]).localeCompare(String(b[0])));
+      for(const [type, items] of entries){
+        const subtotal = items.reduce((s,x)=> s + (Number(x.cost)||0), 0);
+        grandTotal += subtotal;
+        const card = document.createElement('div');
+        card.className = 'border rounded-lg mb-3 overflow-hidden bg-white';
+        const cardId = `fault_${Math.random().toString(36).slice(2,9)}`;
+        card.innerHTML = `
+          <div class="px-4 py-2 flex items-center justify-between bg-slate-50 border-b">
+            <div>
+              <div class="font-semibold">${type}</div>
+              <div class="text-xs text-slate-500">건수 ${items.length} · 합계 ${formatNumber(subtotal)} 원</div>
+            </div>
+            <button class="px-2 py-1 text-xs border rounded hover:bg-slate-100" data-target="${cardId}">상세</button>
+          </div>
+          <div id="${cardId}" class="hidden px-4 py-2">
+            <div class="text-xs text-slate-500 mb-1">날짜 · 일련번호 · 비용</div>
+            <div class="space-y-1">
+              ${items
+                .sort((a,b)=> String(a.date).localeCompare(String(b.date)))
+                .map(it=> `
+                  <div class=\"flex items-center justify-between py-1 border-b last:border-b-0\">
+                    <div class=\"text-sm\">
+                      <div class=\"\">${String(it.date||'').slice(0,10)} · ${it.serial? String(it.serial) : '-'}</div>
+                    </div>
+                    <div class=\"text-sm tabular-nums\">${formatNumber(Number(it.cost)||0)} 원</div>
+                  </div>
+                `).join('')}
+            </div>
+          </div>
+        `;
+        listEl.appendChild(card);
+      }
+
+      // 상세 토글 바인딩
+      listEl.querySelectorAll('button[data-target]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const id = btn.getAttribute('data-target');
+          const pane = document.getElementById(id);
+          if(!pane) return;
+          pane.classList.toggle('hidden');
+        });
+      });
+
+      totalEl.textContent = `${formatNumber(grandTotal)} 원`;
       if (!listEl.dataset.dragReady){ enableDragScroll(listEl); listEl.dataset.dragReady = '1'; }
       overlay.classList.remove('hidden');
     }
