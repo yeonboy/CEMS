@@ -171,11 +171,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(r => r.ok ? r.json() : [])
                 .then(raw => Array.isArray(raw)
                     ? raw.map(row => ({
-                        serial: row.시리얼번호 || row.serial || '',
-                        category: row.품목계열 || row.category || '-',
-                        currentLocation: row.입고처 || row.currentLocation || '-',
-                        status: row.상태 || row.status || '',
-                        lastMovement: row.날짜 || row.lastMovement || ''
+                            serial: row.시리얼번호 || row.serial || '',
+                            category: row.품목계열 || row.category || '-',
+                            currentLocation: row.입고처 || row.currentLocation || '-',
+                            status: row.상태 || row.status || '',
+                            lastMovement: row.날짜 || row.lastMovement || ''
                     })) : []
                 )
             );
@@ -193,8 +193,8 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(() => []);
 
     const logsFixedPromise = fetch('./청명장비 엑셀/logs_fixed.csv', { cache: 'no-store' })
-        .then(r => r.ok ? r.text() : '')
-        .then(text => parseCSV(text))
+            .then(r => r.ok ? r.text() : '')
+            .then(text => parseCSV(text))
         .catch(() => []);
 
     const qcLogsPromise = dc
@@ -204,13 +204,13 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(() => []);
 
     const staffLogsPromise = fetch('./청명장비 엑셀/logs_담당자명 추가.csv', { cache: 'no-store' })
-        .then(r => r.ok ? r.arrayBuffer() : Promise.reject())
-        .then(buf => {
-            try { return new TextDecoder('euc-kr').decode(buf); } catch (e) {}
-            try { return new TextDecoder('utf-8').decode(buf); } catch (e) {}
-            return '';
-        })
-        .then(text => parseCSVAuto(text))
+            .then(r => r.ok ? r.arrayBuffer() : Promise.reject())
+            .then(buf => {
+                try { return new TextDecoder('euc-kr').decode(buf); } catch (e) {}
+                try { return new TextDecoder('utf-8').decode(buf); } catch (e) {}
+                return '';
+            })
+            .then(text => parseCSVAuto(text))
         .catch(() => []);
 
     // 추가: 최신 이동 CSV에도 '담당자명'이 포함되어 있어 병합 반영
@@ -903,8 +903,8 @@ async function loadUptimePredictions() {
                 const v2 = await client._json(`${client.basePath}/stats_equipment_uptime_predictions_v2.json`);
                 allRows = Array.isArray(v2?.data) ? v2.data : [];
                 if (allRows.length) dataSource = 'v2';
-            } catch {}
-        }
+    } catch {}
+}
         if (!allRows || !allRows.length) {
             try {
                 const v1 = await client._json(`${client.basePath}/stats_equipment_uptime_predictions.json`);
@@ -6826,8 +6826,8 @@ function enrichEquipmentData(equipmentData, movementsData) {
 
     // 장비 데이터에 현재위치 보정 적용
     return equipmentData.map(equipment => {
-        const latestMovement = latestMovements.get(equipment.serial);
-        if (latestMovement) {
+            const latestMovement = latestMovements.get(equipment.serial);
+            if (latestMovement) {
             // 최신 이동을 기준으로 항상 현재 위치/최근 이동/상태를 갱신
             const nextLoc = (latestMovement.inLocation && latestMovement.inLocation !== '')
                 ? latestMovement.inLocation

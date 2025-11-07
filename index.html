@@ -2616,8 +2616,13 @@
                         .sort((a, b) => b.repair_count - a.repair_count)
                         .slice(0, 10);
                     
-                    // 최근 수리 기록
-                    dashboardData.recent_activity.last_repairs = repairsData.slice(-5);
+                    // 최근 수리 기록(명시적 정렬: 날짜 내림차순)
+                    // 날짜 파싱 이슈 방지: YYYY-MM-DD 문자열 기준 내림차순 정렬
+                    const getKey = (r) => String(r.repair_date || r.date || '').slice(0,10);
+                    dashboardData.recent_activity.last_repairs = repairsData
+                        .slice()
+                        .sort((a, b) => getKey(b).localeCompare(getKey(a)))
+                        .slice(0, 5);
                 }
                 
                 updateDashboard(dashboardData);

@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>장비 리포트(Serinus & E-BAM)</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches&&window.Chart&&Chart.defaults){Chart.defaults.animation=false;}}catch(e){}</script>
 </head>
 <body class="bg-slate-50 text-slate-800">
   <div class="max-w-7xl mx-auto px-4 py-6">
@@ -16,11 +18,11 @@
     <div class="bg-white rounded-lg shadow p-4 mb-6">
       <div class="font-semibold mb-2">지표 설명</div>
       <ul class="list-disc pl-5 space-y-1 text-sm text-slate-700">
-        <li><b>출장주기(일)</b>: 현장 투입 시작 간 평균 간격</li>
-        <li><b>1회 출장일수(일)</b>: 현장 → 본사 복귀까지 평균 체류 일수</li>
-        <li><b>고장횟수/주요 고장내용</b>: repairs의 <code>repair_type</code> 기준(정도검사 제외 우선)</li>
-        <li><b>사용횟수</b>: 현장 유입 이동 횟수</li>
-        <li><b>수리횟수/수리비용</b>: 수리/교체/보수 키워드 기준 횟수 및 비용 합계</li>
+        <li><b>평균 출장주기(일)</b>: 현장 투입 시작 간 평균 간격</li>
+        <li><b>1회 평균 출장일수(일)</b>: 현장 → 본사 복귀까지 평균 체류 일수</li>
+        <li><b>전체 고장횟수/주요 고장내용</b>: <code>정도검사·기본점검·점검기술료 제외</code> 후 정규화된 고장유형 기준(대소문자/띄어쓰기/유사표현 통합)</li>
+        <li><b>사용횟수(건)</b>: 출장(왕복) 기준 추정치 = 현장 유입 이동 횟수의 1/2(반올림)</li>
+        <li><b>수리횟수/수리비용(원)</b>: 수리횟수=정도검사 제외 전체 수리건수, 수리비용=기간 내 전체 수리비용 합계</li>
         <li><b>보유댓수</b>: 해당 품목계열의 장비 보유 수량</li>
       </ul>
     </div>
@@ -47,12 +49,64 @@
 
     <div id="meta" class="text-sm text-slate-600 mb-2">데이터 로딩 중...</div>
     <div id="reportContainer" class="space-y-8"></div>
+
+    <!-- 수리 가시성: 품목계열 대분류 + 카테고리 상세 (리포트 한정 6종) -->
+    <div class="space-y-4 mt-6">
+      <div class="bg-white rounded-lg shadow p-4">
+        <div class="px-1 pb-2 font-semibold">품목계열 대분류</div>
+        <div id="report-series-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3"></div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-4">
+        <h3 id="report-category-title" class="text-lg font-semibold text-slate-800 mb-3">카테고리 상세</h3>
+        <div id="report-category-stats" class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-4"></div>
+        <div class="flex flex-wrap items-center gap-3 mb-3">
+          <select id="report-category-company-filter" class="px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 min-w-[180px]">
+            <option value="all">전체 업체</option>
+          </select>
+          <select id="report-category-type-filter" class="px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 min-w-[180px]">
+            <option value="all">전체 유형</option>
+          </select>
+          <select id="report-category-serials-sort" class="px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 min-w-[180px]">
+            <option value="cost_desc">총비용 내림차순</option>
+            <option value="cost_asc">총비용 오름차순</option>
+            <option value="count_desc">건수 내림차순</option>
+            <option value="count_asc">건수 오름차순</option>
+            <option value="last_desc">최근수리일 내림차순</option>
+            <option value="last_asc">최근수리일 오름차순</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <canvas id="report-category-monthly" height="120" aria-label="월별 추이"></canvas>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm min-w-[820px]">
+            <thead>
+              <tr class="text-left bg-slate-100">
+                <th class="p-2">시리얼</th>
+                <th class="p-2">수리 건수</th>
+                <th class="p-2">총 수리비용</th>
+                <th class="p-2">출장 횟수(최근1년)</th>
+                <th class="p-2">최근 수리일</th>
+                <th class="p-2">가동률(최근1년)</th>
+                <th class="p-2">상세보기</th>
+              </tr>
+            </thead>
+            <tbody id="report-category-serials-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script type="module">
     import { DataClient } from './scripts/data_client.js';
 
     const dc = new DataClient({ basePath: './db' });
+    let EQUIPMENT_CACHE = [];
+    let MOVEMENTS_CACHE = [];
+    let REPAIRS_CACHE = [];
+    let currentYearFilter = '';
     let currentRows = [];
     const CATS = [
       { key: '(CO) Serinus30i', label: '(CO) Serinus 30i' },
@@ -78,6 +132,50 @@
     function sum(arr){ return arr.reduce((a,b)=> a+(Number(b)||0),0); }
     function avg(nums){ if(!nums.length) return 0; return sum(nums)/nums.length; }
     function top1(arr){ if(!arr.length) return ''; const m=new Map(); for(const v of arr){ const k=String(v||'').trim(); if(!k) continue; m.set(k,(m.get(k)||0)+1);} let best='',bc=0; for(const [k,c] of m){ if(c>bc){best=k;bc=c;} } return best; }
+
+    // 수리 탭과 동일한 유형 정규화 매핑(Pressure Gauge 포함)
+    const REPAIR_TYPE_ALIASES = [
+      ["전원 버튼 교체","전원 관련"],["전원 휴즈교체","전원 관련"],["AC 아답터 소켓교체","전원 관련"],["AC전원소켓 교체","전원 관련"],["아답터 전원 소켓 교체","전원 관련"],
+      ["Detector","Detector"],["Deector","Detector"],["DETECTOR SPARE PART SERINUS30","Detector"],["Detector cap","Detector"],
+      ["Lamp assembly UV Serinus 10","Lamp"],["Lamp Assembly","Lamp"],["Lamp assembly UV","Lamp"],["Lamp Adjust","Lamp"],["PCA LAMP driver","Lamp"],["PCA Lamp driver","Lamp"],
+      ["메인보드 교체","메인보드"],["Mainboard","메인보드"],["104/204 메인보드","메인보드"],["Connector board","메인보드"],["E-BAM CONNECTOR BOARD","메인보드"],["E-BAM Connector Board","메인보드"],["E-BAM Board Stack","메인보드"],
+      ["컨트롤러 교체","컨트롤러"],["컨트롤보드 교체","컨트롤러"],["T8400ME 컨트롤러 교체","컨트롤러"],
+      ["DISPLAY, LCD, 240 X 128 BLUE AND WHITE","LCD DISPLAY"],["DISPLAY,LCD, BLUE AND WHITE","LCD DISPLAY"],["LCD TOUCH ASSY","LCD DISPLAY"],["LCD 교체","LCD DISPLAY"],["LCD 액정 교체","LCD DISPLAY"],["LCD&TOUCH 7inch","LCD DISPLAY"],
+      ["Internal pump","펌프 계열"],["Internal Pump Assy","펌프 계열"],["Internal Pump Assy, Serinus","펌프 계열"],["Sample Pump","펌프 계열"],["2 Head Sample Pump","펌프 계열"],["NOx Pump","펌프 계열"],["외장펌프 교체","펌프 계열"],
+      ["A셀 펌프 교체","펌프 계열"],["B셀 펌프 교체","펌프 계열"],["A,B셀 펌프 교체","펌프 계열"],["A,B 샘플링 펌프 교체","펌프 계열"],["A셀 샘플링 펌프 교체","펌프 계열"],["B셀 샘플링 펌프 교체","펌프 계열"],["유량미달 펌프교체","펌프 계열"],
+      ["A셀 펌프 뎀퍼 장착","펌프 댐퍼/부속"],["B셀 펌프 뎀퍼 장착","펌프 댐퍼/부속"],["A,B 펌프 뎀퍼 장착","펌프 댐퍼/부속"],
+      ["A셀 유량계 교체","유량계 계열"],["B셀 유량계 교체","유량계 계열"],["양측 유량계 교체","유량계 계열"],["A,B 셀 유량계 교체","유량계 계열"],["A,B셀 유량계 교체","유량계 계열"],
+      ["유량센서 교체","유량센서 계열"],["유량센서교체","유량센서 계열"],["SFM 유량센서 교체","유량센서 계열"],["SFM유량센서 교체","유량센서 계열"],
+      // Glass Fiber Filter, 25M 계열(표기 다양성 통합)
+      ["Glass FIber Filter, 25M","Glass Fiber Filter, 25M"],
+      ["Glass Fiber Filter, 25M","Glass Fiber Filter, 25M"],
+      ["GLASS FIBER FILTER, 25M","Glass Fiber Filter, 25M"],
+      ["Glass Fiber Fiter, 25M","Glass Fiber Filter, 25M"],
+      ["Glass Fiber Filter, 25M 부품교체","Glass Fiber Filter, 25M"],
+      ["25M, Glass Fiber Filter","Glass Fiber Filter, 25M"],
+      ["Filter 25M","Glass Fiber Filter, 25M"],
+      ["PM2.5 여과 부품","Glass Fiber Filter, 25M"],
+      ["Pressure Gauge","Pressure Gauge"],["Pressure Gauge, Serinus PCA 부품교체","Pressure Gauge"],
+      ["PG48 리크교체","리크 보강 계열"],["리크보강,리니어부싱 재조립","리크 보강 계열"],["장비 리크, 다운튜브 고무링 손상, 교체 리크 수정","리크 보강 계열"],["내부 배관 교체","리크 보강 계열"],["내부배관 교체","리크 보강 계열"],["리니어부싱 부식교체","리크 보강 계열"],["리니어부싱교체","리크 보강 계열"],
+      ["SD카드교체","SD카드/프로그램 계열"],["SD 카드 손상 교체","SD카드/프로그램 계열"],["기본점검 및 SD카드교체","SD카드/프로그램 계열"],["프로그램 재설치 및 SD카드교체","SD카드/프로그램 계열"]
+    ];
+    // 문자열 정규화 유틸(대소문자/공백/구두점 제거)
+    const _slug = (v)=> String(v||'').toLowerCase().replace(/[^a-z0-9가-힣]+/g,'');
+    const TYPE_CANON = new Map();
+    for (const [pat, label] of REPAIR_TYPE_ALIASES){ TYPE_CANON.set(_slug(pat), label); }
+
+    function normalizeRepairType(s){
+      const tRaw = String(s||'').trim();
+      if (!tRaw) return '';
+      const norm = _slug(tRaw);
+      // 대표 케이스 규칙
+      if (norm.includes('powersupply')) return 'Power supply';
+      if (norm.includes('ref수리') || norm.includes('refrepair')) return 'REF 수리';
+      if (norm.includes('glassfiberfilter25m') || norm.includes('glassfiberfiter25m') || norm.includes('filter25m')) return 'Glass Fiber Filter, 25M';
+      // 사전 매핑(부분 일치 허용)
+      for (const [k, label] of TYPE_CANON){ if (k && norm.includes(k)) return label; }
+      return tRaw;
+    }
 
     function buildCategorySerials(equipment){
       const map = new Map();
@@ -126,6 +224,11 @@
       const [equipment, movements, repairs] = await Promise.all([
         dc.getEquipment(), dc.getMovements(), dc.getRepairs()
       ]);
+      // 전역/외부 사용을 위한 캐시 및 가시성 계산에 활용
+      EQUIPMENT_CACHE = equipment || [];
+      MOVEMENTS_CACHE = movements || [];
+      REPAIRS_CACHE = repairs || [];
+      try { window.equipmentData = EQUIPMENT_CACHE; window.movementsData = MOVEMENTS_CACHE; window.repairsData = REPAIRS_CACHE; } catch {}
       return { equipment, movements, repairs };
     }
 
@@ -172,13 +275,15 @@
         const repArr = bucket.reps;
         const totalRepairs = repArr.length;
         const failureRepairs = repArr.filter(r=> !/정도검사/i.test(String(r.repair_type||'')) );
-        const failureCount = failureRepairs.length;
-        const repairCount = repArr.filter(r=> /수리|교체|보수/i.test(String(r.repair_type||'')) ).length || failureCount;
-        const faultTop = top1(failureRepairs.map(r=> r.repair_type || r.equipment_status || '')) || top1(repArr.map(r=> r.repair_type||''));
+        const repairCount = failureRepairs.length; // 수리횟수: 정도검사 제외 전체
+        const failureCore = failureRepairs.filter(r=> !/기본점검|점검기술료/i.test(String(r.repair_type||r.details||'')));
+        const failureCount = failureCore.length; // 고장횟수: 수리횟수에서 기본점검/점검기술료 제외
+        const faultTop = top1(failureCore.map(r=> normalizeRepairType(r.repair_type || r.equipment_status || ''))) || top1(failureRepairs.map(r=> normalizeRepairType(r.repair_type||'')));
         const costSum = sum(repArr.map(r=> Number(r.cost)||0));
-        const faultLogs = failureRepairs.map(r=> ({
+        const faultLogs = failureCore.map(r=> ({
           date: r.repair_date || r.date || '',
-          type: r.repair_type || '',
+          type: normalizeRepairType(r.repair_type || r.details || ''),
+          serial: String(r.serial || ''),
           cost: Number(r.cost)||0
         }));
 
@@ -191,7 +296,7 @@
           failureCount,
           faultTop,
           faultLogs,
-          usageCount,
+          usageCount: Math.round(usageCount/2),
           repairCount,
           repairCost: costSum
         });
@@ -212,9 +317,9 @@
                   <th class="px-3 py-2 text-left">기간</th>
                   <th class="px-3 py-2 text-left">품목계열</th>
                   <th class="px-3 py-2 text-right">보유댓수</th>
-                  <th class="px-3 py-2 text-right">출장주기(일)</th>
-                  <th class="px-3 py-2 text-right">1회 출장일수(일)</th>
-                  <th class="px-3 py-2 text-right">고장횟수</th>
+                  <th class="px-3 py-2 text-right">평균 출장주기(일)</th>
+                  <th class="px-3 py-2 text-right">1회 평균 출장일수(일)</th>
+                  <th class="px-3 py-2 text-right">전체 고장횟수</th>
                   <th class="px-3 py-2 text-left">주요 고장내용 Top1 / 상세</th>
                   <th class="px-3 py-2 text-right">사용횟수</th>
                   <th class="px-3 py-2 text-right">수리횟수</th>
@@ -248,7 +353,7 @@
                 <button class="btn-faults px-2 py-1 text-xs border rounded hover:bg-slate-100 disabled:opacity-50" data-idx="${idx}" ${!(r.faultLogs&&r.faultLogs.length)?'disabled':''}>상세</button>
               </div>
             </td>
-            <td class="px-3 py-2 text-right">${formatNumber(r.usageCount)}</td>
+            <td class="px-3 py-2 text-right">${formatNumber(r.usageCount)} 건</td>
             <td class="px-3 py-2 text-right">${formatNumber(r.repairCount)}</td>
             <td class="px-3 py-2 text-right">${formatNumber(r.repairCost)}</td>
           `;
@@ -256,6 +361,232 @@
         });
       }
       return wrap;
+    }
+
+    // ===== 수리 가시성(간이 포팅): 품목계열 대분류 + 카테고리 상세 =====
+    const CAT_KEY_SET = new Set(CATS.map(c=> c.key));
+    const CAT_LABEL_MAP = new Map(CATS.map(c=> [c.key, c.label]));
+
+    function mapRepairsToRows(repairs){
+      return (repairs||[]).map(r=> ({
+        date: String(r.repair_date || r.date || '').slice(0,10),
+        serial: String(r.serial || ''),
+        category: String(r.equipment_category || r.product_series || r.category || ''),
+        company: String(r.repair_company || r.company || ''),
+        manager: String(r.manager || ''),
+        type: String(r.repair_type || r.type || ''),
+        measurement: String(r.measurement_item || ''),
+        cost: Number(typeof r.cost === 'number' ? r.cost : parseInt(String(r.cost||'').replace(/[^0-9]/g,'')) || 0),
+        note: String(r.details || r.note || '')
+      }));
+    }
+
+    function renderReportOverview(repairs, yearFilter){
+      const cont = document.getElementById('report-series-grid');
+      if(!cont) return;
+      const refYear = Number(yearFilter)|| new Date().getFullYear();
+      const startYear = refYear - 2;
+      const rows = mapRepairsToRows(repairs).filter(r=> {
+        const y = Number(String(r.date||'').slice(0,4)||0);
+        return CAT_KEY_SET.has(r.category) && (y>=startYear && y<=refYear);
+      });
+      const agg = new Map();
+      for(const r of rows){
+        const v = agg.get(r.category) || { category: r.category, count: 0, totalCost: 0 };
+        v.count += 1; v.totalCost += Number(r.cost)||0; agg.set(r.category, v);
+      }
+      const list = Array.from(agg.values()).sort((a,b)=> (b.totalCost||0)-(a.totalCost||0));
+      if(!list.length){ cont.innerHTML = '<div class="text-slate-500">해당 기간 데이터가 없습니다.</div>'; return; }
+      cont.innerHTML = list.map(c=> `
+        <button class="text-left p-4 rounded border hover:border-indigo-400 hover:shadow transition" data-cat="${c.category}">
+          <div class="text-sm text-slate-500">품목계열</div>
+          <div class="font-semibold text-slate-800 truncate" title="${CAT_LABEL_MAP.get(c.category)||c.category}">${CAT_LABEL_MAP.get(c.category)||c.category}</div>
+          <div class="mt-2 text-xs text-slate-500">건수</div>
+          <div class="text-slate-700">${formatNumber(c.count)}건</div>
+          <div class="mt-1 text-xs text-slate-500">총비용</div>
+          <div class="text-emerald-600 font-medium">${formatNumber(c.totalCost)}원</div>
+        </button>
+      `).join('');
+      cont.querySelectorAll('button[data-cat]').forEach(btn=>{
+        btn.addEventListener('click', ()=> showReportCategoryDetail(btn.getAttribute('data-cat'), rows, refYear));
+      });
+      // 첫 항목 기본 표시
+      const first = list[0]; if(first) showReportCategoryDetail(first.category, rows, refYear);
+    }
+
+    function showReportCategoryDetail(category, rows, refYear){
+      const title = document.getElementById('report-category-title');
+      const stats = document.getElementById('report-category-stats');
+      const compSel = document.getElementById('report-category-company-filter');
+      const typeSel = document.getElementById('report-category-type-filter');
+      const sortSel = document.getElementById('report-category-serials-sort');
+      const tbody  = document.getElementById('report-category-serials-tbody');
+      if(title) title.textContent = `카테고리 상세 - ${CAT_LABEL_MAP.get(category)||category}`;
+
+      const arr = (rows||[]).filter(r=> r.category === category);
+      const totalCost = arr.reduce((s,x)=> s + (Number(x.cost)||0), 0);
+      const cnt = arr.length;
+      const costs = arr.map(x=> Number(x.cost)||0);
+      const avg = cnt ? Math.round(totalCost/cnt) : 0;
+      const min = costs.length ? Math.min(...costs) : 0;
+      const max = costs.length ? Math.max(...costs) : 0;
+      stats.innerHTML = `
+        <div class="p-3 bg-slate-50 rounded border"><div class="text-xs text-slate-500">건수</div><div class="text-base font-semibold text-slate-800">${formatNumber(cnt)}</div></div>
+        <div class="p-3 bg-slate-50 rounded border"><div class="text-xs text-slate-500">총비용</div><div class="text-base font-semibold text-slate-800">${formatNumber(totalCost)}원</div></div>
+        <div class="p-3 bg-slate-50 rounded border"><div class="text-xs text-slate-500">평균</div><div class="text-base font-semibold text-slate-800">${formatNumber(avg)}원</div></div>
+        <div class="p-3 bg-slate-50 rounded border"><div class="text-xs text-slate-500">최소</div><div class="text-base font-semibold text-slate-800">${formatNumber(min)}원</div></div>
+        <div class="p-3 bg-slate-50 rounded border"><div class="text-xs text-slate-500">최대</div><div class="text-base font-semibold text-slate-800">${formatNumber(max)}원</div></div>
+      `;
+
+      // 필터 소스
+      const companies = Array.from(new Set(arr.map(r=> r.company).filter(Boolean))).sort();
+      const types = Array.from(new Set(arr.map(r=> r.type).filter(Boolean))).sort();
+      if (compSel) compSel.innerHTML = '<option value="all">전체 업체</option>' + companies.map(c=>`<option value="${c}">${c}</option>`).join('');
+      if (typeSel) typeSel.innerHTML = '<option value="all">전체 유형</option>' + types.map(t=>`<option value="${t}">${t}</option>`).join('');
+      if (sortSel && !sortSel.value) sortSel.value = 'cost_desc';
+
+      // 월별 미니차트
+      try {
+        const byMonth = new Map();
+        arr.forEach(r=>{ const ym=(r.date||'').slice(0,7); if(!ym) return; const v=byMonth.get(ym)||{count:0,cost:0}; v.count+=1; v.cost+=(Number(r.cost)||0); byMonth.set(ym,v); });
+        const labels = Array.from(byMonth.keys()).sort();
+        const counts = labels.map(k=> byMonth.get(k).count);
+        const costsA = labels.map(k=> byMonth.get(k).cost);
+        const canv = document.getElementById('report-category-monthly');
+        if (canv && window.Chart) {
+          if (window.reportCatMini && typeof window.reportCatMini.destroy==='function') window.reportCatMini.destroy();
+          window.reportCatMini = new Chart(canv.getContext('2d'), {
+            type: 'bar',
+            data: { labels, datasets: [
+              { label: '건수', data: counts, backgroundColor: '#3B82F6', yAxisID: 'y' },
+              { label: '총비용(원)', data: costsA, backgroundColor: '#F59E0B', yAxisID: 'y1' },
+            ]},
+            options: { responsive:true, maintainAspectRatio:false, scales:{ y:{beginAtZero:true}, y1:{beginAtZero:true, position:'right', grid:{ drawOnChartArea:false } } }, plugins:{ legend:{ display:false } } }
+          });
+        }
+      } catch {}
+
+      // 시리얼 집계(최근 3년) + 최근1년 출장/가동률
+      function aggregatePerSerial(filterComp='all', filterType='all'){
+        const base = arr.filter(r=> (filterComp==='all'||r.company===filterComp) && (filterType==='all'||r.type===filterType));
+        const m = new Map();
+        for(const r of base){
+          const v = m.get(r.serial) || { serial:r.serial, count:0, totalCost:0, lastRepairDate:'' };
+          v.count += 1; v.totalCost += (Number(r.cost)||0);
+          if (!v.lastRepairDate || String(v.lastRepairDate) < String(r.date)) v.lastRepairDate = r.date;
+          m.set(r.serial, v);
+        }
+        const to = new Date(); const from = new Date(to.getFullYear()-1, to.getMonth(), to.getDate());
+        function mapType(loc){ const s=String(loc||''); if(/청명|본사|창고|CEMS|CMES|본사 창고/i.test(s)) return 'cmes'; if(/현장|출장|Site/i.test(s)) return 'site'; return 'vendor'; }
+        function buildIntervals(moves){
+          const asc=(moves||[]).filter(m=>m.date).sort((a,b)=> new Date(a.date)-new Date(b.date));
+          const within=asc.filter(m=> new Date(m.date)>=from && new Date(m.date)<=to);
+          let cur='cmes'; const prior=asc.filter(m=> new Date(m.date)<from).sort((a,b)=> new Date(b.date)-new Date(a.date))[0];
+          if(prior && (prior.inLocation||prior.outLocation)) cur = mapType(prior.inLocation||prior.outLocation);
+          let last=new Date(from); const res=[];
+          for(const mm of within){ const next=mapType(mm.inLocation||mm.outLocation); res.push({start:new Date(last), end:new Date(mm.date), type:cur}); cur=next; last=new Date(mm.date); }
+          res.push({start:new Date(last), end:new Date(to), type:cur});
+          return res;
+        }
+        function countBusinessDays(start,end){ const s=new Date(start.getFullYear(), start.getMonth(), start.getDate()); const e=new Date(end.getFullYear(), end.getMonth(), end.getDate()); let dcount=0; for(let d=new Date(s); d<=e; d.setDate(d.getDate()+1)){ const wd=d.getDay(); if(wd!==0 && wd!==6) dcount++; } return Math.max(dcount,0); }
+        const movesAll = MOVEMENTS_CACHE || [];
+        const out = Array.from(m.values()).map(s=>{
+          try{
+            const moves = movesAll.filter(mv=> String(mv.serial)===String(s.serial));
+            const ivs = buildIntervals(moves);
+            const trips = ivs.filter(iv=> iv.type==='site').length;
+            const totalBiz = countBusinessDays(from, to);
+            let siteBiz=0; ivs.forEach(iv=>{ if(iv.type==='site') siteBiz += countBusinessDays(new Date(iv.start), new Date(iv.end)); });
+            const util = totalBiz>0 ? Math.round((siteBiz/totalBiz)*100) : 0;
+            return { ...s, travelCount: trips, utilPercent: util };
+          } catch { return s; }
+        });
+        return out;
+      }
+
+      function renderSerials(list){
+        if(!tbody) return;
+        const frag = document.createDocumentFragment();
+        list.forEach(s=>{
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td class="p-2 font-medium">${s.serial}</td>
+            <td class="p-2">${formatNumber(s.count||0)}</td>
+            <td class="p-2">${formatNumber(s.totalCost||0)}원</td>
+            <td class="p-2">${formatNumber(s.travelCount||0)}</td>
+            <td class="p-2">${String(s.lastRepairDate||'')}</td>
+            <td class="p-2">${Number.isFinite(s.utilPercent)?s.utilPercent:0}%</td>
+            <td class="p-2"><button class="px-2 py-1 text-indigo-600 hover:text-indigo-800 underline" data-serial="${s.serial}">상세보기</button></td>
+          `;
+          const btn = tr.querySelector('button[data-serial]');
+          if (btn) btn.addEventListener('click', (e)=>{ e.stopPropagation(); const sn=btn.getAttribute('data-serial'); if (typeof window.showEquipmentDetailModal==='function') { window.showEquipmentDetailModal(sn); } else { openReportEquipmentModal(sn); } });
+          frag.appendChild(tr);
+        });
+        tbody.innerHTML = ''; tbody.appendChild(frag);
+      }
+
+      function runSerials(){
+        const comp = compSel?.value || 'all';
+        const typ  = typeSel?.value || 'all';
+        const sort = sortSel?.value || 'cost_desc';
+        let list = aggregatePerSerial(comp, typ);
+        list.sort((a,b)=>{
+          switch(sort){
+            case 'cost_asc': return (a.totalCost||0)-(b.totalCost||0);
+            case 'count_desc': return (b.count||0)-(a.count||0);
+            case 'count_asc': return (a.count||0)-(b.count||0);
+            case 'last_desc': return String(b.lastRepairDate||'').localeCompare(String(a.lastRepairDate||''));
+            case 'last_asc': return String(a.lastRepairDate||'').localeCompare(String(b.lastRepairDate||''));
+            default: return (b.totalCost||0)-(a.totalCost||0);
+          }
+        });
+        renderSerials(list);
+      }
+      compSel?.addEventListener('change', runSerials);
+      typeSel?.addEventListener('change', runSerials);
+      sortSel?.addEventListener('change', runSerials);
+      runSerials();
+    }
+
+    function openReportEquipmentModal(serial){
+      try{
+        const equip = (EQUIPMENT_CACHE||[]).find(e=> String(e.serial)===String(serial));
+        const title = document.getElementById('repEquipTitle');
+        if (title) title.textContent = `장비 상세 · ${serial} · ${(equip?.category)||''}`;
+        const kpis = document.getElementById('repEquipKpis');
+        if (kpis){
+          const lastMove = equip?.lastMovement || '';
+          const loc = equip?.currentLocation || '-';
+          const status = equip?.status || '-';
+          // 최근 3년 수리 요약
+          const refYear = currentYearFilter? Number(currentYearFilter): new Date().getFullYear();
+          const startYear = refYear - 2;
+          const repairs3y = (REPAIRS_CACHE||[]).filter(r=> String(r.serial)===String(serial) && (Number(String(r.repair_date||r.date||'').slice(0,4))>=startYear) && (Number(String(r.repair_date||r.date||'').slice(0,4))<=refYear));
+          const cnt = repairs3y.length;
+          const sum = repairs3y.reduce((s,x)=> s + (Number(x.cost)||0), 0);
+          kpis.innerHTML = `
+            <div class="p-3 bg-slate-50 rounded border"><div class="text-xs text-slate-500">최근 이동일</div><div class="text-base font-semibold text-slate-800">${lastMove||'-'}</div></div>
+            <div class="p-3 bg-slate-50 rounded border"><div class="text-xs text-slate-500">현재 위치</div><div class="text-base font-semibold text-slate-800">${loc}</div></div>
+            <div class="p-3 bg-slate-50 rounded border"><div class="text-xs text-slate-500">상태</div><div class="text-base font-semibold text-slate-800">${status}</div></div>
+            <div class="p-3 bg-slate-50 rounded border"><div class="text-xs text-slate-500">3년간 수리</div><div class="text-base font-semibold text-slate-800">${cnt.toLocaleString()}건 / ${sum.toLocaleString()}원</div></div>
+          `;
+        }
+        const box = document.getElementById('repEquipRepairs');
+        if (box){
+          const list = (REPAIRS_CACHE||[])
+            .filter(r=> String(r.serial)===String(serial))
+            .sort((a,b)=> String(b.repair_date||b.date||'').localeCompare(String(a.repair_date||a.date||'')))
+            .slice(0,8);
+          box.innerHTML = list.map(r=>{
+            const d = String(r.repair_date||r.date||'').slice(0,10);
+            const t = String(r.repair_type||r.type||'');
+            const c = Number(r.cost||0);
+            const v = String(r.repair_company||r.company||'');
+            return `<div class="flex items-center justify-between border-b last:border-0 py-1"><div class="text-sm">${d} · ${t} · ${v}</div><div class="text-sm">${c.toLocaleString()}원</div></div>`;
+          }).join('') || '<div class="text-slate-500">수리 이력 없음</div>';
+        }
+        document.getElementById('reportEquipModal')?.classList.remove('hidden');
+      } catch { document.getElementById('reportEquipModal')?.classList.remove('hidden'); }
     }
 
     function enableDragScroll(el){
@@ -368,6 +699,7 @@
         async function run(){
           const gran = document.getElementById('granularity').value;
           const yf = document.getElementById('yearFilter').value;
+          currentYearFilter = yf || '';
           const allRows=[];
           for(const {key,label} of CATS){
             const rows = computeMetricsForCategory(key, label, serialsByCat.get(key)||new Set(), movements, repairs, gran, yf);
@@ -388,6 +720,8 @@
               }
             });
           });
+          // 하단 수리 가시성 섹션 갱신(연도 필터 반영)
+          renderReportOverview(repairs, yf);
         }
 
         document.getElementById('runBtn').addEventListener('click', run);
@@ -413,6 +747,28 @@
       </div>
     </div>
   </div>
+
+  <!-- 기존 CEMS 장비 상세 모달 컨테이너 -->
+  <div id="equipment-detail-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4"></div>
+
+  <!-- 리포트 전용 장비 상세 모달 (경량) -->
+  <div id="reportEquipModal" class="hidden fixed inset-0 z-50">
+    <div class="absolute inset-0 bg-black/40" onclick="this.parentElement.classList.add('hidden')"></div>
+    <div class="relative max-w-3xl mx-auto mt-16 bg-white rounded-lg shadow-lg overflow-hidden">
+      <div class="flex items-center justify-between px-4 py-3 border-b">
+        <div id="repEquipTitle" class="font-semibold">장비 상세</div>
+        <button class="px-2 py-1 text-sm" onclick="document.getElementById('reportEquipModal').classList.add('hidden')">닫기</button>
+      </div>
+      <div class="p-4 space-y-4">
+        <div id="repEquipKpis" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+        <div>
+          <div class="text-sm font-semibold mb-2">최근 수리 이력</div>
+          <div id="repEquipRepairs" class="space-y-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="scripts/fetch_data.js"></script>
 </body>
 </html>
 
