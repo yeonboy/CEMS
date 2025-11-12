@@ -1,7 +1,7 @@
 {
   "meta": {
     "_schemaVersion": "1.0.0",
-    "generatedAt": "2025-09-10T00:20:07Z",
+    "generatedAt": "2025-11-12T05:00:13Z",
     "sourceFiles": [
       "equipment_db.json",
       "movements_db.json",
@@ -12,9 +12,9 @@
   "data": [
     {
       "category": "(CO) Serinus30i",
-      "count": 77,
+      "count": 95,
       "totalCost": 31710000,
-      "avgCost": 411818,
+      "avgCost": 333789,
       "minCost": 0,
       "maxCost": 3600000,
       "uniqueSerials": [
@@ -43,14 +43,18 @@
         {
           "company": "APM",
           "count": 77
+        },
+        {
+          "company": "알 수 없음",
+          "count": 18
         }
       ]
     },
     {
       "category": "(PM-10) E-BAM",
-      "count": 47,
+      "count": 48,
       "totalCost": 29579000,
-      "avgCost": 629340,
+      "avgCost": 616229,
       "minCost": 0,
       "maxCost": 5200000,
       "uniqueSerials": [
@@ -78,6 +82,10 @@
           "count": 46
         },
         {
+          "company": "알 수 없음",
+          "count": 1
+        },
+        {
           "company": "켐익",
           "count": 1
         }
@@ -85,9 +93,9 @@
     },
     {
       "category": "(O3) Serinus10i",
-      "count": 94,
-      "totalCost": 22171000,
-      "avgCost": 235862,
+      "count": 120,
+      "totalCost": 21121000,
+      "avgCost": 176008,
       "minCost": 0,
       "maxCost": 1680000,
       "uniqueSerials": [
@@ -119,7 +127,11 @@
       "companies": [
         {
           "company": "APM",
-          "count": 93
+          "count": 91
+        },
+        {
+          "company": "알 수 없음",
+          "count": 28
         },
         {
           "company": "켐익",
@@ -129,9 +141,9 @@
     },
     {
       "category": "(NOx, SOx) BMW-5000",
-      "count": 61,
+      "count": 84,
       "totalCost": 15182000,
-      "avgCost": 248885,
+      "avgCost": 180738,
       "minCost": 0,
       "maxCost": 800000,
       "uniqueSerials": [
@@ -167,6 +179,10 @@
           "count": 46
         },
         {
+          "company": "알 수 없음",
+          "count": 23
+        },
+        {
           "company": "켐익",
           "count": 15
         }
@@ -174,9 +190,9 @@
     },
     {
       "category": "(PM-10) KMS-4200",
-      "count": 150,
-      "totalCost": 10240000,
-      "avgCost": 68267,
+      "count": 194,
+      "totalCost": 10220000,
+      "avgCost": 52680,
       "minCost": 0,
       "maxCost": 370000,
       "uniqueSerials": [
@@ -220,15 +236,19 @@
       "companies": [
         {
           "company": "켐익",
-          "count": 150
+          "count": 149
+        },
+        {
+          "company": "알 수 없음",
+          "count": 45
         }
       ]
     },
     {
       "category": "(PM-2.5) E-BAM",
-      "count": 20,
+      "count": 21,
       "totalCost": 8884000,
-      "avgCost": 444200,
+      "avgCost": 423048,
       "minCost": 0,
       "maxCost": 1960000,
       "uniqueSerials": [
@@ -245,6 +265,10 @@
           "count": 19
         },
         {
+          "company": "알 수 없음",
+          "count": 1
+        },
+        {
           "company": "켐익",
           "count": 1
         }
@@ -252,9 +276,9 @@
     },
     {
       "category": "(PM-2.5) PMS-204",
-      "count": 102,
+      "count": 130,
       "totalCost": 8250000,
-      "avgCost": 80882,
+      "avgCost": 63462,
       "minCost": 0,
       "maxCost": 800000,
       "uniqueSerials": [
@@ -296,14 +320,18 @@
         {
           "company": "APM",
           "count": 102
+        },
+        {
+          "company": "알 수 없음",
+          "count": 28
         }
       ]
     },
     {
       "category": "(Pb) T8400ME",
-      "count": 30,
-      "totalCost": 7830000,
-      "avgCost": 261000,
+      "count": 33,
+      "totalCost": 6980000,
+      "avgCost": 211515,
       "minCost": 0,
       "maxCost": 450000,
       "uniqueSerials": [
@@ -319,12 +347,17 @@
         "4241/TA3744",
         "TA3265",
         "TA3275",
+        "TA3376",
         "TA3696"
       ],
       "companies": [
         {
           "company": "카인",
-          "count": 30
+          "count": 28
+        },
+        {
+          "company": "알 수 없음",
+          "count": 5
         }
       ]
     },
@@ -364,9 +397,9 @@
     },
     {
       "category": "(SO2) Serinus50i",
-      "count": 21,
+      "count": 27,
       "totalCost": 3900000,
-      "avgCost": 185714,
+      "avgCost": 144444,
       "minCost": 0,
       "maxCost": 1250000,
       "uniqueSerials": [
@@ -382,14 +415,18 @@
         {
           "company": "APM",
           "count": 21
+        },
+        {
+          "company": "알 수 없음",
+          "count": 6
         }
       ]
     },
     {
       "category": "(NO2) MEZUS-210",
-      "count": 29,
+      "count": 35,
       "totalCost": 3500000,
-      "avgCost": 120690,
+      "avgCost": 100000,
       "minCost": 0,
       "maxCost": 650000,
       "uniqueSerials": [
@@ -412,14 +449,18 @@
         {
           "company": "켐익",
           "count": 8
+        },
+        {
+          "company": "알 수 없음",
+          "count": 6
         }
       ]
     },
     {
       "category": "(NO2) Serinus40",
-      "count": 19,
+      "count": 25,
       "totalCost": 2810000,
-      "avgCost": 147895,
+      "avgCost": 112400,
       "minCost": 0,
       "maxCost": 1200000,
       "uniqueSerials": [
@@ -435,14 +476,18 @@
         {
           "company": "APM",
           "count": 19
+        },
+        {
+          "company": "알 수 없음",
+          "count": 6
         }
       ]
     },
     {
       "category": "(CO) MEZUS-310",
-      "count": 16,
+      "count": 21,
       "totalCost": 2800000,
-      "avgCost": 175000,
+      "avgCost": 133333,
       "minCost": 0,
       "maxCost": 800000,
       "uniqueSerials": [
@@ -459,6 +504,10 @@
         {
           "company": "켐익",
           "count": 8
+        },
+        {
+          "company": "알 수 없음",
+          "count": 5
         }
       ]
     },
@@ -506,10 +555,10 @@
     },
     {
       "category": "(PM-10) PMS-204",
-      "count": 24,
+      "count": 26,
       "totalCost": 1800000,
-      "avgCost": 75000,
-      "minCost": 50000,
+      "avgCost": 69231,
+      "minCost": 0,
       "maxCost": 100000,
       "uniqueSerials": [
         "1904003",
@@ -527,6 +576,10 @@
         {
           "company": "APM",
           "count": 24
+        },
+        {
+          "company": "알 수 없음",
+          "count": 2
         }
       ]
     },
@@ -583,9 +636,9 @@
     },
     {
       "category": "정도검사대행료",
-      "count": 9,
-      "totalCost": 1500000,
-      "avgCost": 166667,
+      "count": 8,
+      "totalCost": 1400000,
+      "avgCost": 175000,
       "minCost": 100000,
       "maxCost": 350000,
       "uniqueSerials": [
@@ -594,7 +647,7 @@
       "companies": [
         {
           "company": "APM",
-          "count": 7
+          "count": 6
         },
         {
           "company": "KNJ",
@@ -680,10 +733,10 @@
     },
     {
       "category": "(O3) 49iQ",
-      "count": 3,
+      "count": 4,
       "totalCost": 540000,
-      "avgCost": 180000,
-      "minCost": 180000,
+      "avgCost": 135000,
+      "minCost": 0,
       "maxCost": 180000,
       "uniqueSerials": [
         "1190581598",
@@ -693,6 +746,10 @@
         {
           "company": "KNJ",
           "count": 3
+        },
+        {
+          "company": "알 수 없음",
+          "count": 1
         }
       ]
     },
@@ -736,9 +793,9 @@
     },
     {
       "category": "(PM-2.5) KMS-4200",
-      "count": 11,
+      "count": 12,
       "totalCost": 400000,
-      "avgCost": 36364,
+      "avgCost": 33333,
       "minCost": 0,
       "maxCost": 50000,
       "uniqueSerials": [
@@ -754,6 +811,10 @@
         {
           "company": "켐익",
           "count": 11
+        },
+        {
+          "company": "알 수 없음",
+          "count": 1
         }
       ]
     },
@@ -794,9 +855,9 @@
     },
     {
       "category": "(O3) 49i",
-      "count": 3,
+      "count": 4,
       "totalCost": 360000,
-      "avgCost": 120000,
+      "avgCost": 90000,
       "minCost": 0,
       "maxCost": 180000,
       "uniqueSerials": [
@@ -808,6 +869,10 @@
         {
           "company": "KNJ",
           "count": 3
+        },
+        {
+          "company": "알 수 없음",
+          "count": 1
         }
       ]
     },
@@ -1087,7 +1152,7 @@
     },
     {
       "category": "(벤젠) MP-Σ30KNⅡ",
-      "count": 10,
+      "count": 21,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -1098,9 +1163,14 @@
         "770654",
         "770655",
         "770658",
-        "770660"
+        "770660",
+        "850746"
       ],
       "companies": [
+        {
+          "company": "알 수 없음",
+          "count": 11
+        },
         {
           "company": "태원시바타",
           "count": 10
@@ -1176,6 +1246,53 @@
         {
           "company": "태원시바타",
           "count": 3
+        }
+      ]
+    },
+    {
+      "category": "UNKNOWN",
+      "count": 47,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "uniqueSerials": [
+        "160096",
+        "170066",
+        "170067",
+        "180053",
+        "190024",
+        "190025",
+        "19FN200",
+        "19FN201",
+        "20E333",
+        "20E474",
+        "20E546",
+        "21",
+        "2390486",
+        "441002",
+        "442388",
+        "461059",
+        "532930",
+        "770656",
+        "770657",
+        "770659",
+        "840487",
+        "950574",
+        "950575",
+        "KM008W18CO76",
+        "KM008W18CO77",
+        "KM014W16CO22",
+        "T242071",
+        "T242072",
+        "T242073",
+        "T242109",
+        "T246352"
+      ],
+      "companies": [
+        {
+          "company": "알 수 없음",
+          "count": 47
         }
       ]
     }

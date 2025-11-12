@@ -1,0 +1,61 @@
+{
+  "meta": {
+    "_schemaVersion": "1.0.0",
+    "generatedAt": "2025-11-12T05:00:33.004Z",
+    "sources": [
+      "db\\equipment_db.json",
+      "db\\movements_db.json"
+    ],
+    "window": {
+      "from": "2024-11-12",
+      "to": "2025-11-12"
+    }
+  },
+  "data": [
+    {
+      "category": "CO",
+      "peakActiveDevices": 24,
+      "peakDate": "2024-12-02"
+    },
+    {
+      "category": "NO2",
+      "peakActiveDevices": 45,
+      "peakDate": "2025-03-10"
+    },
+    {
+      "category": "O3",
+      "peakActiveDevices": 18,
+      "peakDate": "2024-11-28"
+    },
+    {
+      "category": "PM-10",
+      "peakActiveDevices": 46,
+      "peakDate": "2025-02-20"
+    },
+    {
+      "category": "PM-2.5",
+      "peakActiveDevices": 44,
+      "peakDate": "2025-03-10"
+    },
+    {
+      "category": "Pb",
+      "peakActiveDevices": 22,
+      "peakDate": "2025-09-29"
+    },
+    {
+      "category": "SO2",
+      "peakActiveDevices": 43,
+      "peakDate": "2024-12-16"
+    },
+    {
+      "category": "UNKNOWN",
+      "peakActiveDevices": 65,
+      "peakDate": "2025-02-24"
+    },
+    {
+      "category": "벤젠",
+      "peakActiveDevices": 6,
+      "peakDate": "2024-11-28"
+    }
+  ]
+}

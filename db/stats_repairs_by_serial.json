@@ -1,7 +1,7 @@
 {
   "meta": {
     "_schemaVersion": "1.0.0",
-    "generatedAt": "2025-09-10T00:20:07Z",
+    "generatedAt": "2025-11-12T05:00:13Z",
     "sourceFiles": [
       "equipment_db.json",
       "movements_db.json",
@@ -13,10 +13,10 @@
     {
       "serial": "21",
       "category": "정도검사대행료료",
-      "count": 58,
-      "totalCost": 29490000,
-      "avgCost": 508448,
-      "minCost": 50000,
+      "count": 57,
+      "totalCost": 28540000,
+      "avgCost": 500702,
+      "minCost": 0,
       "maxCost": 6750000,
       "firstRepairDate": "2023-01-10",
       "lastRepairDate": "2025-01-23"
@@ -35,9 +35,9 @@
     {
       "serial": "17-0128",
       "category": "(O3) Serinus10i",
-      "count": 13,
+      "count": 16,
       "totalCost": 6620000,
-      "avgCost": 509231,
+      "avgCost": 413750,
       "minCost": 0,
       "maxCost": 1660000,
       "firstRepairDate": "2023-01-12",
@@ -46,10 +46,10 @@
     {
       "serial": "20-2305",
       "category": "(CO) Serinus30i",
-      "count": 8,
+      "count": 9,
       "totalCost": 5640000,
-      "avgCost": 705000,
-      "minCost": 100000,
+      "avgCost": 626667,
+      "minCost": 0,
       "maxCost": 2140000,
       "firstRepairDate": "2023-05-26",
       "lastRepairDate": "2025-06-20"
@@ -101,27 +101,16 @@
     {
       "serial": "20-1503",
       "category": "(CO) Serinus30i",
-      "count": 4,
-      "totalCost": 2800000,
-      "avgCost": 700000,
-      "minCost": 100000,
-      "maxCost": 2450000,
-      "firstRepairDate": "2023-01-12",
-      "lastRepairDate": "2025-01-23"
-    },
-    {
-      "serial": "20-2128",
-      "category": "(CO) Serinus30i",
       "count": 6,
       "totalCost": 2800000,
       "avgCost": 466667,
-      "minCost": 100000,
-      "maxCost": 1200000,
-      "firstRepairDate": "2023-03-14",
-      "lastRepairDate": "2024-06-25"
+      "minCost": 0,
+      "maxCost": 2450000,
+      "firstRepairDate": "2023-01-12",
+      "lastRepairDate": "2025-07-29"
     },
     {
-      "serial": "21-0330",
+      "serial": "20-2128",
       "category": "(CO) Serinus30i",
       "count": 7,
       "totalCost": 2800000,
@@ -129,7 +118,18 @@
       "minCost": 0,
       "maxCost": 1200000,
       "firstRepairDate": "2023-03-14",
-      "lastRepairDate": "2025-01-17"
+      "lastRepairDate": "2025-07-29"
+    },
+    {
+      "serial": "21-0330",
+      "category": "(CO) Serinus30i",
+      "count": 9,
+      "totalCost": 2800000,
+      "avgCost": 311111,
+      "minCost": 0,
+      "maxCost": 1200000,
+      "firstRepairDate": "2023-03-14",
+      "lastRepairDate": "2025-10-15"
     },
     {
       "serial": "X18018",
@@ -156,9 +156,9 @@
     {
       "serial": "17-0126",
       "category": "(O3) Serinus10i",
-      "count": 9,
+      "count": 12,
       "totalCost": 2531000,
-      "avgCost": 281222,
+      "avgCost": 210917,
       "minCost": 0,
       "maxCost": 900000,
       "firstRepairDate": "2023-05-26",
@@ -189,10 +189,10 @@
     {
       "serial": "20-1348",
       "category": "(CO) Serinus30i",
-      "count": 3,
+      "count": 4,
       "totalCost": 2390000,
-      "avgCost": 796667,
-      "minCost": 100000,
+      "avgCost": 597500,
+      "minCost": 0,
       "maxCost": 2140000,
       "firstRepairDate": "2023-01-12",
       "lastRepairDate": "2025-01-23"
@@ -200,10 +200,10 @@
     {
       "serial": "20-1509",
       "category": "(CO) Serinus30i",
-      "count": 3,
+      "count": 4,
       "totalCost": 2390000,
-      "avgCost": 796667,
-      "minCost": 100000,
+      "avgCost": 597500,
+      "minCost": 0,
       "maxCost": 2140000,
       "firstRepairDate": "2023-07-21",
       "lastRepairDate": "2025-01-23"
@@ -211,57 +211,46 @@
     {
       "serial": "20-1502",
       "category": "(CO) Serinus30i",
-      "count": 2,
+      "count": 3,
       "totalCost": 2290000,
-      "avgCost": 1145000,
-      "minCost": 150000,
+      "avgCost": 763333,
+      "minCost": 0,
       "maxCost": 2140000,
-      "firstRepairDate": "2023-01-12",
-      "lastRepairDate": "2025-01-23"
-    },
-    {
-      "serial": "20-1382",
-      "category": "(O3) Serinus10i",
-      "count": 4,
-      "totalCost": 2150000,
-      "avgCost": 537500,
-      "minCost": 100000,
-      "maxCost": 950000,
       "firstRepairDate": "2023-01-12",
       "lastRepairDate": "2025-01-23"
     },
     {
       "serial": "17-0129",
       "category": "(O3) Serinus10i",
-      "count": 4,
+      "count": 5,
       "totalCost": 1980000,
-      "avgCost": 495000,
-      "minCost": 100000,
+      "avgCost": 396000,
+      "minCost": 0,
       "maxCost": 1680000,
       "firstRepairDate": "2023-01-12",
-      "lastRepairDate": "2024-07-15"
+      "lastRepairDate": "2025-10-15"
     },
     {
       "serial": "723",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 4,
+      "count": 5,
       "totalCost": 1720000,
-      "avgCost": 430000,
-      "minCost": 70000,
+      "avgCost": 344000,
+      "minCost": 0,
       "maxCost": 800000,
       "firstRepairDate": "2024-11-11",
-      "lastRepairDate": "2024-11-11"
+      "lastRepairDate": "2025-07-18"
     },
     {
       "serial": "849",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 8,
+      "count": 10,
       "totalCost": 1720000,
-      "avgCost": 215000,
+      "avgCost": 172000,
       "minCost": 0,
       "maxCost": 400000,
       "firstRepairDate": "2024-02-19",
-      "lastRepairDate": "2025-06-19"
+      "lastRepairDate": "2025-10-15"
     },
     {
       "serial": "21-0331",
@@ -277,9 +266,9 @@
     {
       "serial": "20-2313",
       "category": "(CO) Serinus30i",
-      "count": 6,
+      "count": 8,
       "totalCost": 1500000,
-      "avgCost": 250000,
+      "avgCost": 187500,
       "minCost": 0,
       "maxCost": 1200000,
       "firstRepairDate": "2023-05-26",
@@ -288,21 +277,21 @@
     {
       "serial": "20P573",
       "category": "(PM-10) KMS-4200",
-      "count": 8,
+      "count": 10,
       "totalCost": 1500000,
-      "avgCost": 187500,
-      "minCost": 50000,
+      "avgCost": 150000,
+      "minCost": 0,
       "maxCost": 350000,
       "firstRepairDate": "2023-06-23",
-      "lastRepairDate": "2024-09-05"
+      "lastRepairDate": "2025-10-15"
     },
     {
       "serial": "17-1912",
       "category": "(SO2) Serinus50i",
-      "count": 3,
+      "count": 4,
       "totalCost": 1450000,
-      "avgCost": 483333,
-      "minCost": 100000,
+      "avgCost": 362500,
+      "minCost": 0,
       "maxCost": 1250000,
       "firstRepairDate": "2023-02-14",
       "lastRepairDate": "2025-01-17"
@@ -310,9 +299,9 @@
     {
       "serial": "17-1798",
       "category": "(SO2) Serinus50i",
-      "count": 4,
+      "count": 5,
       "totalCost": 1400000,
-      "avgCost": 350000,
+      "avgCost": 280000,
       "minCost": 0,
       "maxCost": 1200000,
       "firstRepairDate": "2023-07-21",
@@ -321,9 +310,9 @@
     {
       "serial": "21-0517",
       "category": "(NO2) Serinus40",
-      "count": 5,
+      "count": 7,
       "totalCost": 1400000,
-      "avgCost": 280000,
+      "avgCost": 200000,
       "minCost": 0,
       "maxCost": 1200000,
       "firstRepairDate": "2023-05-26",
@@ -332,10 +321,10 @@
     {
       "serial": "20-1393",
       "category": "(O3) Serinus10i",
-      "count": 4,
+      "count": 5,
       "totalCost": 1350000,
-      "avgCost": 337500,
-      "minCost": 100000,
+      "avgCost": 270000,
+      "minCost": 0,
       "maxCost": 550000,
       "firstRepairDate": "2023-01-12",
       "lastRepairDate": "2025-01-23"
@@ -343,10 +332,10 @@
     {
       "serial": "1796",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 4,
+      "count": 5,
       "totalCost": 1342000,
-      "avgCost": 335500,
-      "minCost": 77000,
+      "avgCost": 268400,
+      "minCost": 0,
       "maxCost": 440000,
       "firstRepairDate": "2025-06-19",
       "lastRepairDate": "2025-06-19"
@@ -354,10 +343,10 @@
     {
       "serial": "1847",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 4,
+      "count": 5,
       "totalCost": 1342000,
-      "avgCost": 335500,
-      "minCost": 77000,
+      "avgCost": 268400,
+      "minCost": 0,
       "maxCost": 440000,
       "firstRepairDate": "2025-03-18",
       "lastRepairDate": "2025-03-18"
@@ -365,20 +354,31 @@
     {
       "serial": "17-0133",
       "category": "(O3) Serinus10i",
-      "count": 6,
+      "count": 8,
       "totalCost": 1300000,
-      "avgCost": 216667,
+      "avgCost": 162500,
       "minCost": 0,
       "maxCost": 900000,
       "firstRepairDate": "2023-01-12",
       "lastRepairDate": "2025-06-20"
     },
     {
-      "serial": "K1614025A",
-      "category": "(CO) MEZUS-310",
+      "serial": "20-1382",
+      "category": "(O3) Serinus10i",
       "count": 4,
       "totalCost": 1200000,
       "avgCost": 300000,
+      "minCost": 0,
+      "maxCost": 950000,
+      "firstRepairDate": "2023-01-12",
+      "lastRepairDate": "2025-01-23"
+    },
+    {
+      "serial": "K1614025A",
+      "category": "(CO) MEZUS-310",
+      "count": 5,
+      "totalCost": 1200000,
+      "avgCost": 240000,
       "minCost": 0,
       "maxCost": 700000,
       "firstRepairDate": "2024-03-12",
@@ -387,21 +387,21 @@
     {
       "serial": "K1614027A",
       "category": "(CO) MEZUS-310",
-      "count": 6,
+      "count": 9,
       "totalCost": 1200000,
-      "avgCost": 200000,
+      "avgCost": 133333,
       "minCost": 0,
       "maxCost": 800000,
       "firstRepairDate": "2023-06-15",
-      "lastRepairDate": "2025-03-31"
+      "lastRepairDate": "2025-08-29"
     },
     {
       "serial": "20-1571",
       "category": "(O3) Serinus10i",
-      "count": 3,
+      "count": 4,
       "totalCost": 1150000,
-      "avgCost": 383333,
-      "minCost": 100000,
+      "avgCost": 287500,
+      "minCost": 0,
       "maxCost": 900000,
       "firstRepairDate": "2023-01-12",
       "lastRepairDate": "2025-01-23"
@@ -409,9 +409,9 @@
     {
       "serial": "17-0132",
       "category": "(O3) Serinus10i",
-      "count": 4,
+      "count": 5,
       "totalCost": 1140000,
-      "avgCost": 285000,
+      "avgCost": 228000,
       "minCost": 0,
       "maxCost": 940000,
       "firstRepairDate": "2023-01-12",
@@ -420,9 +420,9 @@
     {
       "serial": "1501512",
       "category": "(PM-2.5) PMS-204",
-      "count": 6,
+      "count": 8,
       "totalCost": 1100000,
-      "avgCost": 183333,
+      "avgCost": 137500,
       "minCost": 0,
       "maxCost": 800000,
       "firstRepairDate": "2023-04-03",
@@ -453,9 +453,9 @@
     {
       "serial": "K1612017",
       "category": "(NO2) MEZUS-210",
-      "count": 6,
+      "count": 7,
       "totalCost": 950000,
-      "avgCost": 158333,
+      "avgCost": 135714,
       "minCost": 0,
       "maxCost": 400000,
       "firstRepairDate": "2023-04-06",
@@ -464,9 +464,9 @@
     {
       "serial": "T25861",
       "category": "(PM-2.5) E-BAM",
-      "count": 3,
+      "count": 4,
       "totalCost": 909000,
-      "avgCost": 303000,
+      "avgCost": 227250,
       "minCost": 0,
       "maxCost": 659000,
       "firstRepairDate": "2024-02-28",
@@ -475,10 +475,10 @@
     {
       "serial": "1500",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 3,
+      "count": 4,
       "totalCost": 902000,
-      "avgCost": 300667,
-      "minCost": 77000,
+      "avgCost": 225500,
+      "minCost": 0,
       "maxCost": 440000,
       "firstRepairDate": "2025-03-18",
       "lastRepairDate": "2025-03-18"
@@ -497,10 +497,10 @@
     {
       "serial": "909",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 3,
+      "count": 4,
       "totalCost": 897000,
-      "avgCost": 299000,
-      "minCost": 20000,
+      "avgCost": 224250,
+      "minCost": 0,
       "maxCost": 800000,
       "firstRepairDate": "2023-08-29",
       "lastRepairDate": "2025-03-18"
@@ -508,10 +508,10 @@
     {
       "serial": "18P354",
       "category": "(PM-10) KMS-4200",
-      "count": 5,
+      "count": 6,
       "totalCost": 870000,
-      "avgCost": 174000,
-      "minCost": 50000,
+      "avgCost": 145000,
+      "minCost": 0,
       "maxCost": 370000,
       "firstRepairDate": "2023-01-10",
       "lastRepairDate": "2025-01-17"
@@ -519,10 +519,10 @@
     {
       "serial": "19P432",
       "category": "(PM-10) KMS-4200",
-      "count": 5,
+      "count": 6,
       "totalCost": 870000,
-      "avgCost": 174000,
-      "minCost": 50000,
+      "avgCost": 145000,
+      "minCost": 0,
       "maxCost": 370000,
       "firstRepairDate": "2023-07-17",
       "lastRepairDate": "2025-01-17"
@@ -530,13 +530,13 @@
     {
       "serial": "726",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 3,
+      "count": 5,
       "totalCost": 870000,
-      "avgCost": 290000,
-      "minCost": 70000,
+      "avgCost": 174000,
+      "minCost": 0,
       "maxCost": 400000,
       "firstRepairDate": "2024-02-19",
-      "lastRepairDate": "2024-02-19"
+      "lastRepairDate": "2025-10-15"
     },
     {
       "serial": "T25864",
@@ -574,10 +574,10 @@
     {
       "serial": "1316",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 3,
+      "count": 4,
       "totalCost": 820000,
-      "avgCost": 273333,
-      "minCost": 70000,
+      "avgCost": 205000,
+      "minCost": 0,
       "maxCost": 400000,
       "firstRepairDate": "2025-01-17",
       "lastRepairDate": "2025-01-17"
@@ -585,10 +585,10 @@
     {
       "serial": "1317",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 3,
+      "count": 4,
       "totalCost": 820000,
-      "avgCost": 273333,
-      "minCost": 70000,
+      "avgCost": 205000,
+      "minCost": 0,
       "maxCost": 400000,
       "firstRepairDate": "2025-01-17",
       "lastRepairDate": "2025-01-17"
@@ -596,10 +596,10 @@
     {
       "serial": "1793",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 3,
+      "count": 4,
       "totalCost": 820000,
-      "avgCost": 273333,
-      "minCost": 70000,
+      "avgCost": 205000,
+      "minCost": 0,
       "maxCost": 400000,
       "firstRepairDate": "2025-01-17",
       "lastRepairDate": "2025-01-17"
@@ -607,10 +607,10 @@
     {
       "serial": "851",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 3,
+      "count": 4,
       "totalCost": 820000,
-      "avgCost": 273333,
-      "minCost": 70000,
+      "avgCost": 205000,
+      "minCost": 0,
       "maxCost": 400000,
       "firstRepairDate": "2025-01-17",
       "lastRepairDate": "2025-01-17"
@@ -618,10 +618,10 @@
     {
       "serial": "854",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 3,
+      "count": 4,
       "totalCost": 820000,
-      "avgCost": 273333,
-      "minCost": 70000,
+      "avgCost": 205000,
+      "minCost": 0,
       "maxCost": 400000,
       "firstRepairDate": "2025-01-17",
       "lastRepairDate": "2025-01-17"
@@ -640,9 +640,9 @@
     {
       "serial": "R10783",
       "category": "(PM-10) E-BAM",
-      "count": 3,
+      "count": 4,
       "totalCost": 750000,
-      "avgCost": 250000,
+      "avgCost": 187500,
       "minCost": 0,
       "maxCost": 500000,
       "firstRepairDate": "2023-07-21",
@@ -651,13 +651,13 @@
     {
       "serial": "T242073",
       "category": "(소음) SC-260",
-      "count": 2,
+      "count": 4,
       "totalCost": 750000,
-      "avgCost": 375000,
+      "avgCost": 187500,
       "minCost": 0,
       "maxCost": 750000,
       "firstRepairDate": "2025-02-03",
-      "lastRepairDate": "2025-02-03"
+      "lastRepairDate": "2025-07-15"
     },
     {
       "serial": "853",
@@ -717,9 +717,9 @@
     {
       "serial": "20P569",
       "category": "(PM-10) KMS-4200",
-      "count": 3,
+      "count": 4,
       "totalCost": 670000,
-      "avgCost": 223333,
+      "avgCost": 167500,
       "minCost": 0,
       "maxCost": 370000,
       "firstRepairDate": "2025-05-08",
@@ -739,9 +739,9 @@
     {
       "serial": "21-0516",
       "category": "(NO2) Serinus40",
-      "count": 3,
+      "count": 5,
       "totalCost": 610000,
-      "avgCost": 203333,
+      "avgCost": 122000,
       "minCost": 0,
       "maxCost": 510000,
       "firstRepairDate": "2023-05-26",
@@ -781,17 +781,6 @@
       "lastRepairDate": "2024-08-13"
     },
     {
-      "serial": "21-0349",
-      "category": "(O3) Serinus10i",
-      "count": 5,
-      "totalCost": 550000,
-      "avgCost": 110000,
-      "minCost": 100000,
-      "maxCost": 150000,
-      "firstRepairDate": "2023-07-14",
-      "lastRepairDate": "2025-06-20"
-    },
-    {
       "serial": "21-1394",
       "category": "(CO) Serinus30i",
       "count": 5,
@@ -805,9 +794,9 @@
     {
       "serial": "K1515022",
       "category": "(NO2) MEZUS-210",
-      "count": 4,
+      "count": 5,
       "totalCost": 500000,
-      "avgCost": 125000,
+      "avgCost": 100000,
       "minCost": 0,
       "maxCost": 300000,
       "firstRepairDate": "2023-04-06",
@@ -836,6 +825,17 @@
       "lastRepairDate": "2024-12-11"
     },
     {
+      "serial": "21-0349",
+      "category": "(O3) Serinus10i",
+      "count": 5,
+      "totalCost": 450000,
+      "avgCost": 90000,
+      "minCost": 0,
+      "maxCost": 150000,
+      "firstRepairDate": "2023-07-14",
+      "lastRepairDate": "2025-06-20"
+    },
+    {
       "serial": "4159/TA3671",
       "category": "(Pb) T8400ME",
       "count": 1,
@@ -860,10 +860,10 @@
     {
       "serial": "857",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 1,
+      "count": 2,
       "totalCost": 440000,
-      "avgCost": 440000,
-      "minCost": 440000,
+      "avgCost": 220000,
+      "minCost": 0,
       "maxCost": 440000,
       "firstRepairDate": "2025-03-04",
       "lastRepairDate": "2025-03-04"
@@ -893,24 +893,24 @@
     {
       "serial": "18P373",
       "category": "(PM-10) KMS-4200",
-      "count": 7,
+      "count": 10,
       "totalCost": 400000,
-      "avgCost": 57143,
+      "avgCost": 40000,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-02-06",
-      "lastRepairDate": "2025-03-31"
+      "lastRepairDate": "2025-07-18"
     },
     {
       "serial": "20-2131",
       "category": "(CO) Serinus30i",
-      "count": 4,
+      "count": 5,
       "totalCost": 400000,
-      "avgCost": 100000,
-      "minCost": 100000,
+      "avgCost": 80000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-05-26",
-      "lastRepairDate": "2024-06-25"
+      "lastRepairDate": "2025-07-29"
     },
     {
       "serial": "4162/TA3674",
@@ -926,10 +926,10 @@
     {
       "serial": "1192754688",
       "category": "(O3) 49iQ",
-      "count": 2,
+      "count": 3,
       "totalCost": 360000,
-      "avgCost": 180000,
-      "minCost": 180000,
+      "avgCost": 120000,
+      "minCost": 0,
       "maxCost": 180000,
       "firstRepairDate": "2024-11-29",
       "lastRepairDate": "2025-06-24"
@@ -937,9 +937,9 @@
     {
       "serial": "1501504",
       "category": "(PM-2.5) PMS-204",
-      "count": 6,
+      "count": 8,
       "totalCost": 350000,
-      "avgCost": 58333,
+      "avgCost": 43750,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-02-14",
@@ -948,9 +948,9 @@
     {
       "serial": "17-0127",
       "category": "(O3) Serinus10i",
-      "count": 4,
+      "count": 6,
       "totalCost": 350000,
-      "avgCost": 87500,
+      "avgCost": 58333,
       "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2023-12-28",
@@ -959,9 +959,9 @@
     {
       "serial": "17-0130",
       "category": "(O3) Serinus10i",
-      "count": 4,
+      "count": 6,
       "totalCost": 350000,
-      "avgCost": 87500,
+      "avgCost": 58333,
       "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2023-07-21",
@@ -981,21 +981,21 @@
     {
       "serial": "18P370",
       "category": "(PM-10) KMS-4200",
-      "count": 6,
+      "count": 9,
       "totalCost": 350000,
-      "avgCost": 58333,
+      "avgCost": 38889,
       "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2023-02-06",
-      "lastRepairDate": "2025-03-31"
+      "lastRepairDate": "2025-08-29"
     },
     {
       "serial": "1904004",
       "category": "(PM-10) PMS-204",
-      "count": 4,
+      "count": 6,
       "totalCost": 350000,
-      "avgCost": 87500,
-      "minCost": 50000,
+      "avgCost": 58333,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-07-04",
       "lastRepairDate": "2025-06-20"
@@ -1003,9 +1003,9 @@
     {
       "serial": "20-2311",
       "category": "(CO) Serinus30i",
-      "count": 5,
+      "count": 8,
       "totalCost": 350000,
-      "avgCost": 70000,
+      "avgCost": 43750,
       "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2023-07-14",
@@ -1014,9 +1014,9 @@
     {
       "serial": "21-1357",
       "category": "(O3) Serinus10i",
-      "count": 4,
+      "count": 6,
       "totalCost": 350000,
-      "avgCost": 87500,
+      "avgCost": 58333,
       "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2024-03-14",
@@ -1025,9 +1025,9 @@
     {
       "serial": "1501490",
       "category": "(PM-2.5) PMS-204",
-      "count": 5,
+      "count": 8,
       "totalCost": 300000,
-      "avgCost": 60000,
+      "avgCost": 37500,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-02-14",
@@ -1069,9 +1069,9 @@
     {
       "serial": "17-1733",
       "category": "(SO2) Serinus50i",
-      "count": 4,
+      "count": 5,
       "totalCost": 300000,
-      "avgCost": 75000,
+      "avgCost": 60000,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-02-14",
@@ -1080,10 +1080,10 @@
     {
       "serial": "18P355",
       "category": "(PM-10) KMS-4200",
-      "count": 4,
+      "count": 5,
       "totalCost": 300000,
-      "avgCost": 75000,
-      "minCost": 50000,
+      "avgCost": 60000,
+      "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2023-01-10",
       "lastRepairDate": "2025-01-17"
@@ -1091,10 +1091,10 @@
     {
       "serial": "18P357",
       "category": "(PM-10) KMS-4200",
-      "count": 5,
+      "count": 6,
       "totalCost": 300000,
-      "avgCost": 60000,
-      "minCost": 50000,
+      "avgCost": 50000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-01-10",
       "lastRepairDate": "2025-01-17"
@@ -1102,10 +1102,10 @@
     {
       "serial": "18P361",
       "category": "(PM-10) KMS-4200",
-      "count": 5,
+      "count": 6,
       "totalCost": 300000,
-      "avgCost": 60000,
-      "minCost": 50000,
+      "avgCost": 50000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-01-10",
       "lastRepairDate": "2025-01-17"
@@ -1113,9 +1113,9 @@
     {
       "serial": "18P366",
       "category": "(PM-10) KMS-4200",
-      "count": 5,
+      "count": 7,
       "totalCost": 300000,
-      "avgCost": 60000,
+      "avgCost": 42857,
       "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2023-02-23",
@@ -1124,9 +1124,9 @@
     {
       "serial": "18P371",
       "category": "(PM-10) KMS-4200",
-      "count": 5,
+      "count": 7,
       "totalCost": 300000,
-      "avgCost": 60000,
+      "avgCost": 42857,
       "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2023-02-06",
@@ -1135,9 +1135,9 @@
     {
       "serial": "18P374",
       "category": "(PM-10) KMS-4200",
-      "count": 6,
+      "count": 8,
       "totalCost": 300000,
-      "avgCost": 50000,
+      "avgCost": 37500,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-02-23",
@@ -1146,10 +1146,10 @@
     {
       "serial": "20-1384",
       "category": "(O3) Serinus10i",
-      "count": 2,
+      "count": 3,
       "totalCost": 300000,
-      "avgCost": 150000,
-      "minCost": 150000,
+      "avgCost": 100000,
+      "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2024-07-24",
       "lastRepairDate": "2025-01-23"
@@ -1168,9 +1168,9 @@
     {
       "serial": "4211/TA3713",
       "category": "(Pb) T8400ME",
-      "count": 2,
+      "count": 3,
       "totalCost": 300000,
-      "avgCost": 150000,
+      "avgCost": 100000,
       "minCost": 0,
       "maxCost": 300000,
       "firstRepairDate": "2024-02-14",
@@ -1201,21 +1201,21 @@
     {
       "serial": "TA3696",
       "category": "(Pb) T8400ME",
-      "count": 2,
+      "count": 4,
       "totalCost": 300000,
-      "avgCost": 150000,
+      "avgCost": 75000,
       "minCost": 0,
       "maxCost": 300000,
       "firstRepairDate": "2024-02-14",
-      "lastRepairDate": "2025-04-02"
+      "lastRepairDate": "2025-07-29"
     },
     {
       "serial": "2390486",
       "category": "Kestrel5500",
-      "count": 2,
+      "count": 3,
       "totalCost": 271370,
-      "avgCost": 135685,
-      "minCost": 91850,
+      "avgCost": 90457,
+      "minCost": 0,
       "maxCost": 179520,
       "firstRepairDate": "2025-05-22",
       "lastRepairDate": "2025-05-22"
@@ -1223,9 +1223,9 @@
     {
       "serial": "1501479",
       "category": "(PM-2.5) PMS-204",
-      "count": 5,
+      "count": 7,
       "totalCost": 250000,
-      "avgCost": 50000,
+      "avgCost": 35714,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-02-14",
@@ -1234,9 +1234,9 @@
     {
       "serial": "1501489",
       "category": "(PM-2.5) PMS-204",
-      "count": 4,
+      "count": 6,
       "totalCost": 250000,
-      "avgCost": 62500,
+      "avgCost": 41667,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-04-03",
@@ -1245,9 +1245,9 @@
     {
       "serial": "1501505",
       "category": "(PM-2.5) PMS-204",
-      "count": 4,
+      "count": 6,
       "totalCost": 250000,
-      "avgCost": 62500,
+      "avgCost": 41667,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-04-03",
@@ -1256,20 +1256,20 @@
     {
       "serial": "1501506",
       "category": "(PM-2.5) PMS-204",
-      "count": 3,
+      "count": 5,
       "totalCost": 250000,
-      "avgCost": 83333,
-      "minCost": 50000,
+      "avgCost": 50000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-07-04",
-      "lastRepairDate": "2025-06-20"
+      "lastRepairDate": "2025-07-18"
     },
     {
       "serial": "1501507",
       "category": "(PM-2.5) PMS-204",
-      "count": 4,
+      "count": 6,
       "totalCost": 250000,
-      "avgCost": 62500,
+      "avgCost": 41667,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-04-03",
@@ -1278,9 +1278,9 @@
     {
       "serial": "1501508",
       "category": "(PM-2.5) PMS-204",
-      "count": 4,
+      "count": 6,
       "totalCost": 250000,
-      "avgCost": 62500,
+      "avgCost": 41667,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-04-03",
@@ -1300,9 +1300,9 @@
     {
       "serial": "1501514",
       "category": "(PM-2.5) PMS-204",
-      "count": 5,
+      "count": 7,
       "totalCost": 250000,
-      "avgCost": 50000,
+      "avgCost": 35714,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-02-14",
@@ -1311,10 +1311,10 @@
     {
       "serial": "1501518",
       "category": "(PM-2.5) PMS-204",
-      "count": 3,
+      "count": 4,
       "totalCost": 250000,
-      "avgCost": 83333,
-      "minCost": 50000,
+      "avgCost": 62500,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-07-04",
       "lastRepairDate": "2025-06-05"
@@ -1322,10 +1322,10 @@
     {
       "serial": "1501519",
       "category": "(PM-2.5) PMS-204",
-      "count": 3,
+      "count": 4,
       "totalCost": 250000,
-      "avgCost": 83333,
-      "minCost": 50000,
+      "avgCost": 62500,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-07-04",
       "lastRepairDate": "2025-06-05"
@@ -1333,9 +1333,9 @@
     {
       "serial": "17-0125",
       "category": "(O3) Serinus10i",
-      "count": 3,
+      "count": 5,
       "totalCost": 250000,
-      "avgCost": 83333,
+      "avgCost": 50000,
       "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2024-03-14",
@@ -1344,10 +1344,10 @@
     {
       "serial": "18P353",
       "category": "(PM-10) KMS-4200",
-      "count": 4,
+      "count": 5,
       "totalCost": 250000,
-      "avgCost": 62500,
-      "minCost": 50000,
+      "avgCost": 50000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-01-10",
       "lastRepairDate": "2025-01-17"
@@ -1355,10 +1355,10 @@
     {
       "serial": "18P358",
       "category": "(PM-10) KMS-4200",
-      "count": 4,
+      "count": 5,
       "totalCost": 250000,
-      "avgCost": 62500,
-      "minCost": 50000,
+      "avgCost": 50000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-07-04",
       "lastRepairDate": "2025-01-17"
@@ -1366,10 +1366,10 @@
     {
       "serial": "18P359",
       "category": "(PM-10) KMS-4200",
-      "count": 4,
+      "count": 5,
       "totalCost": 250000,
-      "avgCost": 62500,
-      "minCost": 50000,
+      "avgCost": 50000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-01-10",
       "lastRepairDate": "2025-01-17"
@@ -1388,32 +1388,32 @@
     {
       "serial": "19P405",
       "category": "(PM-10) KMS-4200",
-      "count": 7,
+      "count": 8,
       "totalCost": 250000,
-      "avgCost": 35714,
+      "avgCost": 31250,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-06-23",
-      "lastRepairDate": "2024-11-13"
+      "lastRepairDate": "2025-10-15"
     },
     {
       "serial": "19P433",
       "category": "(PM-10) KMS-4200",
-      "count": 4,
+      "count": 5,
       "totalCost": 250000,
-      "avgCost": 62500,
-      "minCost": 50000,
+      "avgCost": 50000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-07-17",
-      "lastRepairDate": "2024-10-23"
+      "lastRepairDate": "2025-08-29"
     },
     {
       "serial": "20-1508",
       "category": "(CO) Serinus30i",
-      "count": 2,
+      "count": 3,
       "totalCost": 250000,
-      "avgCost": 125000,
-      "minCost": 100000,
+      "avgCost": 83333,
+      "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2023-01-12",
       "lastRepairDate": "2025-01-23"
@@ -1421,10 +1421,10 @@
     {
       "serial": "20-1560",
       "category": "(O3) Serinus10i",
-      "count": 2,
+      "count": 3,
       "totalCost": 250000,
-      "avgCost": 125000,
-      "minCost": 100000,
+      "avgCost": 83333,
+      "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2023-01-12",
       "lastRepairDate": "2025-01-23"
@@ -1432,9 +1432,9 @@
     {
       "serial": "21-0507",
       "category": "(O3) Serinus10i",
-      "count": 3,
+      "count": 5,
       "totalCost": 250000,
-      "avgCost": 83333,
+      "avgCost": 50000,
       "minCost": 0,
       "maxCost": 150000,
       "firstRepairDate": "2024-03-14",
@@ -1476,20 +1476,20 @@
     {
       "serial": "1501511",
       "category": "(PM-2.5) PMS-204",
-      "count": 3,
+      "count": 4,
       "totalCost": 200000,
-      "avgCost": 66667,
-      "minCost": 50000,
+      "avgCost": 50000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-07-04",
-      "lastRepairDate": "2024-06-26"
+      "lastRepairDate": "2025-10-15"
     },
     {
       "serial": "17-1906",
       "category": "(SO2) Serinus50i",
-      "count": 3,
+      "count": 4,
       "totalCost": 200000,
-      "avgCost": 66667,
+      "avgCost": 50000,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-02-14",
@@ -1498,21 +1498,21 @@
     {
       "serial": "1709797",
       "category": "(PM-2.5) PMS-204",
-      "count": 3,
+      "count": 5,
       "totalCost": 200000,
-      "avgCost": 66667,
-      "minCost": 50000,
+      "avgCost": 40000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-01-12",
-      "lastRepairDate": "2025-01-17"
+      "lastRepairDate": "2025-10-15"
     },
     {
       "serial": "1709798",
       "category": "(PM-2.5) PMS-204",
-      "count": 3,
+      "count": 4,
       "totalCost": 200000,
-      "avgCost": 66667,
-      "minCost": 50000,
+      "avgCost": 50000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-01-12",
       "lastRepairDate": "2025-01-17"
@@ -1542,9 +1542,9 @@
     {
       "serial": "18P375",
       "category": "(PM-10) KMS-4200",
-      "count": 6,
+      "count": 8,
       "totalCost": 200000,
-      "avgCost": 33333,
+      "avgCost": 25000,
       "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2023-02-06",
@@ -1564,9 +1564,9 @@
     {
       "serial": "21-0321",
       "category": "(O3) Serinus10i",
-      "count": 3,
+      "count": 4,
       "totalCost": 200000,
-      "avgCost": 66667,
+      "avgCost": 50000,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-07-14",
@@ -1608,9 +1608,9 @@
     {
       "serial": "K1515023",
       "category": "(NO2) MEZUS-210",
-      "count": 3,
+      "count": 4,
       "totalCost": 200000,
-      "avgCost": 66667,
+      "avgCost": 50000,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-04-06",
@@ -1619,9 +1619,9 @@
     {
       "serial": "K1612016",
       "category": "(NO2) MEZUS-210",
-      "count": 3,
+      "count": 4,
       "totalCost": 200000,
-      "avgCost": 66667,
+      "avgCost": 50000,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-04-06",
@@ -1659,17 +1659,6 @@
       "maxCost": 100000,
       "firstRepairDate": "2023-02-14",
       "lastRepairDate": "2024-01-23"
-    },
-    {
-      "serial": "19P428",
-      "category": "(PM-10) KMS-4200",
-      "count": 5,
-      "totalCost": 190000,
-      "avgCost": 38000,
-      "minCost": 20000,
-      "maxCost": 50000,
-      "firstRepairDate": "2023-07-17",
-      "lastRepairDate": "2024-07-08"
     },
     {
       "serial": "1182050011",
@@ -1738,6 +1727,17 @@
       "lastRepairDate": "2024-10-10"
     },
     {
+      "serial": "19P428",
+      "category": "(PM-10) KMS-4200",
+      "count": 5,
+      "totalCost": 170000,
+      "avgCost": 34000,
+      "minCost": 0,
+      "maxCost": 50000,
+      "firstRepairDate": "2023-07-17",
+      "lastRepairDate": "2025-07-18"
+    },
+    {
       "serial": "1501481",
       "category": "(PM-2.5) PMS-204",
       "count": 2,
@@ -1795,13 +1795,13 @@
     {
       "serial": "1708787",
       "category": "(PM-2.5) PMS-204",
-      "count": 2,
+      "count": 3,
       "totalCost": 150000,
-      "avgCost": 75000,
-      "minCost": 50000,
+      "avgCost": 50000,
+      "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-08-11",
-      "lastRepairDate": "2024-08-13"
+      "lastRepairDate": "2025-07-18"
     },
     {
       "serial": "1708788",
@@ -1883,9 +1883,9 @@
     {
       "serial": "18P356",
       "category": "(PM-10) KMS-4200",
-      "count": 4,
+      "count": 6,
       "totalCost": 150000,
-      "avgCost": 37500,
+      "avgCost": 25000,
       "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2023-07-04",
@@ -1894,20 +1894,20 @@
     {
       "serial": "18P360",
       "category": "(PM-10) KMS-4200",
-      "count": 3,
+      "count": 5,
       "totalCost": 150000,
-      "avgCost": 50000,
-      "minCost": 50000,
+      "avgCost": 30000,
+      "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2023-01-10",
-      "lastRepairDate": "2025-01-17"
+      "lastRepairDate": "2025-10-15"
     },
     {
       "serial": "18P368",
       "category": "(PM-10) KMS-4200",
-      "count": 5,
+      "count": 7,
       "totalCost": 150000,
-      "avgCost": 30000,
+      "avgCost": 21429,
       "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2023-02-06",
@@ -1916,9 +1916,9 @@
     {
       "serial": "18P369",
       "category": "(PM-10) KMS-4200",
-      "count": 4,
+      "count": 6,
       "totalCost": 150000,
-      "avgCost": 37500,
+      "avgCost": 25000,
       "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2023-02-06",
@@ -1927,9 +1927,9 @@
     {
       "serial": "18P372",
       "category": "(PM-10) KMS-4200",
-      "count": 4,
+      "count": 6,
       "totalCost": 150000,
-      "avgCost": 37500,
+      "avgCost": 25000,
       "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2023-02-06",
@@ -2026,9 +2026,9 @@
     {
       "serial": "19P430",
       "category": "(PM-10) KMS-4200",
-      "count": 6,
+      "count": 7,
       "totalCost": 150000,
-      "avgCost": 25000,
+      "avgCost": 21429,
       "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2023-07-17",
@@ -2059,24 +2059,24 @@
     {
       "serial": "19P424",
       "category": "(PM-10) KMS-4200",
-      "count": 3,
+      "count": 4,
       "totalCost": 120000,
-      "avgCost": 40000,
-      "minCost": 20000,
+      "avgCost": 30000,
+      "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2023-07-17",
-      "lastRepairDate": "2024-07-12"
+      "lastRepairDate": "2025-07-18"
     },
     {
       "serial": "19P427",
       "category": "(PM-10) KMS-4200",
-      "count": 3,
+      "count": 5,
       "totalCost": 120000,
-      "avgCost": 40000,
-      "minCost": 20000,
+      "avgCost": 24000,
+      "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2023-07-17",
-      "lastRepairDate": "2024-07-08"
+      "lastRepairDate": "2025-10-15"
     },
     {
       "serial": "17-0866",
@@ -2092,9 +2092,9 @@
     {
       "serial": "17-0988",
       "category": "(O3) Serinus10i",
-      "count": 5,
+      "count": 6,
       "totalCost": 100000,
-      "avgCost": 20000,
+      "avgCost": 16667,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-02-14",
@@ -2114,13 +2114,13 @@
     {
       "serial": "17-1903",
       "category": "(SO2) Serinus50i",
-      "count": 2,
+      "count": 4,
       "totalCost": 100000,
-      "avgCost": 50000,
+      "avgCost": 25000,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2024-03-14",
-      "lastRepairDate": "2025-02-17"
+      "lastRepairDate": "2025-10-15"
     },
     {
       "serial": "1792",
@@ -2158,9 +2158,9 @@
     {
       "serial": "18P367",
       "category": "(PM-10) KMS-4200",
-      "count": 3,
+      "count": 5,
       "totalCost": 100000,
-      "avgCost": 33333,
+      "avgCost": 20000,
       "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2024-01-31",
@@ -2169,9 +2169,9 @@
     {
       "serial": "19P425",
       "category": "(PM-10) KMS-4200",
-      "count": 3,
+      "count": 4,
       "totalCost": 100000,
-      "avgCost": 33333,
+      "avgCost": 25000,
       "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2023-07-17",
@@ -2202,9 +2202,9 @@
     {
       "serial": "20-2132",
       "category": "(CO) Serinus30i",
-      "count": 3,
+      "count": 5,
       "totalCost": 100000,
-      "avgCost": 33333,
+      "avgCost": 20000,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-05-26",
@@ -2246,13 +2246,13 @@
     {
       "serial": "21-0518",
       "category": "(NO2) Serinus40",
-      "count": 3,
+      "count": 5,
       "totalCost": 100000,
-      "avgCost": 33333,
+      "avgCost": 20000,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2023-05-26",
-      "lastRepairDate": "2025-03-26"
+      "lastRepairDate": "2025-07-04"
     },
     {
       "serial": "21-0524",
@@ -2290,9 +2290,9 @@
     {
       "serial": "K1614022",
       "category": "(NO2) MEZUS-210",
-      "count": 2,
+      "count": 3,
       "totalCost": 100000,
-      "avgCost": 50000,
+      "avgCost": 33333,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2024-03-12",
@@ -2301,9 +2301,9 @@
     {
       "serial": "K1614023",
       "category": "(NO2) MEZUS-210",
-      "count": 2,
+      "count": 3,
       "totalCost": 100000,
-      "avgCost": 50000,
+      "avgCost": 33333,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2024-03-12",
@@ -2312,9 +2312,9 @@
     {
       "serial": "K1614026A",
       "category": "(CO) MEZUS-310",
-      "count": 2,
+      "count": 3,
       "totalCost": 100000,
-      "avgCost": 50000,
+      "avgCost": 33333,
       "minCost": 0,
       "maxCost": 100000,
       "firstRepairDate": "2024-03-12",
@@ -2323,9 +2323,9 @@
     {
       "serial": "KM008W18CO76",
       "category": "COS-100",
-      "count": 3,
+      "count": 4,
       "totalCost": 100000,
-      "avgCost": 33333,
+      "avgCost": 25000,
       "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2025-01-08",
@@ -2356,10 +2356,10 @@
     {
       "serial": "1628",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 1,
+      "count": 2,
       "totalCost": 77000,
-      "avgCost": 77000,
-      "minCost": 77000,
+      "avgCost": 38500,
+      "minCost": 0,
       "maxCost": 77000,
       "firstRepairDate": "2025-03-18",
       "lastRepairDate": "2025-03-18"
@@ -2367,10 +2367,10 @@
     {
       "serial": "1744",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 1,
+      "count": 2,
       "totalCost": 77000,
-      "avgCost": 77000,
-      "minCost": 77000,
+      "avgCost": 38500,
+      "minCost": 0,
       "maxCost": 77000,
       "firstRepairDate": "2025-03-18",
       "lastRepairDate": "2025-03-18"
@@ -2378,10 +2378,10 @@
     {
       "serial": "717",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 1,
+      "count": 2,
       "totalCost": 77000,
-      "avgCost": 77000,
-      "minCost": 77000,
+      "avgCost": 38500,
+      "minCost": 0,
       "maxCost": 77000,
       "firstRepairDate": "2025-03-18",
       "lastRepairDate": "2025-03-18"
@@ -2389,9 +2389,9 @@
     {
       "serial": "724",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 2,
+      "count": 3,
       "totalCost": 70000,
-      "avgCost": 35000,
+      "avgCost": 23333,
       "minCost": 0,
       "maxCost": 70000,
       "firstRepairDate": "2024-02-19",
@@ -2433,9 +2433,9 @@
     {
       "serial": "20P558",
       "category": "(PM-2.5) KMS-4200",
-      "count": 2,
+      "count": 3,
       "totalCost": 50000,
-      "avgCost": 25000,
+      "avgCost": 16667,
       "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2023-06-23",
@@ -2488,13 +2488,13 @@
     {
       "serial": "KM014W16CO22",
       "category": "COS-100",
-      "count": 2,
+      "count": 4,
       "totalCost": 50000,
-      "avgCost": 25000,
+      "avgCost": 12500,
       "minCost": 0,
       "maxCost": 50000,
       "firstRepairDate": "2025-01-08",
-      "lastRepairDate": "2025-01-08"
+      "lastRepairDate": "2025-07-23"
     },
     {
       "serial": "1795",
@@ -2510,7 +2510,7 @@
     {
       "serial": "141411",
       "category": "(벤젠) MP-Σ30KNⅡ",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2521,7 +2521,7 @@
     {
       "serial": "141412",
       "category": "(벤젠) MP-Σ30KNⅡ",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2532,7 +2532,7 @@
     {
       "serial": "160096",
       "category": "(진동) TYPE3233",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2543,7 +2543,7 @@
     {
       "serial": "1627",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2552,9 +2552,31 @@
       "lastRepairDate": "2025-03-04"
     },
     {
+      "serial": "170066",
+      "category": "UNKNOWN",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "firstRepairDate": "2025-07-15",
+      "lastRepairDate": "2025-07-15"
+    },
+    {
+      "serial": "170067",
+      "category": "UNKNOWN",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "firstRepairDate": "2025-07-15",
+      "lastRepairDate": "2025-07-15"
+    },
+    {
       "serial": "1790",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2565,7 +2587,7 @@
     {
       "serial": "1798",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2585,9 +2607,20 @@
       "lastRepairDate": "2024-08-22"
     },
     {
+      "serial": "180053",
+      "category": "UNKNOWN",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "firstRepairDate": "2025-09-29",
+      "lastRepairDate": "2025-09-29"
+    },
+    {
       "serial": "190024",
       "category": "(진동) TYPE3233",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2598,18 +2631,51 @@
     {
       "serial": "190025",
       "category": "(진동) TYPE3233",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
       "maxCost": 0,
       "firstRepairDate": "2025-04-29",
       "lastRepairDate": "2025-04-30"
+    },
+    {
+      "serial": "19FN200",
+      "category": "UNKNOWN",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "firstRepairDate": "2025-09-29",
+      "lastRepairDate": "2025-09-29"
+    },
+    {
+      "serial": "19FN201",
+      "category": "UNKNOWN",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "firstRepairDate": "2025-09-29",
+      "lastRepairDate": "2025-09-29"
+    },
+    {
+      "serial": "20E333",
+      "category": "UNKNOWN",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "firstRepairDate": "2025-09-29",
+      "lastRepairDate": "2025-09-29"
     },
     {
       "serial": "20E474",
       "category": "(진동) VM-1220E",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2618,9 +2684,20 @@
       "lastRepairDate": "2025-04-30"
     },
     {
+      "serial": "20E546",
+      "category": "UNKNOWN",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "firstRepairDate": "2025-07-15",
+      "lastRepairDate": "2025-07-15"
+    },
+    {
       "serial": "441002",
       "category": "MP-Σ100",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2631,7 +2708,7 @@
     {
       "serial": "442388",
       "category": "(VOCs) MP-Σ30",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2642,7 +2719,7 @@
     {
       "serial": "461059",
       "category": "MP-Σ100",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2653,7 +2730,7 @@
     {
       "serial": "532930",
       "category": "(VOCs) MP-Σ30",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2664,7 +2741,7 @@
     {
       "serial": "722",
       "category": "(NOx, SOx) BMW-5000",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2675,7 +2752,7 @@
     {
       "serial": "770654",
       "category": "(벤젠) MP-Σ30KNⅡ",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2686,7 +2763,7 @@
     {
       "serial": "770655",
       "category": "(벤젠) MP-Σ30KNⅡ",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2697,7 +2774,7 @@
     {
       "serial": "770656",
       "category": "(VOCs) MP-Σ30KNⅡ",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2708,7 +2785,7 @@
     {
       "serial": "770657",
       "category": "(VOCs) MP-Σ30KNⅡ",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2719,7 +2796,7 @@
     {
       "serial": "770658",
       "category": "(벤젠) MP-Σ30KNⅡ",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2730,7 +2807,7 @@
     {
       "serial": "770659",
       "category": "(VOCs) MP-Σ30KNⅡ",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2741,7 +2818,7 @@
     {
       "serial": "770660",
       "category": "(벤젠) MP-Σ30KNⅡ",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2750,9 +2827,31 @@
       "lastRepairDate": "2025-07-07"
     },
     {
+      "serial": "840487",
+      "category": "UNKNOWN",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "firstRepairDate": "2025-09-03",
+      "lastRepairDate": "2025-09-03"
+    },
+    {
+      "serial": "850746",
+      "category": "(벤젠) MP-Σ30KNⅡ",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "firstRepairDate": "2025-09-03",
+      "lastRepairDate": "2025-09-03"
+    },
+    {
       "serial": "950574",
       "category": "MP-Σ100KNⅡ",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2763,7 +2862,7 @@
     {
       "serial": "950575",
       "category": "MP-Σ100KNⅡ",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2774,7 +2873,7 @@
     {
       "serial": "CM20477383",
       "category": "(O3) 49i",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2785,18 +2884,18 @@
     {
       "serial": "KM008W18CO77",
       "category": "COS-100",
-      "count": 1,
+      "count": 3,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
       "maxCost": 0,
       "firstRepairDate": "2025-02-10",
-      "lastRepairDate": "2025-02-10"
+      "lastRepairDate": "2025-08-14"
     },
     {
       "serial": "T242071",
       "category": "(소음) SC-260",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2807,7 +2906,7 @@
     {
       "serial": "T242072",
       "category": "(소음) SC-260",
-      "count": 2,
+      "count": 4,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2818,7 +2917,7 @@
     {
       "serial": "T242109",
       "category": "(소음) SC-260",
-      "count": 3,
+      "count": 6,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2829,7 +2928,7 @@
     {
       "serial": "T246352",
       "category": "(소음) SC-260",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
@@ -2840,13 +2939,24 @@
     {
       "serial": "TA3275",
       "category": "(Pb) T8400ME",
-      "count": 1,
+      "count": 2,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
       "maxCost": 0,
       "firstRepairDate": "2025-04-02",
       "lastRepairDate": "2025-04-02"
+    },
+    {
+      "serial": "TA3376",
+      "category": "(Pb) T8400ME",
+      "count": 1,
+      "totalCost": 0,
+      "avgCost": 0,
+      "minCost": 0,
+      "maxCost": 0,
+      "firstRepairDate": "2025-07-29",
+      "lastRepairDate": "2025-07-29"
     }
   ]
 }

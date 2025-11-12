@@ -1,7 +1,7 @@
 {
   "meta": {
     "_schemaVersion": "1.0.0",
-    "generatedAt": "2025-09-10T00:20:07Z",
+    "generatedAt": "2025-11-12T05:00:13Z",
     "sourceFiles": [
       "equipment_db.json",
       "movements_db.json",
@@ -17,8 +17,8 @@
     },
     {
       "month": "2023-02",
-      "count": 47,
-      "totalCost": 5898000
+      "count": 45,
+      "totalCost": 5048000
     },
     {
       "month": "2023-03",
@@ -72,8 +72,8 @@
     },
     {
       "month": "2024-01",
-      "count": 33,
-      "totalCost": 3695000
+      "count": 32,
+      "totalCost": 3675000
     },
     {
       "month": "2024-02",
@@ -82,8 +82,8 @@
     },
     {
       "month": "2024-03",
-      "count": 20,
-      "totalCost": 3100000
+      "count": 19,
+      "totalCost": 3000000
     },
     {
       "month": "2024-04",
@@ -102,8 +102,8 @@
     },
     {
       "month": "2024-07",
-      "count": 37,
-      "totalCost": 15250000
+      "count": 35,
+      "totalCost": 14200000
     },
     {
       "month": "2024-08",
@@ -132,37 +132,52 @@
     },
     {
       "month": "2025-01",
-      "count": 60,
+      "count": 101,
       "totalCost": 13550000
     },
     {
       "month": "2025-02",
-      "count": 13,
+      "count": 25,
       "totalCost": 1650000
     },
     {
       "month": "2025-03",
-      "count": 76,
+      "count": 144,
       "totalCost": 5392000
     },
     {
       "month": "2025-04",
-      "count": 30,
+      "count": 59,
       "totalCost": 470000
     },
     {
       "month": "2025-05",
-      "count": 13,
+      "count": 21,
       "totalCost": 941370
     },
     {
       "month": "2025-06",
-      "count": 23,
+      "count": 41,
       "totalCost": 4272000
     },
     {
       "month": "2025-07",
-      "count": 18,
+      "count": 54,
+      "totalCost": 0
+    },
+    {
+      "month": "2025-08",
+      "count": 5,
+      "totalCost": 0
+    },
+    {
+      "month": "2025-09",
+      "count": 7,
+      "totalCost": 0
+    },
+    {
+      "month": "2025-10",
+      "count": 11,
       "totalCost": 0
     }
   ]

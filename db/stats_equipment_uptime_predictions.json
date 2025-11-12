@@ -1,15 +1,129 @@
 {
   "meta": {
     "_schemaVersion": "1.0.0",
-    "generatedAt": "",
+    "generatedAt": "2025-11-12T05:00:13Z",
     "sourceFiles": [
       "equipment_db.json",
       "movements_db.json",
-      "repairs_db.json"
-    ],
-    "note": "초기 스켈레톤. build_stats.py/추가 파이프라인 또는 별도 스크립트에서 갱신"
+      "repairs_db_clean.json",
+      "QC_logs.json"
+    ]
   },
   "data": [
-    { "category": "UNKNOWN", "predictedUptimePct": 0, "predictionBasis": "초기값" }
+    {
+      "category": "(CO) 48i",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(CO) 48iQ",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(CO) MEZUS-310",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(CO) Serinus30i",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(NO2) MEZUS-210",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(NO2) Serinus40",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(NOx, SOx) BMW-5000",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(O3) 49i",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(O3) 49iQ",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(O3) Serinus10i",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(PM-10) BAM 1020",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(PM-10) E-BAM",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(PM-10) KMS-4200",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(PM-10) PMS-204",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(PM-2.5) BAM 1020",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(PM-2.5) E-BAM",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(PM-2.5) KMS-4200",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(PM-2.5) PMS-204",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(Pb) T8400ME",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(Pb) TFIA-2",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(SO2) Serinus50i",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "(벤젠) MP-Σ30KNⅡ",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    },
+    {
+      "category": "UNKNOWN",
+      "predictedUptimePct": 100,
+      "predictionBasis": "baseline_from_uptime_by_category"
+    }
   ]
 }

@@ -1,0 +1,450 @@
+{
+  "dashboard_info": {
+    "title": "청명장비 통합대시보드",
+    "last_updated": "2025-11-12 14:02:11",
+    "data_sources": [
+      "equipment_db_clean.json",
+      "repairs_db_clean.json",
+      "movements_db.json"
+    ]
+  },
+  "equipment_summary": {
+    "total_equipment": 293,
+    "by_measurement_item": {
+      "알 수 없음": 293
+    },
+    "by_status": {
+      "대기 중": 267,
+      "가동 중": 21,
+      "수리중": 5
+    },
+    "by_location": {
+      "본사 창고": 267,
+      "현장": 21,
+      "업체": 5
+    }
+  },
+  "repairs_summary": {
+    "total_repairs": 1047,
+    "equipment_match_rate": 91.0,
+    "by_company": {
+      "켐익": 203,
+      "APM": 376,
+      "카인": 54,
+      "토탈엔지니어링": 46,
+      "켄텍": 32,
+      "하림": 66,
+      "KNJ": 12,
+      "": 235,
+      "태원시바타": 21,
+      "표준교정기술원": 2
+    },
+    "by_repair_type": {
+      "정도검사": 368,
+      "외장온,습도센서 교체": 3,
+      "정도검사대행료료": 2,
+      "정도검사대행료": 8,
+      "Internal pump": 1,
+      "PCA Lamp driver": 1,
+      "Detector": 3,
+      "Lamp Assembly": 1,
+      "Fitting nut 1/4T KYNAR": 3,
+      "리니어부싱 부식교체": 1,
+      "브러시단자 접점부 고정작업": 1,
+      "브러시 단자 단선": 1,
+      "브러시 교체 작업": 1,
+      "모터교체": 5,
+      "컨트롤러 교체": 8,
+      "AC 아답터 소켓교체": 1,
+      "양측유량계 교체": 1,
+      "전원 버튼 교체": 1,
+      "호스 연결 커넥터 교체": 1,
+      "양측 유량계 교체": 2,
+      "기본점검": 118,
+      "정도검사 대행료": 17,
+      "Power supply": 7,
+      "PM2.5 여과 부품": 1,
+      "필터홀더 for Gas Analyzer": 1,
+      "power supply": 2,
+      "Mainboard": 1,
+      "기본점검 및 리크보강": 5,
+      "기본점검 및 손잡이 탈거 재결합": 1,
+      "모터, 컨트롤러 교체": 1,
+      "모터 교체": 7,
+      "브러시 단자 단선 수리": 1,
+      "기본점검 및 SD카드교체": 1,
+      "외장 온,습도센서 교체": 9,
+      "펌프전자석 회손 교체": 1,
+      "SFM유량센서 교체": 1,
+      "서브모터 교체": 1,
+      "Deector": 2,
+      "확인필요(견적서누락)": 3,
+      "브러시 교체": 1,
+      "카본브러시": 1,
+      "Wins Impactor": 1,
+      "O-ring": 1,
+      "Pressure Gauge, Serinus PCA 부품교체": 1,
+      "AC전원소켓 교체": 1,
+      "Glass Fiber Filter, 25M": 1,
+      "LCD 교체": 1,
+      "메인보드 교체": 1,
+      "Glass FIber Filter, 25M": 3,
+      "Flow Meer, 20 SLPM": 1,
+      "E-BAM Pump & Bracket": 5,
+      "E-BAM Connector Board": 1,
+      "KMS-4200 유리병": 1,
+      "정도검사(품목등록 안됨)": 1,
+      "Pressure Gauge": 2,
+      "Glass Fiber Filter, 25M 부품교체": 2,
+      "POWER SUPPLY (부품 교체 기기 확인필요)": 1,
+      "USB보드,통신케이블 교체": 1,
+      "손잡이(상단)유실 교체": 1,
+      "인넷연결부 아답타 나사산 손상 교체": 2,
+      "104/204 메인보드": 1,
+      "기본점검(품목등록 안됨)": 1,
+      "USB보드, 통신케이블 교체": 1,
+      "SD 카드 손상 교체": 1,
+      "리니어부싱교체": 1,
+      "LCD 액정 교체": 1,
+      "정도검사(등록 안되어있음)": 1,
+      "A셀 유량계 교체": 6,
+      "B셀 유량계 교체": 4,
+      "정밀교정": 4,
+      "아답터 전원 소켓 교체": 1,
+      "A셀 샘플링 펌프 교체": 1,
+      "B셀 샘플링 펌프 교체": 1,
+      "A셀 펌프 뎀퍼 장착": 1,
+      "B셀 펌프 뎀퍼 장착": 1,
+      "NOx Pump": 1,
+      "2 Head Sample Pump": 1,
+      "E-BAM CONNECTOR BOARD": 1,
+      "GLASS FIBER FILTER, 25M": 1,
+      "LCD TOUCH ASSY": 1,
+      "GFC WHEEL ASSY": 1,
+      "Sample Pump": 1,
+      "49Q (일련번호 확인필요)": 1,
+      "외장펌프 교체": 1,
+      "Power Supply": 1,
+      "Filter,25M": 1,
+      "Solar shield w/o Pres. Temp. RH sensor": 1,
+      "리크보강,리니어부싱 재조립": 1,
+      "지지대 오링교체": 2,
+      "ATM Sensor PCB SET": 1,
+      "펌프지지대 교체": 1,
+      "전원 휴즈교체": 1,
+      "Lamp assembly UV Serinus 10": 2,
+      "볼밸브 손잡이교체": 1,
+      "펌프전사석 회손 교체": 1,
+      "SFM 유량센서 교체": 1,
+      "기본점검 / (등록 안된 장비)": 1,
+      "하이볼륨 유량계 본체 교체": 1,
+      "유량조절용 고리 및 부속품": 1,
+      "Detector cap": 1,
+      "Pump,bracket": 1,
+      "Connector board": 1,
+      "Filter 25M": 2,
+      "T8400ME 컨트롤러 교체": 1,
+      "확인필요": 14,
+      "Display, Power supply, calibation": 1,
+      "PG48 리크교체": 1,
+      "Scrubber, assembly ozone": 1,
+      "Flow block assembly": 2,
+      "Valve maniffold assy": 1,
+      "Internal Pump Assy, Serinus": 1,
+      "A,B 셀 유량계 교체": 1,
+      "A,B 샘플링 펌프 교체": 1,
+      "A,B 펌프 뎀퍼 장착": 1,
+      "정밀 교정": 1,
+      "코인전지 교체": 2,
+      "기본점검내역": 3,
+      "LCD&TOUCH 7inch": 1,
+      "기본점검비": 2,
+      "CO Wheel": 1,
+      "스크린 고장 수리": 1,
+      "25M, Glass Fiber Filter": 2,
+      "Glass Fiber Fiter, 25M": 3,
+      "E-BAM Board Stack": 1,
+      "Scrubber": 2,
+      "assembly ozone": 1,
+      "Lamp assembly UV": 1,
+      "기본점검검": 1,
+      "내부 배관 교체": 1,
+      "내부 펌프 흡인후 커넥터 파손교체": 1,
+      "내부배관 교체": 1,
+      "": 240,
+      "유량미달 펌프교체": 3,
+      "유량센서 교체": 2,
+      "B셀 펌프 교체": 2,
+      "점검 및 정밀교정": 8,
+      "A,B셀 유량계 교체": 2,
+      "A,B셀 펌프 교체": 2,
+      "A셀 펌프 교체": 4,
+      "Internal Pump Assy": 1,
+      "DISPLAY,LCD, BLUE AND WHITE": 1,
+      "DETECTOR SPARE PART SERINUS30": 1,
+      "SC260 보드수리(데이터전송안됨외)": 1,
+      "한국 스페인 항공료": 1,
+      "디스플레이 수리(확인필요)": 1,
+      "데이터 저장불량 수리": 1,
+      "PCA LAMP driver": 1,
+      "SD카드교체": 1,
+      "백엽상파손 수분유입 교체": 1,
+      "외장온습도교체": 1,
+      "좌측 유량불량": 3,
+      "컨트롤보드 교체": 3,
+      "양측 유량불량": 1,
+      "일반수리": 12,
+      "점검기술료": 7,
+      "프로그램 재설치 및 SD카드교체": 1,
+      "유량센서교체": 1,
+      "디지덜 온습도계 교정": 1,
+      "절대압계 (기압, 디지털) 교정": 1,
+      "장비 리크, 다운튜브 고무링 손상, 교체 리크 수정": 2,
+      "장비 리크, 다운튜브 고무링 손상, 교체 리크 수정 펌프 배출 라인 튜브 손상/이탈 확인, 튜브 교체, 재결속 및 고정 상태 점검 완료": 1,
+      "무상점검 (전원 단자 오류 해결)": 1,
+      "DISPLAY, LCD, 240 X 128 BLUE AND WHITE": 2,
+      "점검 및 교정": 1,
+      "Lamp Adjust": 4,
+      "REF수리": 1,
+      "REF 수리": 1
+    },
+    "cost_summary": {
+      "total_cost": 0,
+      "average_cost": 0,
+      "min_cost": 0,
+      "max_cost": 0
+    }
+  },
+  "movements_summary": {
+    "total_movements": 18889,
+    "recent_movements": [
+      {
+        "date": "2025-11-12",
+        "outLocation": "현장",
+        "inLocation": "청명",
+        "equipmentName": "(CO) Serinus30i",
+        "serial": "18-0310",
+        "quantity": 1,
+        "note": "",
+        "status": ""
+      },
+      {
+        "date": "2025-11-12",
+        "outLocation": "현장",
+        "inLocation": "청명",
+        "equipmentName": "(NOx, SOx) BMW-5000",
+        "serial": "1794",
+        "quantity": 1,
+        "note": "",
+        "status": ""
+      },
+      {
+        "date": "2025-11-12",
+        "outLocation": "현장",
+        "inLocation": "청명",
+        "equipmentName": "(PM-10) KMS-4200",
+        "serial": "18P368",
+        "quantity": 1,
+        "note": "",
+        "status": ""
+      },
+      {
+        "date": "2025-11-12",
+        "outLocation": "현장",
+        "inLocation": "청명",
+        "equipmentName": "(PM-10) KMS-4200",
+        "serial": "19P431",
+        "quantity": 1,
+        "note": "",
+        "status": ""
+      },
+      {
+        "date": "2025-11-12",
+        "outLocation": "현장",
+        "inLocation": "청명",
+        "equipmentName": "(CO) Serinus30i",
+        "serial": "20-2132",
+        "quantity": 1,
+        "note": "",
+        "status": ""
+      }
+    ]
+  },
+  "top_equipment": {
+    "most_repaired": [
+      {
+        "serial": "21",
+        "repair_count": 57
+      },
+      {
+        "serial": "17-0128",
+        "repair_count": 16
+      },
+      {
+        "serial": "17-0126",
+        "repair_count": 12
+      },
+      {
+        "serial": "18P373",
+        "repair_count": 10
+      },
+      {
+        "serial": "20P573",
+        "repair_count": 10
+      },
+      {
+        "serial": "849",
+        "repair_count": 10
+      },
+      {
+        "serial": "18P370",
+        "repair_count": 9
+      },
+      {
+        "serial": "21-0330",
+        "repair_count": 9
+      },
+      {
+        "serial": "20-2305",
+        "repair_count": 9
+      },
+      {
+        "serial": "K1614027A",
+        "repair_count": 9
+      }
+    ],
+    "by_measurement_item": {
+      "알 수 없음": {
+        "count": 293,
+        "examples": []
+      }
+    }
+  },
+  "recent_activity": {
+    "last_repairs": [
+      {
+        "id": "25/10/15-2",
+        "serial": "21-0330",
+        "repair_date": "2025-10-15",
+        "repair_company": "",
+        "manager": "",
+        "product_series": "",
+        "cost": 0,
+        "repair_type": "",
+        "sequence": "",
+        "measurement_item": "",
+        "equipment_category": "",
+        "equipment_status": ""
+      },
+      {
+        "id": "25/10/15-2",
+        "serial": "1501511",
+        "repair_date": "2025-10-15",
+        "repair_company": "",
+        "manager": "",
+        "product_series": "",
+        "cost": 0,
+        "repair_type": "",
+        "sequence": "",
+        "measurement_item": "",
+        "equipment_category": "",
+        "equipment_status": ""
+      },
+      {
+        "id": "25/10/15-2",
+        "serial": "1709797",
+        "repair_date": "2025-10-15",
+        "repair_company": "",
+        "manager": "",
+        "product_series": "",
+        "cost": 0,
+        "repair_type": "",
+        "sequence": "",
+        "measurement_item": "",
+        "equipment_category": "",
+        "equipment_status": ""
+      },
+      {
+        "id": "25/10/15-3",
+        "serial": "726",
+        "repair_date": "2025-10-15",
+        "repair_company": "",
+        "manager": "",
+        "product_series": "",
+        "cost": 0,
+        "repair_type": "",
+        "sequence": "",
+        "measurement_item": "",
+        "equipment_category": "",
+        "equipment_status": ""
+      },
+      {
+        "id": "25/10/15-3",
+        "serial": "849",
+        "repair_date": "2025-10-15",
+        "repair_company": "",
+        "manager": "",
+        "product_series": "",
+        "cost": 0,
+        "repair_type": "",
+        "sequence": "",
+        "measurement_item": "",
+        "equipment_category": "",
+        "equipment_status": ""
+      }
+    ],
+    "last_movements": [
+      {
+        "date": "2025-11-12",
+        "outLocation": "현장",
+        "inLocation": "청명",
+        "equipmentName": "(CO) Serinus30i",
+        "serial": "18-0310",
+        "quantity": 1,
+        "note": "",
+        "status": ""
+      },
+      {
+        "date": "2025-11-12",
+        "outLocation": "현장",
+        "inLocation": "청명",
+        "equipmentName": "(NOx, SOx) BMW-5000",
+        "serial": "1794",
+        "quantity": 1,
+        "note": "",
+        "status": ""
+      },
+      {
+        "date": "2025-11-12",
+        "outLocation": "현장",
+        "inLocation": "청명",
+        "equipmentName": "(PM-10) KMS-4200",
+        "serial": "18P368",
+        "quantity": 1,
+        "note": "",
+        "status": ""
+      },
+      {
+        "date": "2025-11-12",
+        "outLocation": "현장",
+        "inLocation": "청명",
+        "equipmentName": "(PM-10) KMS-4200",
+        "serial": "19P431",
+        "quantity": 1,
+        "note": "",
+        "status": ""
+      },
+      {
+        "date": "2025-11-12",
+        "outLocation": "현장",
+        "inLocation": "청명",
+        "equipmentName": "(CO) Serinus30i",
+        "serial": "20-2132",
+        "quantity": 1,
+        "note": "",
+        "status": ""
+      }
+    ],
+    "system_status": "정상"
+  }
+}

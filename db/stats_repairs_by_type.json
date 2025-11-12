@@ -1,7 +1,7 @@
 {
   "meta": {
     "_schemaVersion": "1.0.0",
-    "generatedAt": "2025-09-10T00:20:07Z",
+    "generatedAt": "2025-11-12T05:00:13Z",
     "sourceFiles": [
       "equipment_db.json",
       "movements_db.json",
@@ -20,9 +20,9 @@
     },
     {
       "repairType": "기본점검",
-      "count": 119,
-      "totalCost": 9930000,
-      "avgCost": 83445,
+      "count": 118,
+      "totalCost": 9830000,
+      "avgCost": 83305,
       "minCost": 0,
       "maxCost": 250000
     },
@@ -100,19 +100,11 @@
     },
     {
       "repairType": "컨트롤러 교체",
-      "count": 9,
-      "totalCost": 3000000,
-      "avgCost": 333333,
+      "count": 8,
+      "totalCost": 2600000,
+      "avgCost": 325000,
       "minCost": 300000,
       "maxCost": 400000
-    },
-    {
-      "repairType": "Lamp assembly UV Serinus 10",
-      "count": 3,
-      "totalCost": 2800000,
-      "avgCost": 933333,
-      "minCost": 900000,
-      "maxCost": 950000
     },
     {
       "repairType": "A셀 유량계 교체",
@@ -155,14 +147,6 @@
       "maxCost": 2400000
     },
     {
-      "repairType": "모터교체",
-      "count": 6,
-      "totalCost": 2100000,
-      "avgCost": 350000,
-      "minCost": 300000,
-      "maxCost": 450000
-    },
-    {
       "repairType": "Flow block assembly",
       "count": 2,
       "totalCost": 2091000,
@@ -185,6 +169,14 @@
       "avgCost": 111765,
       "minCost": 100000,
       "maxCost": 200000
+    },
+    {
+      "repairType": "Lamp assembly UV Serinus 10",
+      "count": 2,
+      "totalCost": 1850000,
+      "avgCost": 925000,
+      "minCost": 900000,
+      "maxCost": 950000
     },
     {
       "repairType": "DISPLAY, LCD, 240 X 128 BLUE AND WHITE",
@@ -219,6 +211,14 @@
       "maxCost": 1660000
     },
     {
+      "repairType": "모터교체",
+      "count": 5,
+      "totalCost": 1650000,
+      "avgCost": 330000,
+      "minCost": 300000,
+      "maxCost": 450000
+    },
+    {
       "repairType": "B셀 유량계 교체",
       "count": 4,
       "totalCost": 1600000,
@@ -244,9 +244,9 @@
     },
     {
       "repairType": "정도검사대행료",
-      "count": 9,
-      "totalCost": 1500000,
-      "avgCost": 166667,
+      "count": 8,
+      "totalCost": 1400000,
+      "avgCost": 175000,
       "minCost": 100000,
       "maxCost": 350000
     },
@@ -971,14 +971,6 @@
       "maxCost": 70000
     },
     {
-      "repairType": "인넷연결부 아답타 나사산 손상 교체",
-      "count": 3,
-      "totalCost": 60000,
-      "avgCost": 20000,
-      "minCost": 20000,
-      "maxCost": 20000
-    },
-    {
       "repairType": "PG48 리크교체",
       "count": 1,
       "totalCost": 50000,
@@ -1073,6 +1065,14 @@
       "avgCost": 50000,
       "minCost": 50000,
       "maxCost": 50000
+    },
+    {
+      "repairType": "인넷연결부 아답타 나사산 손상 교체",
+      "count": 2,
+      "totalCost": 40000,
+      "avgCost": 20000,
+      "minCost": 20000,
+      "maxCost": 20000
     },
     {
       "repairType": "손잡이(상단)유실 교체",
@@ -1268,7 +1268,7 @@
     },
     {
       "repairType": "알 수 없음",
-      "count": 5,
+      "count": 240,
       "totalCost": 0,
       "avgCost": 0,
       "minCost": 0,
