@@ -125,7 +125,223 @@ let logsData = [];
 let qcLogsData = []; // New global variable for QC logs data
 let staffLogsData = []; // 이동 담당자 로그 (CSV)
 let __selectedSeries = new Set(); // 장비 목록: 품목계열 다중 선택 상태
-let __utilSort = null; // null|"asc"|"desc" 최근 1년 가동률 정렬 상태
+let __utilSort = null; // null|"asc"|"desc" 가동률 정렬 상태
+let __equipmentUtilRange = '1y'; // 장비 목록 가동률 기간
+let __equipmentUtilCustomRange = null; // { from:'YYYY-MM-DD', to:'YYYY-MM-DD' }
+
+(function restoreEquipmentUtilRange(){
+    try {
+        if (typeof window === 'undefined' || !window.localStorage) return;
+        const savedRange = window.localStorage.getItem('equipmentUtilRange');
+        if (savedRange && typeof savedRange === 'string') {
+            __equipmentUtilRange = savedRange;
+        }
+        if (__equipmentUtilRange === 'custom') {
+            const savedCustom = window.localStorage.getItem('equipmentUtilCustomRange');
+            if (savedCustom) {
+                const parsed = JSON.parse(savedCustom);
+                if (parsed && parsed.from && parsed.to) {
+                    __equipmentUtilCustomRange = parsed;
+                } else {
+                    __equipmentUtilRange = '1y';
+                    __equipmentUtilCustomRange = null;
+                }
+            } else {
+                __equipmentUtilRange = '1y';
+                __equipmentUtilCustomRange = null;
+            }
+        }
+    } catch { /* ignore */ }
+})();
+
+function saveEquipmentUtilRange() {
+    try {
+        if (typeof window === 'undefined' || !window.localStorage) return;
+        window.localStorage.setItem('equipmentUtilRange', __equipmentUtilRange);
+        if (__equipmentUtilRange === 'custom' && __equipmentUtilCustomRange && __equipmentUtilCustomRange.from && __equipmentUtilCustomRange.to) {
+            window.localStorage.setItem('equipmentUtilCustomRange', JSON.stringify(__equipmentUtilCustomRange));
+        } else {
+            window.localStorage.removeItem('equipmentUtilCustomRange');
+        }
+    } catch { /* ignore */ }
+}
+
+function formatDateLabel(dateLike) {
+    if (!dateLike) return null;
+    const d = new Date(dateLike);
+    if (isNaN(d.getTime())) return null;
+    return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function getEquipmentUtilRangeLabel(range, customRange) {
+    const map = {
+        '1y': '최근 1년',
+        '6m': '최근 6개월',
+        '3m': '최근 3개월',
+        '1m': '최근 1달'
+    };
+    if (range === 'custom') {
+        if (customRange && customRange.from && customRange.to) {
+            const f = formatDateLabel(customRange.from);
+            const t = formatDateLabel(customRange.to);
+            if (f && t) return `${f}~${t}`;
+        }
+        return '최근 1년';
+    }
+    return map[range] || '최근 1년';
+}
+
+function getEquipmentUtilRangeDates() {
+    const now = new Date();
+    let from = null;
+    let to = new Date(now);
+    switch (__equipmentUtilRange) {
+        case '1m':
+            from = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+            break;
+        case '3m':
+            from = new Date(now.getFullYear(), now.getMonth() - 3, now.getDate());
+            break;
+        case '6m':
+            from = new Date(now.getFullYear(), now.getMonth() - 6, now.getDate());
+            break;
+        case '1y':
+            from = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+            break;
+        case 'custom':
+            if (__equipmentUtilCustomRange && __equipmentUtilCustomRange.from && __equipmentUtilCustomRange.to) {
+                const f = new Date(__equipmentUtilCustomRange.from);
+                const t = new Date(__equipmentUtilCustomRange.to);
+                if (!isNaN(f.getTime()) && !isNaN(t.getTime()) && f <= t) {
+                    from = new Date(f);
+                    to = new Date(t);
+                }
+            }
+            break;
+        default:
+            break;
+    }
+    if (!from) {
+        from = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+    }
+    if (!to || isNaN(to.getTime())) {
+        to = new Date(now);
+    }
+    from.setHours(0,0,0,0);
+    to.setHours(23,59,59,999);
+    return { from, to };
+}
+
+function calculateEquipmentUtilization(serial, movements, presetFrom, presetTo) {
+    let from = presetFrom;
+    let to = presetTo;
+    if (!(from instanceof Date) || !(to instanceof Date) || isNaN(from.getTime()) || isNaN(to.getTime()) || from > to) {
+        const computed = getEquipmentUtilRangeDates();
+        from = computed.from;
+        to = computed.to;
+    }
+    if (!(from instanceof Date) || !(to instanceof Date) || isNaN(from.getTime()) || isNaN(to.getTime()) || from > to) {
+        return calculateLastYearUtilization(serial, movements);
+    }
+    return calculateUtilizationBetween(serial, movements, from, to);
+}
+
+function updateEquipmentUtilHeaderLabel() {
+    const label = getEquipmentUtilRangeLabel(__equipmentUtilRange, __equipmentUtilCustomRange);
+    const headerBtn = document.getElementById('equipment-util-header');
+    if (headerBtn) {
+        headerBtn.textContent = `${label} 가동률 ▾`;
+    }
+    const sortBtn = document.getElementById('util-sort-toggle');
+    if (sortBtn) {
+        sortBtn.title = `${label} 가동률 정렬 토글(오름/내림)`;
+    }
+}
+
+function initEquipmentUtilRangeControls() {
+    const headerBtn = document.getElementById('equipment-util-header');
+    const menu = document.getElementById('equipment-util-menu');
+    const customWrap = document.getElementById('equipment-util-custom');
+    const fromInput = document.getElementById('equipment-util-from');
+    const toInput = document.getElementById('equipment-util-to');
+    const applyBtn = document.getElementById('equipment-util-apply');
+    if (!headerBtn || !menu || headerBtn.dataset.bound === '1') return;
+
+    headerBtn.dataset.bound = '1';
+
+    function syncCustomVisibility() {
+        const isCustom = __equipmentUtilRange === 'custom';
+        if (customWrap) customWrap.classList.toggle('hidden', !isCustom);
+        if (isCustom && fromInput && toInput) {
+            if (__equipmentUtilCustomRange && __equipmentUtilCustomRange.from) fromInput.value = __equipmentUtilCustomRange.from;
+            if (__equipmentUtilCustomRange && __equipmentUtilCustomRange.to) toInput.value = __equipmentUtilCustomRange.to;
+        }
+    }
+
+    function closeMenu() {
+        menu.classList.add('hidden');
+    }
+
+    headerBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menu.classList.toggle('hidden');
+        syncCustomVisibility();
+    });
+
+    menu.querySelectorAll('button[data-range]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const value = e.currentTarget.getAttribute('data-range');
+            if (!value) return;
+            __equipmentUtilRange = value;
+            if (value !== 'custom') {
+                __equipmentUtilCustomRange = null;
+                saveEquipmentUtilRange();
+                updateEquipmentUtilHeaderLabel();
+                closeMenu();
+                renderEquipmentTable();
+            } else {
+                if (__equipmentUtilCustomRange && __equipmentUtilCustomRange.from && __equipmentUtilCustomRange.to) {
+                    saveEquipmentUtilRange();
+                    updateEquipmentUtilHeaderLabel();
+                    closeMenu();
+                    renderEquipmentTable();
+                }
+                syncCustomVisibility();
+            }
+        });
+    });
+
+    if (applyBtn) {
+        applyBtn.addEventListener('click', () => {
+            if (!fromInput || !toInput) return;
+            const fromVal = fromInput.value;
+            const toVal = toInput.value;
+            const fromDate = fromVal ? new Date(fromVal) : null;
+            const toDate = toVal ? new Date(toVal) : null;
+            if (!fromDate || !toDate || isNaN(fromDate.getTime()) || isNaN(toDate.getTime()) || fromDate > toDate) {
+                alert('올바른 시작/종료 날짜를 선택해주세요.');
+                return;
+            }
+            __equipmentUtilRange = 'custom';
+            __equipmentUtilCustomRange = { from: fromVal, to: toVal };
+            saveEquipmentUtilRange();
+            updateEquipmentUtilHeaderLabel();
+            closeMenu();
+            renderEquipmentTable();
+        });
+    }
+
+    document.addEventListener('click', (event) => {
+        try {
+            if (!menu.contains(event.target) && event.target !== headerBtn) {
+                closeMenu();
+            }
+        } catch {}
+    });
+
+    syncCustomVisibility();
+    updateEquipmentUtilHeaderLabel();
+}
 function getManufacturerByCategory(category){
     const map = (typeof window !== 'undefined' && window.__manufacturersMap) ? window.__manufacturersMap : {};
     const key = String(category || '').trim();
@@ -318,6 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 초기화 함수들 호출
         initDashboardCharts();
+        initEquipmentUtilRangeControls();
         renderEquipmentTable();
         renderCategoryStats();
         updateKpis();
@@ -6262,6 +6479,7 @@ function showCategoryDetail(category) {
 function renderEquipmentTable() {
     console.log('🔍 renderEquipmentTable 호출됨');
     console.log('🔍 equipmentData 길이:', equipmentData.length);
+    updateEquipmentUtilHeaderLabel();
     
     // 품목계열별 탭 생성
     renderProductSeriesTabs();
@@ -6393,12 +6611,16 @@ function renderEquipmentTableBySeries(series) {
     
     console.log(`🔍 ${series} 품목계열 필터링된 데이터:`, filteredData.length, '개');
     
+    const { from, to } = getEquipmentUtilRangeDates();
+    const rangeLabel = getEquipmentUtilRangeLabel(__equipmentUtilRange, __equipmentUtilCustomRange);
+    const utilTitle = `${rangeLabel} 가동률`;
+
     // 테이블 내용 생성 (가동률 계산과 함께 정렬 옵션을 위해 임시 배열 구성)
     const rows = filteredData.map(item => {
         const mv = (movementsData || [])
             .filter(m => m.serial === item.serial && m.date)
             .sort((a, b) => new Date(a.date) - new Date(b.date));
-        const util = calculateLastYearUtilization(item.serial, mv);
+        const util = calculateEquipmentUtilization(item.serial, mv, from, to);
         return { item, util };
     });
 
@@ -6419,7 +6641,7 @@ function renderEquipmentTableBySeries(series) {
                 </span>
             </td>
             <td class="p-2 truncate" title="${item.currentLocation || ''}">${item.currentLocation || ''}</td>
-            <td class="p-2 truncate ${util.className}" title="최근 1년 가동률">${util.percent}%</td>
+            <td class="p-2 truncate ${util.className}" title="${utilTitle}">${util.percent}%</td>
             <td class="p-2">
                 <button type="button" class="text-indigo-600 hover:text-indigo-800 text-sm underline" onclick="showEquipmentDetailModal('${item.serial}')">
                     상세보기
